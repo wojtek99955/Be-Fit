@@ -8,15 +8,21 @@ import styled from "styled-components";
 const Label = styled.label`
   display: block;
   margin-bottom: 0.5rem;
+  font-size: 0.9rem;
 `;
 const Container = styled.section`
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: #fff7e8;
 `;
 const FormContainer = styled.div`
-  max-width: 500px;
+  background-color: white;
+  padding: 1rem;
+  max-width: 450px;
+  margin: auto;
+  display: block;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
   h2 {
     font-size: 2rem;
     margin-bottom: 3rem;
@@ -25,6 +31,13 @@ const FormContainer = styled.div`
 
   button {
     display: block;
+    background-color: #ffa101;
+    border: none;
+    padding: 0.8rem 2rem;
+    color: white;
+    width: 100%;
+    cursor: pointer;
+    margin-bottom: 2rem;
   }
 `;
 
@@ -33,8 +46,13 @@ const StyledField = styled(Field)`
   padding: 0.8rem 0.5rem;
   width: 100%;
   margin-bottom: 1.2rem;
+  border-radius: 10px;
 `;
 
+const StyledLink = styled(Link)`
+  color: grey;
+  text-decoration: none;
+`;
 const SignUp = () => {
   const initialValues = {
     email: "",
@@ -70,7 +88,7 @@ const SignUp = () => {
             <button>Sign Up</button>
           </Form>
         </Formik>
-        <Link to="/signin"> Already have an account? Sign in!</Link>
+        <StyledLink to="/signin"> Already have an account? Sign in!</StyledLink>
       </FormContainer>
     </Container>
   );
