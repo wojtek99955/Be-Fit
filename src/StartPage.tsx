@@ -17,12 +17,15 @@ const Main = styled.main`
     color: white;
   }
   button {
-    background-color: blue;
+    background-color: #ffa101;
     border: none;
     color: white;
     padding: 1rem 2.3rem;
     display: block;
     margin: auto;
+    font-size: 1.5rem;
+    margin-top: 2.5rem;
+    cursor: pointer;
   }
 `;
 
