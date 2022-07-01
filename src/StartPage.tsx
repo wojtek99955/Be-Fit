@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import img from "./assets/images/main.jpg";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   height: 100vh;
@@ -15,6 +16,7 @@ const Main = styled.main`
   h1 {
     text-align: center;
     color: white;
+    font-size: 2.5rem;
   }
   button {
     background-color: #ffa101;
@@ -29,12 +31,18 @@ const Main = styled.main`
   }
 `;
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
+
 const StartPage = () => {
   return (
     <Container>
       <Main>
         <h1>Track your calorie intake with us!</h1>
-        <button>Sign In</button>
+        <StyledLink to="signin">
+          <button>Sign In</button>
+        </StyledLink>
       </Main>
     </Container>
   );
