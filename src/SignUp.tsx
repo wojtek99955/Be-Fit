@@ -1,46 +1,33 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase";
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useAuth } from "./AuthContext";
 import { doc, setDoc } from "firebase/firestore";
+import { Formik, Form, Field } from "formik";
 
 const SignUp = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState(false);
+  const initialValues = {
+    email: "",
+    password: "",
+    confirmPassword: "",
+  };
 
-  function handleLogin(e: React.FormEvent<HTMLFormElement>): void {
-    e.preventDefault();
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-      })
-      .catch((error) => {
-        setError(true);
-      });
-  }
   return (
     <div>
       <h2>SignUp</h2>
-      <form onSubmit={handleLogin}>
-        <label htmlFor="email">email</label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <label htmlFor="password">password</label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">SignUp</button>
-        {error && <span>Wrong email or password</span>}
-      </form>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={(values) => {
+          createUserWithEmailAndPassword(auth, values.email, values.password);
+        }}
+      >
+        <Form>
+          <label htmlFor="email">Email</label>
+          <Field id="email" name="email" placeholder="email" />
+          <label htmlFor="email">Email</label>
+          <Field id="email" name="email" placeholder="email" />
+          <button>Sign Up</button>
+        </Form>
+      </Formik>
       <Link to="/signin"> Already have an account? Sign in!</Link>
     </div>
   );
