@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { Field } from "formik";
 
 export const Label = styled.label`
   display: block;
@@ -37,7 +38,7 @@ export const FormContainer = styled.div`
   }
 `;
 
-export const StyledField = styled.input`
+export const StyledField = styled(Field)`
   border: 2px solid #ffa101;
   padding: 0.8rem 0.5rem;
   width: 100%;
