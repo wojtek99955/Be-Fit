@@ -1,7 +1,7 @@
-import SignUp from "./SignUp";
+import SignUp from "./Auth/SignUp";
 import { Routes, Navigate, Route } from "react-router-dom";
 import Home from "./Home";
-import SignIn from "./SignIn";
+import SignIn from "./Auth/SignIn";
 import { useContext } from "react";
 import { AuthContext } from "./AuthContext";
 import Data from "./Data";

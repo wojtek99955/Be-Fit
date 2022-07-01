@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { auth } from "../firebase";
+import { auth } from "../../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { AuthContext, useAuth } from "./AuthContext";
+import { AuthContext, useAuth } from "../AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
