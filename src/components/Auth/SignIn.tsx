@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext, useAuth } from "../AuthContext";
 import { useNavigate } from "react-router-dom";
+import { Formik, Field, Form } from "formik";
 import {
   Container,
   FormContainer,
@@ -31,32 +32,35 @@ const SignIn = () => {
       setError(true);
     }
   };
+
+  const initialValues = {
+    email: "",
+    password: "",
+  };
+  let navigate = useNavigate();
   return (
     <Container>
       <FormContainer>
         <h2>Sign In</h2>
-        <form onSubmit={handleLogin}>
-          <Label htmlFor="email">email</Label>
-          <StyledField
-            type="email"
-            name="email"
-            id="email"
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setEmail(e.target.value)
-            }
-          />
-          <Label htmlFor="password">password</Label>
-          <StyledField
-            type="password"
-            name="password"
-            id="password"
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setPassword(e.target.value)
-            }
-          />
-          <button type="submit">SignUp</button>
-          {error && <span>Wrong email or password</span>}
-        </form>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={async (values) => {
+            await signInWithEmailAndPassword(
+              auth,
+              values.email,
+              values.password
+            );
+            navigate("/home");
+          }}
+        >
+          <Form>
+            <Label htmlFor="email">email</Label>
+            <Field type="email" name="email" id="email" />
+            <Label htmlFor="password">password</Label>
+            <Field type="password" name="password" id="password" />
+            <button type="submit">SignUp</button>
+          </Form>
+        </Formik>
         <StyledLink to="/signup"> Don't have an account? Sign up!</StyledLink>
       </FormContainer>
     </Container>
