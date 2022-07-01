@@ -36,7 +36,7 @@ const SignUp = () => {
               name="passsword"
               placeholder="password"
             />
-            <Label htmlFor="email"> Confirm Password</Label>
+            <Label htmlFor="confirmPassword"> Confirm Password</Label>
             <StyledField
               id="confirmPassword"
               name="confirmPasssword"
