@@ -7,6 +7,7 @@ import styled from "styled-components";
 
 const Label = styled.label`
   display: block;
+  margin-bottom: 0.5rem;
 `;
 const Container = styled.section`
   height: 100vh;
@@ -15,15 +16,23 @@ const Container = styled.section`
   align-items: center;
 `;
 const FormContainer = styled.div`
+  max-width: 500px;
   h2 {
     font-size: 2rem;
     margin-bottom: 3rem;
     color: #ffa101;
   }
+
+  button {
+    display: block;
+  }
 `;
 
 const StyledField = styled(Field)`
-  border: 1px solid #ffa101;
+  border: 2px solid #ffa101;
+  padding: 0.8rem 0.5rem;
+  width: 100%;
+  margin-bottom: 1.2rem;
 `;
 
 const SignUp = () => {
@@ -56,7 +65,7 @@ const SignUp = () => {
             <StyledField
               id="confirmPassword"
               name="confirmPasssword"
-              placeholder="confirmPpassword"
+              placeholder="confirm password"
             />
             <button>Sign Up</button>
           </Form>
