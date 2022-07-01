@@ -1,7 +1,11 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebase";
-import { doc, setDoc } from "firebase/firestore";
 import { useState } from "react";
+import { auth } from "../../firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext, useAuth } from "../AuthContext";
+import { useNavigate } from "react-router-dom";
+
 import {
   Label,
   Container,
@@ -9,48 +13,72 @@ import {
   StyledField,
   StyledLink,
 } from "./AuthStyle";
+import { Form, Formik, Field, ErrorMessage } from "formik";
+import ValidationError from "./ValidationError";
+import * as yup from "yup";
 
 const SignUp = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState(false);
-
-  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
-    try {
-      await e.preventDefault();
-      await createUserWithEmailAndPassword(auth, email, password);
-    } catch {
-      setError(true);
-    }
+  const validationSchema = yup.object().shape({
+    email: yup.string().email("invalid email format").required("required"),
+    password: yup.string().min(6, "minimum 6 characters").required("required"),
+    passwordConfirmation: yup
+      .string()
+      .oneOf([yup.ref("password")], "password must match")
+      .required("required"),
+  });
+  const initialValues = {
+    email: "",
+    password: "",
   };
+  let navigate = useNavigate();
+  const [success, setSuccess] = useState(false);
+
   return (
     <Container>
       <FormContainer>
         <h2>Sign Up</h2>
-        <form onSubmit={handleLogin}>
-          <Label htmlFor="email">Email</Label>
-          <StyledField
-            id="email"
-            name="email"
-            placeholder="email"
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setEmail(e.target.value);
-            }}
-          />
-          <Label htmlFor="password">Password</Label>
-          <StyledField id="password" name="passsword" placeholder="password" />
-          <Label htmlFor="confirmPassword"> Confirm Password</Label>
-          <StyledField
-            id="confirmPassword"
-            name="confirmPasssword"
-            placeholder="confirm password"
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setPassword(e.target.value);
-            }}
-          />
-          <button type="submit">Sign Up</button>
-        </form>
-        <StyledLink to="/signin"> Already have an account? Sign in!</StyledLink>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={async (values) => {
+            await createUserWithEmailAndPassword(
+              auth,
+              values.email,
+              values.password
+            );
+
+            setSuccess(true);
+          }}
+          validationSchema={validationSchema}
+        >
+          <Form>
+            <Label htmlFor="email">Email</Label>
+            <StyledField type="email" name="email" id="email" />
+            <ErrorMessage name="email" component={ValidationError} />
+            <Label htmlFor="password">Password</Label>
+            <StyledField type="password" name="password" id="password" />
+            <ErrorMessage name="password" component={ValidationError} />
+            <Label htmlFor="passwordConfirmation">Confirm Password</Label>
+            <StyledField
+              type="password"
+              name="passwordConfirmation"
+              id="passwordConfirmation"
+            />
+            <ErrorMessage
+              name="passwordConfirmation"
+              component={ValidationError}
+            />
+            <button type="submit">Sign Up</button>
+          </Form>
+        </Formik>
+        {success ? (
+          <StyledLink to="/signin">
+            You've just registered! Click to log in
+          </StyledLink>
+        ) : (
+          <StyledLink to="/signin">
+            Already have an account? Sign in!
+          </StyledLink>
+        )}
       </FormContainer>
     </Container>
   );
