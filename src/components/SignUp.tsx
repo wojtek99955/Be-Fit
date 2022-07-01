@@ -1,5 +1,5 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "./firebase";
+import { auth } from "../firebase";
 import { Link } from "react-router-dom";
 import { doc, setDoc } from "firebase/firestore";
 import { Formik, Form, Field } from "formik";

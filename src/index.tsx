@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
+import App from "./components/App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
-import AuthProvider from "./AuthContext";
+import AuthProvider from "./components/AuthContext";
 import { GlobalStyles } from "./assets/globalStyles";
 
 const root = ReactDOM.createRoot(

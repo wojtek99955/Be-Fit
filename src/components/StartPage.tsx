@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import img from "./assets/images/main.jpg";
 import { Link } from "react-router-dom";
+const img = require("../assets/images/main.jpg");
 
 const Container = styled.div`
   height: 100vh;

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { auth } from "./firebase";
+import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
 import { AuthContext, useAuth } from "./AuthContext";
 import { collection, getDocs } from "firebase/firestore";
-import { db } from "./firebase";
+import { db } from "../firebase";
 
 const Home = () => {
   const authData = useAuth();
