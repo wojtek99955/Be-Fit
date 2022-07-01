@@ -5,6 +5,13 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext, useAuth } from "../AuthContext";
 import { useNavigate } from "react-router-dom";
+import {
+  Container,
+  FormContainer,
+  Label,
+  StyledField,
+  StyledLink,
+} from "./AuthStyle";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -25,30 +32,34 @@ const SignIn = () => {
     }
   };
   return (
-    <div>
-      <div>
+    <Container>
+      <FormContainer>
         <h2>Sign In</h2>
         <form onSubmit={handleLogin}>
-          <label htmlFor="email">email</label>
-          <input
+          <Label htmlFor="email">email</Label>
+          <StyledField
             type="email"
             name="email"
             id="email"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setEmail(e.target.value)
+            }
           />
-          <label htmlFor="password">password</label>
-          <input
+          <Label htmlFor="password">password</Label>
+          <StyledField
             type="password"
             name="password"
             id="password"
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setPassword(e.target.value)
+            }
           />
           <button type="submit">SignUp</button>
           {error && <span>Wrong email or password</span>}
         </form>
-        <Link to="/signup"> Don't have an account? Sign up!</Link>
-      </div>
-    </div>
+        <StyledLink to="/signup"> Don't have an account? Sign up!</StyledLink>
+      </FormContainer>
+    </Container>
   );
 };
 
