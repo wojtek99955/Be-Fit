@@ -53,7 +53,7 @@ const SignIn = () => {
             <button type="submit">SignUp</button>
           </Form>
         </Formik>
-        <StyledLink to="/signup"> Don't have an account? Sign up!</StyledLink>
+        <StyledLink to="/data"> Don't have an account? Sign up!</StyledLink>
       </FormContainer>
     </Container>
   );
