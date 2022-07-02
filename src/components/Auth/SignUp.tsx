@@ -33,13 +33,13 @@ const SignUp = () => {
         <h2>Sign Up</h2>
         <Formik
           initialValues={initialValues}
-          onSubmit={async (values) => {
+          onSubmit={async (values, { resetForm }) => {
             await createUserWithEmailAndPassword(
               auth,
               values.email,
               values.password
             );
-
+            resetForm();
             setSuccess(true);
           }}
           validationSchema={validationSchema}
