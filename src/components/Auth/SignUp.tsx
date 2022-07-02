@@ -1,11 +1,6 @@
 import { useState } from "react";
 import { auth } from "../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { AuthContext, useAuth } from "../AuthContext";
-import { useNavigate } from "react-router-dom";
-
 import {
   Label,
   Container,
@@ -13,7 +8,7 @@ import {
   StyledField,
   StyledLink,
 } from "./AuthStyle";
-import { Form, Formik, Field, ErrorMessage } from "formik";
+import { Form, Formik, ErrorMessage } from "formik";
 import ValidationError from "./ValidationError";
 import * as yup from "yup";
 
@@ -30,7 +25,6 @@ const SignUp = () => {
     email: "",
     password: "",
   };
-  let navigate = useNavigate();
   const [success, setSuccess] = useState(false);
 
   return (
