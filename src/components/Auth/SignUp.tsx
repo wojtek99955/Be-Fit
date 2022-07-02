@@ -11,6 +11,7 @@ import {
 import { Form, Formik, ErrorMessage } from "formik";
 import ValidationError from "./ValidationError";
 import * as yup from "yup";
+import Loader from "../../assets/Loader";
 
 const SignUp = () => {
   const validationSchema = yup.object().shape({
@@ -27,6 +28,7 @@ const SignUp = () => {
     passwordConfirmation: "",
   };
   const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   return (
     <Container>
@@ -35,12 +37,14 @@ const SignUp = () => {
         <Formik
           initialValues={initialValues}
           onSubmit={async (values, { resetForm }) => {
+            setLoading(true);
             await createUserWithEmailAndPassword(
               auth,
               values.email,
               values.password
             );
             resetForm();
+            setLoading(false);
             setSuccess(true);
           }}
           validationSchema={validationSchema}
@@ -74,6 +78,7 @@ const SignUp = () => {
             Already have an account? Sign in!
           </StyledLink>
         )}
+        {loading && <Loader />}
       </FormContainer>
     </Container>
   );
