@@ -22,6 +22,7 @@ const StyledHeader = styled.header`
     padding: 0.6rem 1.6rem;
     border-radius: 5px;
     cursor: pointer;
+    color: white;
 
     &:first-of-type {
       border: 2px solid #ffa101;
@@ -29,12 +30,16 @@ const StyledHeader = styled.header`
     }
     &:nth-of-type(2) {
       background-color: #ffa101;
-      color: white;
+      &:hover {
+        background-color: #cf8300;
+        border-color: #cf8300;
+      }
     }
   }
 `;
 const Logo = styled.div`
   font-size: 1.5rem;
+  cursor: pointer;
 `;
 
 const Header = () => {
@@ -42,7 +47,13 @@ const Header = () => {
   return (
     <StyledHeader>
       <HeaderContainer>
-        <Logo>BeFit</Logo>
+        <Logo
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          BeFit
+        </Logo>
         <nav>
           <button
             onClick={() => {
