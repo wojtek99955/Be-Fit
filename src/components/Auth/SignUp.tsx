@@ -24,6 +24,7 @@ const SignUp = () => {
   const initialValues = {
     email: "",
     password: "",
+    passwordConfirmation: "",
   };
   const [success, setSuccess] = useState(false);
 
