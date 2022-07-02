@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { auth } from "../../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { AuthContext, useAuth } from "../AuthContext";
 import { useNavigate } from "react-router-dom";
-import { Formik, Field, Form, ErrorMessage } from "formik";
+import { Formik, Form, ErrorMessage } from "formik";
+import Loader from "../../assets/Loader";
 import {
   Container,
   FormContainer,
@@ -26,6 +24,7 @@ const SignIn = () => {
     password: yup.string().min(6, "minimum 6 characters").required("required"),
   });
   let navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   return (
     <Container>
       <FormContainer>
@@ -34,11 +33,13 @@ const SignIn = () => {
           initialValues={initialValues}
           validationSchema={validationSchema}
           onSubmit={async (values) => {
+            setLoading(true);
             await signInWithEmailAndPassword(
               auth,
               values.email,
               values.password
             );
+            setLoading(false);
             navigate("/home");
           }}
         >
@@ -54,6 +55,7 @@ const SignIn = () => {
           </Form>
         </Formik>
         <StyledLink to="/data"> Don't have an account? Sign up!</StyledLink>
+        {loading && <Loader />}
       </FormContainer>
     </Container>
   );
