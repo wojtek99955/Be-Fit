@@ -28,6 +28,9 @@ const Main = styled.main`
     font-size: 1.5rem;
     margin-top: 2.5rem;
     cursor: pointer;
+    &:hover {
+      background-color: #cf8300;
+    }
   }
 `;
 
