@@ -35,6 +35,10 @@ export const FormContainer = styled.div`
     width: 100%;
     cursor: pointer;
     margin-bottom: 2rem;
+
+    &:hover {
+      background-color: #cf8300;
+    }
   }
 `;
 
