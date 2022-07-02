@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { AuthContext } from "./AuthContext";
 import Data from "./Data";
 import StartPage from "./StartPage";
+import Header from "./Header";
 
 interface AuthProps {
   children: JSX.Element;
@@ -20,6 +21,7 @@ function App() {
   };
   return (
     <div className="App">
+      <Header />
       <Routes>
         <Route path="/" element={<StartPage />} />
         <Route path="signup" element={<SignUp />} />
