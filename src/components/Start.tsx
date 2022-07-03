@@ -1,11 +1,5 @@
-import React from "react";
-import { Outlet, Route, Routes } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import styled from "styled-components";
-import SignIn from "./Auth/SignIn";
-import StartPage from "./StartPage";
-import Cos from "./Cos";
-
-import SignUp from "./Auth/SignUp";
 
 const img = require("../assets/images/main.jpg");
 const Container = styled.div`
