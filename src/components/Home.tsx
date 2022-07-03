@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
-import { AuthContext, useAuth } from "./AuthContext";
+import { useAuth } from "./AuthContext";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 
@@ -10,7 +10,7 @@ const Home = () => {
   let navigate = useNavigate();
   const logOut = async () => {
     await auth.signOut();
-    navigate("/signin");
+    navigate("signin");
   };
 
   useEffect(() => {
