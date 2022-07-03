@@ -8,7 +8,10 @@ import * as yup from "yup";
 import Loader from "../../assets/Loader";
 import styled from "styled-components";
 
-const ErrorMsg = styled.div``;
+const ErrorMsg = styled.div`
+  color: red;
+  margin-bottom: 1rem;
+`;
 const SignUp = () => {
   const validationSchema = yup.object().shape({
     email: yup.string().email("invalid email format").required("required"),
@@ -77,7 +80,7 @@ const SignUp = () => {
       ) : (
         <StyledLink to="/signin">Already have an account? Sign in!</StyledLink>
       )}
-      {loading && <Loader />}
+      {loading && !error && <Loader />}
     </FormContainer>
   );
 };
