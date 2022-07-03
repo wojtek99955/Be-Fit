@@ -6,7 +6,9 @@ import { Form, Formik, ErrorMessage } from "formik";
 import ValidationError from "./ValidationError";
 import * as yup from "yup";
 import Loader from "../../assets/Loader";
+import styled from "styled-components";
 
+const ErrorMsg = styled.div``;
 const SignUp = () => {
   const validationSchema = yup.object().shape({
     email: yup.string().email("invalid email format").required("required"),
@@ -23,6 +25,7 @@ const SignUp = () => {
   };
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   return (
     <FormContainer>
@@ -30,15 +33,19 @@ const SignUp = () => {
       <Formik
         initialValues={initialValues}
         onSubmit={async (values, { resetForm }) => {
-          setLoading(true);
-          await createUserWithEmailAndPassword(
-            auth,
-            values.email,
-            values.password
-          );
-          resetForm();
-          setLoading(false);
-          setSuccess(true);
+          try {
+            setLoading(true);
+            await createUserWithEmailAndPassword(
+              auth,
+              values.email,
+              values.password
+            );
+            resetForm();
+            setLoading(false);
+            setSuccess(true);
+          } catch {
+            setError(true);
+          }
         }}
         validationSchema={validationSchema}
       >
@@ -62,6 +69,7 @@ const SignUp = () => {
           <button type="submit">Sign Up</button>
         </Form>
       </Formik>
+      {error && <ErrorMsg>User with this email already exists</ErrorMsg>}
       {success ? (
         <StyledLink to="/signin">
           You've just registered! Click to log in
