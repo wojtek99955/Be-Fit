@@ -1,16 +1,6 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const img = require("../assets/images/main.jpg");
-
-const Container = styled.div`
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.4) url(${img});
-  background-blend-mode: darken;
-  background-size: cover;
-`;
 
 const Main = styled.main`
   h1 {
@@ -34,20 +24,19 @@ const Main = styled.main`
   }
 `;
 
-const StyledLink = styled(Link)`
-  text-decoration: none;
-`;
-
 const StartPage = () => {
+  let navigation = useNavigate();
   return (
-    <Container>
-      <Main>
-        <h1>Track your calorie intake with us!</h1>
-        <StyledLink to="signin">
-          <button>Sign In</button>
-        </StyledLink>
-      </Main>
-    </Container>
+    <Main>
+      <h1>Track your calorie intake with us!</h1>
+      <button
+        onClick={() => {
+          navigation("signin");
+        }}
+      >
+        Sign In
+      </button>
+    </Main>
   );
 };
 
