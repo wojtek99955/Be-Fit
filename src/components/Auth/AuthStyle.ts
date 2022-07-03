@@ -7,10 +7,7 @@ export const Label = styled.label`
   margin-bottom: 0.5rem;
   font-size: 0.9rem;
 `;
-export const Container = styled.section`
-  height: 100vh;
-  background-color: #fff7e8;
-`;
+
 export const FormContainer = styled.div`
   background-color: white;
   padding: 1rem;
@@ -18,8 +15,7 @@ export const FormContainer = styled.div`
   margin: auto;
   display: block;
   position: relative;
-  top: 50%;
-  transform: translateY(-50%);
+
   h2 {
     font-size: 2rem;
     margin-bottom: 3rem;
