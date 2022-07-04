@@ -1,11 +1,14 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
+const img = require("../assets/images/logo.png");
+
 const HeaderContainer = styled.div`
   max-width: 1200px;
   margin: auto;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   nav {
     display: flex;
@@ -19,7 +22,8 @@ const StyledHeader = styled.header`
 
   button {
     border: 2px solid #ffa101;
-    padding: 0.6rem 1.6rem;
+    height: 2.5rem;
+    width: 6rem;
     border-radius: 5px;
     cursor: pointer;
     color: white;
@@ -37,9 +41,9 @@ const StyledHeader = styled.header`
     }
   }
 `;
-const Logo = styled.div`
-  font-size: 1.5rem;
+const Logo = styled.img`
   cursor: pointer;
+  width: 9rem;
 `;
 
 const Header = () => {
@@ -47,13 +51,7 @@ const Header = () => {
   return (
     <StyledHeader>
       <HeaderContainer>
-        <Logo
-          onClick={() => {
-            navigate("/");
-          }}
-        >
-          BeFit
-        </Logo>
+        <Logo src={img}></Logo>
         <nav>
           <button
             onClick={() => {
