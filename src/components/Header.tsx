@@ -4,6 +4,7 @@ import { AuthContext } from "./AuthContext";
 import React, { useContext, useState, useRef, useEffect } from "react";
 import { FaUserCircle } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
+import { auth } from "../firebase";
 
 const img = require("../assets/images/logo.png");
 
@@ -125,6 +126,11 @@ const Header = () => {
     };
   }, [setOpenProfileMenu]);
 
+  const logOut = async () => {
+    await auth.signOut();
+    navigate("/signin");
+  };
+
   return (
     <StyledHeader logged={ctx?.currentUser}>
       <HeaderContainer>
@@ -150,7 +156,7 @@ const Header = () => {
                     </ProfileDropdownWrapper>
                     <Divider />
                     <ProfileDropdownWrapper>
-                      <div>Log out</div>
+                      <div onClick={logOut}>Log out</div>
                     </ProfileDropdownWrapper>
                   </ProfileSettingsDropdown>
                 ) : null}
