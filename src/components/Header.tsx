@@ -87,6 +87,24 @@ const ProfileSettingsDropdown = styled.div`
   }
   li {
     cursor: pointer;
+    padding: 1rem;
+    &:hover {
+      background-color: #fae6b1;
+    }
+  }
+
+  strong {
+    display: block;
+    padding-top: 1rem;
+  }
+
+  div {
+    &:last-of-type {
+      cursor: pointer;
+      &:hover {
+        background-color: #fae6b1;
+      }
+    }
   }
 `;
 
@@ -144,16 +162,15 @@ const Header = () => {
                 {openProfileMenu ? (
                   <ProfileSettingsDropdown ref={profileMenuRef}>
                     <ProfileDropdownWrapper>
-                      Logged as: <strong>{ctx.currentUser.email}</strong>
+                      <div>Logged as:</div>
+                      <strong>{ctx.currentUser.email}</strong>
                     </ProfileDropdownWrapper>
                     <Divider />
-                    <ProfileDropdownWrapper>
-                      <ul>
-                        <li>Profile</li>
-                        <li>Statistics</li>
-                        <li></li>
-                      </ul>
-                    </ProfileDropdownWrapper>
+                    <ul>
+                      <li>Profile</li>
+                      <li>Statistics</li>
+                      <li>My goals</li>
+                    </ul>
                     <Divider />
                     <ProfileDropdownWrapper>
                       <div onClick={logOut}>Log out</div>
