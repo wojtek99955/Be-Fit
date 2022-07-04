@@ -1,17 +1,18 @@
 import { useState } from "react";
 import { auth } from "../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { Label, FormContainer, StyledField, StyledLink } from "./AuthStyle";
+import {
+  Label,
+  FormContainer,
+  StyledField,
+  StyledLink,
+  ErrorMsg,
+} from "./AuthStyle";
 import { Form, Formik, ErrorMessage } from "formik";
 import ValidationError from "./ValidationError";
 import * as yup from "yup";
 import Loader from "../../assets/Loader";
-import styled from "styled-components";
 
-const ErrorMsg = styled.div`
-  color: red;
-  margin-bottom: 1rem;
-`;
 const SignUp = () => {
   const validationSchema = yup.object().shape({
     email: yup.string().email("invalid email format").required("required"),
