@@ -75,7 +75,6 @@ const ProfileSettingsDropdown = styled.div`
   position: absolute;
   top: 100%;
   right: 0;
-  padding: 1rem;
   -webkit-box-shadow: -3px 0px 48px -1px rgba(225, 228, 231, 1);
   -moz-box-shadow: -3px 0px 48px -1px rgba(225, 228, 231, 1);
   box-shadow: -3px 0px 48px -1px rgba(225, 228, 231, 1);
@@ -85,10 +84,22 @@ const ProfileSettingsDropdown = styled.div`
   ul {
     list-style: none;
   }
+  li {
+    cursor: pointer;
+  }
 `;
 
 const ProfileSettings = styled.div`
   position: relative;
+`;
+
+const Divider = styled.div`
+  background-color: #e1e4e7;
+  height: 1px;
+`;
+
+const ProfileDropdownWrapper = styled.div`
+  padding: 1rem;
 `;
 
 const Header = () => {
@@ -126,15 +137,21 @@ const Header = () => {
                 <UserIcon onClick={handleProfileMenuOpen} />
                 {openProfileMenu ? (
                   <ProfileSettingsDropdown ref={profileMenuRef}>
-                    <div>
+                    <ProfileDropdownWrapper>
                       Logged as: <strong>{ctx.currentUser.email}</strong>
-                    </div>
-                    <hr />
-                    <ul>
-                      <li>a</li>
-                      <li>b</li>
-                      <li></li>
-                    </ul>
+                    </ProfileDropdownWrapper>
+                    <Divider />
+                    <ProfileDropdownWrapper>
+                      <ul>
+                        <li>Profile</li>
+                        <li>Statistics</li>
+                        <li></li>
+                      </ul>
+                    </ProfileDropdownWrapper>
+                    <Divider />
+                    <ProfileDropdownWrapper>
+                      <div>Log out</div>
+                    </ProfileDropdownWrapper>
                   </ProfileSettingsDropdown>
                 ) : null}
               </ProfileSettings>
