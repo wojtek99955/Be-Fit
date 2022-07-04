@@ -60,7 +60,7 @@ const SignIn = () => {
         </Form>
       </Formik>
       {error && <ErrorMsg>Invalid email or password</ErrorMsg>}
-      <StyledLink to="/data"> Don't have an account? Sign up!</StyledLink>
+      <StyledLink to="/signup"> Don't have an account? Sign up!</StyledLink>
       {loading && !error && <Loader />}
     </FormContainer>
   );
