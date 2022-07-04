@@ -18,6 +18,7 @@ import { db } from "../../firebase";
 const SignUp = () => {
   const validationSchema = yup.object().shape({
     email: yup.string().email("invalid email format").required("required"),
+    name: yup.string().min(3, "minimum 3 characters"),
     password: yup.string().min(6, "minimum 6 characters").required("required"),
     passwordConfirmation: yup
       .string()
@@ -25,6 +26,7 @@ const SignUp = () => {
       .required("required"),
   });
   const initialValues = {
+    name: "",
     email: "",
     password: "",
     passwordConfirmation: "",
@@ -48,6 +50,7 @@ const SignUp = () => {
             );
             await addDoc(collection(db, "users"), {
               email: values.email,
+              name: values.name,
               authProvider: "email",
             });
             resetForm();
@@ -60,6 +63,9 @@ const SignUp = () => {
         validationSchema={validationSchema}
       >
         <Form>
+          <Label htmlFor="name">Name</Label>
+          <StyledField type="text" name="name" id="name" />
+          <ErrorMessage name="name" component={ValidationError} />
           <Label htmlFor="email">Email</Label>
           <StyledField type="email" name="email" id="email" />
           <ErrorMessage name="email" component={ValidationError} />
