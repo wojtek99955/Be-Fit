@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthContext";
 import React, { useContext, useState, useRef, useEffect } from "react";
-import { FaUserCircle } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import { auth } from "../firebase";
 
@@ -58,11 +57,17 @@ const Logo = styled.img`
   width: 7rem;
 `;
 
-const UserIcon = styled(FaUserCircle)`
-  font-size: 2rem;
-  color: black;
+const UserIcon = styled.div`
+  width: 2rem;
+  height: 2rem;
+  background-color: #ffa101;
+  border-radius: 50%;
   cursor: pointer;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
 `;
 
 const SettingsIcon = styled(IoMdSettings)`
@@ -158,7 +163,9 @@ const Header = () => {
             <>
               <SettingsIcon />
               <ProfileSettings>
-                <UserIcon onClick={handleProfileMenuOpen} />
+                <UserIcon onClick={handleProfileMenuOpen}>
+                  {ctx.currentUser.email.slice(0, 1).toUpperCase()}
+                </UserIcon>
                 {openProfileMenu ? (
                   <ProfileSettingsDropdown ref={profileMenuRef}>
                     <ProfileDropdownWrapper>
