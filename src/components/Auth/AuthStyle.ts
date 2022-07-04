@@ -5,6 +5,7 @@ import { Field } from "formik";
 export const Label = styled.label`
   display: block;
   margin-bottom: 0.5rem;
+  margin-top: 1rem;
   font-size: 0.9rem;
 `;
 
@@ -31,6 +32,7 @@ export const FormContainer = styled.div`
     width: 100%;
     cursor: pointer;
     margin-bottom: 2rem;
+    margin-top: 2rem;
 
     &:hover {
       background-color: #cf8300;
@@ -42,7 +44,7 @@ export const StyledField = styled(Field)`
   border: 2px solid #ffa101;
   padding: 0.8rem 0.5rem;
   width: 100%;
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.5rem;
   border-radius: 10px;
 `;
 
