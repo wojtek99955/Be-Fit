@@ -56,7 +56,7 @@ const Header = () => {
               <AddIcon />
               <ProfileSettings>
                 <UserIcon onClick={handleProfileMenuOpen}>
-                  {ctx.currentUser.email.slice(0, 1).toUpperCase()}
+                  {ctx?.currentUser?.email?.slice(0, 1).toUpperCase()}
                 </UserIcon>
                 {openProfileMenu ? (
                   <ProfileSettingsDropdown ref={profileMenuRef}>
