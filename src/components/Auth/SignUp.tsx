@@ -12,6 +12,8 @@ import { Form, Formik, ErrorMessage } from "formik";
 import ValidationError from "./ValidationError";
 import * as yup from "yup";
 import Loader from "../../assets/Loader";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "../../firebase";
 
 const SignUp = () => {
   const validationSchema = yup.object().shape({
@@ -44,8 +46,13 @@ const SignUp = () => {
               values.email,
               values.password
             );
+            await addDoc(collection(db, "users"), {
+              email: values.email,
+              authProvider: "email",
+            });
             resetForm();
             setSuccess(true);
+            setLoading(false);
           } catch {
             setError(true);
           }
