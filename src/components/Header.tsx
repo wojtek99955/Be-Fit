@@ -1,5 +1,9 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "./AuthContext";
+import { useContext } from "react";
+import { FaUserCircle } from "react-icons/fa";
+import { IoMdSettings } from "react-icons/io";
 
 const img = require("../assets/images/logo.png");
 
@@ -46,27 +50,49 @@ const Logo = styled.img`
   width: 9rem;
 `;
 
+const UserIcon = styled(FaUserCircle)`
+  font-size: 2rem;
+  color: black;
+  cursor: pointer;
+`;
+
+const SettingsIcon = styled(IoMdSettings)`
+  font-size: 2rem;
+  color: black;
+  cursor: pointer;
+`;
+
 const Header = () => {
   let navigate = useNavigate();
+  const ctx = useContext(AuthContext);
   return (
     <StyledHeader>
       <HeaderContainer>
         <Logo src={img}></Logo>
         <nav>
-          <button
-            onClick={() => {
-              navigate("/signin");
-            }}
-          >
-            Sign In
-          </button>
-          <button
-            onClick={() => {
-              navigate("/signup");
-            }}
-          >
-            Sign Up
-          </button>
+          {ctx?.currentUser ? (
+            <>
+              <SettingsIcon />
+              <UserIcon />
+            </>
+          ) : (
+            <>
+              <button
+                onClick={() => {
+                  navigate("/signin");
+                }}
+              >
+                Sign In
+              </button>
+              <button
+                onClick={() => {
+                  navigate("/signup");
+                }}
+              >
+                Sign Up
+              </button>
+            </>
+          )}
         </nav>
       </HeaderContainer>
     </StyledHeader>
