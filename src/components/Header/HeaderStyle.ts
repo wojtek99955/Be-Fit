@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { IoMdSettings } from "react-icons/io";
+import { IoMdAddCircleOutline } from "react-icons/io";
 
 interface StyleProps {
   logged: any;
@@ -109,6 +110,7 @@ export const ProfileSettingsDropdown = styled.div`
 
 export const ProfileSettings = styled.div`
   position: relative;
+  display: flex;
 `;
 
 export const Divider = styled.div`
@@ -118,4 +120,10 @@ export const Divider = styled.div`
 
 export const ProfileDropdownWrapper = styled.div`
   padding: 1rem;
+`;
+
+export const AddIcon = styled(IoMdAddCircleOutline)`
+  font-size: 2rem;
+  color: #ffa101;
+  cursor: pointer;
 `;

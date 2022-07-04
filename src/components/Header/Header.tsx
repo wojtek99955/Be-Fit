@@ -12,6 +12,7 @@ import {
   ProfileSettings,
   ProfileDropdownWrapper,
   Divider,
+  AddIcon,
 } from "./HeaderStyle";
 
 const img = require("../../assets/images/logo.png");
@@ -52,6 +53,7 @@ const Header = () => {
           {ctx?.currentUser ? (
             <>
               <SettingsIcon />
+              <AddIcon />
               <ProfileSettings>
                 <UserIcon onClick={handleProfileMenuOpen}>
                   {ctx.currentUser.email.slice(0, 1).toUpperCase()}
