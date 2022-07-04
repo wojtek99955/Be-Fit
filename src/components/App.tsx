@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { AuthContext } from "./AuthContext";
 import Data from "./Data";
 import StartPage from "./StartPage";
-import Header from "./Header";
+import Header from "./Header/Header";
 import Start from "./Start";
 
 interface AuthProps {
