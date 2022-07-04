@@ -7,7 +7,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.4) url(${img});
+  background: rgba(0, 0, 0, 0.5) url(${img});
   background-blend-mode: darken;
   background-size: cover;
 `;
