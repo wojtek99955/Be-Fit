@@ -11,7 +11,7 @@ export const Label = styled.label`
 export const FormContainer = styled.div`
   background-color: white;
   padding: 1rem;
-  max-width: 450px;
+  width: 25rem;
   margin: auto;
   display: block;
   position: relative;
@@ -49,4 +49,9 @@ export const StyledField = styled(Field)`
 export const StyledLink = styled(Link)`
   color: grey;
   text-decoration: none;
+`;
+
+export const ErrorMsg = styled.div`
+  color: red;
+  margin-bottom: 1rem;
 `;
