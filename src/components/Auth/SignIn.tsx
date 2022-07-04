@@ -4,7 +4,13 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { Formik, Form, ErrorMessage } from "formik";
 import Loader from "../../assets/Loader";
-import { FormContainer, Label, StyledField, StyledLink } from "./AuthStyle";
+import {
+  FormContainer,
+  Label,
+  StyledField,
+  StyledLink,
+  ErrorMsg,
+} from "./AuthStyle";
 import ValidationError from "./ValidationError";
 import * as yup from "yup";
 
@@ -19,6 +25,8 @@ const SignIn = () => {
   });
   let navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+
   return (
     <FormContainer>
       <h2>Sign In</h2>
@@ -26,10 +34,18 @@ const SignIn = () => {
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={async (values) => {
-          setLoading(true);
-          await signInWithEmailAndPassword(auth, values.email, values.password);
-          setLoading(false);
-          navigate("/home");
+          try {
+            setLoading(true);
+            await signInWithEmailAndPassword(
+              auth,
+              values.email,
+              values.password
+            );
+            setLoading(false);
+            navigate("/home");
+          } catch {
+            setError(true);
+          }
         }}
       >
         <Form>
@@ -43,8 +59,9 @@ const SignIn = () => {
           <button type="submit">SignUp</button>
         </Form>
       </Formik>
+      {error && <ErrorMsg>Invalid email or password</ErrorMsg>}
       <StyledLink to="/data"> Don't have an account? Sign up!</StyledLink>
-      {loading && <Loader />}
+      {loading && !error && <Loader />}
     </FormContainer>
   );
 };
