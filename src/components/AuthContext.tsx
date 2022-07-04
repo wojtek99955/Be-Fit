@@ -12,11 +12,9 @@ export function useAuth() {
 
 interface ContextType {
   currentUser: any;
-  cos: string;
 }
 
 export const AuthContext = React.createContext<ContextType | null>(null);
-const cos = "cos";
 
 export const AuthProvider = ({ children }: Props) => {
   const [currentUser, setCurrentUser] = useState<any>({});
@@ -28,7 +26,7 @@ export const AuthProvider = ({ children }: Props) => {
     return unsubscribe;
   }, []);
   return (
-    <AuthContext.Provider value={{ currentUser, cos }}>
+    <AuthContext.Provider value={{ currentUser }}>
       {children}
     </AuthContext.Provider>
   );
