@@ -1,11 +1,15 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthContext";
-import { useContext } from "react";
+import React, { useContext, useState, useRef, useEffect } from "react";
 import { FaUserCircle } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 
 const img = require("../assets/images/logo.png");
+
+interface StyleProps {
+  logged: any;
+}
 
 const HeaderContainer = styled.div`
   max-width: 1200px;
@@ -19,10 +23,13 @@ const HeaderContainer = styled.div`
     gap: 1.5rem;
   }
 `;
-const StyledHeader = styled.header`
+const StyledHeader = styled.header<StyleProps>`
   position: fixed;
   width: 100%;
   padding: 1rem 0;
+  z-index: 1;
+  border-bottom: ${({ logged }) =>
+    logged ? "1px solid #e1e4e7" : "transparent"};
 
   button {
     border: 2px solid #ffa101;
@@ -47,13 +54,14 @@ const StyledHeader = styled.header`
 `;
 const Logo = styled.img`
   cursor: pointer;
-  width: 9rem;
+  width: 7rem;
 `;
 
 const UserIcon = styled(FaUserCircle)`
   font-size: 2rem;
   color: black;
   cursor: pointer;
+  position: relative;
 `;
 
 const SettingsIcon = styled(IoMdSettings)`
@@ -62,18 +70,74 @@ const SettingsIcon = styled(IoMdSettings)`
   cursor: pointer;
 `;
 
+const ProfileSettingsDropdown = styled.div`
+  border: 1px solid #e1e4e7;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  padding: 1rem;
+  -webkit-box-shadow: -3px 0px 48px -1px rgba(225, 228, 231, 1);
+  -moz-box-shadow: -3px 0px 48px -1px rgba(225, 228, 231, 1);
+  box-shadow: -3px 0px 48px -1px rgba(225, 228, 231, 1);
+  z-index: 10;
+  background-color: white;
+
+  ul {
+    list-style: none;
+  }
+`;
+
+const ProfileSettings = styled.div`
+  position: relative;
+`;
+
 const Header = () => {
   let navigate = useNavigate();
   const ctx = useContext(AuthContext);
+  const [openProfileMenu, setOpenProfileMenu] = useState(false);
+  const profileMenuRef = useRef<HTMLDivElement>(null);
+
+  const handleProfileMenuOpen = (e: any) => {
+    e.stopPropagation();
+    setOpenProfileMenu((prev) => !prev);
+  };
+  const handleClickOutside = (e: any) => {
+    if (profileMenuRef.current && !profileMenuRef.current.contains(e.target)) {
+      setOpenProfileMenu(false);
+    }
+  };
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [setOpenProfileMenu]);
+
   return (
-    <StyledHeader>
+    <StyledHeader logged={ctx?.currentUser}>
       <HeaderContainer>
         <Logo src={img}></Logo>
         <nav>
           {ctx?.currentUser ? (
             <>
               <SettingsIcon />
-              <UserIcon />
+              <ProfileSettings>
+                <UserIcon onClick={handleProfileMenuOpen} />
+                {openProfileMenu ? (
+                  <ProfileSettingsDropdown ref={profileMenuRef}>
+                    <div>
+                      Logged as: <strong>{ctx.currentUser.email}</strong>
+                    </div>
+                    <hr />
+                    <ul>
+                      <li>a</li>
+                      <li>b</li>
+                      <li></li>
+                    </ul>
+                  </ProfileSettingsDropdown>
+                ) : null}
+              </ProfileSettings>
             </>
           ) : (
             <>
