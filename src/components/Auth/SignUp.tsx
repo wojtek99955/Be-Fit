@@ -45,7 +45,6 @@ const SignUp = () => {
               values.password
             );
             resetForm();
-            setLoading(false);
             setSuccess(true);
           } catch {
             setError(true);
