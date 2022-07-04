@@ -10,7 +10,7 @@ const Home = () => {
   let navigate = useNavigate();
   const logOut = async () => {
     await auth.signOut();
-    navigate("signin");
+    navigate("/signin");
   };
 
   useEffect(() => {
