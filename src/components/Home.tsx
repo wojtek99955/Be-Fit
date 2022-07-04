@@ -4,6 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
+import styled from "styled-components";
+
+const Container = styled.section`
+  padding-top: 8rem;
+`;
 
 const Home = () => {
   const authData = useAuth();
@@ -32,7 +37,7 @@ const Home = () => {
   }
   console.log(food);
   return (
-    <div>
+    <Container>
       <h1>youre log in</h1>
       {food.map((item: any) => {
         return (
@@ -44,7 +49,7 @@ const Home = () => {
       })}
       <h2>Your email is {authData?.currentUser.email}</h2>
       <button onClick={logOut}>Log out</button>
-    </div>
+    </Container>
   );
 };
 
