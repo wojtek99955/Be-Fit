@@ -57,14 +57,15 @@ const SideBar = () => {
       <nav>
         <ul>
           <li>
-            <HomeIcon /> <StyledLink to="/">Home page</StyledLink>
+            <HomeIcon /> <StyledLink to="/home">Home page</StyledLink>
           </li>
           <li>
             <GoalIcon />
             <StyledLink to="/">Your goals</StyledLink>
           </li>
           <li>
-            <CalculatorIcon /> <StyledLink to="/">Calculators</StyledLink>
+            <CalculatorIcon />{" "}
+            <StyledLink to="/calculators">Calculators</StyledLink>
           </li>
           <li>
             <FoodCalories /> <StyledLink to="/">Check calories</StyledLink>
