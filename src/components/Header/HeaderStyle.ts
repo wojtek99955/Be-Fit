@@ -84,6 +84,7 @@ export const ProfileSettingsDropdown = styled.div`
   box-shadow: -3px 0px 48px -1px rgba(225, 228, 231, 1);
   z-index: 10;
   background-color: white;
+  width: 12rem;
 
   ul {
     list-style: none;
