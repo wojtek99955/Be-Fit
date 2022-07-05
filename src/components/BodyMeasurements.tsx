@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Formik, Form, Field } from "formik";
-import { setDoc, doc, query, collection, getDocs } from "firebase/firestore";
+import { setDoc, doc } from "firebase/firestore";
 import { db } from "../firebase";
 import { AuthContext } from "./AuthContext";
 import { useContext } from "react";
@@ -10,11 +10,36 @@ const Container = styled.section`
   width: 100%;
 `;
 const Wrapper = styled.div`
-  max-width: 500px;
+  max-width: 350px;
   margin: auto;
   h2 {
     text-align: center;
+    margin-bottom: 3rem;
   }
+`;
+
+const StyledLabel = styled.label`
+  display: block;
+`;
+
+const Row = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+`;
+
+const FormContainer = styled.div`
+  margin: auto;
+  border: 1px solid red;
+  width: auto;
+`;
+
+const StyledField = styled(Field)`
+  margin: auto;
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0.2rem;
 `;
 
 const initialValues = {
@@ -43,16 +68,25 @@ const BodyMeasurements = () => {
           }}
         >
           <Form>
-            <Field as="select" name="gender">
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-            </Field>
-            <label htmlFor="age">Age</label>
-            <Field name="age" type="text" id="age" />
-            <label htmlFor="height">Height</label>
-            <Field name="height" type="height" id="height" />
-            <label htmlFor="weight">Weight</label>
-            <Field name="weight" type="weight" id="weight" />
+            <Row>
+              <StyledField as="select" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </StyledField>
+              <StyledField name="age" type="text" id="age" placeholder="age" />
+            </Row>
+            <StyledField
+              name="height"
+              type="height"
+              id="height"
+              placeholder="height"
+            />
+            <StyledField
+              name="weight"
+              type="weight"
+              id="weight"
+              placeholder="weight"
+            />
             <button type="submit">Save</button>
           </Form>
         </Formik>
