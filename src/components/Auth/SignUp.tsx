@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { auth } from "../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import {
@@ -12,12 +12,10 @@ import { Form, Formik, ErrorMessage } from "formik";
 import ValidationError from "./ValidationError";
 import * as yup from "yup";
 import Loader from "../../assets/Loader";
-import { addDoc, collection, setDoc, doc } from "firebase/firestore";
+import { setDoc, doc } from "firebase/firestore";
 import { db } from "../../firebase";
-import { AuthContext } from "../AuthContext";
 
 const SignUp = () => {
-  const ctx = useContext(AuthContext);
   const validationSchema = yup.object().shape({
     email: yup.string().email("invalid email format").required("required"),
     name: yup.string().min(3, "minimum 3 characters"),
