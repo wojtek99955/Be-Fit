@@ -77,6 +77,7 @@ export const SettingsIcon = styled(IoMdSettings)`
 `;
 
 export const ProfileSettingsDropdown = styled.div`
+  margin-top: 0.5rem;
   border: 1px solid #e1e4e7;
   position: absolute;
   top: 100%;
