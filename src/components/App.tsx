@@ -8,6 +8,7 @@ import Data from "./Data";
 import StartPage from "./StartPage";
 import Header from "./Header/Header";
 import Start from "./Start";
+import SideBar from "./SideBar";
 
 interface AuthProps {
   children: JSX.Element;
@@ -22,7 +23,7 @@ function App() {
     return islogged ? children : <Navigate to="/signup" />;
   };
   return (
-    <div className="App">
+    <div className="App" style={{ display: "flex" }}>
       <Header />
       <Routes>
         <Route path="/" element={<Start />}>
@@ -34,7 +35,10 @@ function App() {
           path="/home"
           element={
             <RequireAuth>
-              <Home />
+              <>
+                <SideBar />
+                <Home />
+              </>
             </RequireAuth>
           }
         />
