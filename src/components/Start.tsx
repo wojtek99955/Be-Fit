@@ -10,6 +10,7 @@ const Container = styled.div`
   background: rgba(0, 0, 0, 0.5) url(${img});
   background-blend-mode: darken;
   background-size: cover;
+  width: 100%;
 `;
 
 const Start = () => {
