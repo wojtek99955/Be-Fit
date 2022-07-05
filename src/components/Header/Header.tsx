@@ -44,6 +44,7 @@ const Header = () => {
 
   const logOut = async () => {
     await auth.signOut();
+    setOpenProfileMenu(false);
     navigate("/signin");
   };
   const [data, setData] = useState<any>("");
