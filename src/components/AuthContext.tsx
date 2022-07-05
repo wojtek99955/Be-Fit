@@ -18,7 +18,6 @@ export const AuthContext = React.createContext<ContextType | null>(null);
 
 export const AuthProvider = ({ children }: Props) => {
   const [currentUser, setCurrentUser] = useState<any>({});
-  console.log(currentUser);
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);

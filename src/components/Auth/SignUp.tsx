@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { auth } from "../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import {
@@ -12,10 +12,12 @@ import { Form, Formik, ErrorMessage } from "formik";
 import ValidationError from "./ValidationError";
 import * as yup from "yup";
 import Loader from "../../assets/Loader";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, setDoc, doc } from "firebase/firestore";
 import { db } from "../../firebase";
+import { AuthContext } from "../AuthContext";
 
 const SignUp = () => {
+  const ctx = useContext(AuthContext);
   const validationSchema = yup.object().shape({
     email: yup.string().email("invalid email format").required("required"),
     name: yup.string().min(3, "minimum 3 characters"),
@@ -34,7 +36,6 @@ const SignUp = () => {
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-
   return (
     <FormContainer>
       <h2>Sign Up</h2>
@@ -43,12 +44,12 @@ const SignUp = () => {
         onSubmit={async (values, { resetForm }) => {
           try {
             setLoading(true);
-            await createUserWithEmailAndPassword(
+            const res = await createUserWithEmailAndPassword(
               auth,
               values.email,
               values.password
             );
-            await addDoc(collection(db, "users"), {
+            await setDoc(doc(db, "users", res.user.uid), {
               email: values.email,
               name: values.name,
               authProvider: "email",

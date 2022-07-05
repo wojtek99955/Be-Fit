@@ -14,6 +14,18 @@ import {
   Divider,
   AddIcon,
 } from "./HeaderStyle";
+import {
+  collection,
+  getDocs,
+  query,
+  where,
+  doc,
+  getDoc,
+  QuerySnapshot,
+} from "firebase/firestore";
+import { db } from "../../firebase";
+import { Firestore } from "firebase/firestore";
+import { getDatabase, ref, onValue } from "firebase/database";
 
 const img = require("../../assets/images/logo.png");
 
@@ -44,7 +56,28 @@ const Header = () => {
     await auth.signOut();
     navigate("/signin");
   };
+  // const dbr = getDatabase();
+  const [data, setData] = useState<any>("");
+  const uid: string = ctx?.currentUser?.uid;
+  console.log(uid);
+  console.log(data.name);
 
+  console.log();
+  useEffect(() => {
+    async function getData() {
+      const snap = await getDoc(doc(db, "users", `${uid}`));
+
+      if (snap.exists()) {
+        console.log(snap.data());
+        setData(snap.data());
+      } else {
+        console.log("No such document");
+      }
+    }
+    getData();
+  }, [uid]);
+
+  console.log(uid);
   return (
     <StyledHeader logged={ctx?.currentUser}>
       <HeaderContainer>
@@ -61,9 +94,10 @@ const Header = () => {
                 {openProfileMenu ? (
                   <ProfileSettingsDropdown ref={profileMenuRef}>
                     <ProfileDropdownWrapper>
-                      <div>Logged as:</div>
-                      <strong>{ctx.currentUser.email}</strong>
+                      <div>Logged as: </div>
+                      <strong>{data.name}</strong>
                     </ProfileDropdownWrapper>
+
                     <Divider />
                     <ul>
                       <li>Profile</li>
