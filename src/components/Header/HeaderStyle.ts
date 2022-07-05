@@ -8,11 +8,10 @@ interface StyleProps {
 }
 
 export const HeaderContainer = styled.div`
-  max-width: 1200px;
-  margin: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 1rem;
 
   nav {
     display: flex;
@@ -23,7 +22,8 @@ export const StyledHeader = styled.header<StyleProps>`
   position: fixed;
   width: 100%;
   padding: 1rem 0;
-  z-index: 1;
+  height: 5.2rem;
+  z-index: 5;
   border-bottom: ${({ logged, location }) =>
     logged && location.pathname === "/home"
       ? "1px solid #e1e4e7"
