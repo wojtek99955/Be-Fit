@@ -105,7 +105,7 @@ export const ProfileSettingsDropdown = styled.div`
   }
 
   div {
-    &:last-of-type {
+    &:last-child {
       cursor: pointer;
       &:hover {
         background-color: #fae6b1;
