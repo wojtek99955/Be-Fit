@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import { UserIcon } from "./Header/HeaderStyle";
 import { Link } from "react-router-dom";
+import { BiHomeAlt } from "react-icons/bi";
+import { RiMedalLine } from "react-icons/ri";
+import { BiCalculator } from "react-icons/bi";
+import { MdOutlineFastfood } from "react-icons/md";
 
 const Container = styled.aside`
   height: 100vh;
@@ -16,6 +20,9 @@ const Container = styled.aside`
   li {
     padding: 0.8rem 0;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     &:hover {
       background-color: #e4e7e8;
     }
@@ -25,7 +32,19 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   color: black;
   font-size: 0.9rem;
-  font-weight: 400;
+  font-weight: 300;
+`;
+const HomeIcon = styled(BiHomeAlt)`
+  font-size: 1.3rem;
+`;
+const GoalIcon = styled(RiMedalLine)`
+  font-size: 1.3rem;
+`;
+const CalculatorIcon = styled(BiCalculator)`
+  font-size: 1.3rem;
+`;
+const FoodCalories = styled(MdOutlineFastfood)`
+  font-size: 1.3rem;
 `;
 
 const SideBar = () => {
@@ -35,16 +54,17 @@ const SideBar = () => {
       <nav>
         <ul>
           <li>
-            <StyledLink to="/">Home page</StyledLink>
+            <HomeIcon /> <StyledLink to="/">Home page</StyledLink>
           </li>
           <li>
+            <GoalIcon />
             <StyledLink to="/">Your goals</StyledLink>
           </li>
           <li>
-            <StyledLink to="/">Calculators</StyledLink>
+            <CalculatorIcon /> <StyledLink to="/">Calculators</StyledLink>
           </li>
           <li>
-            <StyledLink to="/">Check calories</StyledLink>
+            <FoodCalories /> <StyledLink to="/">Check calories</StyledLink>
           </li>
         </ul>
       </nav>
