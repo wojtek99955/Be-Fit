@@ -23,6 +23,10 @@ const Container = styled.aside`
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    font-weight: 300;
+    &:first-of-type {
+      font-weight: 600;
+    }
     &:hover {
       background-color: #e4e7e8;
     }
@@ -32,7 +36,6 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   color: black;
   font-size: 0.9rem;
-  font-weight: 300;
 `;
 const HomeIcon = styled(BiHomeAlt)`
   font-size: 1.3rem;
