@@ -4,6 +4,7 @@ import { IoMdAddCircleOutline } from "react-icons/io";
 
 interface StyleProps {
   logged: any;
+  location: any;
 }
 
 export const HeaderContainer = styled.div`
@@ -23,8 +24,10 @@ export const StyledHeader = styled.header<StyleProps>`
   width: 100%;
   padding: 1rem 0;
   z-index: 1;
-  border-bottom: ${({ logged }) =>
-    logged ? "1px solid #e1e4e7" : "transparent"};
+  border-bottom: ${({ logged, location }) =>
+    logged && location.pathname === "/home"
+      ? "1px solid #e1e4e7"
+      : "transparent"};
 
   button {
     border: 2px solid #ffa101;

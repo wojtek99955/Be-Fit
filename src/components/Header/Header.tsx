@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthContext";
 import React, { useContext, useState, useRef, useEffect } from "react";
 import { auth } from "../../firebase";
+import { useLocation } from "react-router-dom";
 import {
   HeaderContainer,
   StyledHeader,
@@ -66,12 +67,14 @@ const Header = () => {
   }, [uid]);
 
   console.log(uid);
+  const location = useLocation();
+  console.log(location);
   return (
-    <StyledHeader logged={ctx?.currentUser}>
+    <StyledHeader logged={ctx?.currentUser} location={location}>
       <HeaderContainer>
         <Logo src={img}></Logo>
         <nav>
-          {ctx?.currentUser ? (
+          {ctx?.currentUser && location.pathname === "/home" ? (
             <>
               <SettingsIcon />
               <AddIcon />
