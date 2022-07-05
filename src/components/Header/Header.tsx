@@ -74,11 +74,26 @@ const Header = () => {
       <HeaderContainer>
         <Logo src={img}></Logo>
         <nav>
-          {ctx?.currentUser &&
-          location.pathname !== "/home" &&
-          location.pathname !== "/signin" &&
-          location.pathname !== "/signup" &&
-          location.pathname !== "/" ? (
+          {(ctx?.currentUser && location.pathname === "/") ||
+          location.pathname === "/signup" ||
+          location.pathname === "/signin" ? (
+            <>
+              <button
+                onClick={() => {
+                  navigate("/signin");
+                }}
+              >
+                Sign In
+              </button>
+              <button
+                onClick={() => {
+                  navigate("/signup");
+                }}
+              >
+                Sign Up
+              </button>
+            </>
+          ) : (
             <>
               <SettingsIcon />
               <AddIcon />
@@ -106,23 +121,6 @@ const Header = () => {
                   </ProfileSettingsDropdown>
                 ) : null}
               </ProfileSettings>
-            </>
-          ) : (
-            <>
-              <button
-                onClick={() => {
-                  navigate("/signin");
-                }}
-              >
-                Sign In
-              </button>
-              <button
-                onClick={() => {
-                  navigate("/signup");
-                }}
-              >
-                Sign Up
-              </button>
             </>
           )}
         </nav>
