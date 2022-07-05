@@ -14,19 +14,8 @@ import {
   Divider,
   AddIcon,
 } from "./HeaderStyle";
-import {
-  collection,
-  getDocs,
-  query,
-  where,
-  doc,
-  getDoc,
-  QuerySnapshot,
-} from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase";
-import { Firestore } from "firebase/firestore";
-import { getDatabase, ref, onValue } from "firebase/database";
-
 const img = require("../../assets/images/logo.png");
 
 const Header = () => {
@@ -56,7 +45,6 @@ const Header = () => {
     await auth.signOut();
     navigate("/signin");
   };
-  // const dbr = getDatabase();
   const [data, setData] = useState<any>("");
   const uid: string = ctx?.currentUser?.uid;
   console.log(uid);
