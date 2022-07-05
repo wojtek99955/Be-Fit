@@ -34,7 +34,12 @@ const BodyMeasurements = () => {
         <Formik
           initialValues={initialValues}
           onSubmit={async (values) => {
-            console.log(values);
+            await setDoc(doc(db, `users/${uid}/body-details`, "details"), {
+              gender: values.gender,
+              age: values.age,
+              height: values.height,
+              weight: values.weight,
+            });
           }}
         >
           <Form>
