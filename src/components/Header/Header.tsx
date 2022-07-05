@@ -74,7 +74,11 @@ const Header = () => {
       <HeaderContainer>
         <Logo src={img}></Logo>
         <nav>
-          {ctx?.currentUser && location.pathname === "/home" ? (
+          {ctx?.currentUser &&
+          location.pathname !== "/home" &&
+          location.pathname !== "/signin" &&
+          location.pathname !== "/signup" &&
+          location.pathname !== "/" ? (
             <>
               <SettingsIcon />
               <AddIcon />
