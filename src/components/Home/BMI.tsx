@@ -3,18 +3,12 @@ import { getDoc, doc } from "firebase/firestore";
 import { db } from "../../firebase";
 import styled from "styled-components";
 import { AuthContext } from "../AuthContext";
+import { SettingsIcon, Box, StyledLink } from "./CardStyles";
 
 interface StyleProps {
   bmi: number;
 }
-const Box = styled.div`
-  background-color: white;
-  padding: 1rem;
-  border-radius: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
+
 const Wrapper = styled.div<StyleProps>`
   border-width: 8px;
   border-style: solid;
@@ -46,6 +40,18 @@ const Bmi = styled.strong`
 `;
 const Data = styled.div``;
 
+const StyledSettingsIcon = styled(SettingsIcon)`
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+`;
+const StyledBox = styled(Box)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+`;
+
 const BMI = () => {
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
@@ -68,14 +74,17 @@ const BMI = () => {
   const { height, weight } = data;
   const BMI = weight / Math.pow(height / 100, 2);
   return (
-    <Box>
+    <StyledBox>
+      <StyledLink to="/your-body">
+        <StyledSettingsIcon />
+      </StyledLink>
       <Wrapper bmi={BMI}>
         <Data>
           <Bmi>{BMI.toFixed(1)}</Bmi>
           <p>BMI</p>
         </Data>
       </Wrapper>
-    </Box>
+    </StyledBox>
   );
 };
 
