@@ -8,7 +8,11 @@ import { GiBodyHeight } from "react-icons/gi";
 import { GiWeight } from "react-icons/gi";
 import { GoSettings } from "react-icons/go";
 import { Link } from "react-router-dom";
+import { truncateSync } from "fs";
 
+interface StyleProps {
+  loading: boolean;
+}
 const Box = styled.div`
   background-color: white;
   padding: 1rem;
@@ -64,10 +68,11 @@ const WeightIconContainer = styled(IconContainer)`
   background-color: #fe55ba;
 `;
 
-const BoxWrapper = styled.div`
+const BoxWrapper = styled.div<StyleProps>`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  opacity: ${({ loading }) => (!loading ? "1" : "0")};
 `;
 
 const Header = styled.div`
@@ -103,6 +108,7 @@ const StyledLink = styled(Link)`
 `;
 
 const Measurement = () => {
+  const [loading, setLoading] = useState(true);
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
   const [data, setData] = useState<any>([]);
@@ -113,6 +119,7 @@ const Measurement = () => {
     if (snap.exists()) {
       console.log(snap.data());
       setData(snap.data());
+      setLoading(false);
     } else {
       console.log("No such document");
     }
@@ -132,7 +139,7 @@ const Measurement = () => {
           <SettingsIcon />
         </StyledLink>
       </Header>
-      <BoxWrapper>
+      <BoxWrapper loading={loading}>
         <DataContainer>
           <AgeIconContainer>
             <CalendarIcon />
