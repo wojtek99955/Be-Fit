@@ -10,6 +10,9 @@ interface StyleProps {
   bmi: number;
   loading: boolean;
 }
+interface BmiProps {
+  bmi: number;
+}
 
 const Wrapper = styled.div<StyleProps>`
   border-width: 8px;
@@ -36,6 +39,11 @@ const Wrapper = styled.div<StyleProps>`
   p {
     color: #bcbcbc;
     text-align: center;
+    color: ${({ bmi }) => {
+      if (bmi >= 30 || bmi <= 18.49) {
+        return "white";
+      }
+    }};
   }
 `;
 const Bmi = styled.strong`
@@ -44,16 +52,27 @@ const Bmi = styled.strong`
 `;
 const Data = styled.div``;
 
-const StyledSettingsIcon = styled(SettingsIcon)`
+const StyledSettingsIcon = styled(SettingsIcon)<BmiProps>`
   position: absolute;
   top: 1rem;
   right: 1rem;
+  color: ${({ bmi }) => {
+    if (bmi >= 30 || bmi <= 18.49) {
+      return "white";
+    }
+  }};
 `;
-const StyledBox = styled(Box)`
+
+const StyledBox = styled(Box)<BmiProps>`
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+  background-color: ${({ bmi }) => {
+    if (bmi >= 30 || bmi <= 18.49) {
+      return "rgb(225, 96, 94,0.6)";
+    }
+  }};
 `;
 const LoaderContainer = styled.div`
   position: absolute;
@@ -87,9 +106,9 @@ const BMI = () => {
   const { height, weight } = data;
   const BMI = weight / Math.pow(height / 100, 2);
   return (
-    <StyledBox>
+    <StyledBox bmi={BMI}>
       <StyledLink to="/my-body">
-        <StyledSettingsIcon />
+        <StyledSettingsIcon bmi={BMI} />
       </StyledLink>
       {loading ? (
         <LoaderContainer>
