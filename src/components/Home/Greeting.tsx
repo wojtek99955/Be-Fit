@@ -16,11 +16,30 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   font-size: 2.5rem;
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+`;
+const SearchInput = styled.input`
+  outline: none;
+  border: none;
+  padding: 0.2rem 0.5rem;
+  width: clamp(15rem, 50%, 30rem);
+  display: block;
+  height: 2.2rem;
+  border-radius: 8px;
 `;
 
 const Greeting = () => {
-  return <Container>Good To See You!</Container>;
+  return (
+    <Container>
+      <h1>Good To See You!</h1>
+      <SearchInput placeholder="Search" />
+    </Container>
+  );
 };
 
 export default Greeting;
