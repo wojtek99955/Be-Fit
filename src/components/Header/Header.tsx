@@ -126,8 +126,8 @@ const Header = () => {
                       </li>
                     </ul>
                     <Divider />
-                    <ProfileDropdownWrapper>
-                      <div onClick={logOut}>Log out</div>
+                    <ProfileDropdownWrapper onClick={logOut}>
+                      <div>Log out</div>
                     </ProfileDropdownWrapper>
                   </ProfileSettingsDropdown>
                 ) : null}
