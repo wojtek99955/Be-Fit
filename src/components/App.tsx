@@ -1,6 +1,6 @@
 import SignUp from "./Auth/SignUp";
 import { Routes, Navigate, Route, useNavigate } from "react-router-dom";
-import Home from "./Home";
+import Home from "./Home/Home";
 import SignIn from "./Auth/SignIn";
 import { useContext } from "react";
 import { AuthContext } from "./AuthContext";
