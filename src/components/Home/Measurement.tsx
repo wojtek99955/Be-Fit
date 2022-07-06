@@ -8,16 +8,13 @@ import { GiBodyHeight } from "react-icons/gi";
 import { GiWeight } from "react-icons/gi";
 import { GoSettings } from "react-icons/go";
 import { Link } from "react-router-dom";
-import { truncateSync } from "fs";
+import { Box } from "./CardStyles";
+import Loader from "../../assets/Loader";
 
 interface StyleProps {
   loading: boolean;
 }
-const Box = styled.div`
-  background-color: white;
-  padding: 1rem;
-  border-radius: 12px;
-`;
+
 const IconContainer = styled.div`
   width: 2.8rem;
   height: 2.8rem;
@@ -106,6 +103,12 @@ const SettingsIcon = styled(GoSettings)`
 const StyledLink = styled(Link)`
   text-decoration: none;
 `;
+const LoaderContainer = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
 
 const Measurement = () => {
   const [loading, setLoading] = useState(true);
@@ -139,6 +142,11 @@ const Measurement = () => {
           <SettingsIcon />
         </StyledLink>
       </Header>
+      {loading ? (
+        <LoaderContainer>
+          <Loader />
+        </LoaderContainer>
+      ) : null}
       <BoxWrapper loading={loading}>
         <DataContainer>
           <AgeIconContainer>

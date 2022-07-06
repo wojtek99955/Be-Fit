@@ -4,9 +4,11 @@ import { db } from "../../firebase";
 import styled from "styled-components";
 import { AuthContext } from "../AuthContext";
 import { SettingsIcon, Box, StyledLink } from "./CardStyles";
+import Loader from "../../assets/Loader";
 
 interface StyleProps {
   bmi: number;
+  loading: boolean;
 }
 
 const Wrapper = styled.div<StyleProps>`
@@ -29,6 +31,8 @@ const Wrapper = styled.div<StyleProps>`
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: ${({ loading }) => (!loading ? "1" : "0")};
+
   p {
     color: #bcbcbc;
     text-align: center;
@@ -51,8 +55,15 @@ const StyledBox = styled(Box)`
   align-items: center;
   position: relative;
 `;
+const LoaderContainer = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
 
 const BMI = () => {
+  const [loading, setLoading] = useState(true);
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
   const [data, setData] = useState<any>([]);
@@ -63,6 +74,7 @@ const BMI = () => {
     if (snap.exists()) {
       console.log(snap.data());
       setData(snap.data());
+      setLoading(false);
     } else {
       console.log("No such document");
     }
@@ -78,7 +90,12 @@ const BMI = () => {
       <StyledLink to="/your-body">
         <StyledSettingsIcon />
       </StyledLink>
-      <Wrapper bmi={BMI}>
+      {loading ? (
+        <LoaderContainer>
+          <Loader />
+        </LoaderContainer>
+      ) : null}
+      <Wrapper bmi={BMI} loading={loading}>
         <Data>
           <Bmi>{BMI.toFixed(1)}</Bmi>
           <p>BMI</p>
