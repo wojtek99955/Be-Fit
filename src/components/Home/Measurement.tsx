@@ -7,6 +7,7 @@ import { BsCalendar3 } from "react-icons/bs";
 import { GiBodyHeight } from "react-icons/gi";
 import { GiWeight } from "react-icons/gi";
 import { GoSettings } from "react-icons/go";
+import { Link } from "react-router-dom";
 
 const Box = styled.div`
   background-color: white;
@@ -60,7 +61,7 @@ const HeightIconContainer = styled(IconContainer)`
 `;
 
 const WeightIconContainer = styled(IconContainer)`
-  background-color: #b3dee5;
+  background-color: #fe55ba;
 `;
 
 const BoxWrapper = styled.div`
@@ -97,6 +98,10 @@ const SettingsIcon = styled(GoSettings)`
   cursor: pointer;
 `;
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
+
 const Measurement = () => {
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
@@ -123,7 +128,9 @@ const Measurement = () => {
     <Box>
       <Header>
         <h2>Currently</h2>
-        <SettingsIcon />
+        <StyledLink to="/your-body">
+          <SettingsIcon />
+        </StyledLink>
       </Header>
       <BoxWrapper>
         <DataContainer>
