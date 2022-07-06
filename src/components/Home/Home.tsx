@@ -6,9 +6,12 @@ import Goal from "./Goal";
 
 const Container = styled.section`
   padding: 1rem;
-  padding-top: 8rem;
   width: 100%;
   background-color: #f5f2f6;
+  height: calc(100vh - 5.2rem);
+  position: relative;
+  top: 5.2rem;
+  overflow: scroll;
 `;
 const GridContainer = styled.div`
   display: grid;
