@@ -18,20 +18,10 @@ const Wrapper = styled.div`
   }
 `;
 
-const StyledLabel = styled.label`
-  display: block;
-`;
-
 const Row = styled.div`
   display: flex;
   justify-content: center;
   gap: 1rem;
-`;
-
-const FormContainer = styled.div`
-  margin: auto;
-  border: 1px solid red;
-  width: auto;
 `;
 
 const StyledField = styled(Field)`
@@ -61,9 +51,9 @@ const BodyMeasurements = () => {
           onSubmit={async (values) => {
             await setDoc(doc(db, `users/${uid}/body-details`, "details"), {
               gender: values.gender,
-              age: values.age,
-              height: values.height,
-              weight: values.weight,
+              age: +values.age,
+              height: +values.height,
+              weight: +values.weight,
             });
           }}
         >
