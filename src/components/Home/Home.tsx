@@ -3,6 +3,11 @@ import Measurement from "./Measurement";
 import Greeting from "./Greeting";
 import BMI from "./BMI";
 import Goal from "./Goal";
+import { useState, useEffect, useContext } from "react";
+import { getDoc, doc } from "firebase/firestore";
+import { db } from "../../firebase";
+import { AuthContext } from "../AuthContext";
+import Modal from "../../Modal";
 
 const Container = styled.section`
   padding: 1rem;
@@ -20,13 +25,37 @@ const GridContainer = styled.div`
 `;
 
 const Home = () => {
+  const ctx = useContext(AuthContext);
+  const uid = ctx?.currentUser.uid;
+  const [data, setData] = useState<undefined | Object>("");
+  const [showModal, setShowModal] = useState(false);
+  async function getData() {
+    const snap = await getDoc(doc(db, "users", `${uid}/body-details/details`));
+
+    if (snap.exists()) {
+      console.log(snap.data());
+      setData(snap.data());
+    } else {
+      console.log("No such document");
+      setShowModal(true);
+    }
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <Container>
       <Greeting />
+      {showModal ? <Modal /> : null}
       <GridContainer>
-        <Measurement />
-        <BMI />
-        <Goal />
+        {data && (
+          <>
+            <Measurement />
+            <BMI />
+            <Goal />
+          </>
+        )}
       </GridContainer>
     </Container>
   );
