@@ -38,7 +38,7 @@ const Home = () => {
   return (
     <Container>
       <Box>
-        <h2>Your current measure</h2>
+        <h2>Your BMI</h2>
         <p>Age: {age}</p>
         <p>Height: {height}</p>
         <p>Weight: {weight}</p>
