@@ -125,6 +125,7 @@ const Measurement = () => {
       setLoading(false);
     } else {
       console.log("No such document");
+      setLoading(false);
     }
   }
 
@@ -138,7 +139,7 @@ const Measurement = () => {
     <Box>
       <Header>
         <h2>Currently</h2>
-        <StyledLink to="/your-body">
+        <StyledLink to="/my-body">
           <SettingsIcon />
         </StyledLink>
       </Header>

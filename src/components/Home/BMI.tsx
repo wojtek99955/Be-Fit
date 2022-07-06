@@ -66,7 +66,7 @@ const BMI = () => {
   const [loading, setLoading] = useState(true);
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
-  const [data, setData] = useState<any>([]);
+  const [data, setData] = useState<any>("");
 
   async function getData() {
     const snap = await getDoc(doc(db, "users", `${uid}/body-details/details`));
@@ -77,6 +77,7 @@ const BMI = () => {
       setLoading(false);
     } else {
       console.log("No such document");
+      setLoading(false);
     }
   }
 
@@ -87,7 +88,7 @@ const BMI = () => {
   const BMI = weight / Math.pow(height / 100, 2);
   return (
     <StyledBox>
-      <StyledLink to="/your-body">
+      <StyledLink to="/my-body">
         <StyledSettingsIcon />
       </StyledLink>
       {loading ? (
@@ -97,7 +98,7 @@ const BMI = () => {
       ) : null}
       <Wrapper bmi={BMI} loading={loading}>
         <Data>
-          <Bmi>{BMI.toFixed(1)}</Bmi>
+          {data && <Bmi>{BMI.toFixed(1)}</Bmi>}
           <p>BMI</p>
         </Data>
       </Wrapper>

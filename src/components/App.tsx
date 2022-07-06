@@ -53,7 +53,7 @@ function App() {
           }
         />
         <Route
-          path="/your-body"
+          path="/my-body"
           element={
             <RequireAuth>
               <>
