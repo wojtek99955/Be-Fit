@@ -1,7 +1,6 @@
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
 
 const Container = styled.div`
   position: absolute;
