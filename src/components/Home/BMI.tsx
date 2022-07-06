@@ -27,16 +27,12 @@ const BMI = () => {
   useEffect(() => {
     getData();
   }, []);
-  const { height, age, weight } = data;
-  const BMI = data.weight / Math.pow(data.height / 100, 2);
-
+  const { height, weight } = data;
+  const BMI = weight / Math.pow(height / 100, 2);
   return (
     <Box>
-      <h2>Your BMI</h2>
-      <p>Age: {age}</p>
-      <p>Height: {height}</p>
-      <p>Weight: {weight}</p>
-      <p>bmi : {BMI.toFixed(1)}</p>
+      <h3>Your BMI</h3>
+      <div>{BMI.toFixed(1)}</div>
     </Box>
   );
 };
