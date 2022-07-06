@@ -1,12 +1,8 @@
 import { useEffect, useState, useContext } from "react";
-import { auth } from "../firebase";
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "./AuthContext";
-import { collection, getDocs, getDoc, doc } from "firebase/firestore";
+import { getDoc, doc } from "firebase/firestore";
 import { db } from "../firebase";
 import styled from "styled-components";
 import { AuthContext } from "./AuthContext";
-import { getDatabase, ref, set } from "firebase/database";
 
 const Container = styled.section`
   padding-top: 8rem;
@@ -19,12 +15,6 @@ const Box = styled.div`
 const Home = () => {
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
-  const authData = useAuth();
-  let navigate = useNavigate();
-  const logOut = async () => {
-    await auth.signOut();
-    navigate("/signin");
-  };
 
   useEffect(() => {
     getData();
@@ -42,8 +32,7 @@ const Home = () => {
       console.log("No such document");
     }
   }
-  console.log(typeof data.age);
-  const sum = data.height + data.age;
+
   const BMI = data.weight / Math.pow(data.height / 100, 2);
   const { height, age, weight } = data;
   return (
