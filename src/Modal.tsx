@@ -30,6 +30,10 @@ const Wrapper = styled.div`
     margin-top: 8rem;
     color: white;
     background-color: #ffa101;
+    cursor: pointer;
+    &:hover {
+      background-color: #cf8300;
+    }
   }
 `;
 
