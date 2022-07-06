@@ -14,6 +14,7 @@ import {
   ProfileDropdownWrapper,
   Divider,
   AddIcon,
+  StyledLink,
 } from "./HeaderStyle";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase";
@@ -111,9 +112,18 @@ const Header = () => {
 
                     <Divider />
                     <ul>
-                      <li>Profile</li>
-                      <li>Statistics</li>
-                      <li>My goals</li>
+                      <li>
+                        <StyledLink to="/profile">Profile</StyledLink>
+                      </li>
+                      <li>
+                        <StyledLink to="/my-body">My body</StyledLink>
+                      </li>
+                      <li>
+                        <StyledLink to="/statistics">Statistics</StyledLink>
+                      </li>
+                      <li>
+                        <StyledLink to="/my-goals">My goals</StyledLink>
+                      </li>
                     </ul>
                     <Divider />
                     <ProfileDropdownWrapper>
