@@ -18,11 +18,7 @@ const Container = styled.aside`
     list-style-type: none;
   }
   li {
-    padding: 0.8rem 0;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
     font-weight: 300;
     &:first-of-type {
       font-weight: 600;
@@ -36,6 +32,10 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   color: black;
   font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 0.5rem;
 `;
 const HomeIcon = styled(BiHomeAlt)`
   font-size: 1.3rem;
@@ -49,26 +49,39 @@ const CalculatorIcon = styled(BiCalculator)`
 const FoodCalories = styled(MdOutlineFastfood)`
   font-size: 1.3rem;
 `;
+const StyledUserIcon = styled(UserIcon)`
+  margin-left: 0.5rem;
+`;
 
 const SideBar = () => {
   return (
     <Container>
-      <UserIcon>K</UserIcon>
+      <StyledUserIcon>K</StyledUserIcon>
       <nav>
         <ul>
           <li>
-            <HomeIcon /> <StyledLink to="/home">Home page</StyledLink>
+            <StyledLink to="/home">
+              <HomeIcon />
+              Home page
+            </StyledLink>
           </li>
           <li>
-            <GoalIcon />
-            <StyledLink to="/">Your goals</StyledLink>
+            <StyledLink to="/">
+              <GoalIcon />
+              Your goals
+            </StyledLink>
           </li>
           <li>
-            <CalculatorIcon />{" "}
-            <StyledLink to="/calculators">Calculators</StyledLink>
+            <StyledLink to="/calculators">
+              <CalculatorIcon />
+              Calculators
+            </StyledLink>
           </li>
           <li>
-            <FoodCalories /> <StyledLink to="/">Check calories</StyledLink>
+            <StyledLink to="/">
+              <FoodCalories />
+              Check calories
+            </StyledLink>
           </li>
         </ul>
       </nav>
