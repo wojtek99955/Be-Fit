@@ -18,8 +18,9 @@ const Wrapper = styled.div`
   }
   h2 {
     font-size: 1rem;
-    color: #bcbcbc;
+    color: #a29e9e;
     margin-bottom: 1rem;
+    font-weight: 600;
   }
   p {
     font-weight: 400;

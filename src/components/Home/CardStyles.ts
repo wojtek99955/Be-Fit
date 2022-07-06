@@ -6,6 +6,7 @@ export const Box = styled.div`
   background-color: white;
   padding: 1rem;
   border-radius: 12px;
+  position: relative;
 `;
 
 export const SettingsIcon = styled(GoSettings)`
