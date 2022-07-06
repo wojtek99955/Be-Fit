@@ -24,7 +24,12 @@ export const StyledHeader = styled.header<StyleProps>`
   padding: 1rem 0;
   height: 5.2rem;
   z-index: 5;
-  background-color: white;
+  background-color: ${({ logged, location }) =>
+    (logged && location.pathname === "/") ||
+    location.pathname === "/signup" ||
+    location.pathname === "/signin"
+      ? "transparent"
+      : "white"};
   border-bottom: ${({ logged, location }) =>
     (logged && location.pathname === "/") ||
     location.pathname === "/signup" ||
