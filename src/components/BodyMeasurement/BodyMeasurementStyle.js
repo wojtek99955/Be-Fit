@@ -12,6 +12,18 @@ export const Wrapper = styled.div`
     text-align: center;
     margin-bottom: 3rem;
   }
+  button {
+    display: block;
+    margin: auto;
+    padding: 0.5rem 1.6rem;
+    border: none;
+    background-color: #ffa101;
+    color: white;
+    cursor: pointer;
+    &:hover {
+      background-color: #cf8300;
+    }
+  }
 `;
 
 export const Row = styled.div`
