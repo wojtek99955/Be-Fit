@@ -1,7 +1,7 @@
-import { Box, SettingsIcon } from "./CardStyles";
 import styled from "styled-components";
+import { Box, SettingsIcon } from "../CardStyles";
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   padding: 1rem;
   border-radius: 12px;
   &:first-of-type {
@@ -32,29 +32,11 @@ const Wrapper = styled.div`
   }
 `;
 
-const StyledBox = styled(Box)`
+export const StyledBox = styled(Box)`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 `;
-const StyledSettingsIcon = styled(SettingsIcon)`
+export const StyledSettingsIcon = styled(SettingsIcon)`
   margin-left: auto;
 `;
-
-const Goal = () => {
-  return (
-    <StyledBox>
-      <StyledSettingsIcon />
-      <Wrapper>
-        <h2>Current weight</h2>
-        <p>80 kg</p>
-      </Wrapper>
-      <Wrapper>
-        <h2>Target weight</h2>
-        <p>76 kg</p>
-      </Wrapper>
-    </StyledBox>
-  );
-};
-
-export default Goal;
