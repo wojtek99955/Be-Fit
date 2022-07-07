@@ -8,7 +8,7 @@ import Data from "./Data";
 import StartPage from "./StartPage";
 import Header from "./Header/Header";
 import Start from "./Start";
-import SideBar from "./SideBar";
+import SideBar from "./SideBar/SideBar";
 import Calculators from "./Calculators";
 import BodyMeasurements from "./BodyMeasurements";
 
