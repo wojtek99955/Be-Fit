@@ -18,7 +18,7 @@ const BodyMeasurements = () => {
   return (
     <Container>
       <Wrapper>
-        <h2>Your Body</h2>
+        <h2>My Body</h2>
         <Formik
           initialValues={initialValues}
           onSubmit={async (values) => {
