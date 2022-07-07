@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Measurement from "./Measurement";
+import Measurement from "./Measurement/Measurement";
 import Greeting from "./Greeting";
 import BMI from "./BMI";
 import Goal from "./Goal";
