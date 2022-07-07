@@ -1,36 +1,9 @@
-import styled from "styled-components";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form } from "formik";
 import { setDoc, doc } from "firebase/firestore";
-import { db } from "../firebase";
-import { AuthContext } from "./AuthContext";
+import { db } from "../../firebase";
+import { AuthContext } from "../AuthContext";
 import { useContext } from "react";
-
-const Container = styled.section`
-  padding-top: 8rem;
-  width: 100%;
-`;
-const Wrapper = styled.div`
-  max-width: 350px;
-  margin: auto;
-  h2 {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-`;
-
-const Row = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-`;
-
-const StyledField = styled(Field)`
-  margin: auto;
-  display: block;
-  width: 100%;
-  margin-bottom: 1rem;
-  padding: 0.5rem 0.2rem;
-`;
+import { Container, Wrapper, Row, StyledField } from "./BodyMeasurementStyle";
 
 const initialValues = {
   gender: "",
