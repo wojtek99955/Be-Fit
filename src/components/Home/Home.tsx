@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Measurement from "./Measurement/Measurement";
 import Greeting from "./Greeting";
-import BMI from "./BMI";
+import BMI from "./BMI/BMI";
 import Goal from "./Goal";
 import { useState, useEffect, useContext } from "react";
 import { getDoc, doc } from "firebase/firestore";
