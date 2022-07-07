@@ -15,7 +15,8 @@ export const Wrapper = styled.div`
   button {
     display: block;
     margin: auto;
-    padding: 0.5rem 1.6rem;
+    padding: 0.7rem 2rem;
+    font-size: 1rem;
     border: none;
     background-color: #ffa101;
     color: white;
