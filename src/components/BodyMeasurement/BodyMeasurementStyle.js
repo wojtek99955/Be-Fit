@@ -38,4 +38,9 @@ export const StyledField = styled(Field)`
   width: 100%;
   margin-bottom: 1rem;
   padding: 0.5rem 0.2rem;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  outline: none;
+  border-bottom: 2px solid #31525b;
 `;
