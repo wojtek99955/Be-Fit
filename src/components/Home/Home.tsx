@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Measurement from "./Measurement/Measurement";
-import Greeting from "./Greeting";
+import Greeting from "./Greeting/Greeting";
 import BMI from "./BMI/BMI";
 import Goal from "./Goal/Goal";
 import { useState, useEffect, useContext } from "react";

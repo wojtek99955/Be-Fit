@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Container = styled.div`
+export const Container = styled.div`
   background-color: rgba(250, 230, 177, 1);
   background-image: linear-gradient(
     90deg,
@@ -23,7 +23,7 @@ const Container = styled.div`
     margin-bottom: 2rem;
   }
 `;
-const SearchInput = styled.input`
+export const SearchInput = styled.input`
   outline: none;
   border: none;
   padding: 0.2rem 0.5rem;
@@ -32,14 +32,3 @@ const SearchInput = styled.input`
   height: 2.2rem;
   border-radius: 8px;
 `;
-
-const Greeting = () => {
-  return (
-    <Container>
-      <h1>Good To See You!</h1>
-      <SearchInput placeholder="Search" />
-    </Container>
-  );
-};
-
-export default Greeting;
