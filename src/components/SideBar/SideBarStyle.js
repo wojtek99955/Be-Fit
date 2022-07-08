@@ -51,4 +51,5 @@ export const FoodCalories = styled(MdOutlineFastfood)`
 `;
 export const StyledUserIcon = styled(UserIcon)`
   margin-left: 0.5rem;
+  margin-bottom: 1rem;
 `;
