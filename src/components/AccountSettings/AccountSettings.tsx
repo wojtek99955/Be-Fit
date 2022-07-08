@@ -1,8 +1,8 @@
 import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../AuthContext";
-import { getDoc, setDoc, doc, updateDoc, onSnapshot } from "firebase/firestore";
+import { doc, updateDoc, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, ErrorMessage } from "formik";
 import {
   Container,
   ImageContainer,
@@ -28,7 +28,7 @@ const AccountSettings = () => {
     onSnapshot(doc(db, `users/${uid}`), (doc) => {
       setData(doc.data());
     });
-  }, []);
+  }, [uid]);
 
   const handleEditName = () => {
     setEditName((prev) => !prev);
