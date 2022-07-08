@@ -17,6 +17,8 @@ import {
 } from "./AccountSettingsStyle";
 import * as yup from "yup";
 import { ErrorMsg } from "../Auth/AuthStyle";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { updateProfile } from "firebase/auth";
 
 const AccountSettings = () => {
   const ctx = useContext(AuthContext);
@@ -45,19 +47,48 @@ const AccountSettings = () => {
     email: yup.string().email("invalid email format").required("required"),
   });
 
+  const [file, setFile] = useState<any>("");
+  const onChangeSetFile = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files![0]) {
+      setFile(e.target.files![0]);
+    }
+  };
+
+  const uploadFile = async () => {
+    try {
+      const name = uid + file.name;
+      const storageRef = ref(storage, `avatars/${name}`);
+      const snapshot = await uploadBytes(storageRef, file);
+      const photoURL = await getDownloadURL(storageRef);
+      console.log(photoURL);
+      const userRef = doc(db, `users/${uid}`);
+      await updateDoc(userRef, { avatarImg: photoURL });
+      await updateProfile(ctx?.currentUser, {
+        photoURL: photoURL,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <Container>
       <h2>Yout account</h2>
       <ImageContainer>
         <Wrapper>
-          <Image>{data?.name?.toUpperCase().slice(0, 1)}</Image>
+          <Image url={data.avatarImg} />
           <div>
             <h3>Upload your profile image</h3>
             <p>This helps your teammates recognise you </p>
           </div>
           <FileInput>
+            {file !== "" ? (
+              <Button onClick={uploadFile} save>
+                UPLOAD
+              </Button>
+            ) : null}
             <label htmlFor="file">Upload image</label>
-            <input type="file" id="file" />
+            <input type="file" id="file" onChange={onChangeSetFile} />
           </FileInput>
         </Wrapper>
         <Divider />
