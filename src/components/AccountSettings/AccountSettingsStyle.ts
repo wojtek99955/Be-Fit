@@ -4,6 +4,10 @@ import styled from "styled-components";
 interface StyleProps {
   save?: boolean;
 }
+interface ImageProps {
+  url?: any;
+  file?: string;
+}
 
 export const Container = styled.section`
   margin-top: 6rem;
@@ -29,7 +33,7 @@ export const Container = styled.section`
 `;
 export const ImageContainer = styled.div``;
 
-export const Image = styled.div`
+export const Image = styled.div<ImageProps>`
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
@@ -40,6 +44,24 @@ export const Image = styled.div`
   color: white;
   font-size: 2rem;
   position: relative;
+  background-image: ${({ url }) => url && `url(${url})`};
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+`;
+
+export const PreviewImage = styled.div<ImageProps>`
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: #ffa101;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 2rem;
+  position: relative;
+  background-image: ${({ file }) => file && `url(${file})`};
 `;
 export const Button = styled.button<StyleProps>`
   padding: 0.5rem 0.7rem;
@@ -91,9 +113,19 @@ export const FileInput = styled.div`
     border-radius: 5px;
     padding: 0.5rem 0.7rem;
     background-color: #f3f4f6;
+    height: 2.5rem;
+    display: inline-block;
     cursor: pointer;
     &:hover {
       background-color: #dde0e5;
     }
   }
+`;
+
+interface AvatarBtnProps {
+  file: string;
+}
+
+export const AvatarBtn = styled(Button)<AvatarBtnProps>`
+  background-color: ffa101;
 `;
