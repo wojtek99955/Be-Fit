@@ -8,6 +8,10 @@ interface StyleProps {
   location: any;
 }
 
+interface ImageProps {
+  url: string;
+}
+
 export const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -64,7 +68,7 @@ export const Logo = styled.img`
   width: 7rem;
 `;
 
-export const UserIcon = styled.div`
+export const UserIcon = styled.div<ImageProps>`
   width: 2rem;
   height: 2rem;
   background-color: #ffa101;
@@ -75,6 +79,10 @@ export const UserIcon = styled.div`
   justify-content: center;
   align-items: center;
   color: white;
+  background-image: ${({ url }) => url && `url(${url})`};
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 `;
 
 export const SettingsIcon = styled(IoMdSettings)`
