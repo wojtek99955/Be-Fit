@@ -1,4 +1,8 @@
+import { useEffect, useState, useContext } from "react";
 import styled from "styled-components";
+import { AuthContext } from "./AuthContext";
+import { getDoc, doc } from "firebase/firestore";
+import { db } from "../firebase";
 
 const Container = styled.section`
   margin-top: 6rem;
@@ -30,6 +34,25 @@ const NameContainer = styled.div``;
 const EmailContainer = styled.div``;
 
 const AccountSettings = () => {
+  const ctx = useContext(AuthContext);
+  const uid = ctx?.currentUser.uid;
+  const [data, setData] = useState<any>([]);
+
+  useEffect(() => {
+    async function getData() {
+      const snap = await getDoc(doc(db, "users", `${uid}`));
+
+      if (snap.exists()) {
+        console.log(snap.data());
+        setData(snap.data());
+      } else {
+        console.log("No such document");
+      }
+    }
+    getData();
+  }, [uid]);
+
+  console.log(data);
   return (
     <Container>
       <h2>Yout account</h2>
@@ -46,7 +69,7 @@ const AccountSettings = () => {
       <NameContainer>
         <h3>Name</h3>
         <Wrapper>
-          <span>Name</span>
+          <span>{data.name}</span>
           <button>Edit</button>
         </Wrapper>
         <hr />
@@ -54,7 +77,7 @@ const AccountSettings = () => {
       <EmailContainer>
         <h3>Email</h3>
         <Wrapper>
-          <input type="text" />
+          <input type="text" value={data.email} />
           <button>Save</button>
         </Wrapper>
         <hr />
