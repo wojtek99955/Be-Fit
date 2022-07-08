@@ -10,7 +10,7 @@ import Start from "./Start";
 import SideBar from "./SideBar/SideBar";
 import Calculators from "./Calculators";
 import BodyMeasurements from "./BodyMeasurement/BodyMeasurements";
-import AccountSettings from "./AccountSettings";
+import AccountSettings from "./AccountSettings/AccountSettings";
 
 interface AuthProps {
   children: JSX.Element;
