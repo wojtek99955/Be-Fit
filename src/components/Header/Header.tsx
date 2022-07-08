@@ -22,6 +22,8 @@ import {
 } from "./HeaderStyle";
 import { doc, getDoc, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
+import { updateProfile } from "firebase/auth";
+
 const img = require("../../assets/images/logo.png");
 
 const Header = () => {
@@ -96,7 +98,7 @@ const Header = () => {
               />
               <AddIcon />
               <ProfileSettings>
-                <UserIcon onClick={handleProfileMenuOpen}>
+                <UserIcon url={data?.avatarImg} onClick={handleProfileMenuOpen}>
                   {data?.name?.slice(0, 1).toUpperCase()}
                 </UserIcon>
                 {openProfileMenu ? (
