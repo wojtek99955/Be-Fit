@@ -33,14 +33,8 @@ const AccountSettings = () => {
   const handleEditName = () => {
     setEditName((prev) => !prev);
   };
-  const handleSaveName = () => {
-    setEditName(false);
-  };
   const handleEditEmail = () => {
     setEditEmail((prev) => !prev);
-  };
-  const handleSaveEmail = () => {
-    setEditEmail(false);
   };
 
   const nameValidationSchema = yup.object().shape({
