@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../AuthContext";
 import { getDoc, doc } from "firebase/firestore";
 import { db } from "../../firebase";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import {
   Container,
   ImageContainer,
@@ -11,6 +12,7 @@ import {
   Divider,
   Image,
   EmailContainer,
+  StyledField,
 } from "./AccountSettingsStyle";
 
 const AccountSettings = () => {
@@ -46,6 +48,7 @@ const AccountSettings = () => {
   const handleSaveEmail = () => {
     setEditEmail(false);
   };
+
   return (
     <Container>
       <h2>Yout account</h2>
@@ -62,38 +65,66 @@ const AccountSettings = () => {
       </ImageContainer>
       <NameContainer>
         <h3>Name</h3>
-        <Wrapper>
-          {editName ? (
-            <input type="text" value={data.name} />
-          ) : (
-            <span>{data.name}</span>
-          )}
-          <div>
-            {editName ? (
-              <Button onClick={handleSaveName} save>
-                Save
-              </Button>
-            ) : null}
-            {!editName ? <Button onClick={handleEditName}>Edit</Button> : null}
-          </div>
-        </Wrapper>
+
+        <Formik
+          initialValues={{ name: data.name }}
+          enableReinitialize={true}
+          onSubmit={(values) => {
+            console.log(values);
+            setEditName(false);
+          }}
+        >
+          <Form>
+            <Wrapper>
+              {editName ? (
+                <StyledField type="text" name="name" id="name" />
+              ) : (
+                <span>{data.name}</span>
+              )}
+              <div>
+                {editName ? (
+                  <Button type="submit" save>
+                    Save
+                  </Button>
+                ) : null}
+                {!editName ? (
+                  <Button onClick={handleEditName}>Edit</Button>
+                ) : null}
+              </div>
+            </Wrapper>
+          </Form>
+        </Formik>
+
         <Divider />
       </NameContainer>
       <EmailContainer>
         <h3>Email</h3>
-        <Wrapper>
-          {editEmail ? (
-            <input type="text" value={data.email} />
-          ) : (
-            <span>{data.email}</span>
-          )}
-          {editEmail ? (
-            <Button onClick={handleSaveEmail} save>
-              Save
-            </Button>
-          ) : null}
-          {!editEmail ? <Button onClick={handleEditEmail}>Edit</Button> : null}
-        </Wrapper>
+        <Formik
+          initialValues={{ email: data.email }}
+          enableReinitialize={true}
+          onSubmit={(values) => {
+            console.log(values);
+            setEditEmail(false);
+          }}
+        >
+          <Form>
+            <Wrapper>
+              {editEmail ? (
+                <StyledField type="text" name="email" id="email" />
+              ) : (
+                <span>{data.email}</span>
+              )}
+              {editEmail ? (
+                <Button save type="submit">
+                  Save
+                </Button>
+              ) : null}
+              {!editEmail ? (
+                <Button onClick={handleEditEmail}>Edit</Button>
+              ) : null}
+            </Wrapper>
+          </Form>
+        </Formik>
         <Divider />
       </EmailContainer>
     </Container>
