@@ -101,7 +101,11 @@ const Header = () => {
             </>
           ) : (
             <>
-              <SettingsIcon />
+              <SettingsIcon
+                onClick={() => {
+                  navigate("/settings");
+                }}
+              />
               <AddIcon />
               <ProfileSettings>
                 <UserIcon onClick={handleProfileMenuOpen}>
