@@ -12,7 +12,13 @@ const Container = styled.section`
     margin-bottom: 3rem;
   }
   h3 {
-    margin: 1rem 0;
+    margin: 1.3rem 0;
+  }
+  button {
+    padding: 0.3rem 0.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
   }
 `;
 const ImageContainer = styled.div``;
@@ -27,7 +33,8 @@ const Button = styled.button``;
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  margin-bottom: 1.3rem;
+  align-items: center;
 `;
 
 const NameContainer = styled.div``;
@@ -35,6 +42,10 @@ const EmailContainer = styled.div`
   input {
     width: 100%;
   }
+`;
+
+const Divider = styled.div`
+  border-bottom: 1px solid #e1e4e7; ;
 `;
 
 const AccountSettings = () => {
@@ -66,13 +77,14 @@ const AccountSettings = () => {
       <h2>Yout account</h2>
       <ImageContainer>
         <Wrapper>
+          <Image />
           <div>
-            <Image />
             <h3>Upload your profile image</h3>
+            <p>This helps your teammates recognise you </p>
           </div>
           <Button>Upload image</Button>
         </Wrapper>
-        <hr />
+        <Divider />
       </ImageContainer>
       <NameContainer>
         <h3>Name</h3>
@@ -87,7 +99,7 @@ const AccountSettings = () => {
             <button onClick={handleEditName}>Edit</button>
           </div>
         </Wrapper>
-        <hr />
+        <Divider />
       </NameContainer>
       <EmailContainer>
         <h3>Email</h3>
@@ -96,7 +108,7 @@ const AccountSettings = () => {
           <button>Cancel</button>
           <button>Save</button>
         </Wrapper>
-        <hr />
+        <Divider />
       </EmailContainer>
     </Container>
   );
