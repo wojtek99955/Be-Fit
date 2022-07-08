@@ -23,6 +23,8 @@ const Container = styled.section`
     width: 90%;
     font-size: 1rem;
     padding: 0.3rem;
+    border: 1px solid #55595b;
+    border-radius: 5px;
   }
 `;
 const ImageContainer = styled.div``;
@@ -40,6 +42,7 @@ const Button = styled.button<StyleProps>`
   font-size: 1rem;
   background-color: ${({ save }) => (save ? "#ffa101" : "#F3F4F6")};
   color: ${({ save }) => (save ? "white" : "black")};
+  cursor: pointer;
 `;
 const Wrapper = styled.div`
   display: flex;
