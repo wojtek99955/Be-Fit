@@ -4,7 +4,10 @@ import { RiMedalLine } from "react-icons/ri";
 import { BiCalculator } from "react-icons/bi";
 import { MdOutlineFastfood } from "react-icons/md";
 import { Link } from "react-router-dom";
-import { UserIcon } from "../Header/HeaderStyle";
+
+interface ImgProps {
+  url: string;
+}
 
 export const Container = styled.aside`
   height: 100vh;
@@ -49,7 +52,19 @@ export const CalculatorIcon = styled(BiCalculator)`
 export const FoodCalories = styled(MdOutlineFastfood)`
   font-size: 1.3rem;
 `;
-export const StyledUserIcon = styled(UserIcon)`
-  margin-left: 0.5rem;
-  margin-bottom: 1rem;
+export const StyledUserIcon = styled.div<ImgProps>`
+  width: 2rem;
+  height: 2rem;
+  background-color: #ffa101;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-image: ${({ url }) => url && `url(${url})`};
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 `;
