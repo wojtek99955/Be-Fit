@@ -20,7 +20,7 @@ import {
   DropdownUserIcon,
   Email,
 } from "./HeaderStyle";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
 const img = require("../../assets/images/logo.png");
 
@@ -57,17 +57,9 @@ const Header = () => {
 
   console.log();
   useEffect(() => {
-    async function getData() {
-      const snap = await getDoc(doc(db, "users", `${uid}`));
-
-      if (snap.exists()) {
-        console.log(snap.data());
-        setData(snap.data());
-      } else {
-        console.log("No such document");
-      }
-    }
-    getData();
+    onSnapshot(doc(db, `users/${uid}`), (doc) => {
+      setData(doc.data());
+    });
   }, [uid]);
 
   const location = useLocation();
@@ -105,13 +97,13 @@ const Header = () => {
               <AddIcon />
               <ProfileSettings>
                 <UserIcon onClick={handleProfileMenuOpen}>
-                  {ctx?.currentUser?.email?.slice(0, 1).toUpperCase()}
+                  {data?.name?.slice(0, 1).toUpperCase()}
                 </UserIcon>
                 {openProfileMenu ? (
                   <ProfileSettingsDropdown ref={profileMenuRef}>
                     <UserDataContainer>
                       <DropdownUserIcon>
-                        {ctx?.currentUser?.email?.slice(0, 1).toUpperCase()}
+                        {data?.name?.slice(0, 1).toUpperCase()}
                       </DropdownUserIcon>
                       <UserData>
                         <strong>{data.name}</strong>
