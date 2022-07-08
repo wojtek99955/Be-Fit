@@ -4,7 +4,6 @@ import Home from "./Home/Home";
 import SignIn from "./Auth/SignIn";
 import { useContext } from "react";
 import { AuthContext } from "./AuthContext";
-import Data from "./Data";
 import StartPage from "./StartPage";
 import Header from "./Header/Header";
 import Start from "./Start";
