@@ -4,6 +4,10 @@ import { AuthContext } from "./AuthContext";
 import { getDoc, doc } from "firebase/firestore";
 import { db } from "../firebase";
 
+interface StyleProps {
+  save?: boolean;
+}
+
 const Container = styled.section`
   margin-top: 6rem;
   width: 40rem;
@@ -14,12 +18,6 @@ const Container = styled.section`
   }
   h3 {
     margin: 1.3rem 0;
-  }
-  button {
-    padding: 0.3rem 0.5rem;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
   }
   input {
     width: 90%;
@@ -35,7 +33,14 @@ const Image = styled.div`
   border-radius: 50%;
   background-color: #ffa101;
 `;
-const Button = styled.button``;
+const Button = styled.button<StyleProps>`
+  padding: 0.5rem 0.7rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: ${({ save }) => (save ? "#ffa101" : "#F3F4F6")};
+  color: ${({ save }) => (save ? "white" : "black")};
+`;
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -106,8 +111,12 @@ const AccountSettings = () => {
             <span>{data.name}</span>
           )}
           <div>
-            {editName ? <button onClick={handleSaveName}>Save</button> : null}
-            {!editName ? <button onClick={handleEditName}>Edit</button> : null}
+            {editName ? (
+              <Button onClick={handleSaveName} save>
+                Save
+              </Button>
+            ) : null}
+            {!editName ? <Button onClick={handleEditName}>Edit</Button> : null}
           </div>
         </Wrapper>
         <Divider />
@@ -116,8 +125,12 @@ const AccountSettings = () => {
         <h3>Email</h3>
         <Wrapper>
           <input type="text" value={data.email} />
-          {editEmail ? <button onClick={handleSaveEmail}>Save</button> : null}
-          {!editEmail ? <button onClick={handleEditEmail}>Edit</button> : null}
+          {editEmail ? (
+            <Button onClick={handleSaveEmail} save>
+              Save
+            </Button>
+          ) : null}
+          {!editEmail ? <Button onClick={handleEditEmail}>Edit</Button> : null}
         </Wrapper>
         <Divider />
       </EmailContainer>
