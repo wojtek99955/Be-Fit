@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../AuthContext";
-import { getDoc, doc } from "firebase/firestore";
+import { getDoc, setDoc, doc, updateDoc, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import {
@@ -25,18 +25,10 @@ const AccountSettings = () => {
   const [editEmail, setEditEmail] = useState(false);
 
   useEffect(() => {
-    async function getData() {
-      const snap = await getDoc(doc(db, "users", `${uid}`));
-
-      if (snap.exists()) {
-        console.log(snap.data());
-        setData(snap.data());
-      } else {
-        console.log("No such document");
-      }
-    }
-    getData();
-  }, [uid]);
+    onSnapshot(doc(db, `users/${uid}`), (doc) => {
+      setData(doc.data());
+    });
+  }, []);
 
   const handleEditName = () => {
     setEditName((prev) => !prev);
@@ -78,8 +70,9 @@ const AccountSettings = () => {
         <Formik
           initialValues={{ name: data.name }}
           enableReinitialize={true}
-          onSubmit={(values) => {
-            console.log(values);
+          onSubmit={async (values) => {
+            const userRef = doc(db, `users/${uid}`);
+            await updateDoc(userRef, { name: values.name });
             setEditName(false);
           }}
           validationSchema={nameValidationSchema}
