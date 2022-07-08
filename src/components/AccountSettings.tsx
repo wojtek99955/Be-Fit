@@ -25,6 +25,8 @@ const Container = styled.section`
     padding: 0.3rem;
     border: 1px solid #55595b;
     border-radius: 5px;
+    height: 2.5rem;
+    display: block;
   }
 `;
 const ImageContainer = styled.div``;
@@ -43,6 +45,13 @@ const Button = styled.button<StyleProps>`
   background-color: ${({ save }) => (save ? "#ffa101" : "#F3F4F6")};
   color: ${({ save }) => (save ? "white" : "black")};
   cursor: pointer;
+  height: 2.5rem;
+  &:hover {
+    background-color: ${({ save }) => (save ? "#cf8300" : "#dde0e5")};
+  }
+  &:active {
+    background-color: ${({ save }) => (save ? "#a46700" : "#bec3ce")};
+  }
 `;
 const Wrapper = styled.div`
   display: flex;
@@ -127,7 +136,11 @@ const AccountSettings = () => {
       <EmailContainer>
         <h3>Email</h3>
         <Wrapper>
-          <input type="text" value={data.email} />
+          {editEmail ? (
+            <input type="text" value={data.email} />
+          ) : (
+            <span>{data.email}</span>
+          )}
           {editEmail ? (
             <Button onClick={handleSaveEmail} save>
               Save
