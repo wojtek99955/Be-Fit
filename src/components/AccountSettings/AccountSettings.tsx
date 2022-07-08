@@ -49,7 +49,7 @@ const AccountSettings = () => {
       <h2>Yout account</h2>
       <ImageContainer>
         <Wrapper>
-          <Image>{data.name.toUpperCase().slice(0, 1)}</Image>
+          <Image>{data?.name?.toUpperCase().slice(0, 1)}</Image>
           <div>
             <h3>Upload your profile image</h3>
             <p>This helps your teammates recognise you </p>
