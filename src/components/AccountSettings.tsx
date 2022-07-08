@@ -31,12 +31,17 @@ const Wrapper = styled.div`
 `;
 
 const NameContainer = styled.div``;
-const EmailContainer = styled.div``;
+const EmailContainer = styled.div`
+  input {
+    width: 100%;
+  }
+`;
 
 const AccountSettings = () => {
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
   const [data, setData] = useState<any>([]);
+  const [editName, setEditName] = useState(false);
 
   useEffect(() => {
     async function getData() {
@@ -52,7 +57,10 @@ const AccountSettings = () => {
     getData();
   }, [uid]);
 
-  console.log(data);
+  const handleEditName = () => {
+    setEditName((prev) => !prev);
+  };
+
   return (
     <Container>
       <h2>Yout account</h2>
@@ -69,8 +77,15 @@ const AccountSettings = () => {
       <NameContainer>
         <h3>Name</h3>
         <Wrapper>
-          <span>{data.name}</span>
-          <button>Edit</button>
+          {editName ? (
+            <input type="text" value={data.name} />
+          ) : (
+            <span>{data.name}</span>
+          )}
+          <div>
+            <button>Save</button>
+            <button onClick={handleEditName}>Edit</button>
+          </div>
         </Wrapper>
         <hr />
       </NameContainer>
@@ -78,6 +93,7 @@ const AccountSettings = () => {
         <h3>Email</h3>
         <Wrapper>
           <input type="text" value={data.email} />
+          <button>Cancel</button>
           <button>Save</button>
         </Wrapper>
         <hr />
