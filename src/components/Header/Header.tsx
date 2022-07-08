@@ -17,6 +17,7 @@ import {
   StyledLink,
   UserData,
   DropdownUserIcon,
+  Email,
 } from "./HeaderStyle";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase";
@@ -113,7 +114,7 @@ const Header = () => {
                       </DropdownUserIcon>
                       <ProfileDropdownWrapper>
                         <strong>{data.name}</strong>
-                        <div>{data.email} </div>
+                        <Email>{data.email} </Email>
                       </ProfileDropdownWrapper>
                     </UserData>
 

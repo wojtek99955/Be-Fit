@@ -108,6 +108,8 @@ export const ProfileSettingsDropdown = styled.div`
 
   strong {
     display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
   }
 
   div {
@@ -164,4 +166,8 @@ export const DropdownUserIcon = styled.div`
   align-items: center;
   margin-left: 1rem;
   color: white;
+`;
+
+export const Email = styled.div`
+  color: #55595b;
 `;
