@@ -159,7 +159,7 @@ export const StyledLink = styled(Link)`
 
 export const UserData = styled.div``;
 
-export const DropdownUserIcon = styled.div`
+export const DropdownUserIcon = styled.div<ImageProps>`
   width: 2.5rem;
   height: 2.5rem;
   background-color: #ffa101;
@@ -171,6 +171,10 @@ export const DropdownUserIcon = styled.div`
   align-items: center;
   margin-left: 1rem;
   color: white;
+  background-image: ${({ url }) => url && `url(${url})`};
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 `;
 
 export const Email = styled.div`
