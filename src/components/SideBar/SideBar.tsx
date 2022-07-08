@@ -1,3 +1,4 @@
+import { useEffect, useContext, useState } from "react";
 import {
   Container,
   StyledLink,
@@ -7,11 +8,24 @@ import {
   FoodCalories,
   StyledUserIcon,
 } from "./SideBarStyle";
+import { db } from "../../firebase";
+import { doc, onSnapshot } from "firebase/firestore";
+import { AuthContext } from "../AuthContext";
 
 const SideBar = () => {
+  const ctx = useContext(AuthContext);
+  const uid = ctx?.currentUser.uid;
+  const [data, setData] = useState<any>({});
+
+  useEffect(() => {
+    onSnapshot(doc(db, `users/${uid}`), (doc) => {
+      setData(doc.data());
+    });
+  }, [uid]);
+
   return (
     <Container>
-      <StyledUserIcon>K</StyledUserIcon>
+      <StyledUserIcon>{data?.name?.toUpperCase().slice(0, 1)}</StyledUserIcon>
       <nav>
         <ul>
           <li>
