@@ -26,7 +26,7 @@ const SideBar = () => {
   return (
     <Container>
       <StyledUserIcon url={data.avatarImg}>
-        {data?.name?.toUpperCase().slice(0, 1)}
+        {data.avatarImg ? null : data?.name?.toUpperCase().slice(0, 1)}
       </StyledUserIcon>
       <nav>
         <ul>
