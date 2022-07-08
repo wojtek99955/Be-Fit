@@ -1,3 +1,4 @@
+import { Field } from "formik";
 import styled from "styled-components";
 
 interface StyleProps {
@@ -62,4 +63,15 @@ export const EmailContainer = styled.div``;
 
 export const Divider = styled.div`
   border-bottom: 1px solid #e1e4e7; ;
+`;
+
+export const StyledField = styled(Field)`
+  width: 90%;
+  font-size: 1rem;
+  padding: 0.3rem;
+  border: 1px solid #55595b;
+  border-radius: 5px;
+  height: 2.5rem;
+  display: block;
+  outline-color: #ffa101;
 `;
