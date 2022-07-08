@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../AuthContext";
 import { doc, updateDoc, onSnapshot } from "firebase/firestore";
-import { db } from "../../firebase";
+import { db, storage } from "../../firebase";
 import { Formik, Form, ErrorMessage } from "formik";
 import {
   Container,
@@ -13,6 +13,7 @@ import {
   Image,
   EmailContainer,
   StyledField,
+  FileInput,
 } from "./AccountSettingsStyle";
 import * as yup from "yup";
 import { ErrorMsg } from "../Auth/AuthStyle";
@@ -54,7 +55,10 @@ const AccountSettings = () => {
             <h3>Upload your profile image</h3>
             <p>This helps your teammates recognise you </p>
           </div>
-          <Button>Upload image</Button>
+          <FileInput>
+            <label htmlFor="file">Upload image</label>
+            <input type="file" id="file" />
+          </FileInput>
         </Wrapper>
         <Divider />
       </ImageContainer>
