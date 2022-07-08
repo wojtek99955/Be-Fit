@@ -16,7 +16,7 @@ export const Container = styled.section`
   h3 {
     margin: 1.3rem 0;
   }
-  input {
+  :not(first-of-type)input {
     width: 90%;
     font-size: 1rem;
     padding: 0.3rem;
@@ -39,6 +39,7 @@ export const Image = styled.div`
   align-items: center;
   color: white;
   font-size: 2rem;
+  position: relative;
 `;
 export const Button = styled.button<StyleProps>`
   padding: 0.5rem 0.7rem;
@@ -79,4 +80,20 @@ export const StyledField = styled(Field)`
   height: 2.5rem;
   display: block;
   outline-color: #ffa101;
+`;
+
+export const FileInput = styled.div`
+  input {
+    width: 0.1px;
+    height: 0.1px;
+  }
+  label {
+    border-radius: 5px;
+    padding: 0.5rem 0.7rem;
+    background-color: #f3f4f6;
+    cursor: pointer;
+    &:hover {
+      background-color: #dde0e5;
+    }
+  }
 `;
