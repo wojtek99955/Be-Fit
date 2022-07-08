@@ -27,6 +27,7 @@ const Container = styled.section`
     border-radius: 5px;
     height: 2.5rem;
     display: block;
+    outline-color: #ffa101;
   }
 `;
 const ImageContainer = styled.div``;
