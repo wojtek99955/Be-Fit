@@ -99,7 +99,9 @@ const Header = () => {
               <AddIcon />
               <ProfileSettings>
                 <UserIcon url={data?.avatarImg} onClick={handleProfileMenuOpen}>
-                  {data?.name?.slice(0, 1).toUpperCase()}
+                  {data.avatarImg
+                    ? null
+                    : data?.name?.toUpperCase().slice(0, 1)}
                 </UserIcon>
                 {openProfileMenu ? (
                   <ProfileSettingsDropdown ref={profileMenuRef}>
