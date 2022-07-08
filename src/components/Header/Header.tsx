@@ -99,15 +99,17 @@ const Header = () => {
               <AddIcon />
               <ProfileSettings>
                 <UserIcon url={data?.avatarImg} onClick={handleProfileMenuOpen}>
-                  {data.avatarImg
+                  {data?.avatarImg
                     ? null
                     : data?.name?.toUpperCase().slice(0, 1)}
                 </UserIcon>
                 {openProfileMenu ? (
                   <ProfileSettingsDropdown ref={profileMenuRef}>
                     <UserDataContainer>
-                      <DropdownUserIcon>
-                        {data?.name?.slice(0, 1).toUpperCase()}
+                      <DropdownUserIcon url={data?.avatarImg}>
+                        {data?.avatarImg
+                          ? null
+                          : data?.name?.toUpperCase().slice(0, 1)}
                       </DropdownUserIcon>
                       <UserData>
                         <strong>{data.name}</strong>
