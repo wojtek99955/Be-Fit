@@ -34,6 +34,11 @@ export const Image = styled.div`
   height: 4rem;
   border-radius: 50%;
   background-color: #ffa101;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 2rem;
 `;
 export const Button = styled.button<StyleProps>`
   padding: 0.5rem 0.7rem;
