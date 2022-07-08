@@ -14,6 +14,8 @@ import {
   EmailContainer,
   StyledField,
 } from "./AccountSettingsStyle";
+import * as yup from "yup";
+import { ErrorMsg } from "../Auth/AuthStyle";
 
 const AccountSettings = () => {
   const ctx = useContext(AuthContext);
@@ -49,6 +51,13 @@ const AccountSettings = () => {
     setEditEmail(false);
   };
 
+  const nameValidationSchema = yup.object().shape({
+    name: yup.string().min(3, "minimum 3 characters").required("required"),
+  });
+  const emailValidationSchema = yup.object().shape({
+    email: yup.string().email("invalid email format").required("required"),
+  });
+
   return (
     <Container>
       <h2>Yout account</h2>
@@ -73,6 +82,7 @@ const AccountSettings = () => {
             console.log(values);
             setEditName(false);
           }}
+          validationSchema={nameValidationSchema}
         >
           <Form>
             <Wrapper>
@@ -81,6 +91,7 @@ const AccountSettings = () => {
               ) : (
                 <span>{data.name}</span>
               )}
+
               <div>
                 {editName ? (
                   <Button type="submit" save>
@@ -92,6 +103,7 @@ const AccountSettings = () => {
                 ) : null}
               </div>
             </Wrapper>
+            <ErrorMessage name="name" component={ErrorMsg} />
           </Form>
         </Formik>
 
@@ -106,6 +118,7 @@ const AccountSettings = () => {
             console.log(values);
             setEditEmail(false);
           }}
+          validationSchema={emailValidationSchema}
         >
           <Form>
             <Wrapper>
@@ -123,6 +136,7 @@ const AccountSettings = () => {
                 <Button onClick={handleEditEmail}>Edit</Button>
               ) : null}
             </Wrapper>
+            <ErrorMessage name="email" component={ErrorMsg} />
           </Form>
         </Formik>
         <Divider />
