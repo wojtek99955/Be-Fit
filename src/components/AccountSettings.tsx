@@ -8,6 +8,7 @@ const Container = styled.section`
   margin-top: 6rem;
   width: 40rem;
   margin-left: 1rem;
+  margin-right: 1rem;
   h2 {
     margin-bottom: 3rem;
   }
@@ -19,6 +20,11 @@ const Container = styled.section`
     border: none;
     border-radius: 5px;
     font-size: 1rem;
+  }
+  input {
+    width: 90%;
+    font-size: 1rem;
+    padding: 0.3rem;
   }
 `;
 const ImageContainer = styled.div``;
@@ -38,11 +44,7 @@ const Wrapper = styled.div`
 `;
 
 const NameContainer = styled.div``;
-const EmailContainer = styled.div`
-  input {
-    width: 100%;
-  }
-`;
+const EmailContainer = styled.div``;
 
 const Divider = styled.div`
   border-bottom: 1px solid #e1e4e7; ;
@@ -53,6 +55,7 @@ const AccountSettings = () => {
   const uid = ctx?.currentUser.uid;
   const [data, setData] = useState<any>([]);
   const [editName, setEditName] = useState(false);
+  const [editEmail, setEditEmail] = useState(false);
 
   useEffect(() => {
     async function getData() {
@@ -71,7 +74,15 @@ const AccountSettings = () => {
   const handleEditName = () => {
     setEditName((prev) => !prev);
   };
-
+  const handleSaveName = () => {
+    setEditName(false);
+  };
+  const handleEditEmail = () => {
+    setEditEmail((prev) => !prev);
+  };
+  const handleSaveEmail = () => {
+    setEditEmail(false);
+  };
   return (
     <Container>
       <h2>Yout account</h2>
@@ -95,8 +106,8 @@ const AccountSettings = () => {
             <span>{data.name}</span>
           )}
           <div>
-            <button>Save</button>
-            <button onClick={handleEditName}>Edit</button>
+            {editName ? <button onClick={handleSaveName}>Save</button> : null}
+            {!editName ? <button onClick={handleEditName}>Edit</button> : null}
           </div>
         </Wrapper>
         <Divider />
@@ -105,8 +116,8 @@ const AccountSettings = () => {
         <h3>Email</h3>
         <Wrapper>
           <input type="text" value={data.email} />
-          <button>Cancel</button>
-          <button>Save</button>
+          {editEmail ? <button onClick={handleSaveEmail}>Save</button> : null}
+          {!editEmail ? <button onClick={handleEditEmail}>Edit</button> : null}
         </Wrapper>
         <Divider />
       </EmailContainer>
