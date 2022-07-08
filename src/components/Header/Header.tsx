@@ -15,6 +15,8 @@ import {
   Divider,
   AddIcon,
   StyledLink,
+  UserData,
+  DropdownUserIcon,
 } from "./HeaderStyle";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase";
@@ -105,10 +107,15 @@ const Header = () => {
                 </UserIcon>
                 {openProfileMenu ? (
                   <ProfileSettingsDropdown ref={profileMenuRef}>
-                    <ProfileDropdownWrapper>
-                      <div>Logged as: </div>
-                      <strong>{data.name}</strong>
-                    </ProfileDropdownWrapper>
+                    <UserData>
+                      <DropdownUserIcon>
+                        {ctx?.currentUser?.email?.slice(0, 1).toUpperCase()}
+                      </DropdownUserIcon>
+                      <ProfileDropdownWrapper>
+                        <strong>{data.name}</strong>
+                        <div>{data.email} </div>
+                      </ProfileDropdownWrapper>
+                    </UserData>
 
                     <Divider />
                     <ul>

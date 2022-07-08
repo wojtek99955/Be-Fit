@@ -94,7 +94,7 @@ export const ProfileSettingsDropdown = styled.div`
   box-shadow: -3px 0px 48px -1px rgba(225, 228, 231, 1);
   z-index: 10;
   background-color: white;
-  width: 12rem;
+  width: 14rem;
 
   ul {
     list-style: none;
@@ -108,7 +108,6 @@ export const ProfileSettingsDropdown = styled.div`
 
   strong {
     display: block;
-    padding-top: 1rem;
   }
 
   div {
@@ -146,4 +145,23 @@ export const StyledLink = styled(Link)`
   color: black;
   padding: 1rem;
   display: block;
+`;
+
+export const UserData = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const DropdownUserIcon = styled.div`
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #ffa101;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1rem;
+  color: white;
 `;
