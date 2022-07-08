@@ -149,10 +149,7 @@ export const StyledLink = styled(Link)`
   display: block;
 `;
 
-export const UserData = styled.div`
-  display: flex;
-  align-items: center;
-`;
+export const UserData = styled.div``;
 
 export const DropdownUserIcon = styled.div`
   width: 2.5rem;
@@ -170,4 +167,11 @@ export const DropdownUserIcon = styled.div`
 
 export const Email = styled.div`
   color: #55595b;
+`;
+
+export const UserDataContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
 `;

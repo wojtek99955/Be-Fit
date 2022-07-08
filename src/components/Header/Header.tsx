@@ -16,6 +16,7 @@ import {
   AddIcon,
   StyledLink,
   UserData,
+  UserDataContainer,
   DropdownUserIcon,
   Email,
 } from "./HeaderStyle";
@@ -108,15 +109,15 @@ const Header = () => {
                 </UserIcon>
                 {openProfileMenu ? (
                   <ProfileSettingsDropdown ref={profileMenuRef}>
-                    <UserData>
+                    <UserDataContainer>
                       <DropdownUserIcon>
                         {ctx?.currentUser?.email?.slice(0, 1).toUpperCase()}
                       </DropdownUserIcon>
-                      <ProfileDropdownWrapper>
+                      <UserData>
                         <strong>{data.name}</strong>
                         <Email>{data.email} </Email>
-                      </ProfileDropdownWrapper>
-                    </UserData>
+                      </UserData>
+                    </UserDataContainer>
 
                     <Divider />
                     <ul>
