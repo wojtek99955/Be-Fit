@@ -73,7 +73,7 @@ const AccountSettings = () => {
 
   return (
     <Container>
-      <h2>Yout account</h2>
+      <h2>Your account</h2>
       <ImageContainer>
         <Wrapper>
           <Image url={data.avatarImg} />
