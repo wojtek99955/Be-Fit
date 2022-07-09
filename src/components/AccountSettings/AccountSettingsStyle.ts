@@ -126,6 +126,9 @@ export const FileInput = styled.div`
     &:hover {
       background-color: #dde0e5;
     }
+    &:active {
+      background-color: #bec3ce;
+    }
   }
 `;
 
