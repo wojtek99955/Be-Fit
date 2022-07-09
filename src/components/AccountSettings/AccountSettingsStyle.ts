@@ -31,7 +31,9 @@ export const Container = styled.section`
     outline-color: #ffa101;
   }
 `;
-export const ImageContainer = styled.div``;
+export const ImageContainer = styled.div`
+  position: relative;
+`;
 
 export const Image = styled.div<ImageProps>`
   width: 4rem;
@@ -63,6 +65,11 @@ export const PreviewImage = styled.div<ImageProps>`
   position: relative;
   background-image: ${({ file }) => file && `url(${file})`};
 `;
+
+interface BtnProps {
+  loading?: boolean;
+}
+
 export const Button = styled.button<StyleProps>`
   padding: 0.5rem 0.7rem;
   border: none;
@@ -128,4 +135,9 @@ interface AvatarBtnProps {
 
 export const AvatarBtn = styled(Button)<AvatarBtnProps>`
   background-color: ffa101;
+`;
+
+export const LoaderContainer = styled.div`
+  position: absolute;
+  right: 0;
 `;

@@ -14,11 +14,13 @@ import {
   EmailContainer,
   StyledField,
   FileInput,
+  LoaderContainer,
 } from "./AccountSettingsStyle";
 import * as yup from "yup";
 import { ErrorMsg } from "../Auth/AuthStyle";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { updateProfile } from "firebase/auth";
+import Loader from "../../assets/Loader";
 
 const AccountSettings = () => {
   const ctx = useContext(AuthContext);
@@ -47,7 +49,8 @@ const AccountSettings = () => {
     email: yup.string().email("invalid email format").required("required"),
   });
 
-  const [file, setFile] = useState<any>("");
+  const [file, setFile] = useState<any>(null);
+  const [loading, setLoading] = useState(false);
   const onChangeSetFile = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files![0]) {
       setFile(e.target.files![0]);
@@ -56,8 +59,10 @@ const AccountSettings = () => {
 
   const uploadFile = async () => {
     try {
+      setLoading(true);
       const name = uid + file.name;
       const storageRef = ref(storage, `avatars/${name}`);
+      setFile(null);
       const snapshot = await uploadBytes(storageRef, file);
       const photoURL = await getDownloadURL(storageRef);
       console.log(photoURL);
@@ -66,6 +71,8 @@ const AccountSettings = () => {
       await updateProfile(ctx?.currentUser, {
         photoURL: photoURL,
       });
+
+      setLoading(false);
     } catch (err) {
       console.log(err);
     }
@@ -81,14 +88,23 @@ const AccountSettings = () => {
             <h3>Upload your profile image</h3>
             <p>This helps your teammates recognise you </p>
           </div>
+          {loading ? (
+            <LoaderContainer>
+              <Loader />
+            </LoaderContainer>
+          ) : null}
           <FileInput>
-            {file !== "" ? (
+            {file !== null ? (
               <Button onClick={uploadFile} save>
                 UPLOAD
               </Button>
             ) : null}
-            <label htmlFor="file">Upload image</label>
-            <input type="file" id="file" onChange={onChangeSetFile} />
+            {!loading ? (
+              <>
+                <label htmlFor="file">Upload image</label>
+                <input type="file" id="file" onChange={onChangeSetFile} />
+              </>
+            ) : null}
           </FileInput>
         </Wrapper>
         <Divider />
