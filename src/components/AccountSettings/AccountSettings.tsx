@@ -84,10 +84,12 @@ const AccountSettings = () => {
       <ImageContainer>
         <Wrapper>
           <Image url={data.avatarImg} />
-          <div>
-            <h3>Upload your profile image</h3>
-            <p>This helps your teammates recognise you </p>
-          </div>
+          {data.avatarImg ? null : (
+            <div>
+              <h3>Upload your profile image</h3>
+              <p>This helps your teammates recognise you </p>
+            </div>
+          )}
           {loading ? (
             <LoaderContainer>
               <Loader />
@@ -99,10 +101,15 @@ const AccountSettings = () => {
                 UPLOAD
               </Button>
             ) : null}
-            {!loading ? (
+            {!file && !loading ? (
               <>
                 <label htmlFor="file">Upload image</label>
-                <input type="file" id="file" onChange={onChangeSetFile} />
+                <input
+                  type="file"
+                  id="file"
+                  onChange={onChangeSetFile}
+                  onSubmit={uploadFile}
+                />
               </>
             ) : null}
           </FileInput>
