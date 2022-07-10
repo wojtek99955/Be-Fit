@@ -68,3 +68,22 @@ export const StyledUserIcon = styled.div<ImgProps>`
   background-position: center;
   background-repeat: no-repeat;
 `;
+
+export const User = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  align-items: center;
+
+  strong {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  span {
+    font-size: 0.9rem;
+    display: block;
+  }
+`;
+
+export const UserData = styled.div``;
