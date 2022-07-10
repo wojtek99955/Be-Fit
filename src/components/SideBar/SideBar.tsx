@@ -7,6 +7,8 @@ import {
   CalculatorIcon,
   FoodCalories,
   StyledUserIcon,
+  User,
+  UserData,
 } from "./SideBarStyle";
 import { db } from "../../firebase";
 import { doc, onSnapshot } from "firebase/firestore";
@@ -25,9 +27,15 @@ const SideBar = () => {
 
   return (
     <Container>
-      <StyledUserIcon url={data.avatarImg}>
-        {data.avatarImg ? null : data?.name?.toUpperCase().slice(0, 1)}
-      </StyledUserIcon>
+      <User>
+        <StyledUserIcon url={data.avatarImg}>
+          {data.avatarImg ? null : data?.name?.toUpperCase().slice(0, 1)}
+        </StyledUserIcon>
+        <UserData>
+          <strong>{data.name}</strong>
+          <span>{data.email}</span>
+        </UserData>
+      </User>
       <nav>
         <ul>
           <li>
