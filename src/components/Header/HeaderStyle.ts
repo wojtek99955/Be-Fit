@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { IoMdSettings } from "react-icons/io";
+import { FiSettings } from "react-icons/fi";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { Link } from "react-router-dom";
 
@@ -85,8 +85,8 @@ export const UserIcon = styled.div<ImageProps>`
   background-repeat: no-repeat;
 `;
 
-export const SettingsIcon = styled(IoMdSettings)`
-  font-size: 2rem;
+export const SettingsIcon = styled(FiSettings)`
+  font-size: 1.6rem;
   color: black;
   cursor: pointer;
 `;
@@ -186,4 +186,10 @@ export const UserDataContainer = styled.div`
   align-items: center;
   gap: 1rem;
   padding: 1rem 0;
+`;
+
+export const Icons = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
 `;
