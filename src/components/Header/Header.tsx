@@ -19,6 +19,7 @@ import {
   UserDataContainer,
   DropdownUserIcon,
   Email,
+  Icons,
 } from "./HeaderStyle";
 import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
@@ -90,54 +91,59 @@ const Header = () => {
             </>
           ) : (
             <>
-              <SettingsIcon
-                onClick={() => {
-                  navigate("/settings");
-                }}
-              />
-              <AddIcon />
-              <ProfileSettings>
-                <UserIcon url={data?.avatarImg} onClick={handleProfileMenuOpen}>
-                  {data?.avatarImg
-                    ? null
-                    : data?.name?.toUpperCase().slice(0, 1)}
-                </UserIcon>
-                {openProfileMenu ? (
-                  <ProfileSettingsDropdown ref={profileMenuRef}>
-                    <UserDataContainer>
-                      <DropdownUserIcon url={data?.avatarImg}>
-                        {data?.avatarImg
-                          ? null
-                          : data?.name?.toUpperCase().slice(0, 1)}
-                      </DropdownUserIcon>
-                      <UserData>
-                        <strong>{data.name}</strong>
-                        <Email>{data.email} </Email>
-                      </UserData>
-                    </UserDataContainer>
+              <Icons>
+                <SettingsIcon
+                  onClick={() => {
+                    navigate("/settings");
+                  }}
+                />
+                <AddIcon />
+                <ProfileSettings>
+                  <UserIcon
+                    url={data?.avatarImg}
+                    onClick={handleProfileMenuOpen}
+                  >
+                    {data?.avatarImg
+                      ? null
+                      : data?.name?.toUpperCase().slice(0, 1)}
+                  </UserIcon>
+                  {openProfileMenu ? (
+                    <ProfileSettingsDropdown ref={profileMenuRef}>
+                      <UserDataContainer>
+                        <DropdownUserIcon url={data?.avatarImg}>
+                          {data?.avatarImg
+                            ? null
+                            : data?.name?.toUpperCase().slice(0, 1)}
+                        </DropdownUserIcon>
+                        <UserData>
+                          <strong>{data.name}</strong>
+                          <Email>{data.email} </Email>
+                        </UserData>
+                      </UserDataContainer>
 
-                    <Divider />
-                    <ul>
-                      <li>
-                        <StyledLink to="/profile">Profile</StyledLink>
-                      </li>
-                      <li>
-                        <StyledLink to="/my-body">My body</StyledLink>
-                      </li>
-                      <li>
-                        <StyledLink to="/statistics">Statistics</StyledLink>
-                      </li>
-                      <li>
-                        <StyledLink to="/my-goals">My goals</StyledLink>
-                      </li>
-                    </ul>
-                    <Divider />
-                    <ProfileDropdownWrapper onClick={logOut}>
-                      <div>Log out</div>
-                    </ProfileDropdownWrapper>
-                  </ProfileSettingsDropdown>
-                ) : null}
-              </ProfileSettings>
+                      <Divider />
+                      <ul>
+                        <li>
+                          <StyledLink to="/profile">Profile</StyledLink>
+                        </li>
+                        <li>
+                          <StyledLink to="/my-body">My body</StyledLink>
+                        </li>
+                        <li>
+                          <StyledLink to="/statistics">Statistics</StyledLink>
+                        </li>
+                        <li>
+                          <StyledLink to="/my-goals">My goals</StyledLink>
+                        </li>
+                      </ul>
+                      <Divider />
+                      <ProfileDropdownWrapper onClick={logOut}>
+                        <div>Log out</div>
+                      </ProfileDropdownWrapper>
+                    </ProfileSettingsDropdown>
+                  ) : null}
+                </ProfileSettings>
+              </Icons>
             </>
           )}
         </nav>
