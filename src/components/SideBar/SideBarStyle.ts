@@ -83,6 +83,7 @@ export const User = styled.div`
   span {
     font-size: 0.9rem;
     display: block;
+    color: #55595b;
   }
 `;
 
