@@ -20,9 +20,8 @@ import {
   DropdownUserIcon,
   Email,
 } from "./HeaderStyle";
-import { doc, getDoc, onSnapshot } from "firebase/firestore";
+import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
-import { updateProfile } from "firebase/auth";
 
 const img = require("../../assets/images/logo.png");
 
