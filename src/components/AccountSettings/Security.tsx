@@ -14,6 +14,8 @@ import { auth } from "../../firebase";
 import { EmailAuthProvider, updatePassword } from "firebase/auth";
 import DeleteModal from "./DeleteModal";
 import { ImCheckmark } from "react-icons/im";
+import Loader from "../../assets/Loader";
+import { ErrorMsg } from "../Auth/AuthStyle";
 
 const StyledButton = styled(Button)`
   background-color: #e1605e;
@@ -54,6 +56,7 @@ const CorrectIcon = styled(ImCheckmark)`
   color: green;
   margin-left: 1rem;
 `;
+const LoaderContainer = styled.span``;
 
 const Security = () => {
   const ctx = useContext(AuthContext);
@@ -64,6 +67,8 @@ const Security = () => {
 
   const [setPassword, setSetPassword] = useState(false);
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   return (
     <Container>
       <h2>Account security</h2>
@@ -72,6 +77,7 @@ const Security = () => {
           initialValues={initialValues}
           onSubmit={async (values) => {
             try {
+              setLoading(true);
               let credential = EmailAuthProvider.credential(
                 auth?.currentUser?.email!,
                 values.currentPassword
@@ -80,9 +86,11 @@ const Security = () => {
               console.log("dobre haslo");
               setSetPassword(true);
               console.log(values.currentPassword);
+              setLoading(false);
             } catch {
               console.log("zle haslo");
-              console.log(values.currentPassword);
+              setError(true);
+              setLoading(false);
             }
           }}
         >
@@ -95,9 +103,17 @@ const Security = () => {
                 name="currentPassword"
                 id="currentPassword"
               />
-              {!setPassword ? <Button type="submit">Confirm</Button> : null}
+              {!setPassword && !loading ? (
+                <Button type="submit">Confirm</Button>
+              ) : null}
               {setPassword ? <CorrectIcon /> : null}
+              {loading ? (
+                <LoaderContainer>
+                  <Loader />
+                </LoaderContainer>
+              ) : null}
             </Row>
+            {error ? <ErrorMsg>Invalid password</ErrorMsg> : null}
           </Form>
         </Formik>
         {setPassword ? (
