@@ -13,6 +13,7 @@ import { getAuth, reauthenticateWithCredential } from "firebase/auth";
 import { auth } from "../../firebase";
 import { EmailAuthProvider, updatePassword } from "firebase/auth";
 import DeleteModal from "./DeleteModal";
+import { ImCheckmark } from "react-icons/im";
 
 const StyledButton = styled(Button)`
   background-color: #e1605e;
@@ -41,6 +42,17 @@ const Password = styled.div`
 
 const Row = styled.div`
   display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  input {
+    margin-bottom: 0;
+  }
+`;
+
+const CorrectIcon = styled(ImCheckmark)`
+  font-size: 1.5rem;
+  color: green;
+  margin-left: 1rem;
 `;
 
 const Security = () => {
@@ -83,7 +95,8 @@ const Security = () => {
                 name="currentPassword"
                 id="currentPassword"
               />
-              <Button type="submit">Confirm</Button>
+              {!setPassword ? <Button type="submit">Confirm</Button> : null}
+              {setPassword ? <CorrectIcon /> : null}
             </Row>
           </Form>
         </Formik>
