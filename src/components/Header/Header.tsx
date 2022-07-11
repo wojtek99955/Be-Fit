@@ -65,10 +65,13 @@ const Header = () => {
   }, [uid]);
 
   const location = useLocation();
+  const goHome = () => {
+    ctx?.currentUser ? navigate("/home") : navigate("/");
+  };
   return (
     <StyledHeader logged={ctx?.currentUser} location={location}>
       <HeaderContainer>
-        <Logo src={img}></Logo>
+        <Logo src={img} onClick={goHome}></Logo>
         <nav>
           {(ctx?.currentUser && location.pathname === "/") ||
           location.pathname === "/signup" ||
