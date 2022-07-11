@@ -92,6 +92,8 @@ export const SettingsIcon = styled(FiSettings)`
 `;
 
 export const ProfileSettingsDropdown = styled.div`
+  box-sizing: content-box;
+  padding-right: 1rem;
   margin-top: 0.5rem;
   border: 1px solid #e1e4e7;
   position: absolute;
@@ -102,7 +104,7 @@ export const ProfileSettingsDropdown = styled.div`
   box-shadow: -3px 0px 48px -1px rgba(225, 228, 231, 1);
   z-index: 10;
   background-color: white;
-  width: 14rem;
+  width: 14.5rem;
 
   ul {
     list-style: none;
