@@ -7,6 +7,7 @@ import { Formik, Form, Field } from "formik";
 import { getAuth, reauthenticateWithCredential } from "firebase/auth";
 import { auth } from "../../firebase";
 import { EmailAuthProvider, updatePassword } from "firebase/auth";
+import DeleteModal from "./DeleteModal";
 
 const StyledButton = styled(Button)`
   background-color: #e1605e;
@@ -40,6 +41,7 @@ const Security = () => {
   const auth = getAuth();
 
   const [setPassword, setSetPassword] = useState(false);
+  const [openDeleteModal, setOpenDeleteModal] = useState(false);
   return (
     <Container>
       <h2>Account security</h2>
@@ -107,6 +109,7 @@ const Security = () => {
         <Divider />
       </Password>
       <Delete>
+        {openDeleteModal ? <DeleteModal /> : null}
         <h3>Delete your account</h3>
         <p>
           By deleting your account, you'll no longer be able to access any of
@@ -114,7 +117,7 @@ const Security = () => {
         </p>
         <StyledButton
           onClick={() => {
-            deleteUser(ctx?.currentUser).then(() => console.log("delete"));
+            setOpenDeleteModal(true);
           }}
         >
           Delete
