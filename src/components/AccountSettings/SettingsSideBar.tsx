@@ -22,19 +22,19 @@ const SettingsSideBar = () => {
       <nav>
         <ul>
           <li>
-            <StyledLink to="/">
+            <StyledLink to="/settings/account">
               <UserIcon />
               Your account
             </StyledLink>
           </li>
           <li>
-            <StyledLink to="/">
+            <StyledLink to="/settings/security">
               <LockIcon />
               Security
             </StyledLink>
           </li>
           <li>
-            <StyledLink to="/">
+            <StyledLink to="/settings/email">
               <EmailIcon />
               Email preferences
             </StyledLink>
