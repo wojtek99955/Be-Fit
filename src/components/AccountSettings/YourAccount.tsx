@@ -158,10 +158,11 @@ const YourAccount = () => {
         <Formik
           initialValues={{ email: data.email }}
           enableReinitialize={true}
-          onSubmit={(values) => {
+          onSubmit={async (values) => {
             const userRef = doc(db, `users/${uid}`);
-            updateDoc(userRef, { email: values.email });
-            updateEmail(ctx?.currentUser, values.email);
+            await updateDoc(userRef, { email: values.email });
+            await updateEmail(ctx?.currentUser, values.email);
+            setEditEmail(false);
           }}
           validationSchema={emailValidationSchema}
         >
