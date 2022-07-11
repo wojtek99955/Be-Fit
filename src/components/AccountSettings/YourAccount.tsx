@@ -19,7 +19,7 @@ import {
 import * as yup from "yup";
 import { ErrorMsg } from "../Auth/AuthStyle";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { updateProfile } from "firebase/auth";
+import { updateEmail, updateProfile } from "firebase/auth";
 import Loader from "../../assets/Loader";
 
 const YourAccount = () => {
@@ -159,8 +159,9 @@ const YourAccount = () => {
           initialValues={{ email: data.email }}
           enableReinitialize={true}
           onSubmit={(values) => {
-            console.log(values);
-            setEditEmail(false);
+            const userRef = doc(db, `users/${uid}`);
+            updateDoc(userRef, { email: values.email });
+            updateEmail(ctx?.currentUser, values.email);
           }}
           validationSchema={emailValidationSchema}
         >
