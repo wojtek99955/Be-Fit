@@ -6,6 +6,7 @@ import { EmailAuthProvider } from "firebase/auth";
 import { AuthContext } from "../AuthContext";
 import { useContext, useState } from "react";
 import { deleteUser } from "firebase/auth";
+import { StyledField, Button } from "./AccountSettingsStyle";
 
 const Container = styled.div`
   position: absolute;
@@ -22,6 +23,7 @@ const Container = styled.div`
 const Wrapper = styled.div`
   background-color: white;
   padding: 1rem;
+  border-radius: 8px;
   h1 {
     max-width: 20rem;
     text-align: center;
@@ -32,7 +34,7 @@ const Wrapper = styled.div`
     background-color: green;
     margin: auto;
     padding: 1rem 2rem;
-    margin-top: 8rem;
+    margin-top: 5rem;
     color: white;
     background-color: #ffa101;
     cursor: pointer;
@@ -40,6 +42,11 @@ const Wrapper = styled.div`
       background-color: #cf8300;
     }
   }
+`;
+
+const PasswordField = styled(StyledField)`
+  margin: auto;
+  margin-top: 3rem;
 `;
 
 const DeleteModal = () => {
@@ -50,6 +57,7 @@ const DeleteModal = () => {
   return ReactDOM.createPortal(
     <Container>
       <Wrapper>
+        <h1>Type your username to delete account</h1>
         {!showDeleteBtn ? (
           <Formik
             initialValues={{ password: "" }}
@@ -71,13 +79,13 @@ const DeleteModal = () => {
             }}
           >
             <Form>
-              <Field
+              <PasswordField
                 type="password"
                 name="password"
                 id="password"
                 placeholder="Your password"
               />
-              <button type="submit">Confirm</button>
+              <Button type="submit">Confirm</Button>
             </Form>
           </Formik>
         ) : (
@@ -92,7 +100,6 @@ const DeleteModal = () => {
             <button>DISMISS</button>
           </>
         )}
-        <h1>Type your username to delete account</h1>
       </Wrapper>
     </Container>,
     document.getElementById("deleteAccountModal")!
