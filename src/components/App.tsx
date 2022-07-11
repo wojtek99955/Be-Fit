@@ -11,7 +11,7 @@ import SideBar from "./SideBar/SideBar";
 import Calculators from "./Calculators";
 import BodyMeasurements from "./BodyMeasurement/BodyMeasurements";
 import AccountSettings from "./AccountSettings/AccountSettings";
-import SettingsSideBar from "./SettingsSideBar";
+import SettingsSideBar from "./AccountSettings/SettingsSideBar";
 
 interface AuthProps {
   children: JSX.Element;
