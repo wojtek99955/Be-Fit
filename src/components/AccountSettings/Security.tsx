@@ -1,4 +1,4 @@
-import { Container, Button } from "./AccountSettingsStyle";
+import { Container, Button, Divider } from "./AccountSettingsStyle";
 import styled from "styled-components";
 import { deleteUser } from "firebase/auth";
 import { AuthContext } from "../AuthContext";
@@ -11,6 +11,10 @@ const Security = () => {
   return (
     <Container>
       <h3>Delete your account</h3>
+      <p>
+        By deleting your account, you'll no longer be able to access any of your
+        data or log in to BeFit.
+      </p>
       <StyledButton
         onClick={() => {
           deleteUser(ctx?.currentUser).then(() => console.log("delete"));
@@ -18,6 +22,7 @@ const Security = () => {
       >
         Delete
       </StyledButton>
+      <Divider />
     </Container>
   );
 };
