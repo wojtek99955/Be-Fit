@@ -7,13 +7,14 @@ import {
 import styled from "styled-components";
 import { AuthContext } from "../AuthContext";
 import { useContext, useState } from "react";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import { getAuth, reauthenticateWithCredential } from "firebase/auth";
 import { EmailAuthProvider, updatePassword } from "firebase/auth";
 import DeleteModal from "./DeleteModal";
 import { ImCheckmark } from "react-icons/im";
 import Loader from "../../assets/Loader";
 import { ErrorMsg } from "../Auth/AuthStyle";
+import * as yup from "yup";
 
 const DeleteButton = styled(Button)`
   background-color: #e1605e;
@@ -63,6 +64,21 @@ const StyledButton = styled(Button)`
   margin-bottom: 1rem;
 `;
 
+const validationCurrentPassword = yup.object().shape({
+  currentPassword: yup
+    .string()
+    .min(6, "minimum 6 characters")
+    .required("required"),
+});
+
+const validationNewPassword = yup.object().shape({
+  newPassword: yup.string().min(6, "minimum 6 characters").required("required"),
+  confirmNewPassword: yup
+    .string()
+    .oneOf([yup.ref("newPassword")], "password must match")
+    .required("required"),
+});
+
 const Security = () => {
   const ctx = useContext(AuthContext);
   const initialValues = {
@@ -79,8 +95,10 @@ const Security = () => {
     <Container>
       <h2>Account security</h2>
       <Password>
+        <h3>Change your password</h3>
         <Formik
           initialValues={initialValues}
+          validationSchema={validationCurrentPassword}
           onSubmit={async (values) => {
             try {
               setLoading(true);
@@ -104,7 +122,6 @@ const Security = () => {
           }}
         >
           <Form>
-            <h3>Change your password</h3>
             <Row>
               <PasswordField
                 type="password"
@@ -122,12 +139,14 @@ const Security = () => {
                 </LoaderContainer>
               ) : null}
             </Row>
+            <ErrorMessage component={ErrorMsg} name="currentPassword" />
             {error ? <ErrorMsg>Invalid password</ErrorMsg> : null}
           </Form>
         </Formik>
         {setPassword ? (
           <Formik
             initialValues={{ newPassword: "", confirmNewPassword: "" }}
+            validationSchema={validationNewPassword}
             onSubmit={async (values) => {
               try {
                 await updatePassword(ctx?.currentUser, values.newPassword);
@@ -144,12 +163,14 @@ const Security = () => {
                 name="newPassword"
                 id="newPassword"
               />
+              <ErrorMessage component={ErrorMsg} name="newPassword" />
               <Field
                 type="password"
                 placeholder="Confirm new password"
                 name="confirmNewPassword"
                 id="confirmNewPassword"
               />
+              <ErrorMessage component={ErrorMsg} name="confirmNewPassword" />
               <StyledButton type="submit">Change</StyledButton>
             </Form>
           </Formik>
