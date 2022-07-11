@@ -41,7 +41,6 @@ const Password = styled.div`
 
 const Row = styled.div`
   display: flex;
-  gap: 1rem;
 `;
 
 const Security = () => {
@@ -120,7 +119,9 @@ const Security = () => {
         <Divider />
       </Password>
       <Delete>
-        {openDeleteModal ? <DeleteModal /> : null}
+        {openDeleteModal ? (
+          <DeleteModal setOpenDeleteModal={setOpenDeleteModal} />
+        ) : null}
         <h3>Delete your account</h3>
         <p>
           By deleting your account, you'll no longer be able to access any of
