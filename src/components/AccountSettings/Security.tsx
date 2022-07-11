@@ -74,6 +74,7 @@ const Security = () => {
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [passwordSuccess, setPasswordSuccess] = useState(false);
   return (
     <Container>
       <h2>Account security</h2>
@@ -89,13 +90,16 @@ const Security = () => {
               );
               await reauthenticateWithCredential(ctx?.currentUser, credential);
               console.log("dobre haslo");
+              setError(false);
               setSetPassword(true);
               console.log(values.currentPassword);
               setLoading(false);
+              setPasswordSuccess(true);
             } catch {
               console.log("zle haslo");
               setError(true);
               setLoading(false);
+              setPasswordSuccess(false);
             }
           }}
         >
@@ -111,7 +115,7 @@ const Security = () => {
               {!setPassword && !loading ? (
                 <Button type="submit">Confirm</Button>
               ) : null}
-              {setPassword ? <CorrectIcon /> : null}
+              {passwordSuccess ? <CorrectIcon /> : null}
               {loading ? (
                 <LoaderContainer>
                   <Loader />
