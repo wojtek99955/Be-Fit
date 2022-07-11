@@ -62,8 +62,11 @@ const DeleteBtns = styled.div`
     }
   }
 `;
+interface Props {
+  setOpenDeleteModal: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-const DeleteModal = () => {
+const DeleteModal = ({ setOpenDeleteModal }: Props) => {
   const auth = getAuth();
   const ctx = useContext(AuthContext);
   const [showDeleteBtn, setShowDeleteBtn] = useState(false);
@@ -117,7 +120,13 @@ const DeleteModal = () => {
               >
                 DELETE
               </button>
-              <button>DISMISS</button>
+              <button
+                onClick={() => {
+                  setOpenDeleteModal(false);
+                }}
+              >
+                DISMISS
+              </button>
             </DeleteBtns>
           </>
         )}
