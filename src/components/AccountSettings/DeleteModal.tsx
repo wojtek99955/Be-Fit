@@ -7,6 +7,8 @@ import { AuthContext } from "../AuthContext";
 import { useContext, useState } from "react";
 import { deleteUser } from "firebase/auth";
 import { StyledField, Button } from "./AccountSettingsStyle";
+import { ErrorMsg } from "../Auth/AuthStyle";
+import Loader from "../../assets/Loader";
 
 const Container = styled.div`
   position: absolute;
@@ -62,6 +64,14 @@ const DeleteBtns = styled.div`
     }
   }
 `;
+
+const LoaderContainer = styled.span``;
+const FieldContainer = styled.div`
+  input {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+`;
 interface Props {
   setOpenDeleteModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -70,6 +80,8 @@ const DeleteModal = ({ setOpenDeleteModal }: Props) => {
   const auth = getAuth();
   const ctx = useContext(AuthContext);
   const [showDeleteBtn, setShowDeleteBtn] = useState(false);
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   return ReactDOM.createPortal(
     <Container>
@@ -81,6 +93,7 @@ const DeleteModal = ({ setOpenDeleteModal }: Props) => {
               initialValues={{ password: "" }}
               onSubmit={async (values) => {
                 try {
+                  setLoading(true);
                   let credential = EmailAuthProvider.credential(
                     auth?.currentUser?.email!,
                     values.password
@@ -91,18 +104,29 @@ const DeleteModal = ({ setOpenDeleteModal }: Props) => {
                   );
                   console.log("correct password");
                   setShowDeleteBtn(true);
+                  setLoading(false);
                 } catch {
                   console.log("incorrect password");
+                  setError(true);
+                  setLoading(false);
                 }
               }}
             >
               <Form>
-                <PasswordField
-                  type="password"
-                  name="password"
-                  id="password"
-                  placeholder="Your password"
-                />
+                <FieldContainer>
+                  <PasswordField
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="Your password"
+                  />
+                  {loading ? (
+                    <LoaderContainer>
+                      <Loader />
+                    </LoaderContainer>
+                  ) : null}
+                  {error ? <ErrorMsg>Incorrect password</ErrorMsg> : null}
+                </FieldContainer>
                 <Button type="submit">Confirm</Button>
               </Form>
             </Formik>
