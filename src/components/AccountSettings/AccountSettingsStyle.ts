@@ -71,7 +71,7 @@ interface BtnProps {
 }
 
 export const Button = styled.button<StyleProps>`
-  padding: 0.3rem 0.7rem;
+  padding: 0 1rem;
   border: none;
   border-radius: 5px;
   font-size: 1rem;
@@ -79,6 +79,7 @@ export const Button = styled.button<StyleProps>`
   color: ${({ save }) => (save ? "white" : "black")};
   cursor: pointer;
   height: 3rem;
+  margin-left: 1rem;
   &:hover {
     background-color: ${({ save }) => (save ? "#cf8300" : "#dde0e5")};
   }
