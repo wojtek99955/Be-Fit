@@ -49,6 +49,20 @@ const PasswordField = styled(StyledField)`
   margin-top: 3rem;
 `;
 
+const DeleteBtns = styled.div`
+  display: flex;
+  gap: 1rem;
+
+  button {
+    &:first-child {
+      border-radius: 5px;
+      background-color: transparent;
+      color: black;
+      border: 2px solid #e1605e;
+    }
+  }
+`;
+
 const DeleteModal = () => {
   const auth = getAuth();
   const ctx = useContext(AuthContext);
@@ -57,47 +71,54 @@ const DeleteModal = () => {
   return ReactDOM.createPortal(
     <Container>
       <Wrapper>
-        <h1>Type your username to delete account</h1>
         {!showDeleteBtn ? (
-          <Formik
-            initialValues={{ password: "" }}
-            onSubmit={async (values) => {
-              try {
-                let credential = EmailAuthProvider.credential(
-                  auth?.currentUser?.email!,
-                  values.password
-                );
-                await reauthenticateWithCredential(
-                  ctx?.currentUser,
-                  credential
-                );
-                console.log("correct password");
-                setShowDeleteBtn(true);
-              } catch {
-                console.log("incorrect password");
-              }
-            }}
-          >
-            <Form>
-              <PasswordField
-                type="password"
-                name="password"
-                id="password"
-                placeholder="Your password"
-              />
-              <Button type="submit">Confirm</Button>
-            </Form>
-          </Formik>
-        ) : (
           <>
-            <button
-              onClick={() => {
-                deleteUser(ctx?.currentUser).then(() => console.log("delete"));
+            <h1>Type your username to delete account</h1>
+            <Formik
+              initialValues={{ password: "" }}
+              onSubmit={async (values) => {
+                try {
+                  let credential = EmailAuthProvider.credential(
+                    auth?.currentUser?.email!,
+                    values.password
+                  );
+                  await reauthenticateWithCredential(
+                    ctx?.currentUser,
+                    credential
+                  );
+                  console.log("correct password");
+                  setShowDeleteBtn(true);
+                } catch {
+                  console.log("incorrect password");
+                }
               }}
             >
-              DELETE
-            </button>
-            <button>DISMISS</button>
+              <Form>
+                <PasswordField
+                  type="password"
+                  name="password"
+                  id="password"
+                  placeholder="Your password"
+                />
+                <Button type="submit">Confirm</Button>
+              </Form>
+            </Formik>
+          </>
+        ) : (
+          <>
+            <h1>Are you sure?</h1>
+            <DeleteBtns>
+              <button
+                onClick={() => {
+                  deleteUser(ctx?.currentUser).then(() =>
+                    console.log("delete")
+                  );
+                }}
+              >
+                DELETE
+              </button>
+              <button>DISMISS</button>
+            </DeleteBtns>
           </>
         )}
       </Wrapper>
