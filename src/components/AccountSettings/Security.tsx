@@ -1,4 +1,9 @@
-import { Container, Button, Divider } from "./AccountSettingsStyle";
+import {
+  Container,
+  Button,
+  Divider,
+  StyledField,
+} from "./AccountSettingsStyle";
 import styled from "styled-components";
 import { deleteUser } from "firebase/auth";
 import { AuthContext } from "../AuthContext";
@@ -14,7 +19,13 @@ const StyledButton = styled(Button)`
   color: white;
   margin: 1rem 0;
   width: 8rem;
+  height: 3rem;
 `;
+
+const PasswordField = styled(StyledField)`
+  width: auto;
+`;
+
 const Delete = styled.div``;
 const Password = styled.div`
   input {
@@ -22,7 +33,7 @@ const Password = styled.div`
     padding: 0.3rem;
     border: 1px solid #55595b;
     border-radius: 5px;
-    height: 2.5rem;
+    height: 3rem;
     display: block;
     margin-bottom: 1rem;
   }
@@ -67,7 +78,7 @@ const Security = () => {
           <Form>
             <h3>Change your password</h3>
             <Row>
-              <Field
+              <PasswordField
                 type="password"
                 placeholder="Current password"
                 name="currentPassword"

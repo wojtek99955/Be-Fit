@@ -71,14 +71,14 @@ interface BtnProps {
 }
 
 export const Button = styled.button<StyleProps>`
-  padding: 0.5rem 0.7rem;
+  padding: 0.3rem 0.7rem;
   border: none;
   border-radius: 5px;
   font-size: 1rem;
   background-color: ${({ save }) => (save ? "#ffa101" : "#F3F4F6")};
   color: ${({ save }) => (save ? "white" : "black")};
   cursor: pointer;
-  height: 2.5rem;
+  height: 3rem;
   &:hover {
     background-color: ${({ save }) => (save ? "#cf8300" : "#dde0e5")};
   }
@@ -106,7 +106,7 @@ export const StyledField = styled(Field)`
   padding: 0.3rem;
   border: 1px solid #55595b;
   border-radius: 5px;
-  height: 2.5rem;
+  height: 3rem;
   display: block;
   outline-color: #ffa101;
 `;
