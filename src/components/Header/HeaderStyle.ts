@@ -29,12 +29,12 @@ export const StyledHeader = styled.header<StyleProps>`
   padding: 1rem 0;
   height: 5.2rem;
   z-index: 5;
-  background-color: ${({ logged, location }) =>
+  box-shadow: ${({ logged, location }) =>
     (logged && location.pathname === "/") ||
     location.pathname === "/signup" ||
     location.pathname === "/signin"
       ? "transparent"
-      : "white"};
+      : "0 2px 4px -1px rgba(57, 76, 96, 0.15)"};
   border-bottom: ${({ logged, location }) =>
     (logged && location.pathname === "/") ||
     location.pathname === "/signup" ||
