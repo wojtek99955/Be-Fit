@@ -15,7 +15,7 @@ import { ImCheckmark } from "react-icons/im";
 import Loader from "../../assets/Loader";
 import { ErrorMsg } from "../Auth/AuthStyle";
 
-const StyledButton = styled(Button)`
+const DeleteButton = styled(Button)`
   background-color: #e1605e;
   color: white;
   margin: 1rem 0;
@@ -55,6 +55,13 @@ const CorrectIcon = styled(ImCheckmark)`
   margin-left: 1rem;
 `;
 const LoaderContainer = styled.span``;
+
+const StyledButton = styled(Button)`
+  width: 8rem;
+  height: 3rem;
+  margin-left: 0;
+  margin-bottom: 1rem;
+`;
 
 const Security = () => {
   const ctx = useContext(AuthContext);
@@ -139,7 +146,7 @@ const Security = () => {
                 name="confirmNewPassword"
                 id="confirmNewPassword"
               />
-              <Button type="submit">Change</Button>
+              <StyledButton type="submit">Change</StyledButton>
             </Form>
           </Formik>
         ) : null}
@@ -154,13 +161,13 @@ const Security = () => {
           By deleting your account, you'll no longer be able to access any of
           your data or log in to BeFit.
         </p>
-        <StyledButton
+        <DeleteButton
           onClick={() => {
             setOpenDeleteModal(true);
           }}
         >
           Delete
-        </StyledButton>
+        </DeleteButton>
         <Divider />
       </Delete>
     </Container>
