@@ -36,7 +36,7 @@ const SettingsSideBar = () => {
           <li>
             <StyledLink to="/settings/email">
               <EmailIcon />
-              Email preferences
+              Email <br /> preferences
             </StyledLink>
           </li>
         </ul>

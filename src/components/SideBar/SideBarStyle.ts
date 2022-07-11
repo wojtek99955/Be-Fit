@@ -11,7 +11,6 @@ interface ImgProps {
 
 export const Container = styled.aside`
   height: 100vh;
-  width: 250px;
   border-right: 1px solid #e1e4e7;
   position: relative;
   top: 5.2rem;
