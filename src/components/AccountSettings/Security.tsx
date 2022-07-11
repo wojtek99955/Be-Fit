@@ -5,12 +5,10 @@ import {
   StyledField,
 } from "./AccountSettingsStyle";
 import styled from "styled-components";
-import { deleteUser } from "firebase/auth";
 import { AuthContext } from "../AuthContext";
 import { useContext, useState } from "react";
 import { Formik, Form, Field } from "formik";
 import { getAuth, reauthenticateWithCredential } from "firebase/auth";
-import { auth } from "../../firebase";
 import { EmailAuthProvider, updatePassword } from "firebase/auth";
 import DeleteModal from "./DeleteModal";
 import { ImCheckmark } from "react-icons/im";
