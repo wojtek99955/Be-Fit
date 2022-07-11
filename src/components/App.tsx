@@ -11,6 +11,7 @@ import SideBar from "./SideBar/SideBar";
 import Calculators from "./Calculators";
 import BodyMeasurements from "./BodyMeasurement/BodyMeasurements";
 import AccountSettings from "./AccountSettings/AccountSettings";
+import SettingsSideBar from "./SettingsSideBar";
 
 interface AuthProps {
   children: JSX.Element;
@@ -68,7 +69,7 @@ function App() {
           element={
             <RequireAuth>
               <>
-                <SideBar />
+                <SettingsSideBar />
                 <AccountSettings />
               </>
             </RequireAuth>
