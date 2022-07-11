@@ -9,6 +9,7 @@ import { deleteUser } from "firebase/auth";
 import { StyledField, Button } from "./AccountSettingsStyle";
 import { ErrorMsg } from "../Auth/AuthStyle";
 import Loader from "../../assets/Loader";
+import { CgCloseO } from "react-icons/cg";
 
 const Container = styled.div`
   position: absolute;
@@ -24,11 +25,13 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   background-color: white;
-  padding: 1rem;
+  padding: 1.5rem;
   border-radius: 8px;
+  position: relative;
   h1 {
     max-width: 20rem;
     text-align: center;
+    margin-top: 1rem;
   }
   button {
     border: none;
@@ -72,6 +75,16 @@ const FieldContainer = styled.div`
     margin-bottom: 0.5rem;
   }
 `;
+
+const CloseIcon = styled(CgCloseO)`
+  font-size: 1.2rem;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  box-sizing: content-box;
+`;
 interface Props {
   setOpenDeleteModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -83,9 +96,14 @@ const DeleteModal = ({ setOpenDeleteModal }: Props) => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const handleCloseModal = () => {
+    setOpenDeleteModal(false);
+  };
+
   return ReactDOM.createPortal(
     <Container>
       <Wrapper>
+        <CloseIcon onClick={handleCloseModal} />
         {!showDeleteBtn ? (
           <>
             <h1>Type your username to delete account</h1>
@@ -144,13 +162,7 @@ const DeleteModal = ({ setOpenDeleteModal }: Props) => {
               >
                 DELETE
               </button>
-              <button
-                onClick={() => {
-                  setOpenDeleteModal(false);
-                }}
-              >
-                DISMISS
-              </button>
+              <button onClick={handleCloseModal}>DISMISS</button>
             </DeleteBtns>
           </>
         )}
