@@ -59,8 +59,9 @@ const DeleteBtns = styled.div`
   gap: 1rem;
 
   button {
+    border-radius: 5px;
+
     &:first-child {
-      border-radius: 5px;
       background-color: transparent;
       color: black;
       border: 2px solid #e1605e;
