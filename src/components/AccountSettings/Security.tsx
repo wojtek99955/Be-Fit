@@ -11,7 +11,7 @@ import { EmailAuthProvider, updatePassword } from "firebase/auth";
 const StyledButton = styled(Button)`
   background-color: #e1605e;
   color: white;
-  margin-top: 1rem;
+  margin: 1rem 0;
   width: 8rem;
 `;
 const Delete = styled.div``;
