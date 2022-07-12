@@ -11,11 +11,11 @@ import Modal from "../../Modal";
 
 const Container = styled.section`
   padding: 1rem;
-  width: 100%;
+  width: calc(100vw - 14rem);
   background-color: #f5f2f6;
-  height: calc(100vh - 5.2rem);
+  height: calc(100vh - 3.5rem);
   position: relative;
-  top: 5.2rem;
+  top: 3.5rem;
   overflow: scroll;
 `;
 const GridContainer = styled.div`
