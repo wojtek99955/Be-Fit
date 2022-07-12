@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { getAuth, reauthenticateWithCredential } from "firebase/auth";
 import { EmailAuthProvider, updatePassword } from "firebase/auth";
-import DeleteModal from "../DeleteModal";
+import DeleteModal from "../DeleteModal/DeleteModal";
 import Loader from "../../../assets/Loader";
 import { ErrorMsg } from "../../Auth/AuthStyle";
 import * as yup from "yup";

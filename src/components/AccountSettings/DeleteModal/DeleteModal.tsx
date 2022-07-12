@@ -1,92 +1,24 @@
 import ReactDOM from "react-dom";
-import styled from "styled-components";
 import { Formik, Form, ErrorMessage } from "formik";
 import { getAuth, reauthenticateWithCredential } from "firebase/auth";
 import { EmailAuthProvider } from "firebase/auth";
-import { AuthContext } from "../AuthContext";
+import { AuthContext } from "../../AuthContext";
 import { useContext, useState } from "react";
 import { deleteUser } from "firebase/auth";
-import { StyledField, Button } from "./AccountSettingsStyle";
-import { ErrorMsg } from "../Auth/AuthStyle";
-import Loader from "../../assets/Loader";
-import { CgCloseO } from "react-icons/cg";
+import { Button } from "../AccountSettingsStyle";
+import { ErrorMsg } from "../../Auth/AuthStyle";
+import Loader from "../../../assets/Loader";
 import * as yup from "yup";
+import {
+  Container,
+  Wrapper,
+  PasswordField,
+  DeleteBtns,
+  LoaderContainer,
+  FieldContainer,
+  CloseIcon,
+} from "./DeleteModalStyle";
 
-const Container = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 10;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Wrapper = styled.div`
-  background-color: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  position: relative;
-  h1 {
-    max-width: 20rem;
-    text-align: center;
-    margin-top: 1rem;
-  }
-  button {
-    border: none;
-    display: block;
-    background-color: green;
-    margin: auto;
-    padding: 1rem 2rem;
-    margin-top: 5rem;
-    color: white;
-    background-color: #ffa101;
-    cursor: pointer;
-    &:hover {
-      background-color: #cf8300;
-    }
-  }
-`;
-
-const PasswordField = styled(StyledField)`
-  margin: auto;
-  margin-top: 3rem;
-`;
-
-const DeleteBtns = styled.div`
-  display: flex;
-  gap: 1rem;
-
-  button {
-    border-radius: 5px;
-
-    &:first-child {
-      background-color: transparent;
-      color: black;
-      border: 2px solid #e1605e;
-    }
-  }
-`;
-
-const LoaderContainer = styled.span``;
-const FieldContainer = styled.div`
-  input {
-    width: 100%;
-    margin-bottom: 0.5rem;
-  }
-`;
-
-const CloseIcon = styled(CgCloseO)`
-  font-size: 1.2rem;
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  cursor: pointer;
-  padding: 0.5rem;
-  box-sizing: content-box;
-`;
 interface Props {
   setOpenDeleteModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
