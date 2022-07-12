@@ -112,6 +112,7 @@ const Security = () => {
     setIsChanging((prev) => !prev);
     if (isChanging === false) {
       setPasswordChanged(false);
+      setPasswordSuccess(false);
     }
   };
   return (
