@@ -1,7 +1,7 @@
 import { useEffect, useContext, useState } from "react";
 import {
   Container,
-  StyledLink,
+  StyledNavLink,
   HomeIcon,
   GoalIcon,
   CalculatorIcon,
@@ -47,28 +47,28 @@ const SideBar = () => {
       <nav>
         <ul>
           <li>
-            <StyledLink to="/home">
+            <StyledNavLink to="/home">
               <HomeIcon />
               Home page
-            </StyledLink>
+            </StyledNavLink>
           </li>
           <li>
-            <StyledLink to="/">
+            <StyledNavLink to="/">
               <GoalIcon />
               Your goals
-            </StyledLink>
+            </StyledNavLink>
           </li>
           <li>
-            <StyledLink to="/calculators">
+            <StyledNavLink to="/calculators">
               <CalculatorIcon />
               Calculators
-            </StyledLink>
+            </StyledNavLink>
           </li>
           <li>
-            <StyledLink to="/">
+            <StyledNavLink to="/">
               <FoodCalories />
               Check calories
-            </StyledLink>
+            </StyledNavLink>
           </li>
         </ul>
       </nav>

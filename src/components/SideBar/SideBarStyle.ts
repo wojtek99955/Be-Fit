@@ -3,7 +3,7 @@ import { BiHomeAlt } from "react-icons/bi";
 import { RiMedalLine } from "react-icons/ri";
 import { BiCalculator } from "react-icons/bi";
 import { MdOutlineFastfood } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 interface ImgProps {
   url: string;
@@ -26,12 +26,15 @@ export const Container = styled.aside`
     &:first-of-type {
       font-weight: 600;
     }
-    &:hover {
-      background-color: #e4e7e8;
-    }
   }
 `;
-export const StyledLink = styled(Link)`
+export const StyledNavLink = styled(NavLink)`
+  &:hover {
+    background-color: #f0f2f2;
+  }
+  &.active {
+    background-color: #e4e7e8;
+  }
   text-decoration: none;
   color: black;
   font-size: 0.9rem;
@@ -39,6 +42,8 @@ export const StyledLink = styled(Link)`
   align-items: center;
   gap: 0.5rem;
   padding: 0.8rem 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
 `;
 export const HomeIcon = styled(BiHomeAlt)`
   font-size: 1.3rem;
