@@ -20,8 +20,14 @@ const SideBarUserData = () => {
         {data.avatarImg ? null : data?.name?.toUpperCase().slice(0, 1)}
       </StyledUserIcon>
       <UserData>
-        <strong>{data.name}</strong>
-        <span>{data.email}</span>
+        <strong>
+          {data?.name?.length > 16 ? `${data.name.slice(0, 17)}...` : data.name}
+        </strong>
+        <span>
+          {data?.email?.length > 16
+            ? `${data.email.slice(0, 17)}...`
+            : data.email}
+        </span>
       </UserData>
     </User>
   );
