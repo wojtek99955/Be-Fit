@@ -33,7 +33,6 @@ const Home = () => {
     const snap = await getDoc(doc(db, "users", `${uid}/body-details/details`));
 
     if (snap.exists()) {
-      console.log(snap.data());
       setData(snap.data());
     } else {
       console.log("No such document");

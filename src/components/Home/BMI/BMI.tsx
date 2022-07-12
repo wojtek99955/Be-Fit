@@ -23,7 +23,6 @@ const BMI = () => {
     const snap = await getDoc(doc(db, "users", `${uid}/body-details/details`));
 
     if (snap.exists()) {
-      console.log(snap.data());
       setData(snap.data());
       setLoading(false);
     } else {
