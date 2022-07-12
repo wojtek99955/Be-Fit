@@ -110,6 +110,9 @@ const Security = () => {
 
   const handleEditPassword = () => {
     setIsChanging((prev) => !prev);
+    if (isChanging === false) {
+      setPasswordChanged(false);
+    }
   };
   return (
     <Container>
