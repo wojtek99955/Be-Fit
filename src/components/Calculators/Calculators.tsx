@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { BiBody } from "react-icons/bi";
 import { GiWeightLiftingUp } from "react-icons/gi";
 
-const Container = styled.section`
+export const Container = styled.section`
   max-width: 900px;
   margin: auto;
   margin-top: 6rem;
@@ -63,7 +63,11 @@ const Calculators = () => {
   let navigation = useNavigate();
   return (
     <Container>
-      <BodyCalculators>
+      <BodyCalculators
+        onClick={() => {
+          navigation("/calculators/body-calculators");
+        }}
+      >
         <CalculatorsContainer>
           <div>
             <BodyIcon />
