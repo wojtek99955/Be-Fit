@@ -8,6 +8,12 @@ export const DeleteButton = styled(Button)`
   margin: 1rem 0;
   width: 8rem;
   height: 3rem;
+  &:hover {
+    background-color: #e88886;
+  }
+  &:active {
+    background-color: #d83330;
+  }
 `;
 
 export const PasswordField = styled(StyledField)`
