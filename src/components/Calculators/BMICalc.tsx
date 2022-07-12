@@ -60,6 +60,12 @@ const initialValues = {
   weight: "",
 };
 
+const Result = styled.div`
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+`;
+
 const BMICalc = () => {
   const [bmi, setBmi] = useState<any | object>(null);
 
@@ -97,7 +103,7 @@ const BMICalc = () => {
           </Form>
         </Formik>
       </Wrapper>
-      {bmi ? <span>BMI : {bmi}</span> : null}
+      {bmi ? <Result>Your BMI : {bmi.toFixed(1)}</Result> : null}
     </Container>
   );
 };
