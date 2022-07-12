@@ -52,7 +52,10 @@ function App() {
           path="/calculators"
           element={
             <RequireAuth>
-              <Calculators />
+              <>
+                <SideBar />
+                <Calculators />
+              </>
             </RequireAuth>
           }
         />
