@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom";
 import styled from "styled-components";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import { getAuth, reauthenticateWithCredential } from "firebase/auth";
 import { EmailAuthProvider } from "firebase/auth";
 import { AuthContext } from "../AuthContext";
@@ -10,6 +10,7 @@ import { StyledField, Button } from "./AccountSettingsStyle";
 import { ErrorMsg } from "../Auth/AuthStyle";
 import Loader from "../../assets/Loader";
 import { CgCloseO } from "react-icons/cg";
+import * as yup from "yup";
 
 const Container = styled.div`
   position: absolute;
@@ -90,6 +91,10 @@ interface Props {
   setOpenDeleteModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+const validationSchema = yup.object().shape({
+  password: yup.string().min(6, "minimum 6 characters").required("required"),
+});
+
 const DeleteModal = ({ setOpenDeleteModal }: Props) => {
   const auth = getAuth();
   const ctx = useContext(AuthContext);
@@ -110,6 +115,7 @@ const DeleteModal = ({ setOpenDeleteModal }: Props) => {
             <h1>Type your username to delete account</h1>
             <Formik
               initialValues={{ password: "" }}
+              validationSchema={validationSchema}
               onSubmit={async (values) => {
                 try {
                   setLoading(true);
@@ -144,6 +150,7 @@ const DeleteModal = ({ setOpenDeleteModal }: Props) => {
                       <Loader />
                     </LoaderContainer>
                   ) : null}
+                  <ErrorMessage component={ErrorMsg} name="password" />
                   {error ? <ErrorMsg>Incorrect password</ErrorMsg> : null}
                 </FieldContainer>
                 <Button type="submit">Confirm</Button>
