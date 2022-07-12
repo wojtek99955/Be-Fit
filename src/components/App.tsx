@@ -18,6 +18,7 @@ import Security from "./AccountSettings/Security/Security";
 import BodyCalculators from "./Calculators/BodyCalculators";
 import CalculatorsLayout from "./Calculators/CalculatorsLayout";
 import BMICalc from "./Calculators/BMICalc";
+import IdealWeight from "./Calculators/IdealWeight";
 
 interface AuthProps {
   children: JSX.Element;
@@ -66,6 +67,7 @@ function App() {
           <Route path="body-calculators" element={<CalculatorsLayout />}>
             <Route index element={<BodyCalculators />} />
             <Route path="bmi" element={<BMICalc />} />
+            <Route path="ideal-weight" element={<IdealWeight />} />
           </Route>
         </Route>
 

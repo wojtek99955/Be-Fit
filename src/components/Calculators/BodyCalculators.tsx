@@ -62,7 +62,11 @@ const BodyCalculators = () => {
           <h1>BMI</h1>
         </div>
       </CalculatorsContainer>
-      <CalculatorsContainer>
+      <CalculatorsContainer
+        onClick={() => {
+          navigation("/calculators/body-calculators/ideal-weight");
+        }}
+      >
         <div>
           <IdealWeightIcon />
           <h1>Ideal weight</h1>
