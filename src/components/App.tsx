@@ -14,7 +14,7 @@ import AccountSettings from "./AccountSettings/AccountSettings";
 import SettingsSideBar from "./AccountSettings/SettingsSideBar";
 import YourAccount from "./AccountSettings/YourAccount";
 import Email from "./AccountSettings/Email";
-import Security from "./AccountSettings/Security";
+import Security from "./AccountSettings/Security/Security";
 
 interface AuthProps {
   children: JSX.Element;

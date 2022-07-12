@@ -1,82 +1,25 @@
-import {
-  Container,
-  Button,
-  Divider,
-  StyledField,
-} from "./AccountSettingsStyle";
-import styled from "styled-components";
-import { AuthContext } from "../AuthContext";
+import { Container, Button, Divider } from "../AccountSettingsStyle";
+import { AuthContext } from "../../AuthContext";
 import { useContext, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { getAuth, reauthenticateWithCredential } from "firebase/auth";
 import { EmailAuthProvider, updatePassword } from "firebase/auth";
-import DeleteModal from "./DeleteModal";
-import { ImCheckmark } from "react-icons/im";
-import Loader from "../../assets/Loader";
-import { ErrorMsg } from "../Auth/AuthStyle";
+import DeleteModal from "../DeleteModal";
+import Loader from "../../../assets/Loader";
+import { ErrorMsg } from "../../Auth/AuthStyle";
 import * as yup from "yup";
-
-const DeleteButton = styled(Button)`
-  background-color: #e1605e;
-  color: white;
-  margin: 1rem 0;
-  width: 8rem;
-  height: 3rem;
-`;
-
-const PasswordField = styled(StyledField)`
-  width: auto;
-`;
-
-const Delete = styled.div``;
-const Password = styled.div`
-  p {
-    margin-bottom: 1rem;
-  }
-  input {
-    font-size: 1rem;
-    padding: 0.3rem;
-    border: 1px solid #55595b;
-    border-radius: 5px;
-    height: 3rem;
-    display: block;
-    margin-bottom: 1rem;
-  }
-`;
-
-const Row = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
-  input {
-    margin-bottom: 0;
-  }
-`;
-
-const CorrectIcon = styled(ImCheckmark)`
-  font-size: 1.5rem;
-  color: green;
-  margin-left: 1rem;
-`;
-const LoaderContainer = styled.span``;
-
-const StyledButton = styled(Button)`
-  width: 8rem;
-  height: 3rem;
-  margin-left: 0;
-  margin-bottom: 1rem;
-`;
-
-const Title = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const EditPasswordBtn = styled(Button)`
-  padding: 0;
-  height: 2rem;
-  padding: 0 1rem;
-`;
+import {
+  DeleteButton,
+  PasswordField,
+  Delete,
+  Password,
+  Row,
+  CorrectIcon,
+  LoaderContainer,
+  StyledButton,
+  Title,
+  EditPasswordBtn,
+} from "./SecurityStyle";
 
 const validationCurrentPassword = yup.object().shape({
   currentPassword: yup
