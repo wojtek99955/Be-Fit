@@ -26,9 +26,10 @@ export const HeaderContainer = styled.div`
 export const StyledHeader = styled.header<StyleProps>`
   position: fixed;
   width: 100%;
-  padding: 1rem 0;
-  height: 5.2rem;
+  padding: 0rem 0;
+  height: 3.5rem;
   z-index: 5;
+  align-items: center;
   box-shadow: ${({ logged, location }) =>
     (logged && location.pathname === "/") ||
     location.pathname === "/signup" ||
