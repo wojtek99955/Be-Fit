@@ -135,7 +135,9 @@ const Header = () => {
                       <Divider />
                       <ul>
                         <li>
-                          <StyledLink to="/profile">Profile</StyledLink>
+                          <StyledLink to="/settings/account">
+                            Profile
+                          </StyledLink>
                         </li>
                         <li>
                           <StyledLink to="/my-body">My body</StyledLink>
