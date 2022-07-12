@@ -15,6 +15,8 @@ import SettingsSideBar from "./AccountSettings/SettingsSideBar";
 import YourAccount from "./AccountSettings/YourAccount";
 import Email from "./AccountSettings/Email";
 import Security from "./AccountSettings/Security/Security";
+import BodyCalculators from "./Calculators/BodyCalculators";
+import CalculatorsLayout from "./Calculators/CalculatorsLayout";
 
 interface AuthProps {
   children: JSX.Element;
@@ -49,16 +51,20 @@ function App() {
           }
         />
         <Route
-          path="/calculators"
+          path="calculators"
           element={
             <RequireAuth>
               <>
                 <SideBar />
-                <Calculators />
+                <CalculatorsLayout />
               </>
             </RequireAuth>
           }
-        />
+        >
+          <Route index element={<Calculators />} />
+          <Route path="body-calculators" element={<BodyCalculators />} />
+        </Route>
+
         <Route
           path="/my-body"
           element={
