@@ -69,6 +69,13 @@ const StyledButton = styled(Button)`
 
 const Title = styled.div`
   display: flex;
+  align-items: center;
+`;
+
+const EditPasswordBtn = styled(Button)`
+  padding: 0;
+  height: 2rem;
+  padding: 0 1rem;
 `;
 
 const validationCurrentPassword = yup.object().shape({
@@ -111,11 +118,11 @@ const Security = () => {
         <Password>
           <Title>
             <h3>Change your password</h3>
-            <Button onClick={handleEditPassword}>Edit</Button>
+            <EditPasswordBtn onClick={handleEditPassword}>Edit</EditPasswordBtn>
           </Title>
           <p>
             You have to confirm your current password to be able to set a new
-            password
+            password.
           </p>
           {isChanging ? (
             <Formik
