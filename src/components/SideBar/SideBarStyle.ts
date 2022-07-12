@@ -13,9 +13,10 @@ export const Container = styled.aside`
   height: 100vh;
   border-right: 1px solid #e1e4e7;
   position: relative;
-  top: 5.2rem;
-  height: calc(100vh - 5.2rem);
+  top: 3.5rem;
+  height: calc(100vh - 3.5rem);
   padding: 0.8rem;
+  width: 14rem;
   ul {
     list-style-type: none;
   }
