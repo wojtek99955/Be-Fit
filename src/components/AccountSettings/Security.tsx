@@ -91,92 +91,109 @@ const Security = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [passwordSuccess, setPasswordSuccess] = useState(false);
+  const [isChanging, setIsChanging] = useState(false);
+  const [passwordChanged, setPasswordChanged] = useState(false);
+
+  const handleEditPassword = () => {
+    setIsChanging((prev) => !prev);
+  };
   return (
     <Container>
       <h2>Account security</h2>
-      <Password>
-        <h3>Change your password</h3>
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationCurrentPassword}
-          onSubmit={async (values) => {
-            try {
-              setLoading(true);
-              let credential = EmailAuthProvider.credential(
-                auth?.currentUser?.email!,
-                values.currentPassword
-              );
-              await reauthenticateWithCredential(ctx?.currentUser, credential);
-              console.log("dobre haslo");
-              setError(false);
-              setSetPassword(true);
-              console.log(values.currentPassword);
-              setLoading(false);
-              setPasswordSuccess(true);
-            } catch {
-              console.log("zle haslo");
-              setError(true);
-              setLoading(false);
-              setPasswordSuccess(false);
-            }
-          }}
-        >
-          <Form>
-            <Row>
-              <PasswordField
-                type="password"
-                placeholder="Current password"
-                name="currentPassword"
-                id="currentPassword"
-              />
-              {!setPassword && !loading ? (
-                <Button type="submit">Confirm</Button>
-              ) : null}
-              {passwordSuccess ? <CorrectIcon /> : null}
-              {loading ? (
-                <LoaderContainer>
-                  <Loader />
-                </LoaderContainer>
-              ) : null}
-            </Row>
-            <ErrorMessage component={ErrorMsg} name="currentPassword" />
-            {error ? <ErrorMsg>Invalid password</ErrorMsg> : null}
-          </Form>
-        </Formik>
-        {setPassword ? (
-          <Formik
-            initialValues={{ newPassword: "", confirmNewPassword: "" }}
-            validationSchema={validationNewPassword}
-            onSubmit={async (values) => {
-              try {
-                await updatePassword(ctx?.currentUser, values.newPassword);
-                console.log("udana zmiana hasla");
-              } catch {
-                console.log("nieudana zmiana hasla");
-              }
-            }}
-          >
-            <Form>
-              <Field
-                type="password"
-                placeholder="New password"
-                name="newPassword"
-                id="newPassword"
-              />
-              <ErrorMessage component={ErrorMsg} name="newPassword" />
-              <Field
-                type="password"
-                placeholder="Confirm new password"
-                name="confirmNewPassword"
-                id="confirmNewPassword"
-              />
-              <ErrorMessage component={ErrorMsg} name="confirmNewPassword" />
-              <StyledButton type="submit">Change</StyledButton>
-            </Form>
-          </Formik>
-        ) : null}
-        <Divider />
-      </Password>
+      {setIsChanging ? (
+        <Password>
+          <h3>Change your password</h3>
+          <Button onClick={handleEditPassword}>Edit</Button>
+          {isChanging ? (
+            <Formik
+              initialValues={initialValues}
+              validationSchema={validationCurrentPassword}
+              onSubmit={async (values) => {
+                try {
+                  setLoading(true);
+                  let credential = EmailAuthProvider.credential(
+                    auth?.currentUser?.email!,
+                    values.currentPassword
+                  );
+                  await reauthenticateWithCredential(
+                    ctx?.currentUser,
+                    credential
+                  );
+                  console.log("dobre haslo");
+                  setError(false);
+                  setSetPassword(true);
+                  console.log(values.currentPassword);
+                  setLoading(false);
+                  setPasswordSuccess(true);
+                } catch {
+                  console.log("zle haslo");
+                  setError(true);
+                  setLoading(false);
+                  setPasswordSuccess(false);
+                }
+              }}
+            >
+              <Form>
+                <Row>
+                  <PasswordField
+                    type="password"
+                    placeholder="Current password"
+                    name="currentPassword"
+                    id="currentPassword"
+                  />
+                  {!setPassword && !loading ? (
+                    <Button type="submit">Confirm</Button>
+                  ) : null}
+                  {passwordSuccess ? <CorrectIcon /> : null}
+                  {loading ? (
+                    <LoaderContainer>
+                      <Loader />
+                    </LoaderContainer>
+                  ) : null}
+                </Row>
+                <ErrorMessage component={ErrorMsg} name="currentPassword" />
+                {error ? <ErrorMsg>Invalid password</ErrorMsg> : null}
+              </Form>
+            </Formik>
+          ) : null}
+          {setPassword && isChanging ? (
+            <Formik
+              initialValues={{ newPassword: "", confirmNewPassword: "" }}
+              validationSchema={validationNewPassword}
+              onSubmit={async (values) => {
+                try {
+                  await updatePassword(ctx?.currentUser, values.newPassword);
+                  console.log("udana zmiana hasla");
+                  setIsChanging(false);
+                  setPasswordChanged(true);
+                } catch {
+                  console.log("nieudana zmiana hasla");
+                }
+              }}
+            >
+              <Form>
+                <Field
+                  type="password"
+                  placeholder="New password"
+                  name="newPassword"
+                  id="newPassword"
+                />
+                <ErrorMessage component={ErrorMsg} name="newPassword" />
+                <Field
+                  type="password"
+                  placeholder="Confirm new password"
+                  name="confirmNewPassword"
+                  id="confirmNewPassword"
+                />
+                <ErrorMessage component={ErrorMsg} name="confirmNewPassword" />
+                <StyledButton type="submit">Change</StyledButton>
+              </Form>
+            </Formik>
+          ) : null}
+        </Password>
+      ) : null}
+      {passwordChanged ? <h1>Password changed!</h1> : null}
+      <Divider />
       <Delete>
         {openDeleteModal ? (
           <DeleteModal setOpenDeleteModal={setOpenDeleteModal} />
