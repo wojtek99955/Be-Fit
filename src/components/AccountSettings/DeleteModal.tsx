@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom";
 import styled from "styled-components";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, ErrorMessage } from "formik";
 import { getAuth, reauthenticateWithCredential } from "firebase/auth";
 import { EmailAuthProvider } from "firebase/auth";
 import { AuthContext } from "../AuthContext";
