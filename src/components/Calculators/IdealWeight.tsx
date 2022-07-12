@@ -66,7 +66,7 @@ const IdealWeight = () => {
   return (
     <Container>
       <Wrapper>
-        <h2>BMI Calculator</h2>
+        <h2>Ideal weight calculator</h2>
         <Formik
           initialValues={initialValues}
           onSubmit={async (values) => {
