@@ -17,6 +17,7 @@ import Email from "./AccountSettings/Email";
 import Security from "./AccountSettings/Security/Security";
 import BodyCalculators from "./Calculators/BodyCalculators";
 import CalculatorsLayout from "./Calculators/CalculatorsLayout";
+import BMICalc from "./Calculators/BMICalc";
 
 interface AuthProps {
   children: JSX.Element;
@@ -62,7 +63,10 @@ function App() {
           }
         >
           <Route index element={<Calculators />} />
-          <Route path="body-calculators" element={<BodyCalculators />} />
+          <Route path="body-calculators" element={<CalculatorsLayout />}>
+            <Route index element={<BodyCalculators />} />
+            <Route path="bmi" element={<BMICalc />} />
+          </Route>
         </Route>
 
         <Route
