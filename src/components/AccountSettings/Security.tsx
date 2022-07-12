@@ -30,6 +30,9 @@ const PasswordField = styled(StyledField)`
 
 const Delete = styled.div``;
 const Password = styled.div`
+  p {
+    margin-bottom: 1rem;
+  }
   input {
     font-size: 1rem;
     padding: 0.3rem;
@@ -62,6 +65,10 @@ const StyledButton = styled(Button)`
   height: 3rem;
   margin-left: 0;
   margin-bottom: 1rem;
+`;
+
+const Title = styled.div`
+  display: flex;
 `;
 
 const validationCurrentPassword = yup.object().shape({
@@ -102,8 +109,14 @@ const Security = () => {
       <h2>Account security</h2>
       {setIsChanging ? (
         <Password>
-          <h3>Change your password</h3>
-          <Button onClick={handleEditPassword}>Edit</Button>
+          <Title>
+            <h3>Change your password</h3>
+            <Button onClick={handleEditPassword}>Edit</Button>
+          </Title>
+          <p>
+            You have to confirm your current password to be able to set a new
+            password
+          </p>
           {isChanging ? (
             <Formik
               initialValues={initialValues}
