@@ -2,6 +2,7 @@ import { Container } from "./Calculators";
 import styled from "styled-components";
 import { MdOutlineMonitorWeight } from "react-icons/md";
 import { GiWeightLiftingUp } from "react-icons/gi";
+import { useNavigate } from "react-router-dom";
 
 const WeightIcon = styled(MdOutlineMonitorWeight)`
   font-size: 2.5rem;
@@ -47,9 +48,14 @@ const CalculatorsContainer = styled.div`
 `;
 
 const BodyCalculators = () => {
+  let navigation = useNavigate();
   return (
     <Container>
-      <CalculatorsContainer>
+      <CalculatorsContainer
+        onClick={() => {
+          navigation("/calculators/body-calculators/bmi");
+        }}
+      >
         <div>
           <WeightIcon />
 
