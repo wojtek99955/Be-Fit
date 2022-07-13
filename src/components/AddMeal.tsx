@@ -71,16 +71,35 @@ const Nutrients = styled.div`
 const Box = styled.div`
   background-color: #f3f4f6;
   border-radius: 12px;
-`;
-
-const Row = styled.div`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 6rem 6rem;
+  gap: 1rem;
+  padding: 1rem;
 
   div {
-    padding: 1rem;
-    width: 6rem;
     text-align: center;
+    color: white;
+    border-radius: 12px;
+    padding: 0.3rem 0;
+
+    &:first-of-type {
+      background-color: #6db26b;
+    }
+    &:nth-of-type(2) {
+      background-color: #777777;
+    }
+    &:nth-of-type(3) {
+      background-color: #ffa101;
+    }
+    &:nth-of-type(4) {
+      background-color: #e1605e;
+    }
+    &:nth-of-type(5) {
+      background-color: #31525b;
+    }
+    &:nth-of-type(6) {
+      background-color: #4d904b;
+    }
   }
 `;
 
@@ -120,49 +139,37 @@ const AddMeal = () => {
       </MainImg>
       <Nutrients>
         <Box>
-          <Row>
-            <div>
-              Calories <br />
-              {query.ENERC_KCAL}
-            </div>
-            <div>
-              Weight <br />
-              100 g
-            </div>
-          </Row>
-          <Row>
-            <div>
-              Carbo <br /> {query.CHOCDF} g
-            </div>
-            <div>
-              Fat <br />
-              {query.FAT} g
-            </div>
-          </Row>
-          <Row>
-            <div>
-              Fiber <br />
-              {query.FIBTG}
-            </div>
-            <div>
-              Protein <br />
-              {query.PROCNT}
-            </div>
-          </Row>
+          <div>
+            Calories <br />
+            {query?.ENERC_KCAL}
+          </div>
+          <div>
+            Weight <br />
+            100 g
+          </div>
+          <div>
+            Carbo <br /> {query?.CHOCDF} g
+          </div>
+          <div>
+            Fat <br />
+            {query?.FAT} g
+          </div>
+          <div>
+            Fiber <br />
+            {query?.FIBTG} g
+          </div>
+          <div>
+            Protein <br />
+            {query?.PROCNT} g
+          </div>
         </Box>
         <Box>
-          <Row>
-            <div>Calories</div>
-            <div>Weight</div>
-          </Row>
-          <Row>
-            <div>Carbo</div>
-            <div>Fat</div>
-          </Row>
-          <Row>
-            <div>Fiber</div>
-            <div>Protein</div>
-          </Row>
+          <div>Calories</div>
+          <div>Weight</div>
+          <div>Carbo</div>
+          <div>Fat</div>
+          <div>Fiber</div>
+          <div>Protein</div>
         </Box>
       </Nutrients>
       <h1>{query?.ENERC_KCAL} g</h1>
