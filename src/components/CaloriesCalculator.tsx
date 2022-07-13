@@ -113,7 +113,7 @@ const Box = styled.div`
   }
 `;
 
-const AddMeal = () => {
+const CaloriesCalculator = () => {
   const [query, setQuery] = useState<any>(null);
 
   const capitalize = (s: string) => {
@@ -192,4 +192,4 @@ const AddMeal = () => {
   );
 };
 
-export default AddMeal;
+export default CaloriesCalculator;
