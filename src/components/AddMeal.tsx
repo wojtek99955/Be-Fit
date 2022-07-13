@@ -148,7 +148,7 @@ const AddMeal = () => {
           </Formik>
         </ContentWrapper>
       </MainImg>
-      <h2>{capitalize(query?.name)}</h2>
+      <h2>{query ? capitalize(query?.name) : null}</h2>
       <Nutrients>
         <Box>
           <div>
