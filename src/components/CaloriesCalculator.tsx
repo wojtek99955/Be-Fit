@@ -60,6 +60,10 @@ const SearchBar = styled.div`
     border-radius: 8px;
     padding: 0 1rem;
     color: white;
+    cursor: pointer;
+    &:hover {
+      background-color: #cf8300;
+    }
   }
 `;
 
