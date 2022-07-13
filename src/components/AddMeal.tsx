@@ -11,6 +11,7 @@ const Container = styled.div`
   h2 {
     margin: 3rem 0;
     text-align: center;
+    font-size: 2rem;
   }
 `;
 
@@ -110,6 +111,7 @@ const Box = styled.div`
 
 const AddMeal = () => {
   const [query, setQuery] = useState<any>(null);
+
   const capitalize = (s: string) => {
     return s.charAt(0).toUpperCase() + s.slice(1);
   };
@@ -185,7 +187,6 @@ const AddMeal = () => {
           <div>Protein</div>
         </Box>
       </Nutrients>
-      <h1>{query?.ENERC_KCAL} g</h1>
     </Container>
   );
 };
