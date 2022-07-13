@@ -22,7 +22,7 @@ const Container = styled.div`
 
 const MainImg = styled.div`
   width: 100%;
-  height: 20rem;
+  height: 16rem;
   background: rgba(0, 0, 0, 0.3) url(${img});
   background-blend-mode: darken;
   background-size: cover;
