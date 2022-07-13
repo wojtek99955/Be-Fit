@@ -19,8 +19,46 @@ const MainImg = styled.div`
   background-position: center;
   border-radius: 8px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: white;
+    text-align: center;
+  }
+`;
+
+const SearchBar = styled.div`
+  display: flex;
+  margin: auto;
+  gap: 0.5rem;
+  input {
+    outline: none;
+    border: none;
+    padding: 0.2rem 0.5rem;
+    width: 100%;
+    height: 2.5rem;
+    display: block;
+    border-radius: 8px;
+    width: 25rem;
+  }
+  button {
+    background-color: #ffa101;
+    border: none;
+    border-radius: 8px;
+    padding: 0 1rem;
+    color: white;
+  }
+`;
+
+const ContentWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 `;
 
 const AddMeal = () => {
@@ -28,29 +66,34 @@ const AddMeal = () => {
   return (
     <Container>
       <MainImg>
-        <Formik
-          initialValues={{ query: "" }}
-          onSubmit={async (values) => {
-            try {
-              setQuery(null);
-              const res = await fetch(
-                `https://api.edamam.com/api/food-database/v2/parser?app_id=fb99b9e2&app_key=%206c42b17c647c09805fc4c5365572b9d9&ingr=${values.query}`
-              );
-              const data = await res.json();
-              await setQuery(data.hints[0].food.nutrients);
-              await console.log(query);
-              console.log(query);
-            } catch {
-              console.log("error fetch");
-            }
-            console.log(values.query);
-          }}
-        >
-          <Form>
-            <Field type="text" name="query" />
-            <button type="submit">Search</button>
-          </Form>
-        </Formik>
+        <h1>Add your meal</h1>
+        <ContentWrapper>
+          <Formik
+            initialValues={{ query: "" }}
+            onSubmit={async (values) => {
+              try {
+                setQuery(null);
+                const res = await fetch(
+                  `https://api.edamam.com/api/food-database/v2/parser?app_id=fb99b9e2&app_key=%206c42b17c647c09805fc4c5365572b9d9&ingr=${values.query}`
+                );
+                const data = await res.json();
+                await setQuery(data.hints[0].food.nutrients);
+                await console.log(query);
+                console.log(query);
+              } catch {
+                console.log("error fetch");
+              }
+              console.log(values.query);
+            }}
+          >
+            <Form>
+              <SearchBar>
+                <Field type="text" name="query" />
+                <button type="submit">Search</button>
+              </SearchBar>
+            </Form>
+          </Formik>
+        </ContentWrapper>
       </MainImg>
       Add meal
       <h1>{query?.ENERC_KCAL}</h1>
