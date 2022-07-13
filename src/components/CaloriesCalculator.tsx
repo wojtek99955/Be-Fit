@@ -155,21 +155,23 @@ const CaloriesCalculator = () => {
           <Formik
             initialValues={{ query: "" }}
             onSubmit={async (values) => {
-              try {
-                setLoading(true);
-                setQuery(null);
-                setShowBoxes(true);
-                const res = await fetch(
-                  `https://api.edamam.com/api/food-database/v2/parser?app_id=fb99b9e2&app_key=%206c42b17c647c09805fc4c5365572b9d9&ingr=${values.query}`
-                );
-                const data = await res.json();
-                await setQuery({
-                  details: data.hints[0].food.nutrients,
-                  name: data.text,
-                });
-                setLoading(false);
-              } catch {
-                console.log("error fetch");
+              if (values.query !== "") {
+                try {
+                  setLoading(true);
+                  setQuery(null);
+                  setShowBoxes(true);
+                  const res = await fetch(
+                    `https://api.edamam.com/api/food-database/v2/parser?app_id=fb99b9e2&app_key=%206c42b17c647c09805fc4c5365572b9d9&ingr=${values.query}`
+                  );
+                  const data = await res.json();
+                  await setQuery({
+                    details: data.hints[0].food.nutrients,
+                    name: data.text,
+                  });
+                  setLoading(false);
+                } catch {
+                  console.log("error fetch");
+                }
               }
             }}
           >
