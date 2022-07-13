@@ -110,6 +110,10 @@ const Box = styled.div`
 
 const AddMeal = () => {
   const [query, setQuery] = useState<any>(null);
+  const capitalize = (s: string) => {
+    return s.charAt(0).toUpperCase() + s.slice(1);
+  };
+
   return (
     <Container>
       <MainImg>
@@ -145,7 +149,7 @@ const AddMeal = () => {
           </Formik>
         </ContentWrapper>
       </MainImg>
-      <h2>{query?.name}</h2>
+      <h2>{capitalize(query?.name)}</h2>
       <Nutrients>
         <Box>
           <div>
