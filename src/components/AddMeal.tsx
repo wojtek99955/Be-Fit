@@ -65,6 +65,7 @@ const Nutrients = styled.div`
   display: flex;
   max-width: 800px;
   justify-content: space-between;
+  margin-top: 5rem;
 `;
 
 const Box = styled.div`
@@ -78,6 +79,8 @@ const Row = styled.div`
 
   div {
     padding: 1rem;
+    width: 6rem;
+    text-align: center;
   }
 `;
 
@@ -118,16 +121,33 @@ const AddMeal = () => {
       <Nutrients>
         <Box>
           <Row>
-            <div>Calories</div>
-            <div>Weight</div>
+            <div>
+              Calories <br />
+              {query.ENERC_KCAL}
+            </div>
+            <div>
+              Weight <br />
+              100 g
+            </div>
           </Row>
           <Row>
-            <div>Carbo</div>
-            <div>Fat</div>
+            <div>
+              Carbo <br /> {query.CHOCDF} g
+            </div>
+            <div>
+              Fat <br />
+              {query.FAT} g
+            </div>
           </Row>
           <Row>
-            <div>Fiber</div>
-            <div>Protein</div>
+            <div>
+              Fiber <br />
+              {query.FIBTG}
+            </div>
+            <div>
+              Protein <br />
+              {query.PROCNT}
+            </div>
           </Row>
         </Box>
         <Box>
@@ -145,7 +165,7 @@ const AddMeal = () => {
           </Row>
         </Box>
       </Nutrients>
-      <h1>{query?.ENERC_KCAL}</h1>
+      <h1>{query?.ENERC_KCAL} g</h1>
     </Container>
   );
 };
