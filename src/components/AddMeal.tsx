@@ -72,14 +72,14 @@ const Box = styled.div`
   background-color: #f3f4f6;
   border-radius: 12px;
   display: grid;
-  grid-template-columns: 6rem 6rem;
+  grid-template-columns: 7rem 7rem;
   gap: 1rem;
   padding: 1rem;
 
   div {
     text-align: center;
     color: white;
-    border-radius: 12px;
+    border-radius: 8px;
     padding: 0.3rem 0;
 
     &:first-of-type {
