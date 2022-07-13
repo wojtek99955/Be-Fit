@@ -7,10 +7,12 @@ interface StylesProps {
   loading: boolean | null;
 }
 const Container = styled.div`
-  margin-top: 6rem;
-  width: 100%;
-  padding: 0 1rem;
-
+  padding: 1rem;
+  width: calc(100vw - 14rem);
+  height: calc(100vh - 3.5rem);
+  position: relative;
+  top: 3.5rem;
+  overflow: scroll;
   h2 {
     margin: 3rem 0;
     text-align: center;
