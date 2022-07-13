@@ -7,6 +7,11 @@ const Container = styled.div`
   margin-top: 6rem;
   width: 100%;
   padding: 0 1rem;
+
+  h2 {
+    margin: 3rem 0;
+    text-align: center;
+  }
 `;
 
 const MainImg = styled.div`
@@ -119,7 +124,10 @@ const AddMeal = () => {
                   `https://api.edamam.com/api/food-database/v2/parser?app_id=fb99b9e2&app_key=%206c42b17c647c09805fc4c5365572b9d9&ingr=${values.query}`
                 );
                 const data = await res.json();
-                await setQuery(data.hints[0].food.nutrients);
+                await setQuery({
+                  details: data.hints[0].food.nutrients,
+                  name: data.text,
+                });
                 await console.log(query);
                 console.log(query);
               } catch {
@@ -137,30 +145,31 @@ const AddMeal = () => {
           </Formik>
         </ContentWrapper>
       </MainImg>
+      <h2>{query?.name}</h2>
       <Nutrients>
         <Box>
           <div>
             Calories <br />
-            {query?.ENERC_KCAL}
+            {query?.details.ENERC_KCAL}
           </div>
           <div>
             Weight <br />
             100 g
           </div>
           <div>
-            Carbo <br /> {query?.CHOCDF} g
+            Carbo <br /> {query?.details.CHOCDF} g
           </div>
           <div>
             Fat <br />
-            {query?.FAT} g
+            {query?.details.FAT} g
           </div>
           <div>
             Fiber <br />
-            {query?.FIBTG} g
+            {query?.details.FIBTG} g
           </div>
           <div>
             Protein <br />
-            {query?.PROCNT} g
+            {query?.details.PROCNT} g
           </div>
         </Box>
         <Box>
