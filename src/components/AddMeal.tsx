@@ -107,6 +107,10 @@ const Box = styled.div`
       background-color: #4d904b;
     }
   }
+  span {
+    padding-top: 0.3rem;
+    display: inline-block;
+  }
 `;
 
 const AddMeal = () => {
@@ -153,26 +157,26 @@ const AddMeal = () => {
         <Box>
           <div>
             Calories <br />
-            {query?.details.ENERC_KCAL}
+            <span>{query?.details.ENERC_KCAL}</span>
           </div>
           <div>
             Weight <br />
-            100 g
+            <span>100 g</span>
           </div>
           <div>
-            Carbo <br /> {query?.details.CHOCDF} g
+            Carbo <br /> <span>{query?.details.CHOCDF} g</span>
           </div>
           <div>
             Fat <br />
-            {query?.details.FAT} g
+            <span>{query?.details.FAT} g</span>
           </div>
           <div>
             Fiber <br />
-            {query?.details.FIBTG} g
+            <span>{query?.details.FIBTG} g</span>
           </div>
           <div>
             Protein <br />
-            {query?.details.PROCNT} g
+            <span>{query?.details.PROCNT} g</span>
           </div>
         </Box>
         <Box>
