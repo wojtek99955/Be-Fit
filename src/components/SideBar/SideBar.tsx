@@ -65,7 +65,7 @@ const SideBar = () => {
             </StyledNavLink>
           </li>
           <li>
-            <StyledNavLink to="/">
+            <StyledNavLink to="/calories-calculator">
               <FoodCalories />
               Check calories
             </StyledNavLink>
