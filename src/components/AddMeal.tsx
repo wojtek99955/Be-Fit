@@ -134,12 +134,9 @@ const AddMeal = () => {
                   details: data.hints[0].food.nutrients,
                   name: data.text,
                 });
-                await console.log(query);
-                console.log(query);
               } catch {
                 console.log("error fetch");
               }
-              console.log(values.query);
             }}
           >
             <Form>
