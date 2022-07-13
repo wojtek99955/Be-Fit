@@ -61,6 +61,26 @@ const ContentWrapper = styled.div`
   width: 100%;
 `;
 
+const Nutrients = styled.div`
+  display: flex;
+  max-width: 800px;
+  justify-content: space-between;
+`;
+
+const Box = styled.div`
+  background-color: #f3f4f6;
+  border-radius: 12px;
+`;
+
+const Row = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  div {
+    padding: 1rem;
+  }
+`;
+
 const AddMeal = () => {
   const [query, setQuery] = useState<any>(null);
   return (
@@ -95,7 +115,36 @@ const AddMeal = () => {
           </Formik>
         </ContentWrapper>
       </MainImg>
-      Add meal
+      <Nutrients>
+        <Box>
+          <Row>
+            <div>Calories</div>
+            <div>Weight</div>
+          </Row>
+          <Row>
+            <div>Carbo</div>
+            <div>Fat</div>
+          </Row>
+          <Row>
+            <div>Fiber</div>
+            <div>Protein</div>
+          </Row>
+        </Box>
+        <Box>
+          <Row>
+            <div>Calories</div>
+            <div>Weight</div>
+          </Row>
+          <Row>
+            <div>Carbo</div>
+            <div>Fat</div>
+          </Row>
+          <Row>
+            <div>Fiber</div>
+            <div>Protein</div>
+          </Row>
+        </Box>
+      </Nutrients>
       <h1>{query?.ENERC_KCAL}</h1>
     </Container>
   );
