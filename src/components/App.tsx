@@ -19,6 +19,7 @@ import BodyCalculators from "./Calculators/BodyCalculators";
 import CalculatorsLayout from "./Calculators/CalculatorsLayout";
 import BMICalc from "./Calculators/BMICalc";
 import IdealWeight from "./Calculators/IdealWeight";
+import AddMeal from "./AddMeal";
 
 interface AuthProps {
   children: JSX.Element;
@@ -97,6 +98,17 @@ function App() {
           <Route path="email" element={<Email />} />
           <Route path="security" element={<Security />} />
         </Route>
+        <Route
+          path="/add-meal"
+          element={
+            <RequireAuth>
+              <>
+                <SideBar />
+                <AddMeal />
+              </>
+            </RequireAuth>
+          }
+        />
       </Routes>
     </div>
   );
