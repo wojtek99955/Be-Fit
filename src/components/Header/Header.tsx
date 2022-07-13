@@ -100,7 +100,11 @@ const Header = () => {
                     navigate("/settings");
                   }}
                 />
-                <AddIcon />
+                <AddIcon
+                  onClick={() => {
+                    navigate("/add-meal");
+                  }}
+                />
                 <ProfileSettings>
                   <UserIcon
                     url={data?.avatarImg}
