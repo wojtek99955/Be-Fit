@@ -14,7 +14,7 @@ const Container = styled.div`
   top: 3.5rem;
   overflow: scroll;
   h2 {
-    margin: 3rem 0;
+    margin: 2rem 0;
     text-align: center;
     font-size: 2rem;
   }
@@ -124,7 +124,7 @@ const Box = styled.div`
 
 const StyledH2 = styled.h2`
   font-size: 2.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   color: black;
   text-align: center;
 `;
