@@ -3,6 +3,9 @@ import { useState } from "react";
 import styled from "styled-components";
 const img = require("../assets/images/food-img.jpg");
 
+interface StylesProps {
+  loading: boolean | null;
+}
 const Container = styled.div`
   margin-top: 6rem;
   width: 100%;
@@ -71,7 +74,6 @@ const Nutrients = styled.div`
   display: flex;
   max-width: 800px;
   justify-content: space-between;
-  margin-top: 5rem;
 `;
 
 const Box = styled.div`
@@ -81,6 +83,7 @@ const Box = styled.div`
   grid-template-columns: 7rem 7rem;
   gap: 1rem;
   padding: 1rem;
+  height: 15rem;
 
   div {
     text-align: center;
@@ -113,8 +116,26 @@ const Box = styled.div`
   }
 `;
 
+const StyledH2 = styled.h2`
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: black;
+  text-align: center;
+`;
+
+const FoodName = styled.div<StylesProps>`
+  background-color: ${({ loading }) => (loading ? "#f3f4f6" : "white")};
+  height: 3rem;
+  margin: auto;
+  width: 8rem;
+  border-radius: 12px;
+  margin-bottom: 5rem;
+`;
+
 const CaloriesCalculator = () => {
   const [query, setQuery] = useState<any>(null);
+  const [loading, setLoading] = useState<null | boolean>(null);
+  const [showBoxes, setShowBoxes] = useState(false);
 
   const capitalize = (s: string) => {
     return s.charAt(0).toUpperCase() + s.slice(1);
@@ -129,7 +150,9 @@ const CaloriesCalculator = () => {
             initialValues={{ query: "" }}
             onSubmit={async (values) => {
               try {
+                setLoading(true);
                 setQuery(null);
+                setShowBoxes(true);
                 const res = await fetch(
                   `https://api.edamam.com/api/food-database/v2/parser?app_id=fb99b9e2&app_key=%206c42b17c647c09805fc4c5365572b9d9&ingr=${values.query}`
                 );
@@ -138,6 +161,7 @@ const CaloriesCalculator = () => {
                   details: data.hints[0].food.nutrients,
                   name: data.text,
                 });
+                setLoading(false);
               } catch {
                 console.log("error fetch");
               }
@@ -152,42 +176,55 @@ const CaloriesCalculator = () => {
           </Formik>
         </ContentWrapper>
       </MainImg>
-      <h2>{query ? capitalize(query?.name) : null}</h2>
-      <Nutrients>
-        <Box>
-          <div>
-            Calories <br />
-            <span>{query?.details.ENERC_KCAL}</span>
-          </div>
-          <div>
-            Weight <br />
-            <span>100 g</span>
-          </div>
-          <div>
-            Carbo <br /> <span>{query?.details.CHOCDF} g</span>
-          </div>
-          <div>
-            Fat <br />
-            <span>{query?.details.FAT} g</span>
-          </div>
-          <div>
-            Fiber <br />
-            <span>{query?.details.FIBTG} g</span>
-          </div>
-          <div>
-            Protein <br />
-            <span>{query?.details.PROCNT} g</span>
-          </div>
-        </Box>
-        <Box>
-          <div>Calories</div>
-          <div>Weight</div>
-          <div>Carbo</div>
-          <div>Fat</div>
-          <div>Fiber</div>
-          <div>Protein</div>
-        </Box>
-      </Nutrients>
+      <FoodName loading={loading}>
+        <StyledH2>{query ? capitalize(query?.name) : null}</StyledH2>
+      </FoodName>
+
+      {showBoxes ? (
+        <Nutrients>
+          <Box>
+            {!loading ? (
+              <>
+                <div>
+                  Calories <br />
+                  <span>{query?.details.ENERC_KCAL}</span>
+                </div>
+                <div>
+                  Weight <br />
+                  <span>100 g</span>
+                </div>
+                <div>
+                  Carbo <br /> <span>{query?.details.CHOCDF} g</span>
+                </div>
+                <div>
+                  Fat <br />
+                  <span>{query?.details.FAT} g</span>
+                </div>
+                <div>
+                  Fiber <br />
+                  <span>{query?.details.FIBTG} g</span>
+                </div>
+                <div>
+                  Protein <br />
+                  <span>{query?.details.PROCNT} g</span>
+                </div>
+              </>
+            ) : null}
+          </Box>
+          <Box>
+            {!loading ? (
+              <>
+                <div>Calories</div>
+                <div>Weight</div>
+                <div>Carbo</div>
+                <div>Fat</div>
+                <div>Fiber</div>
+                <div>Protein</div>
+              </>
+            ) : null}
+          </Box>
+        </Nutrients>
+      ) : null}
     </Container>
   );
 };
