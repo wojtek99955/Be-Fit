@@ -1,6 +1,8 @@
 import styled from "styled-components";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useState } from "react";
+import * as yup from "yup";
+import { ErrorMsg } from "../Auth/AuthStyle";
 
 const Container = styled.section`
   width: 100%;
@@ -62,7 +64,7 @@ const Wrapper = styled.div`
 `;
 
 const initialValues = {
-  gender: "male",
+  gender: "",
   weight: "",
   height: "",
   age: "",
@@ -74,6 +76,7 @@ const InputContainer = styled.div`
   display: flex;
   margin-bottom: 1px;
   background-color: white;
+  padding-right: 1rem;
 `;
 
 const OptionFieldName = styled.div`
@@ -116,6 +119,26 @@ interface FormData {
   activity: string;
   weight: number;
 }
+
+const validationSchema = yup.object().shape({
+  gender: yup.string().oneOf(["male", "female"]).required("required"),
+  age: yup.number().typeError("only numbers").required("required"),
+  weight: yup.number().typeError("only numbers").required("required"),
+  height: yup.number().typeError("only numbers").required("required"),
+  activityLevel: yup
+    .string()
+    .oneOf(
+      [
+        "zero physical activity",
+        "sedentary lifestyle",
+        "1/2 activities per week",
+        "very active lifestyle",
+        "sport lifestyle",
+      ],
+      "please select activity frequency"
+    )
+    .required("required"),
+});
 
 const CalorieIntake = () => {
   const [formValues, setFormValues] = useState<FormData | undefined>();
@@ -162,6 +185,7 @@ const CalorieIntake = () => {
         </p>
         <Formik
           initialValues={initialValues}
+          validationSchema={validationSchema}
           onSubmit={(values) => {
             setFormValues({
               age: +values.age,
@@ -176,23 +200,29 @@ const CalorieIntake = () => {
             <InputContainer>
               <OptionFieldName>Gender</OptionFieldName>
               <Field as="select" name="gender">
+                <option value="-">-</option>
                 <option value="male">male</option>
                 <option value="female">female</option>
               </Field>
             </InputContainer>
+            <ErrorMessage name="gender" component={ErrorMsg} />
             <InputContainer>
               <label htmlFor="age">Age</label>
               <Field name="age" id="age" />
             </InputContainer>
+            <ErrorMessage name="age" component={ErrorMsg} />
 
             <InputContainer>
               <label htmlFor="weight">Weight</label>
               <Field name="weight" id="weight" />
             </InputContainer>
+            <ErrorMessage name="weight" component={ErrorMsg} />
+
             <InputContainer>
               <label htmlFor="height">Height</label>
               <Field name="height" id="height" />
             </InputContainer>
+            <ErrorMessage name="height" component={ErrorMsg} />
             <InputContainer>
               <OptionFieldName>Activity</OptionFieldName>
               <Field as="select" name="activityLevel">
@@ -211,6 +241,7 @@ const CalorieIntake = () => {
                 <option value={Activity.sport}>{Activity.sport}</option>
               </Field>
             </InputContainer>
+            <ErrorMessage name="activityLevel" component={ErrorMsg} />
             <button type="submit">Get result</button>
           </Form>
         </Formik>
