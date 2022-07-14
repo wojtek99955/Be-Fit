@@ -22,6 +22,7 @@ const StyledNavLink = styled(NavLink)`
   }
   &.active {
     background-color: #e4e7e8;
+    font-weight: 600;
   }
   text-decoration: none;
   color: black;
