@@ -40,6 +40,14 @@ const Container = styled.section`
     color: #55595b;
     font-weight: 600;
   }
+  select {
+    border: none;
+    margin-left: auto;
+    font-size: 1.2rem;
+    outline: none;
+    color: #55595b;
+    cursor: pointer;
+  }
 `;
 
 const Wrapper = styled.div`
