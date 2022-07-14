@@ -44,7 +44,7 @@ const DeleteModal = ({ setOpenDeleteModal }: Props) => {
         <CloseIcon onClick={handleCloseModal} />
         {!showDeleteBtn ? (
           <>
-            <h1>Type your username to delete account</h1>
+            <h1>Type your password to delete account</h1>
             <Formik
               initialValues={{ password: "" }}
               validationSchema={validationSchema}
