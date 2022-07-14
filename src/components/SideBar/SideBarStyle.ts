@@ -23,9 +23,6 @@ export const Container = styled.aside`
   li {
     cursor: pointer;
     font-weight: 300;
-    &:first-of-type {
-      font-weight: 600;
-    }
   }
 `;
 export const StyledNavLink = styled(NavLink)`
@@ -34,6 +31,7 @@ export const StyledNavLink = styled(NavLink)`
   }
   &.active {
     background-color: #e4e7e8;
+    font-weight: 600;
   }
   text-decoration: none;
   color: black;
