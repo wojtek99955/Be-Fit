@@ -6,13 +6,14 @@ const Container = styled.section`
   width: 100%;
   label {
     display: block;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     width: 100%;
     height: 3rem;
     display: flex;
     align-items: center;
     padding: 0 1rem;
     color: #55595b;
+    font-weight: 500;
   }
   button {
     display: block;
@@ -24,15 +25,19 @@ const Container = styled.section`
     border-radius: 8px;
     margin-top: 2rem;
     width: 100%;
+    &:hover {
+      background-color: #cf8300;
+    }
   }
   input {
     width: 3rem;
     border: none;
     outline: none;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     display: block;
     height: 3rem;
     color: #55595b;
+    font-weight: 600;
   }
 `;
 
@@ -63,7 +68,7 @@ const InputContainer = styled.div`
 `;
 
 const OptionFieldName = styled.div`
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   height: 3rem;
   display: flex;
   align-items: center;
@@ -74,6 +79,16 @@ const Result = styled.div`
   background-color: white;
   margin-top: 2rem;
   padding: 1rem;
+
+  h3 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #55595b;
+  }
+  span {
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
 `;
 
 enum Activity {
@@ -192,7 +207,9 @@ const CalorieIntake = () => {
         </Formik>
         <Result>
           {formValues ? (
-            <h3>Intake {(getBMR()! * getPAL()!).toFixed(0)} calories</h3>
+            <h3>
+              Intake <span>{(getBMR()! * getPAL()!).toFixed(0)} </span>kcal/day
+            </h3>
           ) : null}
         </Result>
       </Wrapper>
