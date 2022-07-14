@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Formik, Form, Field } from "formik";
+import { useState } from "react";
 
 const Container = styled.section`
   label {
@@ -23,7 +24,7 @@ const Container = styled.section`
 `;
 
 const initialValues = {
-  gender: "",
+  gender: "male",
   weight: "",
   height: "",
   age: "",
@@ -39,34 +40,80 @@ const InputContainer = styled.div`
 `;
 
 enum Activity {
+  zero = "zero physical activity",
   sedentaryLifestyle = "sedentary lifestyle",
-  littleActive = "little active lifestyle",
-  moderateActivity = "moderate physical activity",
+  rarely = "1/2 activities per week",
+  moderateActivity = "3/4 activities per week",
   veryActive = "very active lifestyle",
   sport = "sport lifestyle",
 }
 
-const SelectField = styled(Field)`
-  width: 100%;
-  margin-bottom: 1rem;
-  height: 2.5rem;
-`;
+interface FormData {
+  gender: string;
+  height: number;
+  age: number;
+  activity: string;
+  weight: number;
+}
 
 const CalorieIntake = () => {
+  const [formValues, setFormValues] = useState<FormData | undefined>();
+  function getBMR() {
+    if (formValues?.gender === "male") {
+      return (
+        10 * formValues.weight +
+        6.15 * formValues.height -
+        5 * formValues.age +
+        5
+      );
+    } else {
+      return (
+        10 * formValues!.weight +
+        6.15 * formValues!.height -
+        5 * formValues!.age -
+        161
+      );
+    }
+  }
+
+  function getPAL() {
+    switch (formValues?.activity) {
+      case Activity.zero:
+        return 1.2;
+      case Activity.sedentaryLifestyle:
+        return 1.4;
+      case Activity.rarely:
+        return 1.5;
+      case Activity.moderateActivity:
+        return 1.7;
+      case Activity.veryActive:
+        return 2;
+      case Activity.sport:
+        return 2.4;
+    }
+  }
   return (
     <Container>
       <Formik
         initialValues={initialValues}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={(values) => {
+          setFormValues({
+            age: +values.age,
+            gender: values.gender,
+            activity: values.activityLevel,
+            weight: +values.weight,
+            height: +values.height,
+          });
+        }}
       >
         <Form>
           <Row>
             <InputContainer>
               <label htmlFor="gender">Gender</label>
-              <SelectField as="select" name="gender">
+              <Field as="select" name="gender">
                 <option value="male">male</option>
                 <option value="female">female</option>
-              </SelectField>
+              </Field>
             </InputContainer>
             <InputContainer>
               <label htmlFor="age">Age</label>
@@ -83,10 +130,10 @@ const CalorieIntake = () => {
               <Field name="height" id="height" placeholder="height" />
             </InputContainer>
           </Row>
-          <SelectField as="select" name="activity">
-            <option value={Activity.littleActive}>
-              {Activity.littleActive}
-            </option>
+          <Field as="select" name="activityLevel">
+            <option value="-">-</option>
+            <option value={Activity.zero}>{Activity.zero}</option>
+            <option value={Activity.rarely}>{Activity.rarely}</option>
             <option value={Activity.sedentaryLifestyle}>
               {Activity.sedentaryLifestyle}
             </option>
@@ -95,10 +142,13 @@ const CalorieIntake = () => {
             </option>
             <option value={Activity.veryActive}>{Activity.veryActive}</option>
             <option value={Activity.sport}>{Activity.sport}</option>
-          </SelectField>
+          </Field>
           <button type="submit">Get result</button>
         </Form>
       </Formik>
+      {formValues ? (
+        <h3>Intake {(getBMR()! * getPAL()!).toFixed(0)} calories</h3>
+      ) : null}
     </Container>
   );
 };
