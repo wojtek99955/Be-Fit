@@ -135,7 +135,7 @@ const FoodName = styled.div<StylesProps>`
   margin: auto;
   width: 8rem;
   border-radius: 12px;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
 `;
 
 const CaloriesCalculator = () => {
