@@ -1,9 +1,7 @@
 import styled from "styled-components";
 import { Outlet } from "react-router-dom";
 
-const Container = styled.section`
-  margin-top: 6rem;
-`;
+const Container = styled.section``;
 const BodyCalculatorsLayout = () => {
   return (
     <Container>
