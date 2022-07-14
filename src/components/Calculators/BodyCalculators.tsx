@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { MdOutlineMonitorWeight } from "react-icons/md";
 import { GiWeightLiftingUp } from "react-icons/gi";
 import { useNavigate } from "react-router-dom";
+import { MdOutlineFastfood } from "react-icons/md";
 
 const WeightIcon = styled(MdOutlineMonitorWeight)`
   font-size: 2.5rem;
@@ -10,6 +11,11 @@ const WeightIcon = styled(MdOutlineMonitorWeight)`
 `;
 
 const IdealWeightIcon = styled(GiWeightLiftingUp)`
+  font-size: 2.5rem;
+  color: #bcbcbc;
+`;
+
+const FoodIcon = styled(MdOutlineFastfood)`
   font-size: 2.5rem;
   color: #bcbcbc;
 `;
@@ -32,7 +38,10 @@ const CalculatorsContainer = styled.div`
   &:first-of-type:hover ${WeightIcon} {
     color: #ffa101;
   }
-  &:last-of-type:hover ${IdealWeightIcon} {
+  &:nth-of-type(2):hover ${IdealWeightIcon} {
+    color: #ffa101;
+  }
+  &:nth-of-type(3):hover ${FoodIcon} {
     color: #ffa101;
   }
 
@@ -70,6 +79,16 @@ const BodyCalculators = () => {
         <div>
           <IdealWeightIcon />
           <h1>Ideal weight</h1>
+        </div>
+      </CalculatorsContainer>
+      <CalculatorsContainer
+        onClick={() => {
+          navigation("/calculators/body-calculators/calorie-intake");
+        }}
+      >
+        <div>
+          <FoodIcon />
+          <h1>Calorie intake</h1>
         </div>
       </CalculatorsContainer>
     </Container>
