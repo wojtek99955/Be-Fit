@@ -4,6 +4,21 @@ import { Formik, Form, Field } from "formik";
 const Container = styled.section`
   label {
     display: block;
+    margin-bottom: 0.5rem;
+  }
+  button {
+    display: block;
+    border: none;
+    background-color: green;
+    color: white;
+    padding: 0.8rem 1.8rem;
+    cursor: pointer;
+  }
+  input {
+    padding: 0.2rem;
+    margin-bottom: 1.5rem;
+    height: 2.5rem;
+    width: 100%;
   }
 `;
 
@@ -17,8 +32,11 @@ const initialValues = {
 
 const Row = styled.div`
   display: flex;
+  gap: 1.5rem;
 `;
-const InputContainer = styled.div``;
+const InputContainer = styled.div`
+  width: 100%;
+`;
 
 enum Activity {
   sedentaryLifestyle = "sedentary lifestyle",
@@ -27,6 +45,12 @@ enum Activity {
   veryActive = "very active lifestyle",
   sport = "sport lifestyle",
 }
+
+const SelectField = styled(Field)`
+  width: 100%;
+  margin-bottom: 1rem;
+  height: 2.5rem;
+`;
 
 const CalorieIntake = () => {
   return (
@@ -39,7 +63,10 @@ const CalorieIntake = () => {
           <Row>
             <InputContainer>
               <label htmlFor="gender">Gender</label>
-              <Field name="gender" placeholder="gender" id="gender" />
+              <SelectField as="select" name="gender">
+                <option value="male">male</option>
+                <option value="female">female</option>
+              </SelectField>
             </InputContainer>
             <InputContainer>
               <label htmlFor="age">Age</label>
@@ -56,7 +83,7 @@ const CalorieIntake = () => {
               <Field name="height" id="height" placeholder="height" />
             </InputContainer>
           </Row>
-          <Field as="select" name="activity">
+          <SelectField as="select" name="activity">
             <option value={Activity.littleActive}>
               {Activity.littleActive}
             </option>
@@ -68,8 +95,8 @@ const CalorieIntake = () => {
             </option>
             <option value={Activity.veryActive}>{Activity.veryActive}</option>
             <option value={Activity.sport}>{Activity.sport}</option>
-          </Field>
-          <button>Get result</button>
+          </SelectField>
+          <button type="submit">Get result</button>
         </Form>
       </Formik>
     </Container>
