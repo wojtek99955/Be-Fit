@@ -107,6 +107,7 @@ const Security = () => {
                     placeholder="Current password"
                     name="currentPassword"
                     id="currentPassword"
+                    disabled={passwordSuccess}
                   />
                   {!setPassword && !loading ? (
                     <Button type="submit">Confirm</Button>
