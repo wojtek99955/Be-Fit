@@ -5,8 +5,7 @@ import { GiWeightLiftingUp } from "react-icons/gi";
 
 export const Container = styled.section`
   max-width: 900px;
-  margin: auto;
-  /* margin-top: 6rem; */
+  margin-top: 6rem;
   display: flex;
   gap: 5rem;
 `;
