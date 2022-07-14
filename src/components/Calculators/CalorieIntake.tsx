@@ -205,13 +205,14 @@ const CalorieIntake = () => {
             <button type="submit">Get result</button>
           </Form>
         </Formik>
-        <Result>
-          {formValues ? (
+
+        {formValues ? (
+          <Result>
             <h3>
               Intake <span>{(getBMR()! * getPAL()!).toFixed(0)} </span>kcal/day
             </h3>
-          ) : null}
-        </Result>
+          </Result>
+        ) : null}
       </Wrapper>
     </Container>
   );
