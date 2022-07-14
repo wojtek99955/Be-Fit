@@ -6,27 +6,45 @@ const Container = styled.section`
   width: 100%;
   label {
     display: block;
-    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    color: #55595b;
   }
   button {
     display: block;
     border: none;
-    background-color: green;
+    background-color: #ffa101;
     color: white;
-    padding: 0.8rem 1.8rem;
+    padding: 0.8rem 0;
     cursor: pointer;
+    border-radius: 8px;
+    margin-top: 2rem;
+    width: 100%;
   }
   input {
-    padding: 0.2rem;
-    margin-bottom: 1.5rem;
-    height: 2.5rem;
-    width: 100%;
+    width: 3rem;
+    border: none;
+    outline: none;
+    font-size: 1.3rem;
+    display: block;
+    height: 3rem;
+    color: #55595b;
   }
 `;
 
 const Wrapper = styled.div`
-  max-width: 600px;
+  width: 500px;
   margin: auto;
+  padding: 2rem;
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  p {
+    margin-bottom: 1rem;
+  }
 `;
 
 const initialValues = {
@@ -37,12 +55,25 @@ const initialValues = {
   activityLevel: "",
 };
 
-const Row = styled.div`
-  display: flex;
-  gap: 1.5rem;
-`;
 const InputContainer = styled.div`
   width: 100%;
+  display: flex;
+  margin-bottom: 1px;
+  background-color: white;
+`;
+
+const OptionFieldName = styled.div`
+  font-size: 1.3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  color: #55595b;
+  padding: 1rem;
+`;
+const Result = styled.div`
+  background-color: white;
+  margin-top: 2rem;
+  padding: 1rem;
 `;
 
 enum Activity {
@@ -101,6 +132,10 @@ const CalorieIntake = () => {
   return (
     <Container>
       <Wrapper>
+        <p>
+          This calculator will help you to calculate how much energy your body
+          needs to maintain / gain / loose weight.
+        </p>
         <Formik
           initialValues={initialValues}
           onSubmit={(values) => {
@@ -114,48 +149,52 @@ const CalorieIntake = () => {
           }}
         >
           <Form>
-            <Row>
-              <InputContainer>
-                <label htmlFor="gender">Gender</label>
-                <Field as="select" name="gender">
-                  <option value="male">male</option>
-                  <option value="female">female</option>
-                </Field>
-              </InputContainer>
-              <InputContainer>
-                <label htmlFor="age">Age</label>
-                <Field name="age" placeholder="age" id="age" />
-              </InputContainer>
-            </Row>
-            <Row>
-              <InputContainer>
-                <label htmlFor="weight">Weight</label>
-                <Field name="weight" placeholder="weight" />
-              </InputContainer>
-              <InputContainer>
-                <label htmlFor="height">Height</label>
-                <Field name="height" id="height" placeholder="height" />
-              </InputContainer>
-            </Row>
-            <Field as="select" name="activityLevel">
-              <option value="-">-</option>
-              <option value={Activity.zero}>{Activity.zero}</option>
-              <option value={Activity.rarely}>{Activity.rarely}</option>
-              <option value={Activity.sedentaryLifestyle}>
-                {Activity.sedentaryLifestyle}
-              </option>
-              <option value={Activity.moderateActivity}>
-                {Activity.moderateActivity}
-              </option>
-              <option value={Activity.veryActive}>{Activity.veryActive}</option>
-              <option value={Activity.sport}>{Activity.sport}</option>
-            </Field>
+            <InputContainer>
+              <OptionFieldName>Gender</OptionFieldName>
+              <Field as="select" name="gender">
+                <option value="male">male</option>
+                <option value="female">female</option>
+              </Field>
+            </InputContainer>
+            <InputContainer>
+              <label htmlFor="age">Age</label>
+              <Field name="age" id="age" />
+            </InputContainer>
+
+            <InputContainer>
+              <label htmlFor="weight">Weight</label>
+              <Field name="weight" id="weight" />
+            </InputContainer>
+            <InputContainer>
+              <label htmlFor="height">Height</label>
+              <Field name="height" id="height" />
+            </InputContainer>
+            <InputContainer>
+              <OptionFieldName>Activity</OptionFieldName>
+              <Field as="select" name="activityLevel">
+                <option value="-">-</option>
+                <option value={Activity.zero}>{Activity.zero}</option>
+                <option value={Activity.rarely}>{Activity.rarely}</option>
+                <option value={Activity.sedentaryLifestyle}>
+                  {Activity.sedentaryLifestyle}
+                </option>
+                <option value={Activity.moderateActivity}>
+                  {Activity.moderateActivity}
+                </option>
+                <option value={Activity.veryActive}>
+                  {Activity.veryActive}
+                </option>
+                <option value={Activity.sport}>{Activity.sport}</option>
+              </Field>
+            </InputContainer>
             <button type="submit">Get result</button>
           </Form>
         </Formik>
-        {formValues ? (
-          <h3>Intake {(getBMR()! * getPAL()!).toFixed(0)} calories</h3>
-        ) : null}
+        <Result>
+          {formValues ? (
+            <h3>Intake {(getBMR()! * getPAL()!).toFixed(0)} calories</h3>
+          ) : null}
+        </Result>
       </Wrapper>
     </Container>
   );
