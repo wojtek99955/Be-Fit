@@ -75,6 +75,7 @@ const initialValues = {
   height: "",
   age: "",
   activityLevel: "",
+  goal: "",
 };
 
 const InputContainer = styled.div`
@@ -124,6 +125,7 @@ interface FormData {
   age: number;
   activity: string;
   weight: number;
+  goal: string;
 }
 
 const validationSchema = yup.object().shape({
@@ -140,6 +142,7 @@ const validationSchema = yup.object().shape({
         "1/2 activities per week",
         "very active lifestyle",
         "sport lifestyle",
+        "3/4 activities per week",
       ],
       "please select activity frequency"
     )
@@ -182,6 +185,18 @@ const CalorieIntake = () => {
         return 2.4;
     }
   }
+
+  function weightGoal() {
+    switch (formValues?.goal) {
+      case "maintain":
+        return 0;
+      case "loose":
+        return -400;
+      case "gain":
+        return 400;
+    }
+  }
+
   return (
     <Container>
       <Wrapper>
@@ -199,6 +214,7 @@ const CalorieIntake = () => {
               activity: values.activityLevel,
               weight: +values.weight,
               height: +values.height,
+              goal: values.goal,
             });
           }}
         >
@@ -230,6 +246,16 @@ const CalorieIntake = () => {
             </InputContainer>
             <ErrorMessage name="height" component={ErrorMsg} />
             <InputContainer>
+              <OptionFieldName>Goal</OptionFieldName>
+              <Field as="select" name="goal">
+                <option value="-">-</option>
+                <option value="maintain">maintain</option>
+                <option value="loose">loose</option>
+                <option value="gain">gain</option>
+              </Field>
+            </InputContainer>
+            <ErrorMessage name="goal" component={ErrorMsg} />
+            <InputContainer>
               <OptionFieldName>Activity</OptionFieldName>
               <Field as="select" name="activityLevel">
                 <option value="-">-</option>
@@ -255,7 +281,9 @@ const CalorieIntake = () => {
         {formValues ? (
           <Result>
             <h3>
-              Intake <span>{(getBMR()! * getPAL()!).toFixed(0)} </span>kcal/day
+              Intake{" "}
+              <span>{(getBMR()! * getPAL()! + weightGoal()!).toFixed(0)} </span>
+              kcal/day
             </h3>
           </Result>
         ) : null}
