@@ -11,7 +11,7 @@ import {
   SettingsIcon,
   ProfileSettingsDropdown,
   ProfileSettings,
-  ProfileDropdownWrapper,
+  LogoutContainer,
   Divider,
   AddIcon,
   StyledLink,
@@ -154,9 +154,9 @@ const Header = () => {
                         </li>
                       </ul>
                       <Divider />
-                      <ProfileDropdownWrapper onClick={logOut}>
+                      <LogoutContainer onClick={logOut}>
                         <div>Log out</div>
-                      </ProfileDropdownWrapper>
+                      </LogoutContainer>
                     </ProfileSettingsDropdown>
                   ) : null}
                 </ProfileSettings>

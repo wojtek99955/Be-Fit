@@ -94,7 +94,7 @@ export const SettingsIcon = styled(FiSettings)`
 
 export const ProfileSettingsDropdown = styled.div`
   box-sizing: content-box;
-  padding-right: 1rem;
+  padding-right: 0;
   margin-top: 0.5rem;
   border: 1px solid #e1e4e7;
   position: absolute;
@@ -105,7 +105,7 @@ export const ProfileSettingsDropdown = styled.div`
   box-shadow: -3px 0px 48px -1px rgba(225, 228, 231, 1);
   z-index: 10;
   background-color: white;
-  width: 14.5rem;
+  width: 15.5rem;
 
   ul {
     list-style: none;
@@ -122,15 +122,6 @@ export const ProfileSettingsDropdown = styled.div`
     margin-bottom: 0.5rem;
     font-size: 1.2rem;
   }
-
-  div {
-    &:last-child {
-      cursor: pointer;
-      &:hover {
-        background-color: #fae6b1;
-      }
-    }
-  }
 `;
 
 export const ProfileSettings = styled.div`
@@ -143,8 +134,12 @@ export const Divider = styled.div`
   height: 1px;
 `;
 
-export const ProfileDropdownWrapper = styled.div`
+export const LogoutContainer = styled.div`
   padding: 1rem;
+  cursor: pointer;
+  &:hover {
+    background-color: #fae6b1;
+  }
 `;
 
 export const AddIcon = styled(IoMdAddCircleOutline)`
@@ -167,7 +162,6 @@ export const DropdownUserIcon = styled.div<ImageProps>`
   height: 2.5rem;
   background-color: #ffa101;
   border-radius: 50%;
-  cursor: pointer;
   position: relative;
   display: flex;
   justify-content: center;
@@ -189,6 +183,7 @@ export const UserDataContainer = styled.div`
   align-items: center;
   gap: 1rem;
   padding: 1rem 0;
+  cursor: default;
 `;
 
 export const Icons = styled.div`
