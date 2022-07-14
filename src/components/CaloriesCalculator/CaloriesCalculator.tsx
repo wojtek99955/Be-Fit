@@ -127,9 +127,8 @@ const CaloriesCalculator = () => {
                     Calories <br />
                     <span>
                       {((query?.details.ENERC_KCAL * foodWeight) / 100).toFixed(
-                        2
+                        0
                       )}
-                      g
                     </span>
                   </div>
                   <div>
