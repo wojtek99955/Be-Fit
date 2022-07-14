@@ -77,6 +77,7 @@ export const ContentWrapper = styled.div`
 export const Nutrients = styled.div`
   display: flex;
   max-width: 800px;
+  margin: auto;
   justify-content: space-between;
 `;
 
@@ -93,7 +94,9 @@ export const BoxContainer = styled.div`
     text-align: center;
     color: white;
     border-radius: 8px;
-    padding: 0.3rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     &:first-of-type {
       background-color: #6db26b;
