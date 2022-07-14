@@ -20,7 +20,7 @@ import CalculatorsLayout from "./Calculators/CalculatorsLayout";
 import BMICalc from "./Calculators/BMICalc";
 import IdealWeight from "./Calculators/IdealWeight";
 import CaloriesCalculator from "./CaloriesCalculator/CaloriesCalculator";
-import CalorieIntake from "./Calculators/CalorieIntake";
+import CalorieIntake from "./Calculators/CalorieIntakeCalculator/CalorieIntake";
 import BodyCalculatorsLayout from "./Calculators/BodyCalculatorsLayout";
 
 interface AuthProps {
