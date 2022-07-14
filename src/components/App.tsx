@@ -19,7 +19,7 @@ import BodyCalculators from "./Calculators/BodyCalculators";
 import CalculatorsLayout from "./Calculators/CalculatorsLayout";
 import BMICalc from "./Calculators/BMICalc";
 import IdealWeight from "./Calculators/IdealWeight";
-import CaloriesCalculator from "./CaloriesCalculator";
+import CaloriesCalculator from "./CaloriesCalculator/CaloriesCalculator";
 
 interface AuthProps {
   children: JSX.Element;
