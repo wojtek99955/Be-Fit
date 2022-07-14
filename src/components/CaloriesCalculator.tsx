@@ -187,6 +187,7 @@ const CaloriesCalculator = () => {
   const [query, setQuery] = useState<any>(null);
   const [loading, setLoading] = useState<null | boolean>(null);
   const [showBoxes, setShowBoxes] = useState(false);
+  const [foodWeight, setFoodWeight] = useState<number>(0);
 
   const capitalize = (s: string) => {
     return s.charAt(0).toUpperCase() + s.slice(1);
@@ -275,7 +276,7 @@ const CaloriesCalculator = () => {
               &nbsp;
               <Formik
                 initialValues={{ weight: "" }}
-                onSubmit={(values) => console.log(values)}
+                onSubmit={(values) => setFoodWeight(+values.weight)}
               >
                 <Form>
                   <Field name="weight" type="text" />
@@ -288,12 +289,43 @@ const CaloriesCalculator = () => {
             <BoxContainer>
               {!loading ? (
                 <>
-                  <div>Calories</div>
-                  <div>Weight</div>
-                  <div>Carbo</div>
-                  <div>Fat</div>
-                  <div>Fiber</div>
-                  <div>Protein</div>
+                  <div>
+                    Calories <br />
+                    <span>
+                      {((query?.details.ENERC_KCAL * foodWeight) / 100).toFixed(
+                        2
+                      )}
+                      g
+                    </span>
+                  </div>
+                  <div>
+                    Weight <br />
+                    <span>{foodWeight}</span>
+                  </div>
+                  <div>
+                    Carbo <br />
+                    <span>
+                      {((query?.details.CHOCDF * foodWeight) / 100).toFixed(2)}g
+                    </span>
+                  </div>
+                  <div>
+                    Fat <br />
+                    <span>
+                      {((query?.details.FAT * foodWeight) / 100).toFixed(2)}
+                    </span>
+                  </div>
+                  <div>
+                    Fiber <br />
+                    <span>
+                      {((query?.details.FIBTG * foodWeight) / 100).toFixed(2)}
+                    </span>
+                  </div>
+                  <div>
+                    Protein <br />
+                    <span>
+                      {((query?.details.PROCNT * foodWeight) / 100).toFixed(2)}
+                    </span>
+                  </div>
                 </>
               ) : null}
             </BoxContainer>
