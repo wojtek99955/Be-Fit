@@ -135,6 +135,10 @@ const validationSchema = yup.object().shape({
   gender: yup.string().oneOf(["male", "female"]).required("required"),
   age: yup.number().typeError("only numbers").required("required"),
   weight: yup.number().typeError("only numbers").required("required"),
+  goal: yup
+    .string()
+    .oneOf(["maintain", "loose", "gain"], "pleace select your giak")
+    .required("required"),
   height: yup.number().typeError("only numbers").required("required"),
   activityLevel: yup
     .string()
