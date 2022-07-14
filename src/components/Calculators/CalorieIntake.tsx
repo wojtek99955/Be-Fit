@@ -41,6 +41,12 @@ const Container = styled.section`
     height: 3rem;
     color: #55595b;
     font-weight: 600;
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      background-color: white;
+    }
   }
   select {
     border: none;
