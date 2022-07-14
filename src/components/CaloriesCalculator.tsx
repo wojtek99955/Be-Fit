@@ -148,13 +148,16 @@ const BoxHeader = styled.div`
     color: #55595b;
     display: inline;
     font-size: 1.2rem;
+    font-weight: 600;
   }
   input {
-    width: 3rem;
+    width: 3.5rem;
     border: 2px solid #ffa101;
     display: inline-block;
     border-radius: 8px;
     font-size: 1.2rem;
+    color: #55595b;
+    font-weight: 600;
   }
   button {
     position: absolute;
