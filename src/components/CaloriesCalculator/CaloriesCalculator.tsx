@@ -67,8 +67,8 @@ const CaloriesCalculator = () => {
       {showBoxes ? (
         <Nutrients>
           <Box>
-            <BoxHeader>
-              <h3>Nutrients in 100 g</h3>
+            <BoxHeader loading={loading}>
+              {!loading ? <h3>Nutrients in 100 g</h3> : null}
             </BoxHeader>
             <BoxContainer>
               {!loading ? (
@@ -101,20 +101,24 @@ const CaloriesCalculator = () => {
             </BoxContainer>
           </Box>
           <Box>
-            <BoxHeader>
-              <h3>Nutrients in </h3>
-              &nbsp;
-              <Formik
-                initialValues={{ weight: "" }}
-                onSubmit={(values) => setFoodWeight(+values.weight)}
-              >
-                <Form>
-                  <Field name="weight" type="text" />
+            <BoxHeader loading={loading}>
+              {!loading ? (
+                <>
+                  <h3>Nutrients in </h3>
                   &nbsp;
-                  <span>g</span>
-                  <button type="submit">Calc</button>
-                </Form>
-              </Formik>
+                  <Formik
+                    initialValues={{ weight: "" }}
+                    onSubmit={(values) => setFoodWeight(+values.weight)}
+                  >
+                    <Form>
+                      <Field name="weight" type="text" />
+                      &nbsp;
+                      <span>g</span>
+                      <button type="submit">Calc</button>
+                    </Form>
+                  </Formik>
+                </>
+              ) : null}
             </BoxHeader>
             <BoxContainer>
               {!loading ? (

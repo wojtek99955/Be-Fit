@@ -139,12 +139,15 @@ export const FoodName = styled.div<StylesProps>`
   margin-bottom: 3rem;
 `;
 
-export const BoxHeader = styled.div`
+export const BoxHeader = styled.div<StylesProps>`
   position: relative;
   margin-bottom: 2rem;
   display: flex;
   align-items: center;
   height: 2rem;
+  background-color: ${({ loading }) => (loading ? "#f3f4f6" : "white")};
+  border-radius: 12px;
+
   h3 {
     color: #55595b;
     display: inline;
