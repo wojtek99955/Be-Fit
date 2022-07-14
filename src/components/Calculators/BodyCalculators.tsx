@@ -1,4 +1,3 @@
-import { Container } from "./Calculators";
 import styled from "styled-components";
 import { MdOutlineMonitorWeight } from "react-icons/md";
 import { GiWeightLiftingUp } from "react-icons/gi";
@@ -30,11 +29,9 @@ const CalculatorsContainer = styled.div`
   justify-content: center;
   cursor: pointer;
   transition: transform 100ms;
-
   &:hover {
     transform: scale(1.05);
   }
-
   &:first-of-type:hover ${WeightIcon} {
     color: #ffa101;
   }
@@ -44,7 +41,6 @@ const CalculatorsContainer = styled.div`
   &:nth-of-type(3):hover ${FoodIcon} {
     color: #ffa101;
   }
-
   h1 {
     font-weight: 500;
   }
@@ -54,6 +50,11 @@ const CalculatorsContainer = styled.div`
     align-items: center;
     gap: 1rem;
   }
+`;
+
+const Container = styled.div`
+  display: flex;
+  gap: 2rem;
 `;
 
 const BodyCalculators = () => {

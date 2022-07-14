@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import { Formik, Form, Field } from "formik";
 
 export const Container = styled.section`
-  padding-top: 8rem;
+  /* padding-top: 8rem; */
   width: 100%;
 `;
 export const Wrapper = styled.div`

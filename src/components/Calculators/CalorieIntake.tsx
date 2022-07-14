@@ -3,6 +3,7 @@ import { Formik, Form, Field } from "formik";
 import { useState } from "react";
 
 const Container = styled.section`
+  width: 100%;
   label {
     display: block;
     margin-bottom: 0.5rem;
@@ -21,6 +22,11 @@ const Container = styled.section`
     height: 2.5rem;
     width: 100%;
   }
+`;
+
+const Wrapper = styled.div`
+  max-width: 600px;
+  margin: auto;
 `;
 
 const initialValues = {
@@ -94,61 +100,63 @@ const CalorieIntake = () => {
   }
   return (
     <Container>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={(values) => {
-          setFormValues({
-            age: +values.age,
-            gender: values.gender,
-            activity: values.activityLevel,
-            weight: +values.weight,
-            height: +values.height,
-          });
-        }}
-      >
-        <Form>
-          <Row>
-            <InputContainer>
-              <label htmlFor="gender">Gender</label>
-              <Field as="select" name="gender">
-                <option value="male">male</option>
-                <option value="female">female</option>
-              </Field>
-            </InputContainer>
-            <InputContainer>
-              <label htmlFor="age">Age</label>
-              <Field name="age" placeholder="age" id="age" />
-            </InputContainer>
-          </Row>
-          <Row>
-            <InputContainer>
-              <label htmlFor="weight">Weight</label>
-              <Field name="weight" placeholder="weight" />
-            </InputContainer>
-            <InputContainer>
-              <label htmlFor="height">Height</label>
-              <Field name="height" id="height" placeholder="height" />
-            </InputContainer>
-          </Row>
-          <Field as="select" name="activityLevel">
-            <option value="-">-</option>
-            <option value={Activity.zero}>{Activity.zero}</option>
-            <option value={Activity.rarely}>{Activity.rarely}</option>
-            <option value={Activity.sedentaryLifestyle}>
-              {Activity.sedentaryLifestyle}
-            </option>
-            <option value={Activity.moderateActivity}>
-              {Activity.moderateActivity}
-            </option>
-            <option value={Activity.veryActive}>{Activity.veryActive}</option>
-            <option value={Activity.sport}>{Activity.sport}</option>
-          </Field>
-          <button type="submit">Get result</button>
-        </Form>
-      </Formik>
-      {formValues ? (
-        <h3>Intake {(getBMR()! * getPAL()!).toFixed(0)} calories</h3>
-      ) : null}
+      <Wrapper>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={(values) => {
+            setFormValues({
+              age: +values.age,
+              gender: values.gender,
+              activity: values.activityLevel,
+              weight: +values.weight,
+              height: +values.height,
+            });
+          }}
+        >
+          <Form>
+            <Row>
+              <InputContainer>
+                <label htmlFor="gender">Gender</label>
+                <Field as="select" name="gender">
+                  <option value="male">male</option>
+                  <option value="female">female</option>
+                </Field>
+              </InputContainer>
+              <InputContainer>
+                <label htmlFor="age">Age</label>
+                <Field name="age" placeholder="age" id="age" />
+              </InputContainer>
+            </Row>
+            <Row>
+              <InputContainer>
+                <label htmlFor="weight">Weight</label>
+                <Field name="weight" placeholder="weight" />
+              </InputContainer>
+              <InputContainer>
+                <label htmlFor="height">Height</label>
+                <Field name="height" id="height" placeholder="height" />
+              </InputContainer>
+            </Row>
+            <Field as="select" name="activityLevel">
+              <option value="-">-</option>
+              <option value={Activity.zero}>{Activity.zero}</option>
+              <option value={Activity.rarely}>{Activity.rarely}</option>
+              <option value={Activity.sedentaryLifestyle}>
+                {Activity.sedentaryLifestyle}
+              </option>
+              <option value={Activity.moderateActivity}>
+                {Activity.moderateActivity}
+              </option>
+              <option value={Activity.veryActive}>{Activity.veryActive}</option>
+              <option value={Activity.sport}>{Activity.sport}</option>
+            </Field>
+            <button type="submit">Get result</button>
+          </Form>
+        </Formik>
+        {formValues ? (
+          <h3>Intake {(getBMR()! * getPAL()!).toFixed(0)} calories</h3>
+        ) : null}
+      </Wrapper>
     </Container>
   );
 };

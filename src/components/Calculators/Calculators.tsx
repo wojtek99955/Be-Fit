@@ -6,7 +6,7 @@ import { GiWeightLiftingUp } from "react-icons/gi";
 export const Container = styled.section`
   max-width: 900px;
   margin: auto;
-  margin-top: 6rem;
+  /* margin-top: 6rem; */
   display: flex;
   gap: 5rem;
 `;
@@ -21,11 +21,9 @@ const CalculatorsContainer = styled.div`
   justify-content: center;
   cursor: pointer;
   transition: transform 100ms;
-
   &:hover {
     transform: scale(1.05);
   }
-
   h1 {
     font-weight: 500;
   }
