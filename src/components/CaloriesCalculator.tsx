@@ -82,7 +82,7 @@ const Nutrients = styled.div`
   justify-content: space-between;
 `;
 
-const Box = styled.div`
+const BoxContainer = styled.div`
   background-color: #f3f4f6;
   border-radius: 12px;
   display: grid;
@@ -138,6 +138,43 @@ const FoodName = styled.div<StylesProps>`
   margin-bottom: 3rem;
 `;
 
+const BoxHeader = styled.div`
+  position: relative;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  height: 2rem;
+  h3 {
+    color: #55595b;
+    display: inline;
+  }
+  input {
+    width: 3rem;
+    border: 2px solid #ffa101;
+    display: inline-block;
+  }
+  button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    display: inline-block;
+    border: none;
+    color: white;
+    background-color: #ffa101;
+    padding: 0.2rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    &:hover {
+      background-color: #cf8300;
+    }
+  }
+`;
+
+const Box = styled.div``;
+
 const CaloriesCalculator = () => {
   const [query, setQuery] = useState<any>(null);
   const [loading, setLoading] = useState<null | boolean>(null);
@@ -191,45 +228,67 @@ const CaloriesCalculator = () => {
       {showBoxes ? (
         <Nutrients>
           <Box>
-            {!loading ? (
-              <>
-                <div>
-                  Calories <br />
-                  <span>{query?.details.ENERC_KCAL}</span>
-                </div>
-                <div>
-                  Weight <br />
-                  <span>100 g</span>
-                </div>
-                <div>
-                  Carbo <br /> <span>{query?.details.CHOCDF} g</span>
-                </div>
-                <div>
-                  Fat <br />
-                  <span>{query?.details.FAT} g</span>
-                </div>
-                <div>
-                  Fiber <br />
-                  <span>{query?.details.FIBTG} g</span>
-                </div>
-                <div>
-                  Protein <br />
-                  <span>{query?.details.PROCNT} g</span>
-                </div>
-              </>
-            ) : null}
+            <BoxHeader>
+              <h3>Nutrients in 100 g</h3>
+            </BoxHeader>
+            <BoxContainer>
+              {!loading ? (
+                <>
+                  <div>
+                    Calories <br />
+                    <span>{query?.details.ENERC_KCAL}</span>
+                  </div>
+                  <div>
+                    Weight <br />
+                    <span>100 g</span>
+                  </div>
+                  <div>
+                    Carbo <br /> <span>{query?.details.CHOCDF} g</span>
+                  </div>
+                  <div>
+                    Fat <br />
+                    <span>{query?.details.FAT} g</span>
+                  </div>
+                  <div>
+                    Fiber <br />
+                    <span>{query?.details.FIBTG} g</span>
+                  </div>
+                  <div>
+                    Protein <br />
+                    <span>{query?.details.PROCNT} g</span>
+                  </div>
+                </>
+              ) : null}
+            </BoxContainer>
           </Box>
           <Box>
-            {!loading ? (
-              <>
-                <div>Calories</div>
-                <div>Weight</div>
-                <div>Carbo</div>
-                <div>Fat</div>
-                <div>Fiber</div>
-                <div>Protein</div>
-              </>
-            ) : null}
+            <BoxHeader>
+              <h3>Nutrients in </h3>
+              &nbsp;
+              <Formik
+                initialValues={{ weight: "" }}
+                onSubmit={(values) => console.log(values)}
+              >
+                <Form>
+                  <Field name="weight" type="text" />
+                  &nbsp;
+                  <span>g</span>
+                  <button type="submit">Calc</button>
+                </Form>
+              </Formik>
+            </BoxHeader>
+            <BoxContainer>
+              {!loading ? (
+                <>
+                  <div>Calories</div>
+                  <div>Weight</div>
+                  <div>Carbo</div>
+                  <div>Fat</div>
+                  <div>Fiber</div>
+                  <div>Protein</div>
+                </>
+              ) : null}
+            </BoxContainer>
           </Box>
         </Nutrients>
       ) : null}
