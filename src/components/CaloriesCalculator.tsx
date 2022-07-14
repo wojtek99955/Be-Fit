@@ -147,11 +147,14 @@ const BoxHeader = styled.div`
   h3 {
     color: #55595b;
     display: inline;
+    font-size: 1.2rem;
   }
   input {
     width: 3rem;
     border: 2px solid #ffa101;
     display: inline-block;
+    border-radius: 8px;
+    font-size: 1.2rem;
   }
   button {
     position: absolute;
@@ -170,6 +173,11 @@ const BoxHeader = styled.div`
     &:hover {
       background-color: #cf8300;
     }
+  }
+  span {
+    font-size: 1.2rem;
+    color: #55595b;
+    font-weight: 600;
   }
 `;
 
