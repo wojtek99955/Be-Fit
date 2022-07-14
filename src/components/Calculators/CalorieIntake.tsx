@@ -25,6 +25,7 @@ const Container = styled.section`
     border-radius: 8px;
     margin-top: 2rem;
     width: 100%;
+    font-size: 1rem;
     &:hover {
       background-color: #cf8300;
     }
