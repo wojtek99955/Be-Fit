@@ -98,15 +98,18 @@ const Result = styled.div`
   background-color: white;
   margin-top: 2rem;
   padding: 1rem;
-
-  h3 {
-    font-size: 1.2rem;
-    font-weight: 400;
-    color: #55595b;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   span {
-    font-size: 1.6rem;
+    font-size: 1rem;
     font-weight: 500;
+    color: #55595b;
+    font-weight: 400;
+  }
+  strong {
+    font-size: 1.3rem;
+    color: #55595b;
   }
 `;
 
@@ -280,11 +283,13 @@ const CalorieIntake = () => {
 
         {formValues ? (
           <Result>
-            <h3>
-              Intake{" "}
-              <span>{(getBMR()! * getPAL()! + weightGoal()!).toFixed(0)} </span>
-              kcal/day
-            </h3>
+            <span>Calories to {formValues.goal} weight</span>
+            <span>
+              <strong>
+                {(getBMR()! * getPAL()! + weightGoal()!).toFixed(0)}{" "}
+              </strong>
+              <span>kcal/day</span>
+            </span>
           </Result>
         ) : null}
       </Wrapper>
