@@ -4,7 +4,6 @@ import { IoMdAddCircleOutline } from "react-icons/io";
 import { Link } from "react-router-dom";
 
 interface StyleProps {
-  logged: any;
   location: any;
 }
 
@@ -30,15 +29,17 @@ export const StyledHeader = styled.header<StyleProps>`
   height: 3.5rem;
   z-index: 5;
   align-items: center;
-  box-shadow: ${({ logged, location }) =>
-    (logged && location.pathname === "/") ||
+  box-shadow: ${({ location }) =>
+    location.pathname === "/" ||
     location.pathname === "/signup" ||
+    location.pathname === "/forgot-password" ||
     location.pathname === "/signin"
       ? "transparent"
       : "0 2px 4px -1px rgba(57, 76, 96, 0.15)"};
-  border-bottom: ${({ logged, location }) =>
-    (logged && location.pathname === "/") ||
+  border-bottom: ${({ location }) =>
+    location.pathname === "/" ||
     location.pathname === "/signup" ||
+    location.pathname === "/forgot-password" ||
     location.pathname === "/signin"
       ? "transparent"
       : "1px solid #e1e4e7"};
