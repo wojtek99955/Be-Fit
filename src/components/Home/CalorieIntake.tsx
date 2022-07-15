@@ -3,15 +3,20 @@ import styled from "styled-components";
 import { getDoc, doc } from "firebase/firestore";
 import { db } from "../../firebase";
 import { AuthContext } from "../AuthContext";
-import { Box, SettingsIcon } from "./CardStyles";
+import { Box, SettingsIcon, StyledLink } from "./CardStyles";
 
 const StyledBox = styled(Box)`
   position: relative;
 `;
 
 const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   strong {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    color: black;
   }
 `;
 
@@ -29,13 +34,19 @@ const Data = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 2rem;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #c7e1c7;
+  border-radius: 50%;
+  width: 10rem;
+  height: 10rem;
+  display: flex;
   align-items: center;
 
   div {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    color: #a29e9e;
   }
 `;
 
@@ -62,16 +73,18 @@ const CalorieIntake = () => {
 
   return (
     <Box>
-      <Wrapper>
-        <Header>
-          <h2>Calorie Intake </h2>
+      <Header>
+        <h2>Calorie Intake </h2>
+        <StyledLink to="/calculators/body-calculators/calorie-intake">
           <SettingsIcon />
-        </Header>
-        <Data>
+        </StyledLink>
+      </Header>
+      <Data>
+        <Wrapper>
           <strong>{data.calorieIntake}</strong>
           <div>kcal/day</div>
-        </Data>
-      </Wrapper>
+        </Wrapper>
+      </Data>
     </Box>
   );
 };
