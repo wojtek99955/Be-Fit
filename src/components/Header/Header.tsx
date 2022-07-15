@@ -125,14 +125,14 @@ const Header = () => {
                         </DropdownUserIcon>
                         <UserData>
                           <strong>
-                            {data.name.length > 16
-                              ? `${data.name.slice(0, 17)}...`
-                              : data.name}
+                            {data?.name?.length > 16
+                              ? `${data?.name?.slice(0, 17)}...`
+                              : data?.name}
                           </strong>
                           <Email>
-                            {data.email.length > 16
-                              ? `${data.email.slice(0, 17)}...`
-                              : data.email}
+                            {data?.email?.length > 16
+                              ? `${data?.email.slice(0, 17)}...`
+                              : data?.email}
                           </Email>
                         </UserData>
                       </UserDataContainer>
