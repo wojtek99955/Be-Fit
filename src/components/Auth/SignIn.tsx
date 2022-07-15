@@ -55,6 +55,7 @@ const SignIn = () => {
           <Label htmlFor="password">password</Label>
           <StyledField type="password" name="password" id="password" />
           <ErrorMessage name="password" component={ValidationError} />
+          <StyledLink to="/forgot-password">Forgot password?</StyledLink>
 
           <button type="submit">SignUp</button>
         </Form>
