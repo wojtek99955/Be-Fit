@@ -9,10 +9,6 @@ interface StyleProps {
   loading: boolean;
 }
 
-const StyledBox = styled(Box)`
-  position: relative;
-`;
-
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
