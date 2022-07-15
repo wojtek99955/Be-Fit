@@ -1,5 +1,5 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import * as yup from "yup";
 import { ErrorMsg } from "../../Auth/AuthStyle";
 import {
@@ -9,6 +9,9 @@ import {
   OptionFieldName,
   Result,
 } from "./CalorieIntakeCalculatorStyle";
+import { AuthContext } from "../../AuthContext";
+import { setDoc, doc } from "firebase/firestore";
+import { db } from "../../../firebase";
 
 enum Activity {
   zero = "zero physical activity",
@@ -63,7 +66,57 @@ const validationSchema = yup.object().shape({
 });
 
 const CalorieIntake = () => {
+  const ctx = useContext(AuthContext);
+  const uid = ctx?.currentUser.uid;
   const [formValues, setFormValues] = useState<FormData | undefined>();
+
+  function getIntake() {
+    function getBMR() {
+      if (formValues?.gender === "male") {
+        return (
+          10 * formValues.weight +
+          6.15 * formValues.height -
+          5 * formValues.age +
+          5
+        );
+      } else {
+        return (
+          10 * formValues!.weight +
+          6.15 * formValues!.height -
+          5 * formValues!.age -
+          161
+        );
+      }
+    }
+    function getPAL() {
+      switch (formValues?.activity) {
+        case Activity.zero:
+          return 1.2;
+        case Activity.sedentaryLifestyle:
+          return 1.4;
+        case Activity.rarely:
+          return 1.5;
+        case Activity.moderateActivity:
+          return 1.7;
+        case Activity.veryActive:
+          return 2;
+        case Activity.sport:
+          return 2.4;
+      }
+    }
+    function weightGoal() {
+      switch (formValues?.goal) {
+        case "maintain":
+          return 0;
+        case "loose":
+          return -400;
+        case "gain":
+          return 400;
+      }
+    }
+
+    return (getBMR() * getPAL()! + weightGoal()!).toFixed(0);
+  }
   function getBMR() {
     if (formValues?.gender === "male") {
       return (
@@ -120,8 +173,8 @@ const CalorieIntake = () => {
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
-          onSubmit={(values) => {
-            setFormValues({
+          onSubmit={async (values) => {
+            await setFormValues({
               age: +values.age,
               gender: values.gender,
               activity: values.activityLevel,
@@ -129,6 +182,14 @@ const CalorieIntake = () => {
               height: +values.height,
               goal: values.goal,
             });
+            await setDoc(
+              doc(db, `users/${uid}/body-details`, "calorie-intake"),
+              {
+                calorieIntake: (getBMR()! * getPAL()! + weightGoal()!).toFixed(
+                  0
+                ),
+              }
+            );
           }}
         >
           <Form>
