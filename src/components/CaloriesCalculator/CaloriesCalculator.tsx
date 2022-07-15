@@ -11,6 +11,8 @@ import {
   Box,
   StyledH2,
   FoodName,
+  SearchIcon,
+  InputContainer,
 } from "./CaloriesCalculatorsStyle";
 
 const CaloriesCalculator = () => {
@@ -53,7 +55,12 @@ const CaloriesCalculator = () => {
           >
             <Form>
               <SearchBar>
-                <Field type="text" name="query" />
+                <InputContainer>
+                  <label htmlFor="query">
+                    <SearchIcon />
+                  </label>
+                  <Field type="text" name="query" id="query" />
+                </InputContainer>
                 <button type="submit">Search</button>
               </SearchBar>
             </Form>

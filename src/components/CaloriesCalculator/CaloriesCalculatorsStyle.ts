@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { BiSearch } from "react-icons/bi";
 const img = require("../../assets/images/food-img.jpg");
 
 interface StylesProps {
@@ -47,7 +48,7 @@ export const SearchBar = styled.div`
   input {
     outline: none;
     border: none;
-    padding: 0.2rem 0.5rem;
+    padding: 0.2rem 0;
     width: 100%;
     height: 2.5rem;
     display: block;
@@ -189,3 +190,22 @@ export const BoxHeader = styled.div<StylesProps>`
 `;
 
 export const Box = styled.div``;
+
+export const SearchIcon = styled(BiSearch)`
+  font-size: 1.5rem;
+  margin: 0 0.5rem;
+`;
+
+export const InputContainer = styled.div`
+  display: flex;
+  border-radius: 8px;
+  background: white;
+  align-items: center;
+  label {
+    display: block;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+`;
