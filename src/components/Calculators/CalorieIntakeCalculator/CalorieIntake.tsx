@@ -138,7 +138,7 @@ const CalorieIntake = () => {
             <InputContainer>
               <OptionFieldName>Gender</OptionFieldName>
               <Field as="select" name="gender">
-                <option value="-">-</option>
+                <option value="-"></option>
                 <option value="male">male</option>
                 <option value="female">female</option>
               </Field>
@@ -164,7 +164,7 @@ const CalorieIntake = () => {
             <InputContainer>
               <OptionFieldName>Goal</OptionFieldName>
               <Field as="select" name="goal">
-                <option value="-">-</option>
+                <option value="-"></option>
                 <option value="maintain">maintain</option>
                 <option value="loose">loose</option>
                 <option value="gain">gain</option>
@@ -174,7 +174,7 @@ const CalorieIntake = () => {
             <InputContainer>
               <OptionFieldName>Activity</OptionFieldName>
               <Field as="select" name="activityLevel">
-                <option value="-">-</option>
+                <option value="-"></option>
                 <option value={Activity.zero}>{Activity.zero}</option>
                 <option value={Activity.rarely}>{Activity.rarely}</option>
                 <option value={Activity.sedentaryLifestyle}>
