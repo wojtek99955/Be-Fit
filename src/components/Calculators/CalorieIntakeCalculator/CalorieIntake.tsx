@@ -68,28 +68,21 @@ const validationSchema = yup.object().shape({
 const CalorieIntake = () => {
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
-  const [formValues, setFormValues] = useState<FormData | undefined>();
 
-  function getIntake() {
+  function getIntake(values: any) {
     function getBMR() {
-      if (formValues?.gender === "male") {
+      if (values?.gender === "male") {
         return (
-          10 * formValues.weight +
-          6.15 * formValues.height -
-          5 * formValues.age +
-          5
+          10 * +values.weight + 6.15 * +values.height - 5 * +values.age + 5
         );
       } else {
         return (
-          10 * formValues!.weight +
-          6.15 * formValues!.height -
-          5 * formValues!.age -
-          161
+          10 * +values.weight + 6.15 * +values.height - 5 * +values.age - 161
         );
       }
     }
     function getPAL() {
-      switch (formValues?.activity) {
+      switch (values.activityLevel) {
         case Activity.zero:
           return 1.2;
         case Activity.sedentaryLifestyle:
@@ -105,7 +98,7 @@ const CalorieIntake = () => {
       }
     }
     function weightGoal() {
-      switch (formValues?.goal) {
+      switch (values.goal) {
         case "maintain":
           return 0;
         case "loose":
@@ -114,53 +107,7 @@ const CalorieIntake = () => {
           return 400;
       }
     }
-
     return (getBMR() * getPAL()! + weightGoal()!).toFixed(0);
-  }
-  function getBMR() {
-    if (formValues?.gender === "male") {
-      return (
-        10 * formValues.weight +
-        6.15 * formValues.height -
-        5 * formValues.age +
-        5
-      );
-    } else {
-      return (
-        10 * formValues!.weight +
-        6.15 * formValues!.height -
-        5 * formValues!.age -
-        161
-      );
-    }
-  }
-
-  function getPAL() {
-    switch (formValues?.activity) {
-      case Activity.zero:
-        return 1.2;
-      case Activity.sedentaryLifestyle:
-        return 1.4;
-      case Activity.rarely:
-        return 1.5;
-      case Activity.moderateActivity:
-        return 1.7;
-      case Activity.veryActive:
-        return 2;
-      case Activity.sport:
-        return 2.4;
-    }
-  }
-
-  function weightGoal() {
-    switch (formValues?.goal) {
-      case "maintain":
-        return 0;
-      case "loose":
-        return -400;
-      case "gain":
-        return 400;
-    }
   }
 
   return (
@@ -174,22 +121,17 @@ const CalorieIntake = () => {
           initialValues={initialValues}
           validationSchema={validationSchema}
           onSubmit={async (values) => {
-            await setFormValues({
-              age: +values.age,
-              gender: values.gender,
-              activity: values.activityLevel,
-              weight: +values.weight,
-              height: +values.height,
-              goal: values.goal,
-            });
-            await setDoc(
-              doc(db, `users/${uid}/body-details`, "calorie-intake"),
-              {
-                calorieIntake: (getBMR()! * getPAL()! + weightGoal()!).toFixed(
-                  0
-                ),
-              }
-            );
+            try {
+              const intake = await getIntake(values);
+              await setDoc(
+                doc(db, `users/${uid}/body-details`, "calorie-intake"),
+                {
+                  calorieIntake: intake,
+                }
+              );
+            } catch {
+              console.log("error");
+            }
           }}
         >
           <Form>
@@ -252,17 +194,13 @@ const CalorieIntake = () => {
           </Form>
         </Formik>
 
-        {formValues ? (
-          <Result>
-            <span>Calories to {formValues.goal} weight</span>
-            <span>
-              <strong>
-                {(getBMR()! * getPAL()! + weightGoal()!).toFixed(0)}{" "}
-              </strong>
-              <span>kcal/day</span>
-            </span>
-          </Result>
-        ) : null}
+        <Result>
+          <span>Calories to weight</span>
+          <span>
+            <strong>{}</strong>
+            <span>kcal/day</span>
+          </span>
+        </Result>
       </Wrapper>
     </Container>
   );
