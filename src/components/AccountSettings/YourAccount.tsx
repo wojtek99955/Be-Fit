@@ -82,10 +82,10 @@ const YourAccount = () => {
       <h2>Your account</h2>
       <ImageContainer>
         <Wrapper>
-          <Image url={data.avatarImg}>
+          <Image url={data?.avatarImg}>
             {data?.avatarImg ? null : data?.name?.toUpperCase().slice(0, 1)}
           </Image>
-          {data.avatarImg ? null : (
+          {data?.avatarImg ? null : (
             <div>
               <h3>Upload your profile image</h3>
               <p>This helps your teammates recognise you </p>
@@ -121,7 +121,7 @@ const YourAccount = () => {
         <h3>Name</h3>
 
         <Formik
-          initialValues={{ name: data.name }}
+          initialValues={{ name: data?.name }}
           enableReinitialize={true}
           onSubmit={async (values) => {
             const userRef = doc(db, `users/${uid}`);
@@ -135,7 +135,7 @@ const YourAccount = () => {
               {editName ? (
                 <StyledField type="text" name="name" id="name" />
               ) : (
-                <span>{data.name}</span>
+                <span>{data?.name}</span>
               )}
 
               <div>
@@ -158,7 +158,7 @@ const YourAccount = () => {
       <EmailContainer>
         <h3>Email</h3>
         <Formik
-          initialValues={{ email: data.email }}
+          initialValues={{ email: data?.email }}
           enableReinitialize={true}
           onSubmit={async (values) => {
             const userRef = doc(db, `users/${uid}`);
@@ -173,7 +173,7 @@ const YourAccount = () => {
               {editEmail ? (
                 <StyledField type="text" name="email" id="email" />
               ) : (
-                <span>{data.email}</span>
+                <span>{data?.email}</span>
               )}
               {editEmail ? (
                 <Button save type="submit">
