@@ -22,6 +22,7 @@ import IdealWeight from "./Calculators/IdealWeight";
 import CaloriesCalculator from "./CaloriesCalculator/CaloriesCalculator";
 import CalorieIntake from "./Calculators/CalorieIntakeCalculator/CalorieIntake";
 import BodyCalculatorsLayout from "./Calculators/BodyCalculatorsLayout";
+import ForgotPassword from "./Auth/ForgotPassword";
 
 interface AuthProps {
   children: JSX.Element;
@@ -43,6 +44,7 @@ function App() {
           <Route index element={<StartPage />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="signin" element={<SignIn />} />
+          <Route path="forgot-password" element={<ForgotPassword />} />
         </Route>
         <Route
           path="/home"
