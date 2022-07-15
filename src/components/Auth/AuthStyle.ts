@@ -51,6 +51,7 @@ export const StyledField = styled(Field)`
 export const StyledLink = styled(Link)`
   color: grey;
   text-decoration: none;
+  display: block;
 `;
 
 export const ErrorMsg = styled.div`
