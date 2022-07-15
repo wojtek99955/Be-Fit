@@ -5,6 +5,10 @@ import { db } from "../../firebase";
 import { AuthContext } from "../AuthContext";
 import { Box, SettingsIcon, StyledLink } from "./CardStyles";
 
+interface StyleProps {
+  loading: boolean;
+}
+
 const StyledBox = styled(Box)`
   position: relative;
 `;
@@ -50,10 +54,15 @@ const Data = styled.div`
   }
 `;
 
+const BoxWrapper = styled.div<StyleProps>`
+  opacity: ${({ loading }) => (!loading ? "1" : "0")};
+`;
+
 const CalorieIntake = () => {
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
   const [data, setData] = useState<any>({});
+  const [loading, setLoading] = useState(true);
 
   async function getData() {
     const snap = await getDoc(
@@ -62,8 +71,10 @@ const CalorieIntake = () => {
 
     if (snap.exists()) {
       setData(snap.data());
+      setLoading(false);
     } else {
       console.log("No such document");
+      setLoading(false);
     }
   }
 
@@ -73,18 +84,20 @@ const CalorieIntake = () => {
 
   return (
     <Box>
-      <Header>
-        <h2>Calorie Intake </h2>
-        <StyledLink to="/calculators/body-calculators/calorie-intake">
-          <SettingsIcon />
-        </StyledLink>
-      </Header>
-      <Data>
-        <Wrapper>
-          <strong>{data.calorieIntake}</strong>
-          <div>kcal/day</div>
-        </Wrapper>
-      </Data>
+      <BoxWrapper loading={loading}>
+        <Header>
+          <h2>Calorie Intake </h2>
+          <StyledLink to="/calculators/body-calculators/calorie-intake">
+            <SettingsIcon />
+          </StyledLink>
+        </Header>
+        <Data>
+          <Wrapper>
+            <strong>{data.calorieIntake}</strong>
+            <div>kcal/day</div>
+          </Wrapper>
+        </Data>
+      </BoxWrapper>
     </Box>
   );
 };
