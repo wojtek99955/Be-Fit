@@ -95,7 +95,11 @@ export const Wrapper = styled.div`
 `;
 
 export const NameContainer = styled.div``;
-export const EmailContainer = styled.div``;
+export const EmailContainer = styled.div`
+  p {
+    margin-bottom: 1rem;
+  }
+`;
 
 export const Divider = styled.div`
   border-bottom: 1px solid #e1e4e7; ;
@@ -144,4 +148,9 @@ export const AvatarBtn = styled(Button)<AvatarBtnProps>`
 export const LoaderContainer = styled.div`
   position: absolute;
   right: 0;
+`;
+
+export const ConfirmPassword = styled.div`
+  display: flex;
+  margin-bottom: 1rem;
 `;
