@@ -15,12 +15,18 @@ import {
   StyledField,
   FileInput,
   LoaderContainer,
+  ConfirmPassword,
 } from "./AccountSettingsStyle";
 import * as yup from "yup";
 import { ErrorMsg } from "../Auth/AuthStyle";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { updateEmail, updateProfile } from "firebase/auth";
 import Loader from "../../assets/Loader";
+import {
+  getAuth,
+  reauthenticateWithCredential,
+  EmailAuthProvider,
+} from "firebase/auth";
 
 const YourAccount = () => {
   const ctx = useContext(AuthContext);
@@ -28,6 +34,9 @@ const YourAccount = () => {
   const [data, setData] = useState<any>([]);
   const [editName, setEditName] = useState(false);
   const [editEmail, setEditEmail] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState(false);
+
+  const auth = getAuth();
 
   useEffect(() => {
     onSnapshot(doc(db, `users/${uid}`), (doc) => {
@@ -82,15 +91,15 @@ const YourAccount = () => {
       <h2>Your account</h2>
       <ImageContainer>
         <Wrapper>
-          <Image url={data?.avatarImg}>
+          <Image url={data.avatarImg}>
             {data?.avatarImg ? null : data?.name?.toUpperCase().slice(0, 1)}
           </Image>
-          {!data.avatarImg ? (
+          {data.avatarImg ? null : (
             <div>
               <h3>Upload your profile image</h3>
               <p>This helps your teammates recognise you </p>
             </div>
-          ) : null}
+          )}
           {loading ? (
             <LoaderContainer>
               <Loader />
@@ -121,7 +130,7 @@ const YourAccount = () => {
         <h3>Name</h3>
 
         <Formik
-          initialValues={{ name: data?.name }}
+          initialValues={{ name: data.name }}
           enableReinitialize={true}
           onSubmit={async (values) => {
             const userRef = doc(db, `users/${uid}`);
@@ -135,7 +144,7 @@ const YourAccount = () => {
               {editName ? (
                 <StyledField type="text" name="name" id="name" />
               ) : (
-                <span>{data?.name}</span>
+                <span>{data.name}</span>
               )}
 
               <div>
@@ -157,23 +166,13 @@ const YourAccount = () => {
       </NameContainer>
       <EmailContainer>
         <h3>Email</h3>
-        <Formik
-          initialValues={{ email: data?.email }}
-          enableReinitialize={true}
-          onSubmit={async (values) => {
-            const userRef = doc(db, `users/${uid}`);
-            await updateDoc(userRef, { email: values.email });
-            await updateEmail(ctx?.currentUser, values.email);
-            setEditEmail(false);
-          }}
-          validationSchema={emailValidationSchema}
-        >
-          <Form>
-            <Wrapper>
-              {editEmail ? (
+        <Wrapper>
+          <span>{data.email}</span>
+          <Button onClick={handleEditEmail}>Edit</Button>
+          {/* {editEmail ? (
                 <StyledField type="text" name="email" id="email" />
               ) : (
-                <span>{data?.email}</span>
+                <span>{data.email}</span>
               )}
               {editEmail ? (
                 <Button save type="submit">
@@ -182,11 +181,62 @@ const YourAccount = () => {
               ) : null}
               {!editEmail ? (
                 <Button onClick={handleEditEmail}>Edit</Button>
-              ) : null}
-            </Wrapper>
-            <ErrorMessage name="email" component={ErrorMsg} />
+              ) : null} */}
+        </Wrapper>
+        <Formik
+          initialValues={{ password: "" }}
+          onSubmit={async (values) => {
+            try {
+              let credential = EmailAuthProvider.credential(
+                auth?.currentUser?.email!,
+                values.password
+              );
+              await reauthenticateWithCredential(ctx?.currentUser, credential);
+              setConfirmPassword(true);
+            } catch {
+              console.log("error");
+            }
+          }}
+        >
+          <Form>
+            {editEmail ? (
+              <>
+                <p>Before changing email you must confirm your password.</p>
+                <ConfirmPassword>
+                  <StyledField
+                    type="password"
+                    name="password"
+                    placeholder="confirm password"
+                    style={{ width: "12rem" }}
+                    disabled={confirmPassword}
+                  />
+                  <Button type="submit">Confirm</Button>
+                </ConfirmPassword>
+              </>
+            ) : null}
           </Form>
         </Formik>
+        {confirmPassword ? (
+          <Formik
+            initialValues={{ email: "" }}
+            onSubmit={async (values) => {
+              const userRef = doc(db, `users/${uid}`);
+              await updateDoc(userRef, { email: values.email });
+              await updateEmail(ctx?.currentUser, values.email);
+              setEditEmail(false);
+              setConfirmPassword(false);
+            }}
+          >
+            <Form>
+              <StyledField
+                type="email"
+                name="email"
+                placeholder="type new email"
+              />
+              <Button> Change</Button>
+            </Form>
+          </Formik>
+        ) : null}
         <Divider />
       </EmailContainer>
     </Container>
