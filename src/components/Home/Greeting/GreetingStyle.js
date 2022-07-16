@@ -30,8 +30,7 @@ export const Container = styled.div`
 export const SearchInput = styled.input`
   outline: none;
   border: none;
-  padding: 0.2rem 0.5rem;
-  width: clamp(15rem, 50%, 30rem);
+  padding: 0.2rem 0rem;
   display: block;
   height: 2.2rem;
   border-radius: 8px;
@@ -47,4 +46,12 @@ export const WorkOutIconContainer = styled.div`
   width: 8rem;
   position: absolute;
   right: 3rem;
+`;
+
+export const InputContainer = styled.div`
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  background-color: white;
+  width: clamp(15rem, 50%, 30rem);
 `;
