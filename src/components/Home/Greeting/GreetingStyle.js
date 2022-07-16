@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background-color: rgba(250, 230, 177, 1);
+  /* background-color: rgba(250, 230, 177, 1);
   background-image: linear-gradient(
     90deg,
     rgba(250, 230, 177, 1) 0%,
     rgba(255, 161, 1, 1) 50%,
     rgba(49, 82, 91, 0.84) 94%
-  );
+  ); */
+  background-color: #00d683;
 
   height: 15rem;
   border-radius: 8px;
@@ -18,6 +19,7 @@ export const Container = styled.div`
   align-items: center;
   flex-direction: column;
   font-size: 2.5rem;
+  position: relative;
   h1 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
