@@ -23,6 +23,8 @@ export const Container = styled.div`
   h1 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
+    position: relative;
+    z-index: 2;
   }
 `;
 export const SearchInput = styled.input`
@@ -33,4 +35,16 @@ export const SearchInput = styled.input`
   display: block;
   height: 2.2rem;
   border-radius: 8px;
+`;
+
+export const HealthyStyleIconContainer = styled.div`
+  width: 10rem;
+  position: absolute;
+  left: 3rem;
+`;
+
+export const WorkOutIconContainer = styled.div`
+  width: 8rem;
+  position: absolute;
+  right: 3rem;
 `;
