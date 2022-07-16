@@ -194,6 +194,7 @@ export const Box = styled.div``;
 export const SearchIcon = styled(BiSearch)`
   font-size: 1.5rem;
   margin: 0 0.5rem;
+  color: black;
 `;
 
 export const InputContainer = styled.div`
