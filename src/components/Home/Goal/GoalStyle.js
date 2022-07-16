@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
   &:nth-of-type(2) {
     background-color: #c7e1c7;
     p {
-      background-color: #6db26b;
+      background-color: #009d51;
     }
   }
   h2 {

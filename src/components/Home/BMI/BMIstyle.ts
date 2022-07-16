@@ -16,7 +16,7 @@ export const Wrapper = styled.div<StyleProps>`
     if (bmi >= 25) {
       return "#E1605E";
     } else if (bmi >= 18.5) {
-      return "#6DB26B";
+      return "#009D51";
     } else if (bmi < 18.5) {
       return "#E1605E";
     } else {
