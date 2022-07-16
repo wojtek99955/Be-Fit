@@ -1,5 +1,5 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import * as yup from "yup";
 import { ErrorMsg } from "../../Auth/AuthStyle";
 import {
@@ -59,6 +59,8 @@ const validationSchema = yup.object().shape({
 const CalorieIntake = () => {
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
+  const [intake, setIntake] = useState<string | null>("");
+  const [goal, setGoal] = useState("");
 
   function getIntake(values: any) {
     function getBMR() {
@@ -114,6 +116,8 @@ const CalorieIntake = () => {
           onSubmit={async (values) => {
             try {
               const intake = await getIntake(values);
+              setIntake(intake);
+              setGoal(values.goal);
               await setDoc(
                 doc(db, `users/${uid}/body-details`, "calorie-intake"),
                 {
@@ -186,9 +190,9 @@ const CalorieIntake = () => {
         </Formik>
 
         <Result>
-          <span>Calories to weight</span>
+          <span>Calories to {goal} weight</span>
           <span>
-            <strong>{}</strong>
+            <strong>{intake}</strong>
             <span>kcal/day</span>
           </span>
         </Result>
