@@ -58,6 +58,10 @@ const YourAccount = () => {
     email: yup.string().email("invalid email format").required("required"),
   });
 
+  const passwordValidationSchema = yup.object().shape({
+    password: yup.string().min(6, "minimum 6 characters").required("required"),
+  });
+
   const [file, setFile] = useState<any>(null);
   const [loading, setLoading] = useState(false);
   const onChangeSetFile = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -185,6 +189,7 @@ const YourAccount = () => {
         </Wrapper>
         <Formik
           initialValues={{ password: "" }}
+          validationSchema={passwordValidationSchema}
           onSubmit={async (values) => {
             try {
               let credential = EmailAuthProvider.credential(
@@ -212,6 +217,7 @@ const YourAccount = () => {
                   />
                   <Button type="submit">Confirm</Button>
                 </ConfirmPassword>
+                <ErrorMessage name="password" component={ErrorMsg} />
               </>
             ) : null}
           </Form>
@@ -219,6 +225,7 @@ const YourAccount = () => {
         {confirmPassword ? (
           <Formik
             initialValues={{ email: "" }}
+            validationSchema={emailValidationSchema}
             onSubmit={async (values) => {
               const userRef = doc(db, `users/${uid}`);
               await updateDoc(userRef, { email: values.email });
@@ -228,11 +235,8 @@ const YourAccount = () => {
             }}
           >
             <Form>
-              <StyledField
-                type="email"
-                name="email"
-                placeholder="type new email"
-              />
+              <StyledField name="email" placeholder="type new email" />
+              <ErrorMessage name="email" component={ErrorMsg} />
               <Button> Change</Button>
             </Form>
           </Formik>
