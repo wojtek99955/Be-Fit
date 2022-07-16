@@ -85,12 +85,12 @@ const YourAccount = () => {
           <Image url={data?.avatarImg}>
             {data?.avatarImg ? null : data?.name?.toUpperCase().slice(0, 1)}
           </Image>
-          {data?.avatarImg ? null : (
+          {!data.avatarImg ? (
             <div>
               <h3>Upload your profile image</h3>
               <p>This helps your teammates recognise you </p>
             </div>
-          )}
+          ) : null}
           {loading ? (
             <LoaderContainer>
               <Loader />
