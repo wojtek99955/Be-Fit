@@ -1,5 +1,5 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import * as yup from "yup";
 import { ErrorMsg } from "../../Auth/AuthStyle";
 import {
@@ -20,15 +20,6 @@ enum Activity {
   moderateActivity = "3/4 activities per week",
   veryActive = "very active lifestyle",
   sport = "sport lifestyle",
-}
-
-interface FormData {
-  gender: string;
-  height: number;
-  age: number;
-  activity: string;
-  weight: number;
-  goal: string;
 }
 
 const initialValues = {
