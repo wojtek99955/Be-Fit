@@ -17,7 +17,7 @@ const Container = styled.section`
   height: calc(100vh - 3.5rem);
   position: relative;
   top: 3.5rem;
-  overflow: scroll;
+  overflow-y: scroll;
 `;
 const GridContainer = styled.div`
   display: grid;
