@@ -106,5 +106,7 @@ export const Result = styled.div`
   strong {
     font-size: 1.3rem;
     color: #55595b;
+    display: inline-block;
+    margin-right: 0.5rem;
   }
 `;
