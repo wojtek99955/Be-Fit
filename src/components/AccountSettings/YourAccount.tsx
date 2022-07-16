@@ -14,7 +14,6 @@ import {
   EmailContainer,
   StyledField,
   FileInput,
-  LoaderContainer,
   ConfirmPassword,
 } from "./AccountSettingsStyle";
 import * as yup from "yup";
@@ -27,6 +26,8 @@ import {
   reauthenticateWithCredential,
   EmailAuthProvider,
 } from "firebase/auth";
+import { CorrectIcon } from "./Security/SecurityStyle";
+import styled from "styled-components";
 
 const YourAccount = () => {
   const ctx = useContext(AuthContext);
@@ -35,6 +36,10 @@ const YourAccount = () => {
   const [editName, setEditName] = useState(false);
   const [editEmail, setEditEmail] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
+  const [passwordLoading, setPasswordLoading] = useState(false);
+
+  const LoaderContainer = styled.div``;
 
   const auth = getAuth();
 
@@ -192,13 +197,18 @@ const YourAccount = () => {
           validationSchema={passwordValidationSchema}
           onSubmit={async (values) => {
             try {
+              setPasswordLoading(true);
               let credential = EmailAuthProvider.credential(
                 auth?.currentUser?.email!,
                 values.password
               );
               await reauthenticateWithCredential(ctx?.currentUser, credential);
               setConfirmPassword(true);
+              setPasswordError(false);
+              setPasswordLoading(false);
             } catch {
+              setPasswordError(true);
+              setPasswordLoading(false);
               console.log("error");
             }
           }}
@@ -215,9 +225,18 @@ const YourAccount = () => {
                     style={{ width: "12rem" }}
                     disabled={confirmPassword}
                   />
-                  <Button type="submit">Confirm</Button>
+                  {!confirmPassword && !passwordLoading ? (
+                    <Button type="submit">Confirm</Button>
+                  ) : null}
+                  {confirmPassword ? <CorrectIcon /> : null}
+                  {passwordLoading ? (
+                    <span>
+                      <Loader />
+                    </span>
+                  ) : null}
                 </ConfirmPassword>
                 <ErrorMessage name="password" component={ErrorMsg} />
+                {passwordError ? <ErrorMsg>wrong password</ErrorMsg> : null}
               </>
             ) : null}
           </Form>
