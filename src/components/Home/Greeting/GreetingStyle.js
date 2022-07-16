@@ -34,10 +34,11 @@ export const SearchInput = styled.input`
   display: block;
   height: 2.2rem;
   border-radius: 8px;
+  width: 100%;
 `;
 
 export const HealthyStyleIconContainer = styled.div`
-  width: 10rem;
+  width: 12rem;
   position: absolute;
   left: 3rem;
 `;
