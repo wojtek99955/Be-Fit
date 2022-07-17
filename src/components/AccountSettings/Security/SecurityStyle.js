@@ -33,6 +33,7 @@ export const Password = styled.div`
     height: 3rem;
     display: block;
     margin-bottom: 1rem;
+    outline-color: #ffa101;
   }
 `;
 
