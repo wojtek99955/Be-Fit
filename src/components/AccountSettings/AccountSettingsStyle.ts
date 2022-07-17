@@ -153,4 +153,5 @@ export const LoaderContainer = styled.div`
 export const ConfirmPassword = styled.div`
   display: flex;
   margin-bottom: 1rem;
+  align-items: center;
 `;
