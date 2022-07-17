@@ -178,19 +178,6 @@ const YourAccount = () => {
         <Wrapper>
           <span>{data.email}</span>
           <Button onClick={handleEditEmail}>Edit</Button>
-          {/* {editEmail ? (
-                <StyledField type="text" name="email" id="email" />
-              ) : (
-                <span>{data.email}</span>
-              )}
-              {editEmail ? (
-                <Button save type="submit">
-                  Save
-                </Button>
-              ) : null}
-              {!editEmail ? (
-                <Button onClick={handleEditEmail}>Edit</Button>
-              ) : null} */}
         </Wrapper>
         <Formik
           initialValues={{ password: "" }}
