@@ -89,12 +89,14 @@ const CalorieIntake = () => {
                 <SettingsIcon />
               </StyledLink>
             </Header>
-            <Data>
-              <Wrapper>
-                <strong>{data.calorieIntake}</strong>
-                <div>kcal/day</div>
-              </Wrapper>
-            </Data>
+            {data ? (
+              <Data>
+                <Wrapper>
+                  <strong>{data.calorieIntake}</strong>
+                  <div>kcal/day</div>
+                </Wrapper>
+              </Data>
+            ) : null}
           </BoxWrapper>
         </Box>
       ) : null}
