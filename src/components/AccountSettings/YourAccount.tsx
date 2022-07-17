@@ -41,6 +41,7 @@ const YourAccount = () => {
   const [confirmPassword, setConfirmPassword] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
   const [passwordLoading, setPasswordLoading] = useState(false);
+  const [emailInUse, setEmailInUse] = useState(false);
 
   const auth = getAuth();
 
@@ -236,10 +237,15 @@ const YourAccount = () => {
           validationSchema={emailValidationSchema}
           onSubmit={async (values) => {
             const userRef = doc(db, `users/${uid}`);
-            await updateDoc(userRef, { email: values.email });
-            await updateEmail(ctx?.currentUser, values.email);
-            setEditEmail(false);
-            setConfirmPassword(false);
+            try {
+              await updateEmail(ctx?.currentUser, values.email);
+              await updateDoc(userRef, { email: values.email });
+              setEditEmail(false);
+              setConfirmPassword(false);
+              setEmailInUse(false);
+            } catch {
+              setEmailInUse(true);
+            }
           }}
         >
           <Form>
@@ -250,6 +256,9 @@ const YourAccount = () => {
                   <Button type="submit"> Change</Button>
                 </Wrapper>
                 <ErrorMessage name="email" component={ErrorMsg} />
+                {emailInUse ? (
+                  <ErrorMsg>This email is already in use</ErrorMsg>
+                ) : null}
               </>
             ) : null}
           </Form>
