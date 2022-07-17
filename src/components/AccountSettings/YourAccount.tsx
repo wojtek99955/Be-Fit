@@ -214,7 +214,9 @@ const YourAccount = () => {
                     disabled={confirmPassword}
                   />
                   {!confirmPassword && !passwordLoading ? (
-                    <Button type="submit">Confirm</Button>
+                    <Button save type="submit">
+                      Confirm
+                    </Button>
                   ) : null}
                   {confirmPassword ? <CorrectIcon /> : null}
                   {passwordLoading ? (
