@@ -15,6 +15,7 @@ import {
   StyledField,
   FileInput,
   ConfirmPassword,
+  EmailInput,
 } from "./AccountSettingsStyle";
 import * as yup from "yup";
 import { ErrorMsg } from "../Auth/AuthStyle";
@@ -29,6 +30,8 @@ import {
 import { CorrectIcon } from "./Security/SecurityStyle";
 import styled from "styled-components";
 
+const LoaderContainer = styled.div``;
+
 const YourAccount = () => {
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
@@ -38,8 +41,6 @@ const YourAccount = () => {
   const [confirmPassword, setConfirmPassword] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
   const [passwordLoading, setPasswordLoading] = useState(false);
-
-  const LoaderContainer = styled.div``;
 
   const auth = getAuth();
 
@@ -100,7 +101,7 @@ const YourAccount = () => {
       <h2>Your account</h2>
       <ImageContainer>
         <Wrapper>
-          <Image url={data.avatarImg}>
+          <Image url={data?.avatarImg}>
             {data?.avatarImg ? null : data?.name?.toUpperCase().slice(0, 1)}
           </Image>
           {data.avatarImg ? null : (
@@ -228,25 +229,29 @@ const YourAccount = () => {
             ) : null}
           </Form>
         </Formik>
-        {confirmPassword ? (
-          <Formik
-            initialValues={{ email: "" }}
-            validationSchema={emailValidationSchema}
-            onSubmit={async (values) => {
-              const userRef = doc(db, `users/${uid}`);
-              await updateDoc(userRef, { email: values.email });
-              await updateEmail(ctx?.currentUser, values.email);
-              setEditEmail(false);
-              setConfirmPassword(false);
-            }}
-          >
-            <Form>
-              <StyledField name="email" placeholder="type new email" />
-              <ErrorMessage name="email" component={ErrorMsg} />
-              <Button> Change</Button>
-            </Form>
-          </Formik>
-        ) : null}
+        <Formik
+          initialValues={{ email: "" }}
+          validationSchema={emailValidationSchema}
+          onSubmit={async (values) => {
+            const userRef = doc(db, `users/${uid}`);
+            await updateDoc(userRef, { email: values.email });
+            await updateEmail(ctx?.currentUser, values.email);
+            setEditEmail(false);
+            setConfirmPassword(false);
+          }}
+        >
+          <Form>
+            {confirmPassword ? (
+              <>
+                <EmailInput>
+                  <StyledField name="email" placeholder="type new email" />
+                  <Button type="submit"> Change</Button>
+                </EmailInput>
+                <ErrorMessage name="email" component={ErrorMsg} />
+              </>
+            ) : null}
+          </Form>
+        </Formik>
         <Divider />
       </EmailContainer>
     </Container>
