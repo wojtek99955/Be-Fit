@@ -142,7 +142,7 @@ interface AvatarBtnProps {
 }
 
 export const AvatarBtn = styled(Button)<AvatarBtnProps>`
-  background-color: ffa101;
+  background-color: #ffa101;
 `;
 
 export const LoaderContainer = styled.div`
