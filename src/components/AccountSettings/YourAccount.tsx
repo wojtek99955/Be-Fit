@@ -245,10 +245,10 @@ const YourAccount = () => {
           <Form>
             {confirmPassword ? (
               <>
-                <EmailInput>
+                <Wrapper>
                   <StyledField name="email" placeholder="type new email" />
                   <Button type="submit"> Change</Button>
-                </EmailInput>
+                </Wrapper>
                 <ErrorMessage name="email" component={ErrorMsg} />
               </>
             ) : null}
