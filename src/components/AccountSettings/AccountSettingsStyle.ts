@@ -155,3 +155,7 @@ export const ConfirmPassword = styled.div`
   margin-bottom: 1rem;
   align-items: center;
 `;
+
+export const EmailInput = styled.div`
+  display: flex;
+`;
