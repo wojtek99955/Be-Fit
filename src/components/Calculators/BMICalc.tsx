@@ -1,15 +1,8 @@
-import React from "react";
 import styled from "styled-components";
-import { useEffect, useState, useContext } from "react";
-import { BsCalendar3 } from "react-icons/bs";
-import { GiBodyHeight } from "react-icons/gi";
-import { GiWeight } from "react-icons/gi";
-import { GoSettings } from "react-icons/go";
-import { Link } from "react-router-dom";
-import { Formik, Form, Field } from "formik";
+import { useState } from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 import { ErrorMsg } from "../Auth/AuthStyle";
-import { ErrorMessage } from "formik";
 
 export const Container = styled.section`
   /* padding-top: 8rem; */
