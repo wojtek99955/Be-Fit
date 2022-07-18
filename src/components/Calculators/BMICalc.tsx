@@ -16,7 +16,7 @@ export const Container = styled.section`
   width: 100%;
 `;
 export const Wrapper = styled.div`
-  max-width: 350px;
+  width: 25rem;
   margin: auto;
   h2 {
     text-align: center;
@@ -35,12 +35,6 @@ export const Wrapper = styled.div`
       background-color: #cf8300;
     }
   }
-`;
-
-export const Row = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
 `;
 
 export const StyledField = styled(Field)`
