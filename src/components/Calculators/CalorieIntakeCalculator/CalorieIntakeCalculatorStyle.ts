@@ -121,10 +121,24 @@ export const Text = styled.div`
     line-height: 1.8rem;
     font-size: 1.1rem;
   }
+
+  ul {
+    margin-left: 2rem;
+    li {
+      font-size: 1.1rem;
+      color: #555555;
+      margin-bottom: 0.7rem;
+    }
+  }
 `;
 export const FormContainer = styled.div`
   width: 500px;
   padding: 2rem;
   background-color: #f3f4f6;
   border-radius: 12px;
+`;
+
+export const FormWrapper = styled.div`
+  position: sticky;
+  top: 0;
 `;
