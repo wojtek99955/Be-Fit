@@ -90,14 +90,12 @@ const BMICalc = () => {
           }}
         >
           <Form>
-            <Row>
-              <StyledField as="select" name="gender">
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-              </StyledField>
-              <StyledField name="age" type="text" id="age" placeholder="age" />
-              <ErrorMessage name="age" component={ErrorMsg} />
-            </Row>
+            <StyledField as="select" name="gender">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </StyledField>
+            <StyledField name="age" type="text" id="age" placeholder="age" />
+            <ErrorMessage name="age" component={ErrorMsg} />
             <StyledField
               name="height"
               type="height"
