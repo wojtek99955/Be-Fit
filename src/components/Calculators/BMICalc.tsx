@@ -9,12 +9,10 @@ export const Container = styled.section`
   width: 100%;
 `;
 export const Wrapper = styled.div`
-  width: 25rem;
-  background-color: #f3f4f6;
-  padding: 2rem;
-  border-radius: 12px;
-
+  display: flex;
   margin: auto;
+  flex-direction: row-reverse;
+  gap: 4rem;
   h2 {
     text-align: center;
     margin-bottom: 3rem;
@@ -28,6 +26,8 @@ export const Wrapper = styled.div`
     background-color: #ffa101;
     color: white;
     cursor: pointer;
+    border-radius: 8px;
+    margin-top: 1rem;
     &:hover {
       background-color: #cf8300;
     }
@@ -58,6 +58,14 @@ const Result = styled.div`
   font-size: 1.5rem;
 `;
 
+const Text = styled.div``;
+const BmiForm = styled.div`
+  width: 25rem;
+  background-color: #f3f4f6;
+  padding: 2rem;
+  border-radius: 12px;
+`;
+
 const validationSchema = yup.object().shape({
   age: yup.number().min(18).required("required"),
   height: yup.number().min(100).required("required"),
@@ -71,38 +79,40 @@ const BMICalc = () => {
     <Container>
       <Wrapper>
         <h2>BMI Calculator</h2>
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          onSubmit={async (values) => {
-            setBmi(+values.weight / Math.pow(+values.height / 100, 2));
-          }}
-        >
-          <Form>
-            <StyledField as="select" name="gender">
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-            </StyledField>
-            <StyledField name="age" type="text" id="age" placeholder="age" />
-            <ErrorMessage name="age" component={ErrorMsg} />
-            <StyledField
-              name="height"
-              type="height"
-              id="height"
-              placeholder="height"
-            />
-            <ErrorMessage name="height" component={ErrorMsg} />
-            <StyledField
-              name="weight"
-              type="weight"
-              id="weight"
-              placeholder="weight"
-            />
-            <ErrorMessage name="weight" component={ErrorMsg} />
+        <BmiForm>
+          <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={async (values) => {
+              setBmi(+values.weight / Math.pow(+values.height / 100, 2));
+            }}
+          >
+            <Form>
+              <StyledField as="select" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </StyledField>
+              <StyledField name="age" type="text" id="age" placeholder="age" />
+              <ErrorMessage name="age" component={ErrorMsg} />
+              <StyledField
+                name="height"
+                type="height"
+                id="height"
+                placeholder="height"
+              />
+              <ErrorMessage name="height" component={ErrorMsg} />
+              <StyledField
+                name="weight"
+                type="weight"
+                id="weight"
+                placeholder="weight"
+              />
+              <ErrorMessage name="weight" component={ErrorMsg} />
 
-            <button type="submit">Save</button>
-          </Form>
-        </Formik>
+              <button type="submit">Save</button>
+            </Form>
+          </Formik>
+        </BmiForm>
       </Wrapper>
       {bmi ? <Result>Your BMI : {bmi.toFixed(1)}</Result> : null}
     </Container>
