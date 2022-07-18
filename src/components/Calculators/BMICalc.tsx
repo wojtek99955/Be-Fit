@@ -7,15 +7,16 @@ import { ErrorMsg } from "../Auth/AuthStyle";
 export const Container = styled.section`
   /* padding-top: 8rem; */
   width: 100%;
+  padding: 0 1rem;
 `;
 export const Wrapper = styled.div`
   display: flex;
-  margin: auto;
   flex-direction: row-reverse;
-  gap: 4rem;
+  gap: 3rem;
   h2 {
-    text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+    font-size: 3rem;
+    color: #555555;
   }
   button {
     display: block;
@@ -31,6 +32,11 @@ export const Wrapper = styled.div`
     &:hover {
       background-color: #cf8300;
     }
+  }
+  p {
+    line-height: 1.6rem;
+    font-size: 1.2rem;
+    color: #555555;
   }
 `;
 
@@ -60,7 +66,7 @@ const Result = styled.div`
 
 const Text = styled.div``;
 const BmiForm = styled.div`
-  width: 25rem;
+  min-width: 25rem;
   background-color: #f3f4f6;
   padding: 2rem;
   border-radius: 12px;
@@ -78,7 +84,15 @@ const BMICalc = () => {
   return (
     <Container>
       <Wrapper>
-        <h2>BMI Calculator</h2>
+        <Text>
+          <h2>BMI Calculator</h2>
+          <p>
+            Body mass index (BMI) is a value derived from the mass (weight) and
+            height of a person. The BMI is defined as the body mass divided by
+            the square of the body height, and is expressed in units of kg/m2,
+            resulting from mass in kilograms and height in metres.
+          </p>
+        </Text>
         <BmiForm>
           <Formik
             initialValues={initialValues}
