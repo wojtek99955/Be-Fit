@@ -17,7 +17,7 @@ import Email from "./AccountSettings/Email";
 import Security from "./AccountSettings/Security/Security";
 import BodyCalculators from "./Calculators/BodyCalculators";
 import CalculatorsLayout from "./Calculators/CalculatorsLayout";
-import BMICalc from "./Calculators/BMICalc";
+import BMICalc from "./Calculators/BmiCalc/BMICalc";
 import IdealWeight from "./Calculators/IdealWeight";
 import CaloriesCalculator from "./CaloriesCalculator/CaloriesCalculator";
 import CalorieIntake from "./Calculators/CalorieIntakeCalculator/CalorieIntake";
