@@ -34,7 +34,7 @@ export const Wrapper = styled.div`
     }
   }
   p {
-    line-height: 1.6rem;
+    line-height: 1.8rem;
     font-size: 1.2rem;
     color: #555555;
   }
