@@ -188,14 +188,15 @@ const CalorieIntake = () => {
             <button type="submit">Get result</button>
           </Form>
         </Formik>
-
-        <Result>
-          <span>Calories to {goal} weight</span>
-          <span>
-            <strong>{intake}</strong>
-            <span>kcal/day</span>
-          </span>
-        </Result>
+        {intake ? (
+          <Result>
+            <span>Calories to {goal} weight</span>
+            <span>
+              <strong>{intake}</strong>
+              <span>kcal/day</span>
+            </span>
+          </Result>
+        ) : null}
       </Wrapper>
     </Container>
   );
