@@ -119,7 +119,7 @@ export const Text = styled.div`
     max-width: 400px;
     color: #555555;
     line-height: 1.8rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 `;
 export const FormContainer = styled.div`
