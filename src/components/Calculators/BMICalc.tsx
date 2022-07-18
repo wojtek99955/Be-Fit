@@ -96,7 +96,7 @@ const BMICalc = () => {
                 <option value="female">Female</option>
               </StyledField>
               <StyledField name="age" type="text" id="age" placeholder="age" />
-              <ErrorMessage name="age" component={<ErrorMsg />} />
+              <ErrorMessage name="age" component={ErrorMsg} />
             </Row>
             <StyledField
               name="height"
