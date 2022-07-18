@@ -7,6 +7,9 @@ import { GiWeight } from "react-icons/gi";
 import { GoSettings } from "react-icons/go";
 import { Link } from "react-router-dom";
 import { Formik, Form, Field } from "formik";
+import * as yup from "yup";
+import { ErrorMsg } from "../Auth/AuthStyle";
+import { ErrorMessage } from "formik";
 
 export const Container = styled.section`
   /* padding-top: 8rem; */
@@ -66,6 +69,12 @@ const Result = styled.div`
   font-size: 1.5rem;
 `;
 
+const validationSchema = yup.object().shape({
+  age: yup.number().min(18).required("required"),
+  height: yup.number().min(100).required("required"),
+  weight: yup.number().min(40).required("required"),
+});
+
 const BMICalc = () => {
   const [bmi, setBmi] = useState<any | object>(null);
 
@@ -75,6 +84,7 @@ const BMICalc = () => {
         <h2>BMI Calculator</h2>
         <Formik
           initialValues={initialValues}
+          validationSchema={validationSchema}
           onSubmit={async (values) => {
             setBmi(+values.weight / Math.pow(+values.height / 100, 2));
           }}
@@ -86,6 +96,7 @@ const BMICalc = () => {
                 <option value="female">Female</option>
               </StyledField>
               <StyledField name="age" type="text" id="age" placeholder="age" />
+              <ErrorMessage name="age" component={<ErrorMsg />} />
             </Row>
             <StyledField
               name="height"
@@ -93,12 +104,15 @@ const BMICalc = () => {
               id="height"
               placeholder="height"
             />
+            <ErrorMessage name="height" component={ErrorMsg} />
             <StyledField
               name="weight"
               type="weight"
               id="weight"
               placeholder="weight"
             />
+            <ErrorMessage name="weight" component={ErrorMsg} />
+
             <button type="submit">Save</button>
           </Form>
         </Formik>
