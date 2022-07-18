@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.section`
+  margin: 0 1rem;
   width: 100%;
   label {
     display: block;
@@ -55,11 +56,8 @@ export const Container = styled.section`
 `;
 
 export const Wrapper = styled.div`
-  width: 500px;
-  margin: auto;
-  padding: 2rem;
-  background-color: #f3f4f6;
-  border-radius: 12px;
+  display: flex;
+  gap: 3rem;
   p {
     margin-bottom: 1rem;
   }
@@ -109,4 +107,24 @@ export const Result = styled.div`
     display: inline-block;
     margin-right: 0.5rem;
   }
+`;
+
+export const Text = styled.div`
+  h2 {
+    margin-bottom: 2rem;
+    font-size: 3rem;
+    color: #555555;
+  }
+  p {
+    max-width: 400px;
+    color: #555555;
+    line-height: 1.8rem;
+    font-size: 1.2rem;
+  }
+`;
+export const FormContainer = styled.div`
+  width: 500px;
+  padding: 2rem;
+  background-color: #f3f4f6;
+  border-radius: 12px;
 `;
