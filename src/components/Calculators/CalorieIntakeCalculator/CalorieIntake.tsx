@@ -8,6 +8,8 @@ import {
   InputContainer,
   OptionFieldName,
   Result,
+  Text,
+  FormContainer,
 } from "./CalorieIntakeCalculatorStyle";
 import { AuthContext } from "../../AuthContext";
 import { setDoc, doc } from "firebase/firestore";
@@ -106,97 +108,106 @@ const CalorieIntake = () => {
   return (
     <Container>
       <Wrapper>
-        <p>
-          This calculator will help you to calculate how much energy your body
-          needs to maintain / gain / loose weight.
-        </p>
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          onSubmit={async (values) => {
-            try {
-              const intake = await getIntake(values);
-              setIntake(intake);
-              setGoal(values.goal);
-              await setDoc(
-                doc(db, `users/${uid}/body-details`, "calorie-intake"),
-                {
-                  calorieIntake: intake,
-                }
-              );
-            } catch {
-              console.log("error");
-            }
-          }}
-        >
-          <Form>
-            <InputContainer>
-              <OptionFieldName>Gender</OptionFieldName>
-              <Field as="select" name="gender">
-                <option value="-"></option>
-                <option value="male">male</option>
-                <option value="female">female</option>
-              </Field>
-            </InputContainer>
-            <ErrorMessage name="gender" component={ErrorMsg} />
-            <InputContainer>
-              <label htmlFor="age">Age</label>
-              <Field name="age" id="age" />
-            </InputContainer>
-            <ErrorMessage name="age" component={ErrorMsg} />
+        <FormContainer>
+          <p>
+            This calculator will help you to calculate how much energy your body
+            needs to maintain / gain / loose weight.
+          </p>
+          <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={async (values) => {
+              try {
+                const intake = await getIntake(values);
+                setIntake(intake);
+                setGoal(values.goal);
+                await setDoc(
+                  doc(db, `users/${uid}/body-details`, "calorie-intake"),
+                  {
+                    calorieIntake: intake,
+                  }
+                );
+              } catch {
+                console.log("error");
+              }
+            }}
+          >
+            <Form>
+              <InputContainer>
+                <OptionFieldName>Gender</OptionFieldName>
+                <Field as="select" name="gender">
+                  <option value="-"></option>
+                  <option value="male">male</option>
+                  <option value="female">female</option>
+                </Field>
+              </InputContainer>
+              <ErrorMessage name="gender" component={ErrorMsg} />
+              <InputContainer>
+                <label htmlFor="age">Age</label>
+                <Field name="age" id="age" />
+              </InputContainer>
+              <ErrorMessage name="age" component={ErrorMsg} />
 
-            <InputContainer>
-              <label htmlFor="weight">Weight</label>
-              <Field name="weight" id="weight" />
-            </InputContainer>
-            <ErrorMessage name="weight" component={ErrorMsg} />
+              <InputContainer>
+                <label htmlFor="weight">Weight</label>
+                <Field name="weight" id="weight" />
+              </InputContainer>
+              <ErrorMessage name="weight" component={ErrorMsg} />
 
-            <InputContainer>
-              <label htmlFor="height">Height</label>
-              <Field name="height" id="height" />
-            </InputContainer>
-            <ErrorMessage name="height" component={ErrorMsg} />
-            <InputContainer>
-              <OptionFieldName>Goal</OptionFieldName>
-              <Field as="select" name="goal">
-                <option value="-"></option>
-                <option value="maintain">maintain</option>
-                <option value="loose">loose</option>
-                <option value="gain">gain</option>
-              </Field>
-            </InputContainer>
-            <ErrorMessage name="goal" component={ErrorMsg} />
-            <InputContainer>
-              <OptionFieldName>Activity</OptionFieldName>
-              <Field as="select" name="activityLevel">
-                <option value="-"></option>
-                <option value={Activity.zero}>{Activity.zero}</option>
-                <option value={Activity.rarely}>{Activity.rarely}</option>
-                <option value={Activity.sedentaryLifestyle}>
-                  {Activity.sedentaryLifestyle}
-                </option>
-                <option value={Activity.moderateActivity}>
-                  {Activity.moderateActivity}
-                </option>
-                <option value={Activity.veryActive}>
-                  {Activity.veryActive}
-                </option>
-                <option value={Activity.sport}>{Activity.sport}</option>
-              </Field>
-            </InputContainer>
-            <ErrorMessage name="activityLevel" component={ErrorMsg} />
-            <button type="submit">Get result</button>
-          </Form>
-        </Formik>
-        {intake ? (
-          <Result>
-            <span>Calories to {goal} weight</span>
-            <span>
-              <strong>{intake}</strong>
-              <span>kcal/day</span>
-            </span>
-          </Result>
-        ) : null}
+              <InputContainer>
+                <label htmlFor="height">Height</label>
+                <Field name="height" id="height" />
+              </InputContainer>
+              <ErrorMessage name="height" component={ErrorMsg} />
+              <InputContainer>
+                <OptionFieldName>Goal</OptionFieldName>
+                <Field as="select" name="goal">
+                  <option value="-"></option>
+                  <option value="maintain">maintain</option>
+                  <option value="loose">loose</option>
+                  <option value="gain">gain</option>
+                </Field>
+              </InputContainer>
+              <ErrorMessage name="goal" component={ErrorMsg} />
+              <InputContainer>
+                <OptionFieldName>Activity</OptionFieldName>
+                <Field as="select" name="activityLevel">
+                  <option value="-"></option>
+                  <option value={Activity.zero}>{Activity.zero}</option>
+                  <option value={Activity.rarely}>{Activity.rarely}</option>
+                  <option value={Activity.sedentaryLifestyle}>
+                    {Activity.sedentaryLifestyle}
+                  </option>
+                  <option value={Activity.moderateActivity}>
+                    {Activity.moderateActivity}
+                  </option>
+                  <option value={Activity.veryActive}>
+                    {Activity.veryActive}
+                  </option>
+                  <option value={Activity.sport}>{Activity.sport}</option>
+                </Field>
+              </InputContainer>
+              <ErrorMessage name="activityLevel" component={ErrorMsg} />
+              <button type="submit">Get result</button>
+            </Form>
+          </Formik>
+          {intake ? (
+            <Result>
+              <span>Calories to {goal} weight</span>
+              <span>
+                <strong>{intake}</strong>
+                <span>kcal/day</span>
+              </span>
+            </Result>
+          ) : null}
+        </FormContainer>
+        <Text>
+          <h2>Calorie intake calculator</h2>
+          <p>
+            This calculator will help you to calculate how much energy your body
+            needs to maintain / gain / loose weight.
+          </p>
+        </Text>
       </Wrapper>
     </Container>
   );
