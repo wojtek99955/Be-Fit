@@ -10,6 +10,10 @@ export const Container = styled.section`
 `;
 export const Wrapper = styled.div`
   width: 25rem;
+  background-color: #f3f4f6;
+  padding: 2rem;
+  border-radius: 12px;
+
   margin: auto;
   h2 {
     text-align: center;
@@ -31,16 +35,14 @@ export const Wrapper = styled.div`
 `;
 
 export const StyledField = styled(Field)`
-  margin: auto;
+  margin: 2px auto;
   display: block;
   width: 100%;
-  margin-bottom: 1rem;
   padding: 0.5rem 0.2rem;
-  border-left: none;
-  border-right: none;
-  border-top: none;
+  border: none;
   outline: none;
-  border-bottom: 2px solid #31525b;
+  font-size: 1.2rem;
+  height: 3rem;
 `;
 
 const initialValues = {
