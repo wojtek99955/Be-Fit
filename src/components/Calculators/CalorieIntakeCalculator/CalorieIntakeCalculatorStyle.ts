@@ -110,13 +110,13 @@ export const Result = styled.div`
 `;
 
 export const Text = styled.div`
+  max-width: 25rem;
   h2 {
     margin-bottom: 2rem;
     font-size: 3rem;
     color: #555555;
   }
   p {
-    max-width: 400px;
     color: #555555;
     line-height: 1.8rem;
     font-size: 1.1rem;
