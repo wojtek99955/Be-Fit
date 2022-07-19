@@ -20,6 +20,7 @@ const initialValues = {
 const validationSchema = yup.object().shape({
   age: yup
     .number()
+    .typeError("you must specify a number")
     .min(18)
     .positive("only positive numbers")
     .integer("only integer numbers")
