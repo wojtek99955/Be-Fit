@@ -1,32 +1,12 @@
 import styled from "styled-components";
 import { Formik, Form, Field } from "formik";
 import { useState } from "react";
-import { Container, Wrapper, Text } from "./CalculatorsStyle";
-
-export const FormWrapper = styled.div`
-  min-width: 25rem;
-  margin: auto;
-  padding: 1rem;
-  background-color: #f3f4f6;
-`;
+import { Container, Wrapper, Text, FormWrapper } from "./CalculatorsStyle";
 
 export const Row = styled.div`
   display: flex;
   justify-content: center;
   gap: 1rem;
-`;
-
-export const StyledField = styled(Field)`
-  margin: auto;
-  display: block;
-  width: 100%;
-  margin-bottom: 1rem;
-  padding: 0.5rem 0.2rem;
-  border-left: none;
-  border-right: none;
-  border-top: none;
-  outline: none;
-  border-bottom: 2px solid #31525b;
 `;
 
 const Result = styled.div`
@@ -86,7 +66,7 @@ const IdealWeight = () => {
                   <option value="female">Female</option>
                 </Field>
               </Row>
-              <StyledField
+              <Field
                 name="height"
                 type="height"
                 id="height"
