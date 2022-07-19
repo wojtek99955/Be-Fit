@@ -1,18 +1,18 @@
 import styled from "styled-components";
 import { Formik, Form, Field } from "formik";
 import { useState } from "react";
-import { Container, Wrapper, Text, FormWrapper } from "./CalculatorsStyle";
+import {
+  Container,
+  Wrapper,
+  Text,
+  FormWrapper,
+  Result,
+} from "./CalculatorsStyle";
 
 export const Row = styled.div`
   display: flex;
   justify-content: center;
   gap: 1rem;
-`;
-
-const Result = styled.div`
-  text-align: center;
-  margin-top: 2rem;
-  font-size: 1.5rem;
 `;
 
 const initialValues = {
@@ -50,7 +50,7 @@ const IdealWeight = () => {
         <FormWrapper>
           <Formik
             initialValues={initialValues}
-            onSubmit={async (values) => {
+            onSubmit={(values) => {
               if (values.gender === "male") {
                 setWeight((+values.height - 100) * 0.9);
               } else if (values.gender === "female") {
@@ -73,12 +73,18 @@ const IdealWeight = () => {
                 placeholder="height"
               />
               <button type="submit">Save</button>
+              {weight ? (
+                <Result>
+                  <span>Your ideal weight</span>
+                  <span>
+                    <strong>{weight.toFixed(1)}</strong>
+                    <span>kg</span>
+                  </span>
+                </Result>
+              ) : null}
             </Form>
           </Formik>
         </FormWrapper>
-        {weight ? (
-          <Result>Your ideal weight: {weight.toFixed(1)} kg</Result>
-        ) : null}
       </Wrapper>
     </Container>
   );
