@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useState } from "react";
 import {
@@ -10,12 +9,6 @@ import {
 } from "./CalculatorsStyle";
 import * as yup from "yup";
 import { ErrorMsg } from "../Auth/AuthStyle";
-
-export const Row = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-`;
 
 const initialValues = {
   gender: "male",
