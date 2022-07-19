@@ -86,3 +86,24 @@ export const FormWrapper = styled.div`
   padding: 1rem;
   background-color: #f3f4f6;
 `;
+
+export const Result = styled.div`
+  background-color: white;
+  margin-top: 2rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  span {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #55595b;
+    font-weight: 400;
+  }
+  strong {
+    font-size: 1.3rem;
+    color: #55595b;
+    display: inline-block;
+    margin-right: 0.5rem;
+  }
+`;
