@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useState } from "react";
 import {
   Container,
@@ -8,6 +8,8 @@ import {
   FormWrapper,
   Result,
 } from "./CalculatorsStyle";
+import * as yup from "yup";
+import { ErrorMsg } from "../Auth/AuthStyle";
 
 export const Row = styled.div`
   display: flex;
@@ -16,9 +18,18 @@ export const Row = styled.div`
 `;
 
 const initialValues = {
-  gender: "",
+  gender: "male",
   height: "",
 };
+
+const validationSchema = yup.object().shape({
+  gender: yup.string().required("required"),
+  height: yup
+    .number()
+    .positive("only positive numbers")
+    .integer("only integer numbers")
+    .required("required"),
+});
 
 const IdealWeight = () => {
   const [weight, setWeight] = useState<any | object>(null);
@@ -50,6 +61,7 @@ const IdealWeight = () => {
         <FormWrapper>
           <Formik
             initialValues={initialValues}
+            validationSchema={validationSchema}
             onSubmit={(values) => {
               if (values.gender === "male") {
                 setWeight((+values.height - 100) * 0.9);
@@ -60,18 +72,18 @@ const IdealWeight = () => {
             }}
           >
             <Form>
-              <Row>
-                <Field as="select" name="gender">
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                </Field>
-              </Row>
+              <Field as="select" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </Field>
+              <ErrorMessage name="gender" component={ErrorMsg} />
               <Field
                 name="height"
                 type="height"
                 id="height"
                 placeholder="height"
               />
+              <ErrorMessage name="height" component={ErrorMsg} />
               <button type="submit">Save</button>
               {weight ? (
                 <Result>
