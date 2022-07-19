@@ -4,6 +4,7 @@ import { RiMedalLine } from "react-icons/ri";
 import { BiCalculator } from "react-icons/bi";
 import { MdOutlineFastfood } from "react-icons/md";
 import { NavLink } from "react-router-dom";
+import { MdOutlineMonitorWeight } from "react-icons/md";
 
 interface ImgProps {
   url: string;
@@ -91,3 +92,7 @@ export const User = styled.div`
 `;
 
 export const UserData = styled.div``;
+
+export const WeightIcon = styled(MdOutlineMonitorWeight)`
+  font-size: 1.3rem;
+`;

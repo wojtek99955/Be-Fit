@@ -9,6 +9,7 @@ import {
   StyledUserIcon,
   User,
   UserData,
+  WeightIcon,
 } from "./SideBarStyle";
 import { db } from "../../firebase";
 import { doc, onSnapshot } from "firebase/firestore";
@@ -68,6 +69,12 @@ const SideBar = () => {
             <StyledNavLink to="/calories-calculator">
               <FoodCalories />
               Check calories
+            </StyledNavLink>
+          </li>
+          <li>
+            <StyledNavLink to="/track-calories">
+              <WeightIcon />
+              Track Calories
             </StyledNavLink>
           </li>
         </ul>
