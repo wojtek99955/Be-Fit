@@ -25,7 +25,9 @@ const Header = styled.div`
 
   h2 {
     color: white;
-    font-size: 2rem;
+    font-size: 2.6rem;
+    text-align: center;
+    line-height: 3.2rem;
   }
 `;
 
@@ -33,7 +35,9 @@ const TrackCalories = () => {
   return (
     <Container>
       <Header>
-        <h2>Track your daily calorie intake</h2>
+        <h2>
+          Track your daily <br /> calorie intake
+        </h2>
       </Header>
     </Container>
   );
