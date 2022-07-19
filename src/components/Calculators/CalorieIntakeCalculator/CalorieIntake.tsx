@@ -36,13 +36,26 @@ const initialValues = {
 
 const validationSchema = yup.object().shape({
   gender: yup.string().oneOf(["male", "female"]).required("required"),
-  age: yup.number().typeError("only numbers").required("required"),
-  weight: yup.number().typeError("only numbers").required("required"),
+  age: yup
+    .number()
+    .typeError("only numbers")
+    .positive("only positive numbers")
+    .integer("only integer numbers")
+    .required("required"),
+  weight: yup
+    .number()
+    .typeError("only numbers")
+    .integer("only integer numbers")
+    .required("required"),
   goal: yup
     .string()
     .oneOf(["maintain", "loose", "gain"], "pleace select your giak")
     .required("required"),
-  height: yup.number().typeError("only numbers").required("required"),
+  height: yup
+    .number()
+    .typeError("only numbers")
+    .integer("only integer numbers")
+    .required("required"),
   activityLevel: yup
     .string()
     .oneOf(
