@@ -71,9 +71,13 @@ const BMICalc = () => {
               <button type="submit">Save</button>
             </Form>
           </Formik>
+          {bmi ? (
+            <Result>
+              <span>Your BMI :</span> <strong>{bmi.toFixed(1)}</strong>
+            </Result>
+          ) : null}
         </FormWrapper>
       </Wrapper>
-      {bmi ? <Result>Your BMI : {bmi.toFixed(1)}</Result> : null}
     </Container>
   );
 };
