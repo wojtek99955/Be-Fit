@@ -46,6 +46,7 @@ const validationSchema = yup.object().shape({
     .number()
     .typeError("only numbers")
     .integer("only integer numbers")
+    .positive("only positive numbers")
     .required("required"),
   goal: yup
     .string()
@@ -55,6 +56,7 @@ const validationSchema = yup.object().shape({
     .number()
     .typeError("only numbers")
     .integer("only integer numbers")
+    .positive("only positive numbers")
     .required("required"),
   activityLevel: yup
     .string()
