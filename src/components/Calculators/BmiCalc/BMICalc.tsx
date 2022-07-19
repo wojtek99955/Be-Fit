@@ -1,16 +1,14 @@
-import styled from "styled-components";
 import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 import { ErrorMsg } from "../../Auth/AuthStyle";
 import {
   Container,
-  StyledField,
+  FormWrapper,
   Wrapper,
   Result,
   Text,
-  BmiForm,
-} from "./BmiCalcStyle";
+} from "../CalculatorsStyle";
 
 const initialValues = {
   gender: "",
@@ -40,7 +38,7 @@ const BMICalc = () => {
             resulting from mass in kilograms and height in metres.
           </p>
         </Text>
-        <BmiForm>
+        <FormWrapper>
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
@@ -49,20 +47,20 @@ const BMICalc = () => {
             }}
           >
             <Form>
-              <StyledField as="select" name="gender">
+              <Field as="select" name="gender">
                 <option value="male">Male</option>
                 <option value="female">Female</option>
-              </StyledField>
-              <StyledField name="age" type="text" id="age" placeholder="age" />
+              </Field>
+              <Field name="age" type="text" id="age" placeholder="age" />
               <ErrorMessage name="age" component={ErrorMsg} />
-              <StyledField
+              <Field
                 name="height"
                 type="height"
                 id="height"
                 placeholder="height"
               />
               <ErrorMessage name="height" component={ErrorMsg} />
-              <StyledField
+              <Field
                 name="weight"
                 type="weight"
                 id="weight"
@@ -73,7 +71,7 @@ const BMICalc = () => {
               <button type="submit">Save</button>
             </Form>
           </Formik>
-        </BmiForm>
+        </FormWrapper>
       </Wrapper>
       {bmi ? <Result>Your BMI : {bmi.toFixed(1)}</Result> : null}
     </Container>
