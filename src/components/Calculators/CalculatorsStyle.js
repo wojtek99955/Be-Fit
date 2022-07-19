@@ -47,6 +47,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: row-reverse;
   gap: 3rem;
+  align-items: flex-start;
 
   button {
     display: block;
@@ -80,4 +81,8 @@ export const Text = styled.div`
   }
 `;
 
-export const FormWrapper = styled.div``;
+export const FormWrapper = styled.div`
+  min-width: 25rem;
+  padding: 1rem;
+  background-color: #f3f4f6;
+`;
