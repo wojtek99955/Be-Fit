@@ -18,7 +18,12 @@ const initialValues = {
 };
 
 const validationSchema = yup.object().shape({
-  age: yup.number().min(18).required("required"),
+  age: yup
+    .number()
+    .min(18)
+    .positive("only positive numbers")
+    .integer("only integer numbers")
+    .required("required"),
   height: yup.number().min(100).required("required"),
   weight: yup.number().min(40).required("required"),
 });
