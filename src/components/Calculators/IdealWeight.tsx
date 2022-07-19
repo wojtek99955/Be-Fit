@@ -19,6 +19,7 @@ const validationSchema = yup.object().shape({
   gender: yup.string().required("required"),
   height: yup
     .number()
+    .typeError("you must specify a number")
     .positive("only positive numbers")
     .integer("only integer numbers")
     .required("required"),
