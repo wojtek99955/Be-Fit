@@ -23,6 +23,7 @@ import CaloriesCalculator from "./CaloriesCalculator/CaloriesCalculator";
 import CalorieIntake from "./Calculators/CalorieIntakeCalculator/CalorieIntake";
 import BodyCalculatorsLayout from "./Calculators/BodyCalculatorsLayout";
 import ForgotPassword from "./Auth/ForgotPassword";
+import TrackCalories from "./TrackCalories/TrackCalories";
 
 interface AuthProps {
   children: JSX.Element;
@@ -110,6 +111,16 @@ function App() {
               <>
                 <SideBar />
                 <CaloriesCalculator />
+              </>
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="track-calories"
+          element={
+            <RequireAuth>
+              <>
+                <SideBar /> <TrackCalories />
               </>
             </RequireAuth>
           }
