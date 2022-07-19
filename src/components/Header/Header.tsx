@@ -103,7 +103,7 @@ const Header = () => {
                 />
                 <AddIcon
                   onClick={() => {
-                    navigate("/add-meal");
+                    navigate("/track-calories");
                   }}
                 />
                 <ProfileSettings>
