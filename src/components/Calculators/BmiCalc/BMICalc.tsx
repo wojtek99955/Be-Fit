@@ -25,8 +25,16 @@ const validationSchema = yup.object().shape({
     .positive("only positive numbers")
     .integer("only integer numbers")
     .required("required"),
-  height: yup.number().min(100).required("required"),
-  weight: yup.number().min(40).required("required"),
+  height: yup
+    .number()
+    .typeError("you must specify a number")
+    .min(100)
+    .required("required"),
+  weight: yup
+    .number()
+    .typeError("you must specify a number")
+    .min(40)
+    .required("required"),
 });
 
 const BMICalc = () => {
