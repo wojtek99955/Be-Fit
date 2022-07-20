@@ -152,7 +152,12 @@ const YourGoal = () => {
               </Form>
             )}
           </Formik>
-          <Result></Result>
+          <Result>
+            <h2>You want to loose:</h2>
+            <div>{result?.toLoose} kg</div>
+            <h2>With given calorie deficite you'll achevie your goal in:</h2>
+            <div>{result?.days} days</div>
+          </Result>
         </FormContainer>
       </Wrapper>
     </Container>
