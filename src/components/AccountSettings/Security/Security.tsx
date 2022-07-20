@@ -86,14 +86,12 @@ const Security = () => {
                     ctx?.currentUser,
                     credential
                   );
-                  console.log("dobre haslo");
                   setError(false);
                   setSetPassword(true);
                   console.log(values.currentPassword);
                   setLoading(false);
                   setPasswordSuccess(true);
                 } catch {
-                  console.log("zle haslo");
                   setError(true);
                   setLoading(false);
                   setPasswordSuccess(false);
@@ -131,11 +129,10 @@ const Security = () => {
               onSubmit={async (values) => {
                 try {
                   await updatePassword(ctx?.currentUser, values.newPassword);
-                  console.log("udana zmiana hasla");
                   setIsChanging(false);
                   setPasswordChanged(true);
                 } catch {
-                  console.log("nieudana zmiana hasla");
+                  console.log("error");
                 }
               }}
             >
