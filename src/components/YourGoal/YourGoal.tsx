@@ -13,8 +13,8 @@ const Row = styled.div`
 `;
 
 const initialValues = {
-  currentWeight: "",
-  goalWeight: "",
+  currentWeight: 0,
+  goalWeight: 0,
   calorieDeficit: 0,
 };
 
@@ -35,6 +35,7 @@ const FormContainer = styled.div`
     margin: 2rem auto;
     font-size: 1.5rem;
     color: white;
+    cursor: pointer;
   }
 `;
 
@@ -163,9 +164,9 @@ const YourGoal = () => {
           </Formik>
           <Result>
             <h2>You want to loose:</h2>
-            <div>{result?.toLoose} kg</div>
+            <div>{result ? result.toLoose : 0} kg</div>
             <h2>You'll achevie your goal in:</h2>
-            <div>{result?.days} days</div>
+            <div>{result ? result.days : 0} days</div>
           </Result>
         </FormContainer>
       </Wrapper>
