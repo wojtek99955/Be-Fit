@@ -1,6 +1,8 @@
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import styled from "styled-components";
 import { useState } from "react";
+import * as yup from "yup";
+import { ErrorMsg } from "../Auth/AuthStyle";
 
 const Container = styled.section`
   margin-top: 6rem;
@@ -101,10 +103,25 @@ const Result = styled.div`
   }
 `;
 
+const FieldContainer = styled.div``;
+
 interface ResultType {
   days: number;
   toLoose: number;
 }
+
+const validationSchema = yup.object().shape({
+  currentWeight: yup
+    .number()
+    .typeError("only number")
+    .max(200, "weight less than 200 is valid")
+    .required("required"),
+  goalWeight: yup
+    .number()
+    .typeError("only number")
+    .max(150, "weight less than 150 is valid")
+    .required("required"),
+});
 
 const YourGoal = () => {
   const [result, setResult] = useState<null | ResultType>(null);
@@ -123,6 +140,7 @@ const YourGoal = () => {
         <FormContainer>
           <Formik
             initialValues={initialValues}
+            validationSchema={validationSchema}
             onSubmit={(values) => {
               console.log(values.calorieDeficit);
               const days = getDays(
@@ -141,11 +159,17 @@ const YourGoal = () => {
             {({ handleChange, values }) => (
               <Form>
                 <Row>
-                  <StyledField
-                    name="currentWeight"
-                    placeholder="current weight"
-                  />
-                  <StyledField name="goalWeight" placeholder="goal weight" />
+                  <FieldContainer>
+                    <StyledField
+                      name="currentWeight"
+                      placeholder="current weight"
+                    />
+                    <ErrorMessage name="currentWeight" component={ErrorMsg} />
+                  </FieldContainer>
+                  <FieldContainer>
+                    <StyledField name="goalWeight" placeholder="goal weight" />
+                    <ErrorMessage name="goalWeight" component={ErrorMsg} />
+                  </FieldContainer>
                 </Row>
                 <RangeValue>{values.calorieDeficit} kcal</RangeValue>
                 <RangeInput>
@@ -167,6 +191,7 @@ const YourGoal = () => {
             <div>{result ? result.toLoose : 0} kg</div>
             <h2>You'll achevie your goal in:</h2>
             <div>{result ? result.days : 0} days</div>
+            <div>{result?.days}</div>
           </Result>
         </FormContainer>
       </Wrapper>
