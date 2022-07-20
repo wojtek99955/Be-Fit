@@ -108,11 +108,6 @@ export const Result = styled.div`
 
 export const FieldContainer = styled.div``;
 
-interface ResultType {
-  days: number;
-  toLoose: number;
-}
-
 export const StyledLabel = styled.label`
   font-size: 1rem;
   margin-bottom: 0.8rem;
