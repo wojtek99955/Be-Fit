@@ -49,8 +49,8 @@ export const RangeInput = styled.div`
   input {
     -webkit-appearance: none;
     width: 100%;
-    height: 1rem;
-    border-radius: 5px;
+    height: 0.8rem;
+    border-radius: 8px;
     background: #d3d3d3;
     outline: none;
     opacity: 0.7;
