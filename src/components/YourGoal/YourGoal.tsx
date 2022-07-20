@@ -1,8 +1,11 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import * as yup from "yup";
 import { ErrorMsg } from "../Auth/AuthStyle";
+import { AuthContext } from "../AuthContext";
+import { db } from "../../firebase";
+import { setDoc, doc } from "firebase/firestore";
 
 const Container = styled.section`
   margin-top: 6rem;
@@ -125,6 +128,8 @@ const validationSchema = yup.object().shape({
 
 const YourGoal = () => {
   const [result, setResult] = useState<null | ResultType>(null);
+  const ctx = useContext(AuthContext);
+  const uid = ctx?.currentUser.uid;
 
   function getDays(currentWeight: number, goalWeight: number, deficit: number) {
     return ((currentWeight - goalWeight) * 7000) / deficit;
@@ -141,17 +146,21 @@ const YourGoal = () => {
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
-            onSubmit={(values) => {
-              console.log(values.calorieDeficit);
-              const days = getDays(
+            onSubmit={async (values) => {
+              const days = await getDays(
                 +values.currentWeight,
                 +values.goalWeight,
                 +values.calorieDeficit
               );
-              const toLoose = weightToLoose(
+              const toLoose = await weightToLoose(
                 +values.currentWeight,
                 +values.goalWeight
               );
+
+              await setDoc(doc(db, `users/${uid}/body-details`, "goals"), {
+                goal: toLoose,
+                days: days,
+              });
 
               setResult({ days, toLoose });
             }}
@@ -191,7 +200,6 @@ const YourGoal = () => {
             <div>{result ? result.toLoose : 0} kg</div>
             <h2>You'll achevie your goal in:</h2>
             <div>{result ? result.days : 0} days</div>
-            <div>{result?.days}</div>
           </Result>
         </FormContainer>
       </Wrapper>
