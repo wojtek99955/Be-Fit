@@ -54,9 +54,9 @@ const SideBar = () => {
             </StyledNavLink>
           </li>
           <li>
-            <StyledNavLink to="/">
+            <StyledNavLink to="/your-goal">
               <GoalIcon />
-              Your goals
+              Your goal
             </StyledNavLink>
           </li>
           <li>
