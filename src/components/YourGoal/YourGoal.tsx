@@ -32,12 +32,14 @@ const validationSchema = yup.object().shape({
   currentWeight: yup
     .number()
     .typeError("only number")
+    .min(45, "45 kg is a minimum weight")
     .max(200, "weight less than 200 is valid")
     .required("required"),
   goalWeight: yup
     .number()
     .typeError("only number")
-    .max(150, "weight less than 150 is valid")
+    .min(45, "45 kg is a minimum weight")
+    .max(150, "150 kg is a maximum weight")
     .required("required"),
 });
 
