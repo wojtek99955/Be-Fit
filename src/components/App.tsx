@@ -127,7 +127,7 @@ function App() {
           }
         />
         <Route
-          path="your-goal"
+          path="my-goal"
           element={
             <RequireAuth>
               <>
