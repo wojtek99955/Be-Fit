@@ -101,13 +101,13 @@ const Result = styled.div`
   }
 `;
 
-interface Result {
+interface ResultType {
   days: number;
   toLoose: number;
 }
 
 const YourGoal = () => {
-  const [result, setResult] = useState<null | Result>(null);
+  const [result, setResult] = useState<null | ResultType>(null);
 
   function getDays(currentWeight: number, goalWeight: number, deficit: number) {
     return ((currentWeight - goalWeight) * 7000) / deficit;
