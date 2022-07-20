@@ -15,6 +15,7 @@ import {
   Wrapper,
   Result,
   FieldContainer,
+  StyledLabel,
 } from "./YourGoalStyle";
 
 const initialValues = {
@@ -86,6 +87,9 @@ const YourGoal = () => {
               <Form>
                 <Row>
                   <FieldContainer>
+                    <StyledLabel htmlFor="currentWeight">
+                      Current weight
+                    </StyledLabel>
                     <StyledField
                       name="currentWeight"
                       placeholder="current weight"
@@ -93,6 +97,7 @@ const YourGoal = () => {
                     <ErrorMessage name="currentWeight" component={ErrorMsg} />
                   </FieldContainer>
                   <FieldContainer>
+                    <StyledLabel htmlFor="goalWeight">Goal weight</StyledLabel>
                     <StyledField name="goalWeight" placeholder="goal weight" />
                     <ErrorMessage name="goalWeight" component={ErrorMsg} />
                   </FieldContainer>

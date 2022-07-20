@@ -110,3 +110,9 @@ interface ResultType {
   days: number;
   toLoose: number;
 }
+
+export const StyledLabel = styled.label`
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  display: block;
+`;
