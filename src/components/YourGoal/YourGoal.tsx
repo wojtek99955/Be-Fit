@@ -4,6 +4,7 @@ import { useState } from "react";
 
 const Container = styled.section`
   margin-top: 6rem;
+  width: calc(100vw - 14rem);
 `;
 
 const Row = styled.div`
@@ -13,11 +14,11 @@ const Row = styled.div`
 const initialValues = {
   currentWeight: "",
   goalWeight: "",
-  calorieDeficit: 100,
+  calorieDeficit: 0,
 };
 
 const StyledField = styled(Field)`
-  width: 15rem;
+  width: 100%;
   display: block;
   font-size: 1.3rem;
   padding: 0.2rem;
@@ -29,7 +30,7 @@ const FormContainer = styled.div`
 
 const RangeInput = styled.div`
   width: 100%;
-  margin-top: 2rem;
+  position: relative;
 
   input {
     -webkit-appearance: none;
@@ -55,12 +56,27 @@ const RangeInput = styled.div`
       background-color: #ffa101;
     }
     &::-moz-range-thumb {
-      width: 1rem;
-      height: 1rem;
+      width: 2rem;
+      height: 2rem;
       background: #04aa6d;
+      appearance: none;
       cursor: pointer;
     }
   }
+`;
+
+const RangeValue = styled.div`
+  height: 3rem;
+  margin: 3rem 0;
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  justify-content: center;
+`;
+
+const Wrapper = styled.div`
+  max-width: 600px;
+  margin: auto;
 `;
 
 const YourGoal = () => {
@@ -72,40 +88,49 @@ const YourGoal = () => {
 
   return (
     <Container>
-      <h1>Your goal </h1>
-      <FormContainer>
-        <Formik
-          initialValues={initialValues}
-          onSubmit={(values) => {
-            console.log(values.calorieDeficit);
-            const days = getDays(
-              +values.currentWeight,
-              +values.goalWeight,
-              +values.calorieDeficit
-            );
+      <Wrapper>
+        <h1>Your goal </h1>
+        <FormContainer>
+          <Formik
+            initialValues={initialValues}
+            onSubmit={(values) => {
+              console.log(values.calorieDeficit);
+              const days = getDays(
+                +values.currentWeight,
+                +values.goalWeight,
+                +values.calorieDeficit
+              );
 
-            setResult(days);
-          }}
-        >
-          <Form>
-            <Row>
-              <StyledField name="currentWeight" placeholder="current weight" />
-              <StyledField name="goalWeight" placeholder="goal weight" />
-            </Row>
-            <RangeInput>
-              <Field
-                type="range"
-                min="100"
-                max="1000"
-                step="50"
-                name="calorieDeficit"
-              />
-            </RangeInput>
-            <button type="submit">Calculate</button>
-          </Form>
-        </Formik>
-        <h2>result: {result}</h2>
-      </FormContainer>
+              setResult(days);
+            }}
+          >
+            {({ handleChange, values }) => (
+              <Form>
+                <Row>
+                  <StyledField
+                    name="currentWeight"
+                    placeholder="current weight"
+                  />
+                  <StyledField name="goalWeight" placeholder="goal weight" />
+                </Row>
+                <RangeValue>{values.calorieDeficit} kcal</RangeValue>
+                <RangeInput>
+                  <Field
+                    type="range"
+                    min="0"
+                    max="1000"
+                    step="100"
+                    name="calorieDeficit"
+                    onChange={handleChange}
+                  />
+                </RangeInput>
+                <button type="submit">Calculate</button>
+              </Form>
+            )}
+          </Formik>
+          <h2>result: {result}</h2>
+        </FormContainer>
+      </Wrapper>
     </Container>
   );
 };
