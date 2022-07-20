@@ -31,10 +31,14 @@ export const FormContainer = styled.div`
     border: none;
     padding: 1rem 2.3rem;
     display: block;
-    margin: 2rem auto;
-    font-size: 1.5rem;
+    margin: 3rem auto;
+    font-size: 1rem;
     color: white;
+    border-radius: 8px;
     cursor: pointer;
+    &:hover {
+      background-color: #cf8300;
+    }
   }
 `;
 
