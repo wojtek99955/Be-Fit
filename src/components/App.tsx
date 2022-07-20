@@ -24,6 +24,7 @@ import CalorieIntake from "./Calculators/CalorieIntakeCalculator/CalorieIntake";
 import BodyCalculatorsLayout from "./Calculators/BodyCalculatorsLayout";
 import ForgotPassword from "./Auth/ForgotPassword";
 import TrackCalories from "./TrackCalories/TrackCalories";
+import YourGoal from "./YourGoal/YourGoal";
 
 interface AuthProps {
   children: JSX.Element;
@@ -121,6 +122,17 @@ function App() {
             <RequireAuth>
               <>
                 <SideBar /> <TrackCalories />
+              </>
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="your-goal"
+          element={
+            <RequireAuth>
+              <>
+                <SideBar />
+                <YourGoal />
               </>
             </RequireAuth>
           }
