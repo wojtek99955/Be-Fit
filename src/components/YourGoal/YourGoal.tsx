@@ -89,7 +89,16 @@ const Wrapper = styled.div`
   margin: auto;
 `;
 
-const Result = styled.div``;
+const Result = styled.div`
+  padding-top: 2rem;
+  h2 {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  div {
+    margin-bottom: 3rem;
+  }
+`;
 
 interface Result {
   days: number;
@@ -155,7 +164,7 @@ const YourGoal = () => {
           <Result>
             <h2>You want to loose:</h2>
             <div>{result?.toLoose} kg</div>
-            <h2>With given calorie deficite you'll achevie your goal in:</h2>
+            <h2>You'll achevie your goal in:</h2>
             <div>{result?.days} days</div>
           </Result>
         </FormContainer>
