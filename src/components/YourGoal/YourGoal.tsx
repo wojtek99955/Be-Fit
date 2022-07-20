@@ -9,6 +9,7 @@ const Container = styled.section`
 
 const Row = styled.div`
   display: flex;
+  gap: 2rem;
 `;
 
 const initialValues = {
@@ -26,6 +27,15 @@ const StyledField = styled(Field)`
 
 const FormContainer = styled.div`
   margin-top: 3rem;
+  button {
+    background-color: #ffa101;
+    border: none;
+    padding: 1rem 2.3rem;
+    display: block;
+    margin: 2rem auto;
+    font-size: 1.5rem;
+    color: white;
+  }
 `;
 
 const RangeInput = styled.div`
@@ -79,11 +89,21 @@ const Wrapper = styled.div`
   margin: auto;
 `;
 
+const Result = styled.div``;
+
+interface Result {
+  days: number;
+  toLoose: number;
+}
+
 const YourGoal = () => {
-  const [result, setResult] = useState<null | number>(null);
+  const [result, setResult] = useState<null | Result>(null);
 
   function getDays(currentWeight: number, goalWeight: number, deficit: number) {
     return ((currentWeight - goalWeight) * 7000) / deficit;
+  }
+  function weightToLoose(currentWeight: number, goalWeight: number) {
+    return currentWeight - goalWeight;
   }
 
   return (
@@ -100,8 +120,12 @@ const YourGoal = () => {
                 +values.goalWeight,
                 +values.calorieDeficit
               );
+              const toLoose = weightToLoose(
+                +values.currentWeight,
+                +values.goalWeight
+              );
 
-              setResult(days);
+              setResult({ days, toLoose });
             }}
           >
             {({ handleChange, values }) => (
@@ -128,7 +152,7 @@ const YourGoal = () => {
               </Form>
             )}
           </Formik>
-          <h2>result: {result}</h2>
+          <Result></Result>
         </FormContainer>
       </Wrapper>
     </Container>
