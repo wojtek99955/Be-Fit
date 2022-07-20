@@ -81,7 +81,7 @@ export const RangeInput = styled.div`
 
 export const RangeValue = styled.div`
   height: 3rem;
-  margin: 3rem 0;
+  margin: 2rem 0;
   display: flex;
   align-items: center;
   font-size: 2rem;
@@ -109,8 +109,14 @@ export const Result = styled.div`
 export const FieldContainer = styled.div``;
 
 export const StyledLabel = styled.label`
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin-bottom: 0.8rem;
   display: block;
   color: #555555;
+`;
+
+export const RangeTitle = styled.div`
+  font-size: 1.2rem;
+  color: #555555;
+  margin-bottom: 1rem;
 `;

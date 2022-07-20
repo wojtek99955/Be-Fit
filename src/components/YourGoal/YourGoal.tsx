@@ -16,6 +16,7 @@ import {
   Result,
   FieldContainer,
   StyledLabel,
+  RangeTitle,
 } from "./YourGoalStyle";
 
 const initialValues = {
@@ -103,6 +104,7 @@ const YourGoal = () => {
                   </FieldContainer>
                 </Row>
                 <RangeValue>{values.calorieDeficit} kcal</RangeValue>
+                <RangeTitle>Calorie deficit</RangeTitle>
                 <RangeInput>
                   <Field
                     type="range"
