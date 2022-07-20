@@ -151,7 +151,7 @@ const Header = () => {
                           <StyledLink to="/statistics">Statistics</StyledLink>
                         </li>
                         <li>
-                          <StyledLink to="/my-goals">My goals</StyledLink>
+                          <StyledLink to="/my-goal">My goal</StyledLink>
                         </li>
                       </ul>
                       <Divider />
