@@ -86,6 +86,7 @@ export const RangeValue = styled.div`
   align-items: center;
   font-size: 2rem;
   justify-content: center;
+  color: #555555;
 `;
 
 export const Wrapper = styled.div`
@@ -101,6 +102,7 @@ export const Result = styled.div`
   }
   div {
     margin-bottom: 3rem;
+    color: #555555;
   }
 `;
 
@@ -113,6 +115,7 @@ interface ResultType {
 
 export const StyledLabel = styled.label`
   font-size: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   display: block;
+  color: #555555;
 `;
