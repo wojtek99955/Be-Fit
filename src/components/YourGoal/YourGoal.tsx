@@ -1,5 +1,6 @@
 import { Formik, Form, Field } from "formik";
 import styled from "styled-components";
+import { useState } from "react";
 
 const Container = styled.section`
   margin-top: 6rem;
@@ -63,18 +64,33 @@ const RangeInput = styled.div`
 `;
 
 const YourGoal = () => {
+  const [result, setResult] = useState<null | number>(null);
+
+  function getDays(currentWeight: number, goalWeight: number, deficit: number) {
+    return ((currentWeight - goalWeight) * 7000) / deficit;
+  }
+
   return (
     <Container>
       <h1>Your goal </h1>
       <FormContainer>
         <Formik
           initialValues={initialValues}
-          onSubmit={(values) => console.log(values)}
+          onSubmit={(values) => {
+            console.log(values.calorieDeficit);
+            const days = getDays(
+              +values.currentWeight,
+              +values.goalWeight,
+              +values.calorieDeficit
+            );
+
+            setResult(days);
+          }}
         >
           <Form>
             <Row>
               <StyledField name="currentWeight" placeholder="current weight" />
-              <StyledField name="goal weight" placeholder="goal weight" />
+              <StyledField name="goalWeight" placeholder="goal weight" />
             </Row>
             <RangeInput>
               <Field
@@ -85,8 +101,10 @@ const YourGoal = () => {
                 name="calorieDeficit"
               />
             </RangeInput>
+            <button type="submit">Calculate</button>
           </Form>
         </Formik>
+        <h2>result: {result}</h2>
       </FormContainer>
     </Container>
   );
