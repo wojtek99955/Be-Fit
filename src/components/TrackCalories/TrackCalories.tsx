@@ -9,7 +9,6 @@ const Container = styled.section`
   padding: 1rem;
   width: calc(100vw - 14rem);
   background-color: white;
-  height: calc(100vh - 3.5rem);
   position: relative;
   top: 3.5rem;
   overflow-y: scroll;
