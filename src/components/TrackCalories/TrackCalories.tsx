@@ -93,7 +93,7 @@ const TrackCalories = () => {
                   }}
                   validationSchema={amountValidationSchema}
                 >
-                  {({ handleChange, submitForm, validateField }) => (
+                  {({ handleChange, submitForm }) => (
                     <Form>
                       <AmountWrapper>
                         <div>amount</div>
