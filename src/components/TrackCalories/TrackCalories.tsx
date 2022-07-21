@@ -95,6 +95,7 @@ const Nutrients = styled.div`
   span {
     color: black;
     font-size: 1.3rem;
+    margin-left: 0.5rem;
   }
 `;
 
@@ -186,6 +187,7 @@ const TrackCalories = () => {
                       <div>amount</div>
 
                       <AmountField name="amount" />
+                      <div>g</div>
                     </AmountWrapper>
                     <ErrorMessage name="amount" component={ErrorMsg} />
                   </Form>
