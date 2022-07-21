@@ -155,7 +155,8 @@ const amountValidationSchema = yup.object().shape({
   amount: yup
     .number()
     .typeError("only numbers")
-    .min(1, "1 gram is a minimum value"),
+    .min(1, "1 gram is a minimum value")
+    .max(2000, "2000 gram is a maximum value"),
 });
 
 const TrackCalories = () => {
@@ -213,7 +214,13 @@ const TrackCalories = () => {
               <Amount>
                 <Formik
                   initialValues={{ amount: " 100" }}
-                  onSubmit={(val) => setFoodWeight(+val.amount)}
+                  onSubmit={(val) => {
+                    if (+val.amount <= 2000) {
+                      setFoodWeight(+val.amount);
+                    } else {
+                      setFoodWeight(0);
+                    }
+                  }}
                   validationSchema={amountValidationSchema}
                 >
                   {({ handleChange, submitForm, validateField }) => (
@@ -223,6 +230,7 @@ const TrackCalories = () => {
 
                         <AmountField
                           name="amount"
+                          type="number"
                           onChange={(e: React.FormEvent<HTMLInputElement>) => {
                             handleChange(e);
                             submitForm();
