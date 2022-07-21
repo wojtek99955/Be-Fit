@@ -178,7 +178,7 @@ const TrackCalories = () => {
               <h2>{query?.name}</h2>
               <Amount>
                 <Formik
-                  initialValues={{ amount: "100" }}
+                  initialValues={{ amount: " 100" }}
                   onSubmit={(val) => setFoodWeight(+val.amount)}
                   validationSchema={amountValidationSchema}
                 >
@@ -189,10 +189,9 @@ const TrackCalories = () => {
 
                         <AmountField
                           name="amount"
-                          onBlur={(e: React.FormEvent<HTMLInputElement>) => {
+                          onChange={(e: React.FormEvent<HTMLInputElement>) => {
                             handleChange(e);
                             submitForm();
-                            validateField("amount");
                           }}
                         />
                         <div>g</div>
