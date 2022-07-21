@@ -156,4 +156,8 @@ export const AddButton = styled.button`
   border-radius: 8px;
   background-color: #ffa101;
   color: white;
+  cursor: pointer;
+  &:hover {
+    background-color: #cf8300;
+  }
 `;
