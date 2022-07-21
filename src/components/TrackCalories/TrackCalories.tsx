@@ -130,7 +130,7 @@ const TrackCalories = () => {
   const [query, setQuery] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [showBox, setShowBox] = useState(false);
-  const [foodWeight, setFoodWeight] = useState<number>(0);
+  const [foodWeight, setFoodWeight] = useState<number>(100);
   return (
     <Container>
       <Header>
