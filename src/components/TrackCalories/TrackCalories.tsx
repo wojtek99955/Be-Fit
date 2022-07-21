@@ -193,32 +193,32 @@ const TrackCalories = () => {
               </Amount>
               <Nutrients>
                 <div>
-                  fat{" "}
+                  fat
                   <span>
                     {((query?.details.FAT * foodWeight) / 100).toFixed(1)} g
                   </span>
                 </div>
                 <div>
-                  carbo{" "}
+                  carbo
                   <span>
                     {((query?.details.CHOCDF * foodWeight) / 100).toFixed(1)} g
                   </span>
                 </div>
                 <div>
-                  fiber{" "}
+                  fiber
                   <span>
                     {((query?.details.FIBTG * foodWeight) / 100).toFixed(1)} g
                   </span>
                 </div>
                 <div>
-                  protein{" "}
+                  protein
                   <span>
                     {((query?.details.PROCNT * foodWeight) / 100).toFixed(1)} g
                   </span>
                 </div>
               </Nutrients>
               <div>
-                kcal{" "}
+                kca
                 <span>
                   {((query?.details.ENERC_KCAL * foodWeight) / 100).toFixed(1)}
                 </span>
