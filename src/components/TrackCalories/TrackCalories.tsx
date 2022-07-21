@@ -87,12 +87,21 @@ const SearchItemWrapper = styled.div<SearchItemProps>`
 const Nutrients = styled.div`
   div {
     margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: #555555;
+  }
+  span {
+    color: black;
+    font-size: 1.3rem;
   }
 `;
 
 const Amount = styled.div`
   display: flex;
   gap: 1rem;
+  div {
+    font-size: 1.1rem;
+  }
 `;
 
 const AmountField = styled(Field)`
@@ -102,6 +111,7 @@ const AmountField = styled(Field)`
   border: none;
   outline: none;
   border-bottom: 3px solid #ffa101;
+  font-size: 1.1rem;
 `;
 
 const TrackCalories = () => {
