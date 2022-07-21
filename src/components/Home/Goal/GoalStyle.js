@@ -38,5 +38,7 @@ export const StyledBox = styled(Box)`
   justify-content: space-between;
 `;
 export const StyledSettingsIcon = styled(SettingsIcon)`
-  margin-left: auto;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
 `;
