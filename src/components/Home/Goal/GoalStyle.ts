@@ -1,9 +1,14 @@
 import styled from "styled-components";
 import { Box, SettingsIcon } from "../CardStyles";
 
-export const Wrapper = styled.div`
+interface WrapperProps {
+  loading: boolean;
+}
+
+export const Wrapper = styled.div<WrapperProps>`
   padding: 1rem;
   border-radius: 12px;
+  opacity: ${({ loading }) => (loading ? "0" : "1")};
   &:first-of-type {
     background-color: #faf2ef;
     p {

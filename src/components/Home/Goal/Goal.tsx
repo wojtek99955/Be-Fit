@@ -33,11 +33,11 @@ const Goal = () => {
       <StyledLink to="/my-goal">
         <StyledSettingsIcon />
       </StyledLink>
-      <Wrapper>
+      <Wrapper loading={loading}>
         <h2>Current weight</h2>
         <p>{data.currentWeight}</p>
       </Wrapper>
-      <Wrapper>
+      <Wrapper loading={loading}>
         <h2>Target weight</h2>
         <p>{data.goalWeight}</p>
       </Wrapper>
