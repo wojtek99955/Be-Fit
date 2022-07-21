@@ -3,15 +3,7 @@ import { getDoc, doc } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { AuthContext } from "../../AuthContext";
 import { StyledLink } from "../CardStyles";
-import Loader from "../../../assets/Loader";
-import {
-  Wrapper,
-  Bmi,
-  Data,
-  StyledSettingsIcon,
-  StyledBox,
-  LoaderContainer,
-} from "./BMIstyle";
+import { Wrapper, Bmi, Data, StyledSettingsIcon, StyledBox } from "./BMIstyle";
 
 const BMI = () => {
   const [loading, setLoading] = useState(true);
@@ -41,11 +33,6 @@ const BMI = () => {
       <StyledLink to="/my-body">
         <StyledSettingsIcon bmi={BMI} />
       </StyledLink>
-      {loading ? (
-        <LoaderContainer>
-          <Loader />
-        </LoaderContainer>
-      ) : null}
       <Wrapper bmi={BMI} loading={loading}>
         <Data>
           {data && <Bmi>{BMI.toFixed(1)}</Bmi>}

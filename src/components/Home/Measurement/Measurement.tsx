@@ -3,7 +3,6 @@ import { getDoc, doc } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { AuthContext } from "../../AuthContext";
 import { Box } from "../CardStyles";
-import Loader from "../../../assets/Loader";
 import {
   DataContainer,
   DataWrapper,
@@ -17,7 +16,6 @@ import {
   WeightIcon,
   SettingsIcon,
   StyledLink,
-  LoaderContainer,
 } from "./MeasurementStyle";
 
 const Measurement = () => {
@@ -52,11 +50,6 @@ const Measurement = () => {
           <SettingsIcon />
         </StyledLink>
       </Header>
-      {loading ? (
-        <LoaderContainer>
-          <Loader />
-        </LoaderContainer>
-      ) : null}
       <BoxWrapper loading={loading}>
         <DataContainer>
           <AgeIconContainer>
