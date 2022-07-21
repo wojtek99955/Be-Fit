@@ -35,6 +35,7 @@ const TrackCalories = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [showBox, setShowBox] = useState(false);
   const [foodWeight, setFoodWeight] = useState<number>(100);
+  console.log(foodWeight);
   return (
     <Container>
       <Header>
@@ -84,12 +85,12 @@ const TrackCalories = () => {
               </FoodName>
               <Amount>
                 <Formik
-                  initialValues={{ amount: " 100" }}
+                  initialValues={{ amount: 100 }}
                   onSubmit={(val) => {
-                    if (+val.amount <= 2000) {
-                      setFoodWeight(+val.amount);
-                    } else {
+                    if (+val.amount > 2000 || +val.amount <= 0) {
                       setFoodWeight(0);
+                    } else {
+                      setFoodWeight(+val.amount);
                     }
                   }}
                   validationSchema={amountValidationSchema}
