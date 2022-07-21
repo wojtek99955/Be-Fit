@@ -145,3 +145,15 @@ export const FoodName = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+export const AddButton = styled.button`
+  margin-left: auto;
+  display: block;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  margin-top: 2rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #ffa101;
+  color: white;
+`;
