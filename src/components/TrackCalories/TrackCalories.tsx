@@ -1,34 +1,15 @@
-import { Formik, Form, ErrorMessage } from "formik";
+import { Formik, Form } from "formik";
 import { useState } from "react";
-import * as yup from "yup";
 import { SearchIcon } from "../CaloriesCalculator/CaloriesCalculatorsStyle";
-import { ErrorMsg } from "../Auth/AuthStyle";
 import {
   Container,
   Header,
   SearchFood,
   StyledField,
   FieldWrapper,
-  SearchedItem,
-  SearchItemWrapper,
-  Nutrients,
-  NutrientsWrapper,
-  Amount,
-  AmountField,
-  AmountWrapper,
-  Calories,
-  FoodName,
   AddButton,
 } from "./TrackCaloriesStyle";
-
-const amountValidationSchema = yup.object().shape({
-  amount: yup
-    .number()
-    .typeError("only numbers")
-    .min(1, "1 gram is a minimum value")
-    .max(2000, "2000 gram is a maximum value")
-    .positive("only positive numbers"),
-});
+import SearchedItem from "./SearchedItem/SearchedItem";
 
 const TrackCalories = () => {
   const [query, setQuery] = useState<any>(null);
@@ -79,90 +60,13 @@ const TrackCalories = () => {
         </Formik>
         {showBox ? (
           <>
-            <SearchedItem>
-              <SearchItemWrapper loading={loading}>
-                <FoodName>
-                  <h2>{query?.name}</h2>
-                </FoodName>
-                <Amount>
-                  <Formik
-                    initialValues={{ amount: 100 }}
-                    onSubmit={(val) => {
-                      if (+val.amount > 2000 || +val.amount <= 0) {
-                        setFoodWeight(0);
-                      } else {
-                        setFoodWeight(+val.amount);
-                      }
-                    }}
-                    validationSchema={amountValidationSchema}
-                  >
-                    {({ handleChange, submitForm }) => (
-                      <Form>
-                        <AmountWrapper>
-                          <div>amount</div>
+            <SearchedItem
+              loading={loading}
+              query={query}
+              setFoodWeight={setFoodWeight}
+              foodWeight={foodWeight}
+            />
 
-                          <AmountField
-                            name="amount"
-                            type="number"
-                            onChange={(
-                              e: React.FormEvent<HTMLInputElement>
-                            ) => {
-                              handleChange(e);
-                              submitForm();
-                            }}
-                          />
-                          <div>g</div>
-                        </AmountWrapper>
-                        <ErrorMessage name="amount" component={ErrorMsg} />
-                      </Form>
-                    )}
-                  </Formik>
-                </Amount>
-                <Nutrients>
-                  <NutrientsWrapper>
-                    <div>
-                      fat
-                      <span>
-                        {((query?.details.FAT * foodWeight) / 100).toFixed(1)} g
-                      </span>
-                    </div>
-                    <div>
-                      carbo
-                      <span>
-                        {((query?.details.CHOCDF * foodWeight) / 100).toFixed(
-                          1
-                        )}{" "}
-                        g
-                      </span>
-                    </div>
-                    <div>
-                      fiber
-                      <span>
-                        {((query?.details.FIBTG * foodWeight) / 100).toFixed(1)}{" "}
-                        g
-                      </span>
-                    </div>
-                    <div>
-                      protein
-                      <span>
-                        {((query?.details.PROCNT * foodWeight) / 100).toFixed(
-                          1
-                        )}{" "}
-                        g
-                      </span>
-                    </div>
-                  </NutrientsWrapper>
-                </Nutrients>
-                <Calories>
-                  kcal
-                  <strong>
-                    {((query?.details.ENERC_KCAL * foodWeight) / 100).toFixed(
-                      1
-                    )}
-                  </strong>
-                </Calories>
-              </SearchItemWrapper>
-            </SearchedItem>
             <AddButton>Add Meal</AddButton>
           </>
         ) : null}
