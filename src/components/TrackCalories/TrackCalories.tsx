@@ -26,7 +26,8 @@ const amountValidationSchema = yup.object().shape({
     .number()
     .typeError("only numbers")
     .min(1, "1 gram is a minimum value")
-    .max(2000, "2000 gram is a maximum value"),
+    .max(2000, "2000 gram is a maximum value")
+    .positive("only positive numbers"),
 });
 
 const TrackCalories = () => {
@@ -68,7 +69,7 @@ const TrackCalories = () => {
         >
           <Form>
             <FieldWrapper>
-              <StyledField name="query" />
+              <StyledField name="query" placeholder="search meal" />
               <button type="submit">
                 <SearchIcon />
               </button>
