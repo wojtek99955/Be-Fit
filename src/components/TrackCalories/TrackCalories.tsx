@@ -8,7 +8,7 @@ const img = require("../../assets/images/track-calories.jpg");
 const Container = styled.section`
   padding: 1rem;
   width: calc(100vw - 14rem);
-  background-color: #f5f2f6;
+  background-color: white;
   height: calc(100vh - 3.5rem);
   position: relative;
   top: 3.5rem;
@@ -35,7 +35,7 @@ const Header = styled.div`
 `;
 
 const SearchFood = styled.div`
-  max-width: 900px;
+  max-width: 800px;
   margin: auto;
 `;
 const StyledField = styled(Field)`
@@ -65,12 +65,23 @@ const FieldWrapper = styled.div`
   }
 `;
 
-const SearchedItem = styled.div``;
+interface SearchItemProps {
+  loading: boolean;
+}
+
+const SearchedItem = styled.div`
+  border-radius: 12px;
+  background-color: #f3f4f6;
+`;
+
+const SearchItemWrapper = styled.div<SearchItemProps>`
+  opacity: ${({ loading }) => (loading ? "0" : "1")};
+`;
 
 const TrackCalories = () => {
   const [query, setQuery] = useState<any>(null);
-  const [loading, setLoading] = useState<null | boolean>(null);
-  const [showBoxes, setShowBoxes] = useState(false);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [showBox, setShowBox] = useState(false);
   const [foodWeight, setFoodWeight] = useState<number>(0);
   return (
     <Container>
@@ -87,7 +98,7 @@ const TrackCalories = () => {
               try {
                 setLoading(true);
                 setQuery(null);
-                setShowBoxes(true);
+                setShowBox(true);
                 const res = await fetch(
                   `https://api.edamam.com/api/food-database/v2/parser?app_id=fb99b9e2&app_key=%206c42b17c647c09805fc4c5365572b9d9&ingr=${values.query}`
                 );
@@ -96,6 +107,7 @@ const TrackCalories = () => {
                   details: data.hints[0].food.nutrients,
                   name: data.text,
                 });
+                console.log(query);
                 setLoading(false);
               } catch {
                 console.log("error fetch");
@@ -112,7 +124,13 @@ const TrackCalories = () => {
             </FieldWrapper>
           </Form>
         </Formik>
-        <SearchedItem></SearchedItem>
+        <SearchedItem>
+          {showBox ? (
+            <SearchItemWrapper loading={loading}>
+              <h1>Name {query?.name}</h1>
+            </SearchItemWrapper>
+          ) : null}
+        </SearchedItem>
       </SearchFood>
     </Container>
   );
