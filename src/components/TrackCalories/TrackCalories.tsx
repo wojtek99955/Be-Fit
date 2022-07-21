@@ -4,152 +4,22 @@ import { useState } from "react";
 import * as yup from "yup";
 import { SearchIcon } from "../CaloriesCalculator/CaloriesCalculatorsStyle";
 import { ErrorMsg } from "../Auth/AuthStyle";
-
-const img = require("../../assets/images/track-calories.jpg");
-
-const Container = styled.section`
-  padding: 1rem;
-  width: calc(100vw - 14rem);
-  background-color: white;
-  position: relative;
-  top: 3.5rem;
-  overflow-y: scroll;
-`;
-const Header = styled.div`
-  width: 100%;
-  background: rgba(0, 0, 0, 0.3) url(${img});
-  height: 20rem;
-  background-position: bottom;
-  background-size: cover;
-  background-blend-mode: darken;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  h2 {
-    color: white;
-    font-size: 2.6rem;
-    text-align: center;
-    line-height: 3.2rem;
-  }
-`;
-
-const SearchFood = styled.div`
-  max-width: 800px;
-  margin: auto;
-`;
-const StyledField = styled(Field)`
-  border: none;
-  border-bottom: 3px solid #ffa101;
-  outline: none;
-  font-size: 1.3rem;
-  background-color: transparent;
-  width: 100%;
-`;
-
-const FieldWrapper = styled.div`
-  padding: 4rem 0;
-  width: 20rem;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  button {
-    display: inline;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
-    cursor: pointer;
-  }
-`;
-
-interface SearchItemProps {
-  loading: boolean;
-}
-
-const SearchedItem = styled.div`
-  border-radius: 12px;
-  background-color: #f3f4f6;
-  padding: 1rem;
-`;
-
-const SearchItemWrapper = styled.div<SearchItemProps>`
-  opacity: ${({ loading }) => (loading ? "0" : "1")};
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 3rem;
-  justify-content: space-between;
-  align-items: center;
-  h2 {
-    text-transform: capitalize;
-  }
-  span {
-    color: black;
-    font-size: 1.3rem;
-    margin-left: 0.5rem;
-  }
-  strong {
-    margin-left: 0.5rem;
-    font-size: 1.5rem;
-  }
-`;
-
-const Nutrients = styled.div`
-  div {
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-    color: #555555;
-  }
-`;
-
-const NutrientsWrapper = styled.div`
-  div {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-
-    span {
-      position: absolute;
-      right: 0;
-    }
-  }
-`;
-
-const Amount = styled.div`
-  display: flex;
-  justify-content: center;
-`;
-
-const AmountWrapper = styled.div`
-  display: flex;
-  gap: 1rem;
-  div {
-    font-size: 1.1rem;
-  }
-`;
-
-const Calories = styled.div`
-  margin: auto;
-`;
-
-const AmountField = styled(Field)`
-  display: block;
-  width: 3rem;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  border-bottom: 3px solid #ffa101;
-  font-size: 1.1rem;
-`;
-
-const FoodName = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
+import {
+  Container,
+  Header,
+  SearchFood,
+  StyledField,
+  FieldWrapper,
+  SearchedItem,
+  SearchItemWrapper,
+  Nutrients,
+  NutrientsWrapper,
+  Amount,
+  AmountField,
+  AmountWrapper,
+  Calories,
+  FoodName,
+} from "./TrackCaloriesStyle";
 
 const amountValidationSchema = yup.object().shape({
   amount: yup
