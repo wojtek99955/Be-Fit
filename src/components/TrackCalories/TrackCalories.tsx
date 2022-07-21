@@ -78,7 +78,9 @@ const SearchedItem = styled.div`
 
 const SearchItemWrapper = styled.div<SearchItemProps>`
   opacity: ${({ loading }) => (loading ? "0" : "1")};
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
   justify-content: space-between;
   align-items: center;
   h2 {
@@ -103,7 +105,23 @@ const Nutrients = styled.div`
   }
 `;
 
-const Amount = styled.div``;
+const NutrientsWrapper = styled.div`
+  div {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+
+    span {
+      position: absolute;
+      right: 0;
+    }
+  }
+`;
+
+const Amount = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 const AmountWrapper = styled.div`
   display: flex;
@@ -111,6 +129,10 @@ const AmountWrapper = styled.div`
   div {
     font-size: 1.1rem;
   }
+`;
+
+const Calories = styled.div`
+  margin: auto;
 `;
 
 const AmountField = styled(Field)`
@@ -121,6 +143,12 @@ const AmountField = styled(Field)`
   outline: none;
   border-bottom: 3px solid #ffa101;
   font-size: 1.1rem;
+`;
+
+const FoodName = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const amountValidationSchema = yup.object().shape({
@@ -179,7 +207,9 @@ const TrackCalories = () => {
         {showBox ? (
           <SearchedItem>
             <SearchItemWrapper loading={loading}>
-              <h2>{query?.name}</h2>
+              <FoodName>
+                <h2>{query?.name}</h2>
+              </FoodName>
               <Amount>
                 <Formik
                   initialValues={{ amount: " 100" }}
@@ -206,37 +236,41 @@ const TrackCalories = () => {
                 </Formik>
               </Amount>
               <Nutrients>
-                <div>
-                  fat
-                  <span>
-                    {((query?.details.FAT * foodWeight) / 100).toFixed(1)} g
-                  </span>
-                </div>
-                <div>
-                  carbo
-                  <span>
-                    {((query?.details.CHOCDF * foodWeight) / 100).toFixed(1)} g
-                  </span>
-                </div>
-                <div>
-                  fiber
-                  <span>
-                    {((query?.details.FIBTG * foodWeight) / 100).toFixed(1)} g
-                  </span>
-                </div>
-                <div>
-                  protein
-                  <span>
-                    {((query?.details.PROCNT * foodWeight) / 100).toFixed(1)} g
-                  </span>
-                </div>
+                <NutrientsWrapper>
+                  <div>
+                    fat
+                    <span>
+                      {((query?.details.FAT * foodWeight) / 100).toFixed(1)} g
+                    </span>
+                  </div>
+                  <div>
+                    carbo
+                    <span>
+                      {((query?.details.CHOCDF * foodWeight) / 100).toFixed(1)}{" "}
+                      g
+                    </span>
+                  </div>
+                  <div>
+                    fiber
+                    <span>
+                      {((query?.details.FIBTG * foodWeight) / 100).toFixed(1)} g
+                    </span>
+                  </div>
+                  <div>
+                    protein
+                    <span>
+                      {((query?.details.PROCNT * foodWeight) / 100).toFixed(1)}{" "}
+                      g
+                    </span>
+                  </div>
+                </NutrientsWrapper>
               </Nutrients>
-              <div>
+              <Calories>
                 kcal
                 <strong>
                   {((query?.details.ENERC_KCAL * foodWeight) / 100).toFixed(1)}
                 </strong>
-              </div>
+              </Calories>
             </SearchItemWrapper>
           </SearchedItem>
         ) : null}
