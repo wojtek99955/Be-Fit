@@ -137,8 +137,8 @@ const TrackCalories = () => {
             </FieldWrapper>
           </Form>
         </Formik>
-        <SearchedItem>
-          {showBox ? (
+        {showBox ? (
+          <SearchedItem>
             <SearchItemWrapper loading={loading}>
               <h2>{query?.name}</h2>
               <span>amount</span>
@@ -160,8 +160,8 @@ const TrackCalories = () => {
                 kcal <span>{query?.details.ENERC_KCAL}</span>
               </div>
             </SearchItemWrapper>
-          ) : null}
-        </SearchedItem>
+          </SearchedItem>
+        ) : null}
       </SearchFood>
     </Container>
   );
