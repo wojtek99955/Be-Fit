@@ -1,7 +1,9 @@
 import styled from "styled-components";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useState } from "react";
+import * as yup from "yup";
 import { SearchIcon } from "../CaloriesCalculator/CaloriesCalculatorsStyle";
+import { ErrorMsg } from "../Auth/AuthStyle";
 
 const img = require("../../assets/images/track-calories.jpg");
 
@@ -96,7 +98,9 @@ const Nutrients = styled.div`
   }
 `;
 
-const Amount = styled.div`
+const Amount = styled.div``;
+
+const AmountWrapper = styled.div`
   display: flex;
   gap: 1rem;
   div {
@@ -113,6 +117,13 @@ const AmountField = styled(Field)`
   border-bottom: 3px solid #ffa101;
   font-size: 1.1rem;
 `;
+
+const amountValidationSchema = yup.object().shape({
+  amount: yup
+    .number()
+    .typeError("only numbers")
+    .min(1, "1 gram is a minimum value"),
+});
 
 const TrackCalories = () => {
   const [query, setQuery] = useState<any>(null);
@@ -165,13 +176,18 @@ const TrackCalories = () => {
             <SearchItemWrapper loading={loading}>
               <h2>{query?.name}</h2>
               <Amount>
-                <div>amount</div>
                 <Formik
                   initialValues={{ amount: 100 }}
                   onSubmit={(val) => setFoodWeight(+val.amount)}
+                  validationSchema={amountValidationSchema}
                 >
                   <Form>
-                    <AmountField name="amount" />
+                    <AmountWrapper>
+                      <div>amount</div>
+
+                      <AmountField name="amount" />
+                    </AmountWrapper>
+                    <ErrorMessage name="amount" component={ErrorMsg} />
                   </Form>
                 </Formik>
               </Amount>
