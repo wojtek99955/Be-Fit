@@ -143,12 +143,22 @@ const TrackCalories = () => {
               <h2>{query?.name}</h2>
               <span>amount</span>
               <Nutrients>
-                <div>fat</div>
-                <div>carbo</div>
-                <div>fiber</div>
-                <div>protein</div>
+                <div>
+                  fat <span>{query?.details.FAT} g</span>
+                </div>
+                <div>
+                  carbo <span>{query?.details.CHOCDF} g</span>
+                </div>
+                <div>
+                  fiber <span>{query?.details.FIBTG} g</span>
+                </div>
+                <div>
+                  protein <span>{query?.details.PROCNT} g</span>
+                </div>
               </Nutrients>
-              <span>kcal</span>
+              <div>
+                kcal <span>{query?.details.ENERC_KCAL}</span>
+              </div>
             </SearchItemWrapper>
           ) : null}
         </SearchedItem>
