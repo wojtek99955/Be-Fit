@@ -167,8 +167,8 @@ const TrackCalories = () => {
               <Amount>
                 <div>amount</div>
                 <Formik
-                  initialValues={{ amount: "" }}
-                  onSubmit={(val) => console.log(val)}
+                  initialValues={{ amount: 100 }}
+                  onSubmit={(val) => setFoodWeight(+val.amount)}
                 >
                   <Form>
                     <AmountField name="amount" />
@@ -177,20 +177,35 @@ const TrackCalories = () => {
               </Amount>
               <Nutrients>
                 <div>
-                  fat <span>{query?.details.FAT} g</span>
+                  fat{" "}
+                  <span>
+                    {((query?.details.FAT * foodWeight) / 100).toFixed(1)} g
+                  </span>
                 </div>
                 <div>
-                  carbo <span>{query?.details.CHOCDF} g</span>
+                  carbo{" "}
+                  <span>
+                    {((query?.details.CHOCDF * foodWeight) / 100).toFixed(1)} g
+                  </span>
                 </div>
                 <div>
-                  fiber <span>{query?.details.FIBTG} g</span>
+                  fiber{" "}
+                  <span>
+                    {((query?.details.FIBTG * foodWeight) / 100).toFixed(1)} g
+                  </span>
                 </div>
                 <div>
-                  protein <span>{query?.details.PROCNT} g</span>
+                  protein{" "}
+                  <span>
+                    {((query?.details.PROCNT * foodWeight) / 100).toFixed(1)} g
+                  </span>
                 </div>
               </Nutrients>
               <div>
-                kcal <span>{query?.details.ENERC_KCAL}</span>
+                kcal{" "}
+                <span>
+                  {((query?.details.ENERC_KCAL * foodWeight) / 100).toFixed(1)}
+                </span>
               </div>
             </SearchItemWrapper>
           </SearchedItem>
