@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { Formik, Form, Field } from "formik";
+import { useState } from "react";
+import { SearchIcon } from "../CaloriesCalculator/CaloriesCalculatorsStyle";
 
 const img = require("../../assets/images/track-calories.jpg");
 
@@ -31,7 +34,44 @@ const Header = styled.div`
   }
 `;
 
+const SearchFood = styled.div`
+  max-width: 900px;
+  margin: auto;
+`;
+const StyledField = styled(Field)`
+  border: none;
+  border-bottom: 3px solid #ffa101;
+  outline: none;
+  font-size: 1.3rem;
+  background-color: transparent;
+  width: 100%;
+`;
+
+const FieldWrapper = styled.div`
+  padding: 4rem 0;
+  width: 20rem;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  button {
+    display: inline;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    cursor: pointer;
+  }
+`;
+
+const SearchedItem = styled.div``;
+
 const TrackCalories = () => {
+  const [query, setQuery] = useState<any>(null);
+  const [loading, setLoading] = useState<null | boolean>(null);
+  const [showBoxes, setShowBoxes] = useState(false);
+  const [foodWeight, setFoodWeight] = useState<number>(0);
   return (
     <Container>
       <Header>
@@ -39,6 +79,41 @@ const TrackCalories = () => {
           Track your daily <br /> calorie intake
         </h2>
       </Header>
+      <SearchFood>
+        <Formik
+          initialValues={{ query: "" }}
+          onSubmit={async (values) => {
+            if (values.query !== "") {
+              try {
+                setLoading(true);
+                setQuery(null);
+                setShowBoxes(true);
+                const res = await fetch(
+                  `https://api.edamam.com/api/food-database/v2/parser?app_id=fb99b9e2&app_key=%206c42b17c647c09805fc4c5365572b9d9&ingr=${values.query}`
+                );
+                const data = await res.json();
+                await setQuery({
+                  details: data.hints[0].food.nutrients,
+                  name: data.text,
+                });
+                setLoading(false);
+              } catch {
+                console.log("error fetch");
+              }
+            }
+          }}
+        >
+          <Form>
+            <FieldWrapper>
+              <StyledField name="query" />
+              <button type="submit">
+                <SearchIcon />
+              </button>
+            </FieldWrapper>
+          </Form>
+        </Formik>
+        <SearchedItem></SearchedItem>
+      </SearchFood>
     </Container>
   );
 };
