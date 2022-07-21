@@ -72,11 +72,17 @@ interface SearchItemProps {
 const SearchedItem = styled.div`
   border-radius: 12px;
   background-color: #f3f4f6;
+  padding: 1rem;
 `;
 
 const SearchItemWrapper = styled.div<SearchItemProps>`
   opacity: ${({ loading }) => (loading ? "0" : "1")};
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
+
+const Nutrients = styled.div``;
 
 const TrackCalories = () => {
   const [query, setQuery] = useState<any>(null);
@@ -128,6 +134,14 @@ const TrackCalories = () => {
           {showBox ? (
             <SearchItemWrapper loading={loading}>
               <h1>Name {query?.name}</h1>
+              <span>amount</span>
+              <Nutrients>
+                <div>fat</div>
+                <div>carbo</div>
+                <div>fiber</div>
+                <div>protein</div>
+              </Nutrients>
+              <span>kcal</span>
             </SearchItemWrapper>
           ) : null}
         </SearchedItem>
