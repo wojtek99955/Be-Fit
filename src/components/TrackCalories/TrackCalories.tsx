@@ -90,6 +90,20 @@ const Nutrients = styled.div`
   }
 `;
 
+const Amount = styled.div`
+  display: flex;
+  gap: 1rem;
+`;
+
+const AmountField = styled(Field)`
+  display: block;
+  width: 3rem;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 3px solid #ffa101;
+`;
+
 const TrackCalories = () => {
   const [query, setQuery] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -140,7 +154,17 @@ const TrackCalories = () => {
           <SearchedItem>
             <SearchItemWrapper loading={loading}>
               <h2>{query?.name}</h2>
-              <span>amount</span>
+              <Amount>
+                <div>amount</div>
+                <Formik
+                  initialValues={{ amount: "" }}
+                  onSubmit={(val) => console.log(val)}
+                >
+                  <Form>
+                    <AmountField name="amount" />
+                  </Form>
+                </Formik>
+              </Amount>
               <Nutrients>
                 <div>
                   fat <span>{query?.details.FAT} g</span>
