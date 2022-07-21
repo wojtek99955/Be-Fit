@@ -77,6 +77,7 @@ const YourGoal = () => {
               );
 
               await setDoc(doc(db, `users/${uid}/body-details`, "goals"), {
+                currentWeight: values.currentWeight,
                 goal: toLoose,
                 days: days,
               });
