@@ -84,6 +84,15 @@ const SearchItemWrapper = styled.div<SearchItemProps>`
   h2 {
     text-transform: capitalize;
   }
+  span {
+    color: black;
+    font-size: 1.3rem;
+    margin-left: 0.5rem;
+  }
+  strong {
+    margin-left: 0.5rem;
+    font-size: 1.5rem;
+  }
 `;
 
 const Nutrients = styled.div`
@@ -91,11 +100,6 @@ const Nutrients = styled.div`
     margin-bottom: 1rem;
     font-size: 1.1rem;
     color: #555555;
-  }
-  span {
-    color: black;
-    font-size: 1.3rem;
-    margin-left: 0.5rem;
   }
 `;
 
@@ -229,9 +233,9 @@ const TrackCalories = () => {
               </Nutrients>
               <div>
                 kcal
-                <span>
+                <strong>
                   {((query?.details.ENERC_KCAL * foodWeight) / 100).toFixed(1)}
-                </span>
+                </strong>
               </div>
             </SearchItemWrapper>
           </SearchedItem>
