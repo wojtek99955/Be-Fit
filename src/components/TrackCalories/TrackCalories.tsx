@@ -178,19 +178,28 @@ const TrackCalories = () => {
               <h2>{query?.name}</h2>
               <Amount>
                 <Formik
-                  initialValues={{ amount: 100 }}
+                  initialValues={{ amount: "100" }}
                   onSubmit={(val) => setFoodWeight(+val.amount)}
                   validationSchema={amountValidationSchema}
                 >
-                  <Form>
-                    <AmountWrapper>
-                      <div>amount</div>
+                  {({ handleChange, submitForm, validateField }) => (
+                    <Form>
+                      <AmountWrapper>
+                        <div>amount</div>
 
-                      <AmountField name="amount" />
-                      <div>g</div>
-                    </AmountWrapper>
-                    <ErrorMessage name="amount" component={ErrorMsg} />
-                  </Form>
+                        <AmountField
+                          name="amount"
+                          onBlur={(e: React.FormEvent<HTMLInputElement>) => {
+                            handleChange(e);
+                            submitForm();
+                            validateField("amount");
+                          }}
+                        />
+                        <div>g</div>
+                      </AmountWrapper>
+                      <ErrorMessage name="amount" component={ErrorMsg} />
+                    </Form>
+                  )}
                 </Formik>
               </Amount>
               <Nutrients>
@@ -220,7 +229,7 @@ const TrackCalories = () => {
                 </div>
               </Nutrients>
               <div>
-                kca
+                kcal
                 <span>
                   {((query?.details.ENERC_KCAL * foodWeight) / 100).toFixed(1)}
                 </span>
