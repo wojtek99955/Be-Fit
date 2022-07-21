@@ -1,5 +1,4 @@
-import styled from "styled-components";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, ErrorMessage } from "formik";
 import { useState } from "react";
 import * as yup from "yup";
 import { SearchIcon } from "../CaloriesCalculator/CaloriesCalculatorsStyle";
