@@ -80,9 +80,16 @@ const SearchItemWrapper = styled.div<SearchItemProps>`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  h2 {
+    text-transform: capitalize;
+  }
 `;
 
-const Nutrients = styled.div``;
+const Nutrients = styled.div`
+  div {
+    margin-bottom: 1rem;
+  }
+`;
 
 const TrackCalories = () => {
   const [query, setQuery] = useState<any>(null);
@@ -133,7 +140,7 @@ const TrackCalories = () => {
         <SearchedItem>
           {showBox ? (
             <SearchItemWrapper loading={loading}>
-              <h1>Name {query?.name}</h1>
+              <h2>{query?.name}</h2>
               <span>amount</span>
               <Nutrients>
                 <div>fat</div>
