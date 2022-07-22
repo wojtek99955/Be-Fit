@@ -69,3 +69,5 @@ export const Name = styled.div`
 export const DailyCalories = styled.div``;
 
 export const Consumed = styled.div``;
+
+export const ConsumedNutrients = styled.div``;
