@@ -4,8 +4,17 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 import styled from "styled-components";
 
-const Container = styled.div``;
-const Item = styled.div``;
+const Container = styled.div`
+  margin-top: 3rem;
+  h2 {
+    font-size: 2rem;
+    text-align: center;
+  }
+`;
+const Item = styled.div`
+  max-width: 800px;
+  margin: auto;
+`;
 
 const TodayFood = () => {
   const [todayFoods, setTodayFoods] = useState<any>([]);
@@ -37,9 +46,10 @@ const TodayFood = () => {
 
   return (
     <Container>
+      <h2>Today</h2>
       {todayFoods
         ? todayFoods.map((item: any) => {
-            return <p>{item.name}</p>;
+            return <Item>{item.name}</Item>;
           })
         : null}
     </Container>
