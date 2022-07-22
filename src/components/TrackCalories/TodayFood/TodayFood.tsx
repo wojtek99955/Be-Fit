@@ -13,11 +13,12 @@ import {
   Name,
   Consumed,
   DailyCalories,
+  ConsumedNutrients,
 } from "./TodayFoodStyle";
 
 const TodayFood = () => {
   const [todayFoods, setTodayFoods] = useState<any>([]);
-  const [consumed, setConsumed] = useState<number | null>(null);
+  const [consumed, setConsumed] = useState<any>(null);
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
 
@@ -43,18 +44,54 @@ const TodayFood = () => {
     const consumedCalories = foodz.reduce((acc: any, obj: any) => {
       return acc + obj.details.kcal;
     }, 0);
-    setConsumed(consumedCalories);
+    const consumedFat = foodz.reduce((acc: any, obj: any) => {
+      return acc + obj.details.fat;
+    }, 0);
+    const consumedFiber = foodz.reduce((acc: any, obj: any) => {
+      return acc + obj.details.fiber;
+    }, 0);
+    const consumedProtein = foodz.reduce((acc: any, obj: any) => {
+      return acc + obj.details.protein;
+    }, 0);
+    const consumedCarbo = foodz.reduce((acc: any, obj: any) => {
+      return acc + obj.details.carbo;
+    }, 0);
+    setConsumed({
+      kcal: consumedCalories.toFixed(1),
+      fat: consumedFat.toFixed(1),
+      fiber: consumedFiber.toFixed(1),
+      protein: consumedProtein.toFixed(1),
+      carbo: consumedCarbo.toFixed(1),
+    });
   }
 
   useEffect(() => {
     getData();
   }, []);
-
+  console.log(consumed);
   return (
     <Container>
       <h2>Today</h2>
       <DailyCalories>
-        <Consumed>Consumed: {consumed}</Consumed>
+        <Consumed>
+          <div>
+            Kcal: <span>{consumed.kcal}</span>
+          </div>
+          <ConsumedNutrients>
+            <div>
+              Fat <span>{consumed.fat}</span>
+            </div>
+            <div>
+              Protein <span>{consumed.protein}</span>
+            </div>
+            <div>
+              Carbo <span>{consumed.carbo}</span>
+            </div>
+            <div>
+              Fiber <span>{consumed.fiber}</span>
+            </div>
+          </ConsumedNutrients>
+        </Consumed>
       </DailyCalories>
       <FoodsContainer>
         {todayFoods
