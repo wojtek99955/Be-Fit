@@ -12,6 +12,7 @@ import SearchedItem from "./SearchedItem/SearchedItem";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 import { AuthContext } from "../AuthContext";
+import TodayFood from "./TodayFood";
 
 const TrackCalories = () => {
   const [query, setQuery] = useState<any>(null);
@@ -98,6 +99,7 @@ const TrackCalories = () => {
           </>
         ) : null}
       </SearchFood>
+      <TodayFood />
     </Container>
   );
 };
