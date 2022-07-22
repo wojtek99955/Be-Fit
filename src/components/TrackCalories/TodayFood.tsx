@@ -21,6 +21,7 @@ const FoodItem = styled.div`
   grid-template-columns: repeat(4, 1fr);
   justify-content: space-around;
   align-items: center;
+  border-radius: 12px;
   div {
     padding: 0.5rem;
     color: #555555;
