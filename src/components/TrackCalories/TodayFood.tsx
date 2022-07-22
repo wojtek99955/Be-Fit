@@ -8,7 +8,7 @@ const Container = styled.div``;
 const Item = styled.div``;
 
 const TodayFood = () => {
-  const [todayFoods, setTodayFoods] = useState<any>(null);
+  const [todayFoods, setTodayFoods] = useState<any>([]);
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
 
@@ -37,9 +37,11 @@ const TodayFood = () => {
 
   return (
     <Container>
-      {todayFoods.map((food: any) => {
-        return <Item>{food.name}</Item>;
-      })}
+      {todayFoods
+        ? todayFoods.map((item: any) => {
+            return <p>{item.name}</p>;
+          })
+        : null}
     </Container>
   );
 };
