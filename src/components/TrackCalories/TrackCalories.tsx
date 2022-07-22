@@ -7,7 +7,6 @@ import {
   SearchFood,
   StyledField,
   FieldWrapper,
-  AddButton,
 } from "./TrackCaloriesStyle";
 import SearchedItem from "./SearchedItem/SearchedItem";
 
@@ -16,7 +15,7 @@ const TrackCalories = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [showBox, setShowBox] = useState(false);
   const [foodWeight, setFoodWeight] = useState<number>(100);
-  console.log(foodWeight);
+
   return (
     <Container>
       <Header>
@@ -41,7 +40,6 @@ const TrackCalories = () => {
                   details: data.hints[0].food.nutrients,
                   name: data.text,
                 });
-                console.log(query);
                 setLoading(false);
               } catch {
                 console.log("error fetch");
@@ -65,9 +63,8 @@ const TrackCalories = () => {
               query={query}
               setFoodWeight={setFoodWeight}
               foodWeight={foodWeight}
+              setQuery={setQuery}
             />
-
-            <AddButton>Add Meal</AddButton>
           </>
         ) : null}
       </SearchFood>
