@@ -28,7 +28,7 @@ const CaloriesCalculator = () => {
   return (
     <Container>
       <MainImg>
-        <h1>Add your meal</h1>
+        <h1>Find your meal</h1>
         <ContentWrapper>
           <Formik
             initialValues={{ query: "" }}
