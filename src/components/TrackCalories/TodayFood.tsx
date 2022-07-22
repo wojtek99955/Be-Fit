@@ -17,9 +17,17 @@ const FoodItem = styled.div`
   box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.1), 0 2px 4px 0 rgba(0, 0, 0, 0),
     inset 0 0 0 1px rgba(255, 255, 255, 0.5);
   padding: 1.5rem;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   justify-content: space-around;
   align-items: center;
+  div {
+    padding: 0.5rem;
+    color: #555555;
+  }
+  span {
+    color: black;
+  }
   h3 {
     font-size: 1.6rem;
     text-transform: capitalize;
@@ -30,7 +38,35 @@ const FoodsContainer = styled.div`
   margin-top: 2rem;
 `;
 
-const Nutrients = styled.div``;
+const Nutrients = styled.div`
+  position: relative;
+  span {
+    position: absolute;
+    right: 0;
+  }
+`;
+
+const Calories = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  strong {
+    font-size: 1.2rem;
+    color: black;
+  }
+`;
+
+const Amount = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Name = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 const TodayFood = () => {
   const [todayFoods, setTodayFoods] = useState<any>([]);
@@ -68,15 +104,31 @@ const TodayFood = () => {
           ? todayFoods.map((item: any) => {
               return (
                 <FoodItem>
-                  <h3>{item.name}</h3>
-                  <span>{item.amount}</span>
+                  <Name>
+                    <h3>{item.name}</h3>
+                  </Name>
+                  <Amount>
+                    <span>{item.details.amount}</span>
+                  </Amount>
                   <Nutrients>
-                    <div>Fat: {item.details.fat} g</div>
-                    <div>Fiber: {item.details.fiber} g</div>
-                    <div>Protein: {item.details.protein} g</div>
-                    <div>Carbo: {item.details.carbo} g</div>
+                    <div>
+                      Fat <span>{item.details.fat} g</span>
+                    </div>
+                    <div>
+                      Fiber <span>{item.details.fiber} g</span>
+                    </div>
+                    <div>
+                      Protein <span>{item.details.protein} g</span>
+                    </div>
+                    <div>
+                      Carbo <span>{item.details.carbo} g</span>
+                    </div>
                   </Nutrients>
-                  <span>Kcal: {item.details.kcal}</span>
+                  <Calories>
+                    <div>
+                      Kcal <strong>{item.details.kcal}</strong>
+                    </div>
+                  </Calories>
                 </FoodItem>
               );
             })
