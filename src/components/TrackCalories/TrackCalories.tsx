@@ -40,7 +40,6 @@ const TrackCalories = () => {
       return item.date === `${day}${month}${year}`;
     });
     setTodayFoods(filteredFoods);
-    console.log(filteredFoods);
   }
 
   useEffect(() => {
