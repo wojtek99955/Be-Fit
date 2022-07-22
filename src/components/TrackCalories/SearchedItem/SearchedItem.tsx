@@ -120,7 +120,7 @@ const SearchedItem = ({
                     addMeal(queryAmount);
                   }}
                 >
-                  add
+                  Add Meal
                 </AddButton>
               </Form>
             )}
