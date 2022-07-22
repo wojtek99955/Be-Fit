@@ -75,20 +75,20 @@ const TodayFood = () => {
       <DailyCalories>
         <Consumed>
           <div>
-            Kcal: <span>{consumed.kcal}</span>
+            Kcal: <span>{consumed?.kcal}</span>
           </div>
           <ConsumedNutrients>
             <div>
-              Fat <span>{consumed.fat}</span>
+              Fat <span>{consumed?.fat}</span>
             </div>
             <div>
-              Protein <span>{consumed.protein}</span>
+              Protein <span>{consumed?.protein}</span>
             </div>
             <div>
-              Carbo <span>{consumed.carbo}</span>
+              Carbo <span>{consumed?.carbo}</span>
             </div>
             <div>
-              Fiber <span>{consumed.fiber}</span>
+              Fiber <span>{consumed?.fiber}</span>
             </div>
           </ConsumedNutrients>
         </Consumed>
