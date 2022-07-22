@@ -9,15 +9,7 @@ import {
   FieldWrapper,
 } from "./TrackCaloriesStyle";
 import SearchedItem from "./SearchedItem/SearchedItem";
-import {
-  collection,
-  query,
-  where,
-  onSnapshot,
-  doc,
-  getDocs,
-  getDoc,
-} from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 import { AuthContext } from "../AuthContext";
 
@@ -47,6 +39,7 @@ const TrackCalories = () => {
       return item.date === `${day}${month}${year}`;
     });
     setTodayFoods(filteredFoods);
+    console.log(filteredFoods);
   }
 
   useEffect(() => {
