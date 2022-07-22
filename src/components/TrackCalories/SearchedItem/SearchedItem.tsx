@@ -63,12 +63,11 @@ const SearchedItem = ({
           fiber: queryAmount?.details?.FIBTG,
           protein: queryAmount?.details?.PROCNT,
           carbo: queryAmount?.details?.CHOCDF,
+          amount: foodWeight,
         },
       });
-      console.log(queryAmount?.name);
     } catch {
       console.log("error");
-      console.log(queryAmount);
     }
   };
 
