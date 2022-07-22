@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   max-width: 800px;
+  margin: auto;
   margin-top: 3rem;
   h2 {
     font-size: 2rem;
@@ -9,7 +10,6 @@ export const Container = styled.div`
   }
 `;
 export const FoodItem = styled.div`
-  margin: auto;
   box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.1), 0 2px 4px 0 rgba(0, 0, 0, 0),
     inset 0 0 0 1px rgba(255, 255, 255, 0.5);
   padding: 1.5rem;
