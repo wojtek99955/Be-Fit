@@ -1,5 +1,5 @@
 import { Formik, Form } from "formik";
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
 import { SearchIcon } from "../CaloriesCalculator/CaloriesCalculatorsStyle";
 import {
   Container,
@@ -9,12 +9,49 @@ import {
   FieldWrapper,
 } from "./TrackCaloriesStyle";
 import SearchedItem from "./SearchedItem/SearchedItem";
+import {
+  collection,
+  query,
+  where,
+  onSnapshot,
+  doc,
+  getDocs,
+  getDoc,
+} from "firebase/firestore";
+import { db } from "../../firebase";
+import { AuthContext } from "../AuthContext";
 
 const TrackCalories = () => {
   const [query, setQuery] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [showBox, setShowBox] = useState(false);
   const [foodWeight, setFoodWeight] = useState<number>(100);
+  const [todayFoods, setTodayFoods] = useState<any>(null);
+  const ctx = useContext(AuthContext);
+  const uid = ctx?.currentUser.uid;
+
+  async function getData() {
+    const date = await new Date();
+    const month = (await date.getMonth()) + 1;
+    const day = await date.getDate();
+    const year = await date.getFullYear();
+
+    const foodRef = await collection(db, `users/${uid}/food`);
+    const docsSnap = await getDocs(foodRef);
+    const foodz: any = [];
+    await docsSnap.forEach((doc) => {
+      foodz.push(doc.data());
+    });
+
+    const filteredFoods = foodz.filter((item: any) => {
+      return item.date === `${day}${month}${year}`;
+    });
+    setTodayFoods(filteredFoods);
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   return (
     <Container>
