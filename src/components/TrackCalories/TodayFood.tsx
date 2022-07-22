@@ -5,6 +5,7 @@ import { db } from "../../firebase";
 import styled from "styled-components";
 
 const Container = styled.div``;
+const Item = styled.div``;
 
 const TodayFood = () => {
   const [todayFoods, setTodayFoods] = useState<any>(null);
@@ -30,8 +31,17 @@ const TodayFood = () => {
     setTodayFoods(filteredFoods);
     console.log(filteredFoods);
   }
+  useEffect(() => {
+    getData();
+  }, []);
 
-  return <Container>TodayFood</Container>;
+  return (
+    <Container>
+      {todayFoods.map((food: any) => {
+        return <Item>{food.name}</Item>;
+      })}
+    </Container>
+  );
 };
 
 export default TodayFood;
