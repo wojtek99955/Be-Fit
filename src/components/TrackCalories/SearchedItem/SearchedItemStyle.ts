@@ -18,6 +18,8 @@ export const SearchItemWrapper = styled.div<SearchItemProps>`
   gap: 3rem;
   justify-content: space-between;
   align-items: center;
+  padding-bottom: 3rem;
+  position: relative;
   h2 {
     text-transform: capitalize;
   }
@@ -61,6 +63,7 @@ export const Amount = styled.div`
 export const AmountWrapper = styled.div`
   display: flex;
   gap: 1rem;
+  position: relative;
   div {
     font-size: 1.1rem;
   }
@@ -84,4 +87,21 @@ export const FoodName = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+export const AddButton = styled.button`
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  margin-top: 2rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #ffa101;
+  color: white;
+  cursor: pointer;
+  &:hover {
+    background-color: #cf8300;
+  }
 `;
