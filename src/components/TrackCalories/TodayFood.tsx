@@ -69,8 +69,13 @@ const Name = styled.div`
   align-items: center;
 `;
 
+const DailyCalories = styled.div``;
+
+const Consumed = styled.div``;
+
 const TodayFood = () => {
   const [todayFoods, setTodayFoods] = useState<any>([]);
+  const [consumed, setConsumed] = useState<number | null>(null);
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
 
@@ -92,7 +97,13 @@ const TodayFood = () => {
     });
     setTodayFoods(filteredFoods);
     console.log(filteredFoods);
+
+    const consumedCalories = foodz.reduce((acc: any, obj: any) => {
+      return acc + obj.details.kcal;
+    }, 0);
+    setConsumed(consumedCalories);
   }
+
   useEffect(() => {
     getData();
   }, []);
@@ -100,6 +111,9 @@ const TodayFood = () => {
   return (
     <Container>
       <h2>Today</h2>
+      <DailyCalories>
+        <Consumed>Consumed: {consumed}</Consumed>
+      </DailyCalories>
       <FoodsContainer>
         {todayFoods
           ? todayFoods.map((item: any) => {
