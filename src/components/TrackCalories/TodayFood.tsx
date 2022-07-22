@@ -11,9 +11,16 @@ const Container = styled.div`
     text-align: center;
   }
 `;
-const Item = styled.div`
+const FoodItem = styled.div`
   max-width: 800px;
   margin: auto;
+  box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.1), 0 2px 4px 0 rgba(0, 0, 0, 0),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+  padding: 1.5rem;
+`;
+
+const FoodsContainer = styled.div`
+  margin-top: 2rem;
 `;
 
 const TodayFood = () => {
@@ -47,11 +54,13 @@ const TodayFood = () => {
   return (
     <Container>
       <h2>Today</h2>
-      {todayFoods
-        ? todayFoods.map((item: any) => {
-            return <Item>{item.name}</Item>;
-          })
-        : null}
+      <FoodsContainer>
+        {todayFoods
+          ? todayFoods.map((item: any) => {
+              return <FoodItem>{item.name}</FoodItem>;
+            })
+          : null}
+      </FoodsContainer>
     </Container>
   );
 };
