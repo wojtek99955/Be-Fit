@@ -60,19 +60,3 @@ export const FieldWrapper = styled.div`
     cursor: pointer;
   }
 `;
-
-export const AddButton = styled.button`
-  margin-left: auto;
-  display: block;
-  font-size: 1.2rem;
-  padding: 0.5rem 1rem;
-  margin-top: 2rem;
-  border: none;
-  border-radius: 8px;
-  background-color: #ffa101;
-  color: white;
-  cursor: pointer;
-  &:hover {
-    background-color: #cf8300;
-  }
-`;
