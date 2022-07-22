@@ -60,6 +60,9 @@ const SearchedItem = ({
         details: {
           fat: queryAmount?.details?.FAT,
           kcal: queryAmount?.details?.ENERC_KCAL,
+          fiber: queryAmount?.details?.FIBTG,
+          protein: queryAmount?.details?.PROCNT,
+          carbo: queryAmount?.details?.CHOCDF,
         },
       });
       console.log(queryAmount?.name);
