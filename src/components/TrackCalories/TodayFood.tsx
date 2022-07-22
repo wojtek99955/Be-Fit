@@ -17,11 +17,20 @@ const FoodItem = styled.div`
   box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.1), 0 2px 4px 0 rgba(0, 0, 0, 0),
     inset 0 0 0 1px rgba(255, 255, 255, 0.5);
   padding: 1.5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  h3 {
+    font-size: 1.6rem;
+    text-transform: capitalize;
+  }
 `;
 
 const FoodsContainer = styled.div`
   margin-top: 2rem;
 `;
+
+const Nutrients = styled.div``;
 
 const TodayFood = () => {
   const [todayFoods, setTodayFoods] = useState<any>([]);
@@ -57,7 +66,19 @@ const TodayFood = () => {
       <FoodsContainer>
         {todayFoods
           ? todayFoods.map((item: any) => {
-              return <FoodItem>{item.name}</FoodItem>;
+              return (
+                <FoodItem>
+                  <h3>{item.name}</h3>
+                  <span>{item.amount}</span>
+                  <Nutrients>
+                    <div>Fat: {item.details.fat} g</div>
+                    <div>Fiber: {item.details.fiber} g</div>
+                    <div>Protein: {item.details.protein} g</div>
+                    <div>Carbo: {item.details.carbo} g</div>
+                  </Nutrients>
+                  <span>Kcal: {item.details.kcal}</span>
+                </FoodItem>
+              );
             })
           : null}
       </FoodsContainer>
