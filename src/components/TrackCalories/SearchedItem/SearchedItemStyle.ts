@@ -18,7 +18,7 @@ export const SearchItemWrapper = styled.div<SearchItemProps>`
   gap: 3rem;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 3rem;
+  padding: 3rem 0;
   position: relative;
   h2 {
     text-transform: capitalize;
