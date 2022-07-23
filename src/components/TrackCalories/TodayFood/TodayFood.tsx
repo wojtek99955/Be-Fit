@@ -13,6 +13,7 @@ import {
   DailyNutrition,
 } from "./TodayFoodStyle";
 import ConsumedNutrientsData from "./ConsumedNutrientsData";
+import RemainCalories from "./RemainCalories";
 
 const TodayFood = () => {
   const [todayFoods, setTodayFoods] = useState<any>([]);
@@ -71,6 +72,7 @@ const TodayFood = () => {
       <h2>Today</h2>
       <DailyNutrition>
         <ConsumedNutrientsData consumed={consumed} />
+        <RemainCalories />
       </DailyNutrition>
       <FoodsContainer>
         {todayFoods
