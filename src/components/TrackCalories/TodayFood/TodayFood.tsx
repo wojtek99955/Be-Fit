@@ -107,7 +107,7 @@ const TodayFood = () => {
                     <h3>{item.name}</h3>
                   </Name>
                   <Amount>
-                    <span>{item.details.amount}</span>
+                    <span>{item.details.amount} g</span>
                   </Amount>
                   <Nutrients>
                     <div>
