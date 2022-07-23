@@ -68,6 +68,7 @@ export const Name = styled.div`
 
 export const DailyNutrition = styled.div`
   padding-top: 2rem;
+  display: flex;
 `;
 
 export const Consumed = styled.div`
