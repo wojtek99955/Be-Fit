@@ -43,19 +43,19 @@ const TodayFood = () => {
     setTodayFoods(filteredFoods);
     console.log(filteredFoods);
 
-    const consumedCalories = foodz.reduce((acc: any, obj: any) => {
+    const consumedCalories = filteredFoods.reduce((acc: any, obj: any) => {
       return acc + obj.details.kcal;
     }, 0);
-    const consumedFat = foodz.reduce((acc: any, obj: any) => {
+    const consumedFat = filteredFoods.reduce((acc: any, obj: any) => {
       return acc + obj.details.fat;
     }, 0);
-    const consumedFiber = foodz.reduce((acc: any, obj: any) => {
+    const consumedFiber = filteredFoods.reduce((acc: any, obj: any) => {
       return acc + obj.details.fiber;
     }, 0);
-    const consumedProtein = foodz.reduce((acc: any, obj: any) => {
+    const consumedProtein = filteredFoods.reduce((acc: any, obj: any) => {
       return acc + obj.details.protein;
     }, 0);
-    const consumedCarbo = foodz.reduce((acc: any, obj: any) => {
+    const consumedCarbo = filteredFoods.reduce((acc: any, obj: any) => {
       return acc + obj.details.carbo;
     }, 0);
     setConsumed({
