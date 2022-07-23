@@ -10,11 +10,7 @@ import {
   Calories,
   Amount,
   Name,
-  Consumed,
   DailyNutrition,
-  ConsumedNutrients,
-  Row,
-  ConsumedCalories,
 } from "./TodayFoodStyle";
 import ConsumedNutrientsData from "./ConsumedNutrientsData";
 
