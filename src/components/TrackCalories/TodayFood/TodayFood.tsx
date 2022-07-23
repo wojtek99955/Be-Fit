@@ -54,7 +54,6 @@ const TodayFood = () => {
       >
         SHOW
       </button>
-      {/* {todayFoods[1]?.name} */}
       {showFood ? (
         <FoodsContainer>
           {todayFoods
