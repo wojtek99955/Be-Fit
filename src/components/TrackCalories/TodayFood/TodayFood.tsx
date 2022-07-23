@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../AuthContext";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "../../../firebase";
 import {
   Container,
@@ -14,101 +14,84 @@ import {
 } from "./TodayFoodStyle";
 import ConsumedNutrientsData from "./ConsumedNutrientsData";
 import RemainCalories from "./RemainCalories";
+import { nanoid } from "nanoid";
 
 const TodayFood = () => {
   const [todayFoods, setTodayFoods] = useState<any>([]);
-  const [consumed, setConsumed] = useState<any>(null);
+  const [showFood, setShowFood] = useState(false);
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
 
-  async function getData() {
-    const date = await new Date();
-    const month = (await date.getMonth()) + 1;
-    const day = await date.getDate();
-    const year = await date.getFullYear();
-
-    const foodRef = await collection(db, `users/${uid}/food`);
-    const docsSnap = await getDocs(foodRef);
-    const foodz: any = [];
-    await docsSnap.forEach((doc) => {
-      foodz.push(doc.data());
-    });
-
-    const filteredFoods = foodz.filter((item: any) => {
-      return item.date === `${day}${month}${year}`;
-    });
-    setTodayFoods(filteredFoods);
-    console.log(filteredFoods);
-
-    const consumedCalories = filteredFoods.reduce((acc: any, obj: any) => {
-      return acc + obj.details.kcal;
-    }, 0);
-    const consumedFat = filteredFoods.reduce((acc: any, obj: any) => {
-      return acc + obj.details.fat;
-    }, 0);
-    const consumedFiber = filteredFoods.reduce((acc: any, obj: any) => {
-      return acc + obj.details.fiber;
-    }, 0);
-    const consumedProtein = filteredFoods.reduce((acc: any, obj: any) => {
-      return acc + obj.details.protein;
-    }, 0);
-    const consumedCarbo = filteredFoods.reduce((acc: any, obj: any) => {
-      return acc + obj.details.carbo;
-    }, 0);
-    setConsumed({
-      kcal: consumedCalories.toFixed(1),
-      fat: consumedFat.toFixed(1),
-      fiber: consumedFiber.toFixed(1),
-      protein: consumedProtein.toFixed(1),
-      carbo: consumedCarbo.toFixed(1),
-    });
-  }
-
   useEffect(() => {
-    getData();
+    const date = new Date();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    const year = date.getFullYear();
+    onSnapshot(collection(db, `users/${uid}/food`), (docs: any) => {
+      console.log("dodano");
+      const foodz: any = [];
+
+      docs.forEach((doc: any) => {
+        return foodz.push(doc.data());
+      });
+      const filteredFoods = foodz.filter((item: any) => {
+        return item.date === `${day}${month}${year}`;
+      });
+      setTodayFoods(filteredFoods);
+    });
   }, []);
   return (
     <Container>
       <h2>Today</h2>
       <DailyNutrition>
-        <ConsumedNutrientsData consumed={consumed} />
-        <RemainCalories consumed={consumed} />
+        <ConsumedNutrientsData consumed={todayFoods} />
+        <RemainCalories consumed={todayFoods} />
       </DailyNutrition>
-      <FoodsContainer>
-        {todayFoods
-          ? todayFoods.map((item: any) => {
-              return (
-                <FoodItem>
-                  <Name>
-                    <h3>{item.name}</h3>
-                  </Name>
-                  <Amount>
-                    <span>{item.details.amount} g</span>
-                  </Amount>
-                  <Nutrients>
-                    <div>
-                      Fat <span>{item.details.fat} g</span>
-                    </div>
-                    <div>
-                      Fiber <span>{item.details.fiber} g</span>
-                    </div>
-                    <div>
-                      Protein <span>{item.details.protein} g</span>
-                    </div>
-                    <div>
-                      Carbo <span>{item.details.carbo} g</span>
-                    </div>
-                  </Nutrients>
-                  <Calories>
-                    <div>
-                      Kcal <strong>{item.details.kcal}</strong>
-                    </div>
-                  </Calories>
-                </FoodItem>
-              );
-            })
-          : null}
-      </FoodsContainer>
+      <button
+        onClick={() => {
+          setShowFood((prev) => !prev);
+        }}
+      >
+        SHOW
+      </button>
+      {/* {todayFoods[1]?.name} */}
+      {showFood ? (
+        <FoodsContainer>
+          {todayFoods
+            ? todayFoods.map((item: any) => {
+                return (
+                  <FoodItem key={nanoid()}>
+                    <Name>
+                      <h3>{item.name}</h3>
+                    </Name>
+                    <Amount>
+                      <span>{item.details.amount} g</span>
+                    </Amount>
+                    <Nutrients>
+                      <div>
+                        Fat <span>{item.details.fat} g</span>
+                      </div>
+                      <div>
+                        Fiber <span>{item.details.fiber} g</span>
+                      </div>
+                      <div>
+                        Protein <span>{item.details.protein} g</span>
+                      </div>
+                      <div>
+                        Carbo <span>{item.details.carbo} g</span>
+                      </div>
+                    </Nutrients>
+                    <Calories>
+                      <div>
+                        Kcal <strong>{item.details.kcal}</strong>
+                      </div>
+                    </Calories>
+                  </FoodItem>
+                );
+              })
+            : null}
+        </FoodsContainer>
+      ) : null}
     </Container>
   );
 };
