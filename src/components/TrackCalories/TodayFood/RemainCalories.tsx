@@ -11,7 +11,11 @@ const Container = styled.div`
 `;
 const RemainedCalories = styled.div``;
 
-const RemainCalories = () => {
+interface Props {
+  consumed: any;
+}
+
+const RemainCalories = ({ consumed }: Props) => {
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
   const [data, setData] = useState<any>({});
@@ -35,7 +39,9 @@ const RemainCalories = () => {
   }, []);
   return (
     <Container>
-      <RemainedCalories>{data.calorieIntake}</RemainedCalories>
+      <RemainedCalories>
+        {data?.calorieIntake - consumed?.kcal}
+      </RemainedCalories>
     </Container>
   );
 };

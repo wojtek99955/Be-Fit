@@ -72,7 +72,7 @@ const TodayFood = () => {
       <h2>Today</h2>
       <DailyNutrition>
         <ConsumedNutrientsData consumed={consumed} />
-        <RemainCalories />
+        <RemainCalories consumed={consumed} />
       </DailyNutrition>
       <FoodsContainer>
         {todayFoods
