@@ -33,6 +33,7 @@ const RemainCalories = ({ consumed }: Props) => {
   const uid = ctx?.currentUser.uid;
   const [data, setData] = useState<any>({});
   const [loading, setLoading] = useState(true);
+  const [consumedKcal, setConsumedKcal] = useState<null | number>(null);
   async function getData() {
     const snap = await getDoc(
       doc(db, "users", `${uid}/body-details/calorie-intake`)
@@ -49,11 +50,15 @@ const RemainCalories = ({ consumed }: Props) => {
 
   useEffect(() => {
     getData();
-  }, []);
+    const calorieAmount = consumed?.reduce((acc: any, obj: any) => {
+      return acc + obj.details.kcal;
+    }, 0);
+    setConsumedKcal(calorieAmount);
+  }, [consumed]);
   return (
     <Container>
       <RemainedCalories>
-        <div>{data?.calorieIntake - consumed?.kcal}</div>
+        <div>{data?.calorieIntake - consumedKcal!}</div>
         <span>Calories left</span>
       </RemainedCalories>
     </Container>
