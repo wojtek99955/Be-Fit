@@ -9,7 +9,20 @@ const Container = styled.div`
   width: 50%;
   border-radius: 12px;
 `;
-const RemainedCalories = styled.div``;
+const RemainedCalories = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  div {
+    font-size: 2.5rem;
+  }
+  span {
+    font-size: 1.4rem;
+    color: #555555;
+  }
+`;
 
 interface Props {
   consumed: any;
@@ -40,7 +53,8 @@ const RemainCalories = ({ consumed }: Props) => {
   return (
     <Container>
       <RemainedCalories>
-        {data?.calorieIntake - consumed?.kcal}
+        <div>{data?.calorieIntake - consumed?.kcal}</div>
+        <span>Calories left</span>
       </RemainedCalories>
     </Container>
   );
