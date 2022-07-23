@@ -12,8 +12,10 @@ import {
   Amount,
   Name,
   Consumed,
-  DailyCalories,
+  DailyNutrition,
   ConsumedNutrients,
+  Row,
+  ConsumedCalories,
 } from "./TodayFoodStyle";
 
 const TodayFood = () => {
@@ -68,31 +70,35 @@ const TodayFood = () => {
   useEffect(() => {
     getData();
   }, []);
-  console.log(consumed);
   return (
     <Container>
       <h2>Today</h2>
-      <DailyCalories>
+      <DailyNutrition>
         <Consumed>
-          <div>
-            Kcal: <span>{consumed?.kcal}</span>
-          </div>
+          <ConsumedCalories>
+            <span>{consumed?.kcal}</span>
+            <div>Kcal:</div>
+          </ConsumedCalories>
           <ConsumedNutrients>
-            <div>
-              Fat <span>{consumed?.fat}</span>
-            </div>
-            <div>
-              Protein <span>{consumed?.protein}</span>
-            </div>
-            <div>
-              Carbo <span>{consumed?.carbo}</span>
-            </div>
-            <div>
-              Fiber <span>{consumed?.fiber}</span>
-            </div>
+            <Row>
+              <div>
+                Fat <span>{consumed?.fat}</span>
+              </div>
+              <div>
+                Protein <span>{consumed?.protein}</span>
+              </div>
+            </Row>
+            <Row>
+              <div>
+                Carbo <span>{consumed?.carbo}</span>
+              </div>
+              <div>
+                Fiber <span>{consumed?.fiber}</span>
+              </div>
+            </Row>
           </ConsumedNutrients>
         </Consumed>
-      </DailyCalories>
+      </DailyNutrition>
       <FoodsContainer>
         {todayFoods
           ? todayFoods.map((item: any) => {
