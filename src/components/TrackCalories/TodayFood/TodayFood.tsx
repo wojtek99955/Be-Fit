@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../AuthContext";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../../firebase";
-import styled from "styled-components";
 import {
   Container,
   FoodItem,
