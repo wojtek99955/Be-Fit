@@ -14,6 +14,7 @@ import {
   ShowMealsBtn,
   UpIcon,
   DownIcon,
+  CurrentDate,
 } from "./TodayFoodStyle";
 import ConsumedNutrientsData from "./ConsumedNutrients/ConsumedNutrientsData";
 import RemainCalories from "./RemainCalories/RemainCalories";
@@ -49,8 +50,10 @@ const TodayFood = () => {
   const year = date.getFullYear();
   return (
     <Container>
-      <h2>Today</h2>
-      <div>{`${day}/${month}/${year}`}</div>
+      <CurrentDate>
+        <h2>Today</h2>
+        <div>{`${day}/${month}/${year}`}</div>
+      </CurrentDate>
       <DailyNutrition>
         <ConsumedNutrientsData consumed={todayFoods} />
         <RemainCalories consumed={todayFoods} />

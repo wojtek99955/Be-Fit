@@ -6,10 +6,6 @@ export const Container = styled.div`
   max-width: 800px;
   margin: auto;
   margin-top: 3rem;
-  h2 {
-    font-size: 2rem;
-    text-align: center;
-  }
 `;
 export const FoodItem = styled.div`
   box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.1), 0 2px 4px 0 rgba(0, 0, 0, 0),
@@ -94,4 +90,16 @@ export const DownIcon = styled(AiOutlineDownCircle)`
 
 export const UpIcon = styled(AiOutlineUpCircle)`
   font-size: 1.3rem;
+`;
+
+export const CurrentDate = styled.div`
+  h2 {
+    font-size: 2rem;
+    text-align: center;
+  }
+  div {
+    text-align: center;
+    color: #555555;
+    margin-top: 1rem;
+  }
 `;
