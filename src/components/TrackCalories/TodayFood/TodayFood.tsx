@@ -43,9 +43,14 @@ const TodayFood = () => {
       setTodayFoods(filteredFoods);
     });
   }, []);
+  const date = new Date();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  const year = date.getFullYear();
   return (
     <Container>
       <h2>Today</h2>
+      <div>{`${day}/${month}/${year}`}</div>
       <DailyNutrition>
         <ConsumedNutrientsData consumed={todayFoods} />
         <RemainCalories consumed={todayFoods} />
