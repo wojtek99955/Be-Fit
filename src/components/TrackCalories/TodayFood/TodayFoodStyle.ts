@@ -101,5 +101,6 @@ export const CurrentDate = styled.div`
     text-align: center;
     color: #555555;
     margin-top: 1rem;
+    font-size: 1.2rem;
   }
 `;
