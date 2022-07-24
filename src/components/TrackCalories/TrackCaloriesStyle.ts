@@ -42,6 +42,13 @@ export const StyledField = styled(Field)`
   font-size: 1.3rem;
   background-color: transparent;
   width: 100%;
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+    -webkit-transition-delay: 9999s;
+  }
 `;
 
 export const FieldWrapper = styled.div`
