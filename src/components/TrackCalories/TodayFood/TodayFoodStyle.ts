@@ -91,8 +91,21 @@ export const ConsumedNutrients = styled.div`
 
 export const Row = styled.div`
   display: flex;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
   gap: 2rem;
+
+  div {
+    width: 7rem;
+    display: flex;
+    justify-content: space-between;
+
+    align-items: center;
+
+    span {
+      right: 0;
+    }
+  }
 `;
 
 export const ConsumedCalories = styled.div`
