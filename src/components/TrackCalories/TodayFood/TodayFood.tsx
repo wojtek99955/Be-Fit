@@ -11,6 +11,9 @@ import {
   Amount,
   Name,
   DailyNutrition,
+  ShowMealsBtn,
+  UpIcon,
+  DownIcon,
 } from "./TodayFoodStyle";
 import ConsumedNutrientsData from "./ConsumedNutrientsData";
 import RemainCalories from "./RemainCalories";
@@ -47,13 +50,14 @@ const TodayFood = () => {
         <ConsumedNutrientsData consumed={todayFoods} />
         <RemainCalories consumed={todayFoods} />
       </DailyNutrition>
-      <button
+      <ShowMealsBtn
         onClick={() => {
           setShowFood((prev) => !prev);
         }}
       >
-        SHOW
-      </button>
+        {showFood ? <DownIcon /> : <UpIcon />}
+        Show today's meals
+      </ShowMealsBtn>
       {showFood ? (
         <FoodsContainer>
           {todayFoods

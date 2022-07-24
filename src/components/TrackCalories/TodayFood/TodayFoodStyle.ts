@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { AiOutlineDownCircle } from "react-icons/ai";
+import { AiOutlineUpCircle } from "react-icons/ai";
 
 export const Container = styled.div`
   max-width: 800px;
@@ -118,4 +120,26 @@ export const ConsumedCalories = styled.div`
     font-size: 1.2rem;
     color: #555555;
   }
+`;
+
+export const ShowMealsBtn = styled.button`
+  background-color: #019d51;
+  border: none;
+  color: white;
+  padding: 0.8rem 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 8px;
+  margin-top: 3rem;
+  font-size: 1rem;
+`;
+
+export const DownIcon = styled(AiOutlineDownCircle)`
+  font-size: 1.3rem;
+`;
+
+export const UpIcon = styled(AiOutlineUpCircle)`
+  font-size: 1.3rem;
 `;
