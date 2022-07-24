@@ -16,7 +16,7 @@ import {
   DownIcon,
 } from "./TodayFoodStyle";
 import ConsumedNutrientsData from "./ConsumedNutrients/ConsumedNutrientsData";
-import RemainCalories from "./RemainCalories";
+import RemainCalories from "./RemainCalories/RemainCalories";
 import { nanoid } from "nanoid";
 
 const TodayFood = () => {
