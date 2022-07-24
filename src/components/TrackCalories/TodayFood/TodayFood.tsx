@@ -15,7 +15,7 @@ import {
   UpIcon,
   DownIcon,
 } from "./TodayFoodStyle";
-import ConsumedNutrientsData from "./ConsumedNutrientsData";
+import ConsumedNutrientsData from "./ConsumedNutrients/ConsumedNutrientsData";
 import RemainCalories from "./RemainCalories";
 import { nanoid } from "nanoid";
 

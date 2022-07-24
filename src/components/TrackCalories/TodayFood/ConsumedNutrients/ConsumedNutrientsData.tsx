@@ -4,7 +4,7 @@ import {
   ConsumedCalories,
   Row,
   ConsumedNutrients,
-} from "./TodayFoodStyle";
+} from "./ConsumedNutrientsStyle";
 
 interface Props {
   consumed: any;
