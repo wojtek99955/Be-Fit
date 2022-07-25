@@ -1,4 +1,4 @@
-import { Box, SettingsIcon } from "../CardStyles";
+import { Box, SettingsIcon, StyledLink } from "../CardStyles";
 import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../../AuthContext";
 import { getDoc, doc } from "firebase/firestore";
@@ -68,7 +68,9 @@ const RemainCalories = () => {
 
   return (
     <Box>
-      <StyledSettingsIcon />
+      <StyledLink to="/track-calories">
+        <StyledSettingsIcon />
+      </StyledLink>
       <Calories>
         <strong>{calorieIntake - consumedKcal!}</strong>
         <span>calories left</span>
