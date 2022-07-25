@@ -9,6 +9,7 @@ import { db } from "../../firebase";
 import { AuthContext } from "../AuthContext";
 import Modal from "../../Modal";
 import CalorieIntake from "./CalorieIntake";
+import RemainCalories from "./RemainCalories/RemainCalories";
 
 const Container = styled.section`
   padding: 1rem;
@@ -55,6 +56,7 @@ const Home = () => {
             <BMI />
             <Goal />
             <CalorieIntake />
+            <RemainCalories />
           </>
         )}
       </GridContainer>
