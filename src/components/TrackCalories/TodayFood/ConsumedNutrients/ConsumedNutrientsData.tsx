@@ -1,10 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import {
   Consumed,
   ConsumedCalories,
   Row,
   ConsumedNutrients,
 } from "./ConsumedNutrientsStyle";
+import { setDoc, doc } from "firebase/firestore";
+import { AuthContext } from "../../../AuthContext";
+import { db } from "../../../../firebase";
 
 interface Props {
   consumed: any;
@@ -12,9 +15,16 @@ interface Props {
 }
 
 const ConsumedNutrientsData = ({ consumed, loading }: Props) => {
+  const ctx = useContext(AuthContext);
+  const uid = ctx?.currentUser.uid;
   const [consumedNutrients, setConsumedNutrients] = useState<any>();
 
   useEffect(() => {
+    const date = new Date();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    const year = date.getFullYear();
+
     const consumedCalories = consumed.reduce((acc: any, obj: any) => {
       return acc + obj.details.kcal;
     }, 0);
@@ -37,6 +47,18 @@ const ConsumedNutrientsData = ({ consumed, loading }: Props) => {
       protein: consumedProtein.toFixed(1),
       carbo: consumedCarbo.toFixed(1),
     });
+    if (consumedNutrients) {
+      setDoc(
+        doc(db, `users/${uid}/consumedNutrients`, `${day}${month}${year}`),
+        {
+          kcal: consumedCalories.toFixed(1),
+          fat: consumedFat.toFixed(1),
+          fiber: consumedFiber.toFixed(1),
+          protein: consumedProtein.toFixed(1),
+          carbo: consumedCarbo.toFixed(1),
+        }
+      );
+    }
   }, [consumed]);
 
   return (
