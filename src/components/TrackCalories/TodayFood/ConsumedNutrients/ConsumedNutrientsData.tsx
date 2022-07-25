@@ -47,18 +47,18 @@ const ConsumedNutrientsData = ({ consumed }: Props) => {
       <ConsumedNutrients>
         <Row>
           <div>
-            Fat <span>{consumedNutrients?.fat}</span>
+            Fat <span>{consumedNutrients?.fat} g </span>
           </div>
           <div>
-            Protein <span>{consumedNutrients?.protein}</span>
+            Protein <span>{consumedNutrients?.protein} g</span>
           </div>
         </Row>
         <Row>
           <div>
-            Carbo <span>{consumedNutrients?.carbo}</span>
+            Carbo <span>{consumedNutrients?.carbo} g</span>
           </div>
           <div>
-            Fiber <span>{consumedNutrients?.fiber}</span>
+            Fiber <span>{consumedNutrients?.fiber} g</span>
           </div>
         </Row>
       </ConsumedNutrients>
