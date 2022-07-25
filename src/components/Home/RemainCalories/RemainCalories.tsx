@@ -72,7 +72,11 @@ const RemainCalories = () => {
         <StyledSettingsIcon />
       </StyledLink>
       <Calories>
-        <strong>{calorieIntake - consumedKcal!}</strong>
+        {calorieIntake - consumedKcal! <= 0 ? (
+          <strong>0</strong>
+        ) : (
+          <strong>{calorieIntake - consumedKcal!}</strong>
+        )}
         <span>calories left</span>
       </Calories>
     </Box>
