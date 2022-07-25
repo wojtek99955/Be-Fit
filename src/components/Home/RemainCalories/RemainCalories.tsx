@@ -1,8 +1,32 @@
-import { Box } from "../CardStyles";
+import { Box, SettingsIcon } from "../CardStyles";
 import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../../AuthContext";
 import { getDoc, doc } from "firebase/firestore";
 import { db } from "../../../firebase";
+import styled from "styled-components";
+
+const Calories = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  strong {
+    font-size: 2.5rem;
+  }
+  span {
+    color: #a29e9e;
+  }
+`;
+
+export const StyledSettingsIcon = styled(SettingsIcon)`
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+`;
 
 const RemainCalories = () => {
   const ctx = useContext(AuthContext);
@@ -16,11 +40,9 @@ const RemainCalories = () => {
     const month = date.getMonth() + 1;
     const day = date.getDate();
     const year = date.getFullYear();
-
     const snap = await getDoc(
       doc(db, "users", `${uid}/consumedNutrients/${day}${month}${year}`)
     );
-
     if (snap.exists()) {
       setConsumedKcal(snap.data().kcal);
     } else {
@@ -32,7 +54,6 @@ const RemainCalories = () => {
     const snap = await getDoc(
       doc(db, "users", `${uid}/body-details/calorie-intake`)
     );
-
     if (snap.exists()) {
       setCalorieIntake(snap.data().calorieIntake);
     } else {
@@ -47,8 +68,12 @@ const RemainCalories = () => {
 
   return (
     <Box>
+      <StyledSettingsIcon />
       RemainCalories
-      <h1>{calorieIntake - consumedKcal!}</h1>
+      <Calories>
+        <strong>{calorieIntake - consumedKcal!}</strong>
+        <span>calories left</span>
+      </Calories>
     </Box>
   );
 };
