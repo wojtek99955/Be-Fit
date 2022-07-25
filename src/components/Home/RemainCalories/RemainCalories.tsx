@@ -5,7 +5,11 @@ import { getDoc, doc } from "firebase/firestore";
 import { db } from "../../../firebase";
 import styled from "styled-components";
 
-const Calories = styled.div`
+interface Loading {
+  loading: boolean;
+}
+
+const Calories = styled.div<Loading>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,6 +17,7 @@ const Calories = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  opacity: ${({ loading }) => (loading ? "0" : "1")};
 
   strong {
     font-size: 2.5rem;
@@ -45,6 +50,7 @@ const RemainCalories = () => {
     );
     if (snap.exists()) {
       setConsumedKcal(snap.data().kcal);
+      setLoading(false);
     } else {
       console.log("No such document");
     }
@@ -71,7 +77,7 @@ const RemainCalories = () => {
       <StyledLink to="/track-calories">
         <StyledSettingsIcon />
       </StyledLink>
-      <Calories>
+      <Calories loading={loading}>
         {calorieIntake - consumedKcal! <= 0 ? (
           <strong>0</strong>
         ) : (
