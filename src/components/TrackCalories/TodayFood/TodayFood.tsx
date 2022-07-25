@@ -64,6 +64,7 @@ const TodayFood = () => {
         <RemainCalories consumed={todayFoods} />
       </DailyNutrition>
       <ShowMealsBtn
+        loading={loading}
         onClick={() => {
           setShowFood((prev) => !prev);
         }}

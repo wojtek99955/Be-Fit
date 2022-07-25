@@ -70,10 +70,12 @@ export const DailyNutrition = styled.div`
   gap: 2rem;
 `;
 
-export const ShowMealsBtn = styled.button`
-  background-color: #019d51;
+interface Loading {
+  loading: boolean;
+}
+
+export const ShowMealsBtn = styled.button<Loading>`
   border: none;
-  color: white;
   padding: 0.8rem 1.2rem;
   cursor: pointer;
   display: flex;
@@ -82,6 +84,8 @@ export const ShowMealsBtn = styled.button`
   border-radius: 8px;
   margin-top: 3rem;
   font-size: 1rem;
+  background-color: ${({ loading }) => (loading ? "#f3f4f6" : "#019d51")};
+  color: ${({ loading }) => (loading ? "#f3f4f6" : "white")};
 `;
 
 export const DownIcon = styled(AiOutlineDownCircle)`
