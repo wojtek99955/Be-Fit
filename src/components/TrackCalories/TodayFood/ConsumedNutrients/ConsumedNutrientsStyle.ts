@@ -1,13 +1,20 @@
 import styled from "styled-components";
 
-export const Consumed = styled.div`
+interface LoadingProps {
+  loading: boolean;
+}
+
+export const Consumed = styled.div<LoadingProps>`
   border-radius: 12px;
-  border: 4px solid #019d51;
+  border: ${({ loading }) =>
+    loading ? "4px solid #f3f4f6" : "4px solid #019d51"};
   width: 50%;
   padding: 2rem;
+  background-color: ${({ loading }) => (loading ? "#f3f4f6" : "white")};
 `;
 
-export const ConsumedNutrients = styled.div`
+export const ConsumedNutrients = styled.div<LoadingProps>`
+  opacity: ${({ loading }) => (loading ? "0" : "1")};
   div {
     color: #555555;
   }
@@ -35,7 +42,8 @@ export const Row = styled.div`
   }
 `;
 
-export const ConsumedCalories = styled.div`
+export const ConsumedCalories = styled.div<LoadingProps>`
+  opacity: ${({ loading }) => (loading ? "0" : "1")};
   font-size: 2.5rem;
   display: flex;
   flex-direction: column;

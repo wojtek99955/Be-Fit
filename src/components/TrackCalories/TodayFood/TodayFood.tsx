@@ -23,26 +23,31 @@ import { nanoid } from "nanoid";
 const TodayFood = () => {
   const [todayFoods, setTodayFoods] = useState<any>([]);
   const [showFood, setShowFood] = useState(false);
+  const [loading, setLoading] = useState(true);
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
 
   useEffect(() => {
-    const date = new Date();
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
-    const year = date.getFullYear();
-    onSnapshot(collection(db, `users/${uid}/food`), (docs: any) => {
-      console.log("dodano");
-      const foodz: any = [];
+    async function getData() {
+      const date = new Date();
+      const month = date.getMonth() + 1;
+      const day = date.getDate();
+      const year = date.getFullYear();
+      await onSnapshot(collection(db, `users/${uid}/food`), (docs: any) => {
+        console.log("dodano");
+        const foodz: any = [];
 
-      docs.forEach((doc: any) => {
-        return foodz.push(doc.data());
+        docs.forEach((doc: any) => {
+          return foodz.push(doc.data());
+        });
+        const filteredFoods = foodz.filter((item: any) => {
+          return item.date === `${day}${month}${year}`;
+        });
+        setTodayFoods(filteredFoods);
+        setLoading(false);
       });
-      const filteredFoods = foodz.filter((item: any) => {
-        return item.date === `${day}${month}${year}`;
-      });
-      setTodayFoods(filteredFoods);
-    });
+    }
+    getData();
   }, []);
   const date = new Date();
   const month = date.getMonth() + 1;
@@ -55,7 +60,7 @@ const TodayFood = () => {
         <div>{`${day}/${month}/${year}`}</div>
       </CurrentDate>
       <DailyNutrition>
-        <ConsumedNutrientsData consumed={todayFoods} />
+        <ConsumedNutrientsData consumed={todayFoods} loading={loading} />
         <RemainCalories consumed={todayFoods} />
       </DailyNutrition>
       <ShowMealsBtn

@@ -8,9 +8,10 @@ import {
 
 interface Props {
   consumed: any;
+  loading: boolean;
 }
 
-const ConsumedNutrientsData = ({ consumed }: Props) => {
+const ConsumedNutrientsData = ({ consumed, loading }: Props) => {
   const [consumedNutrients, setConsumedNutrients] = useState<any>();
 
   useEffect(() => {
@@ -39,12 +40,12 @@ const ConsumedNutrientsData = ({ consumed }: Props) => {
   }, [consumed]);
 
   return (
-    <Consumed>
-      <ConsumedCalories>
+    <Consumed loading={loading}>
+      <ConsumedCalories loading={loading}>
         <span>{consumedNutrients?.kcal}</span>
         <div>Kcal:</div>
       </ConsumedCalories>
-      <ConsumedNutrients>
+      <ConsumedNutrients loading={loading}>
         <Row>
           <div>
             Fat <span>{consumedNutrients?.fat} g </span>
