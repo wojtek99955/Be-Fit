@@ -69,7 +69,7 @@ const TodayFood = () => {
           setShowFood((prev) => !prev);
         }}
       >
-        {showFood ? <DownIcon /> : <UpIcon />}
+        {showFood ? <UpIcon /> : <DownIcon />}
         Show today's meals
       </ShowMealsBtn>
       {showFood ? (
