@@ -13,18 +13,17 @@ export const ConsumedNutrients = styled.div`
   }
   span {
     color: black;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
 `;
 
 export const Row = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
+  gap: 1rem;
 
   div {
-    width: 7rem;
+    width: 8rem;
     display: flex;
     justify-content: space-between;
 
