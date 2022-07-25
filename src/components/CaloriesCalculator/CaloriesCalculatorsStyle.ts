@@ -54,6 +54,13 @@ export const SearchBar = styled.div`
     display: block;
     border-radius: 8px;
     width: 25rem;
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+      -webkit-transition-delay: 9999s;
+    }
   }
   button {
     background-color: #ffa101;
