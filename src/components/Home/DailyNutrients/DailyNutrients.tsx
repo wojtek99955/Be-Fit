@@ -24,12 +24,17 @@ const Kcal = styled.div`
   }
 `;
 const Nutrients = styled.div``;
-const Wrapper = styled.div`
+
+interface Loading {
+  loading: boolean;
+}
+const Wrapper = styled.div<Loading>`
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100%;
   gap: 1.5rem;
+  opacity: ${({ loading }) => (loading ? "0" : "1")};
 `;
 
 const Row = styled.div`
@@ -50,6 +55,7 @@ const Row = styled.div`
 
 const DailyNutrients = () => {
   const [nutrients, setNutrients] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
 
@@ -63,6 +69,7 @@ const DailyNutrients = () => {
     );
     if (snap.exists()) {
       setNutrients(snap.data());
+      setLoading(false);
     } else {
       console.log("No such document");
     }
@@ -72,10 +79,10 @@ const DailyNutrients = () => {
   }, []);
   return (
     <Box>
-      <Wrapper>
-        <StyledLink to="/track-calories">
-          <StyledSettingsIcon />
-        </StyledLink>
+      <StyledLink to="/track-calories">
+        <StyledSettingsIcon />
+      </StyledLink>
+      <Wrapper loading={loading}>
         <Kcal>
           <strong>{nutrients?.kcal}</strong>
           <span>kcal</span>
