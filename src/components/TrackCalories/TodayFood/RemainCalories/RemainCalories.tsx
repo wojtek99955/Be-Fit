@@ -36,8 +36,8 @@ const RemainCalories = ({ consumed }: Props) => {
     setConsumedKcal(calorieAmount);
   }, [consumed]);
   return (
-    <Container>
-      <RemainedCalories>
+    <Container loading={loading}>
+      <RemainedCalories loading={loading}>
         <div>{data?.calorieIntake - consumedKcal!}</div>
         <span>Calories left</span>
       </RemainedCalories>

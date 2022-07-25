@@ -1,11 +1,19 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+interface LoadingProps {
+  loading: boolean;
+}
+
+export const Container = styled.div<LoadingProps>`
   border: 4px solid #ffa101;
   width: 50%;
   border-radius: 12px;
+  background-color: ${({ loading }) => (loading ? "#f3f4f6" : "white")};
+  border: ${({ loading }) =>
+    loading ? "4px solid #f3f4f6" : "4px solid #019d51"};
 `;
-export const RemainedCalories = styled.div`
+export const RemainedCalories = styled.div<LoadingProps>`
+  opacity: ${({ loading }) => (loading ? "0" : "1")};
   display: flex;
   justify-content: center;
   flex-direction: column;
