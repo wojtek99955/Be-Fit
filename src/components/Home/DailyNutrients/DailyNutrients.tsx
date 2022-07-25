@@ -11,7 +11,37 @@ export const StyledSettingsIcon = styled(SettingsIcon)`
   right: 1rem;
 `;
 
-const Kcal = styled.div``;
+const Kcal = styled.div`
+  display: flex;
+  justify-content: center;
+  strong {
+    font-size: 2.5rem;
+  }
+`;
+const Nutrients = styled.div``;
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  gap: 1.5rem;
+`;
+
+const Row = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    width: 7rem;
+    width: 50%;
+    font-size: 0.9rem;
+  }
+`;
 
 const DailyNutrients = () => {
   const [nutrients, setNutrients] = useState<any>(null);
@@ -37,22 +67,32 @@ const DailyNutrients = () => {
   }, []);
   return (
     <Box>
-      <StyledLink to="/track-calories">
-        <StyledSettingsIcon />
-      </StyledLink>
-      <Kcal>{nutrients?.kcal}</Kcal>
-      <div>
-        Fat: <span>{nutrients?.fat}</span>
-      </div>
-      <div>
-        Carbo: <span>{nutrients?.carbo}</span>
-      </div>
-      <div>
-        Protein: <span>{nutrients?.protein}</span>
-      </div>
-      <div>
-        Fiber: <span>{nutrients?.fiber}</span>
-      </div>
+      <Wrapper>
+        <StyledLink to="/track-calories">
+          <StyledSettingsIcon />
+        </StyledLink>
+        <Kcal>
+          <strong>{nutrients?.kcal}</strong>
+        </Kcal>
+        <Nutrients>
+          <Row>
+            <div>
+              Fat: <span>{nutrients?.fat} g</span>
+            </div>
+            <div>
+              Carbo: <span>{nutrients?.carbo} g</span>
+            </div>
+          </Row>
+          <Row>
+            <div>
+              Protein: <span>{nutrients?.protein} g</span>
+            </div>
+            <div>
+              Fiber: <span>{nutrients?.fiber} g</span>
+            </div>
+          </Row>
+        </Nutrients>
+      </Wrapper>
     </Box>
   );
 };
