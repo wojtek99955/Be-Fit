@@ -10,6 +10,7 @@ import { AuthContext } from "../AuthContext";
 import Modal from "../../Modal";
 import CalorieIntake from "./CalorieIntake";
 import RemainCalories from "./RemainCalories/RemainCalories";
+import DailyNutrients from "./DailyNutrients/DailyNutrients";
 
 const Container = styled.section`
   padding: 1rem;
@@ -57,6 +58,7 @@ const Home = () => {
             <Goal />
             <CalorieIntake />
             <RemainCalories />
+            <DailyNutrients />
           </>
         )}
       </GridContainer>
