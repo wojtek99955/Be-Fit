@@ -14,8 +14,13 @@ export const StyledSettingsIcon = styled(SettingsIcon)`
 const Kcal = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   strong {
     font-size: 2.5rem;
+  }
+  span {
+    color: #a29e9e;
   }
 `;
 const Nutrients = styled.div``;
@@ -73,6 +78,7 @@ const DailyNutrients = () => {
         </StyledLink>
         <Kcal>
           <strong>{nutrients?.kcal}</strong>
+          <span>kcal</span>
         </Kcal>
         <Nutrients>
           <Row>
