@@ -69,7 +69,6 @@ const RemainCalories = () => {
   return (
     <Box>
       <StyledSettingsIcon />
-      RemainCalories
       <Calories>
         <strong>{calorieIntake - consumedKcal!}</strong>
         <span>calories left</span>
