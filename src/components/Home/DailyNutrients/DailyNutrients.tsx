@@ -1,102 +1,16 @@
-import styled from "styled-components";
-import { Box, StyledLink, SettingsIcon } from "../CardStyles";
+import { Box, StyledLink } from "../CardStyles";
 import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../../AuthContext";
 import { getDoc, doc } from "firebase/firestore";
 import { db } from "../../../firebase";
-
-export const StyledSettingsIcon = styled(SettingsIcon)`
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-`;
-
-const Kcal = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  strong {
-    font-size: 2.5rem;
-  }
-  span {
-    color: #a29e9e;
-  }
-`;
-const Nutrients = styled.div``;
-
-interface Loading {
-  loading: boolean;
-}
-const Wrapper = styled.div<Loading>`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-  gap: 1.5rem;
-  opacity: ${({ loading }) => (loading ? "0" : "1")};
-`;
-
-const RowOne = styled.div`
-  display: flex;
-  gap: 0.5rem;
-  width: 100%;
-  justify-content: space-between;
-  margin-bottom: 0.5rem;
-
-  div {
-    display: flex;
-    justify-content: space-between;
-    width: 7rem;
-    width: 50%;
-    font-size: 0.9rem;
-    padding: 0.7rem 0.5rem;
-    border-radius: 8px;
-    color: white;
-
-    &:first-of-type {
-      background-color: #e1605e;
-    }
-    &:nth-of-type(2) {
-      background-color: #32525b;
-    }
-    span {
-      font-weight: 600;
-      color: white;
-    }
-  }
-`;
-
-const RowTwo = styled.div`
-  display: flex;
-  gap: 0.5rem;
-  width: 100%;
-  justify-content: space-between;
-  margin-bottom: 0.5rem;
-
-  div {
-    display: flex;
-    justify-content: space-between;
-    width: 7rem;
-    width: 50%;
-    font-size: 0.9rem;
-    padding: 0.7rem 0.5rem;
-    border-radius: 8px;
-    color: white;
-
-    &:first-of-type {
-      background-color: #019d51;
-    }
-
-    &:nth-of-type(2) {
-      background-color: #ffa101;
-    }
-    span {
-      font-weight: 600;
-      color: white;
-    }
-  }
-`;
+import {
+  Kcal,
+  Nutrients,
+  Wrapper,
+  RowOne,
+  RowTwo,
+  StyledSettingsIcon,
+} from "./DailyNutrientsStyle";
 
 const DailyNutrients = () => {
   const [nutrients, setNutrients] = useState<any>(null);
