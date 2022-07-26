@@ -54,7 +54,7 @@ const RowOne = styled.div`
     width: 7rem;
     width: 50%;
     font-size: 0.9rem;
-    padding: 0.5rem;
+    padding: 0.7rem 0.5rem;
     border-radius: 8px;
     color: white;
 
@@ -80,7 +80,7 @@ const RowTwo = styled.div`
     width: 7rem;
     width: 50%;
     font-size: 0.9rem;
-    padding: 0.5rem;
+    padding: 0.7rem 0.5rem;
     border-radius: 8px;
     color: white;
 
