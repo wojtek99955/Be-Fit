@@ -37,7 +37,7 @@ const Wrapper = styled.div<Loading>`
   opacity: ${({ loading }) => (loading ? "0" : "1")};
 `;
 
-const Row = styled.div`
+const RowOne = styled.div`
   display: flex;
   gap: 0.5rem;
   width: 100%;
@@ -50,6 +50,41 @@ const Row = styled.div`
     width: 7rem;
     width: 50%;
     font-size: 0.9rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+
+    &:first-of-type {
+      background-color: #efabaa;
+    }
+    &:nth-of-type(2) {
+      background-color: #c8dce1;
+    }
+  }
+`;
+
+const RowTwo = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    width: 7rem;
+    width: 50%;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+
+    &:first-of-type {
+      background-color: #c7e1c7;
+    }
+
+    &:nth-of-type(2) {
+      background-color: #ffe9c5;
+    }
   }
 `;
 
@@ -88,22 +123,22 @@ const DailyNutrients = () => {
           <span>kcal</span>
         </Kcal>
         <Nutrients>
-          <Row>
+          <RowOne>
             <div>
               Fat: <span>{nutrients?.fat} g</span>
             </div>
             <div>
               Carbo: <span>{nutrients?.carbo} g</span>
             </div>
-          </Row>
-          <Row>
+          </RowOne>
+          <RowTwo>
             <div>
               Protein: <span>{nutrients?.protein} g</span>
             </div>
             <div>
               Fiber: <span>{nutrients?.fiber} g</span>
             </div>
-          </Row>
+          </RowTwo>
         </Nutrients>
       </Wrapper>
     </Box>
