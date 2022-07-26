@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Container = styled.section`
   margin: 0 1rem;
-  width: 100%;
   label {
     display: block;
     font-size: 1.2rem;
