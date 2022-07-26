@@ -5,7 +5,6 @@ interface LoadingProps {
 }
 
 export const Container = styled.div<LoadingProps>`
-  width: 50%;
   border-radius: 12px;
   background-color: ${({ loading }) => (loading ? "#f3f4f6" : "white")};
   border: ${({ loading }) =>

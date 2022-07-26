@@ -8,7 +8,6 @@ export const Consumed = styled.div<LoadingProps>`
   border-radius: 12px;
   border: ${({ loading }) =>
     loading ? "4px solid #f3f4f6" : "4px solid #019d51"};
-  width: 50%;
   padding: 2rem;
   background-color: ${({ loading }) => (loading ? "#f3f4f6" : "white")};
 `;

@@ -65,9 +65,11 @@ export const Name = styled.div`
 `;
 
 export const DailyNutrition = styled.div`
+  width: 100%;
   padding-top: 2rem;
-  display: flex;
-  gap: 2rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
 `;
 
 interface Loading {
