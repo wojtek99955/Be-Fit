@@ -25,6 +25,8 @@ const GridContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
+  max-width: 1400px;
+  margin: auto;
 `;
 
 const Home = () => {
