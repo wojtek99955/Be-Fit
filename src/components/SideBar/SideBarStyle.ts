@@ -30,6 +30,9 @@ export const StyledNavLink = styled(NavLink)`
   &:hover {
     background-color: #f0f2f2;
   }
+  &:active {
+    background-color: #e4e7e8;
+  }
   &.active {
     background-color: #e4e7e8;
     font-weight: 600;
