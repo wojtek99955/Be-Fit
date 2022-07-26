@@ -35,10 +35,6 @@ const Wrapper = styled.div<Loading>`
   height: 100%;
   gap: 1.5rem;
   opacity: ${({ loading }) => (loading ? "0" : "1")};
-  span {
-    font-weight: 600;
-    color: white;
-  }
 `;
 
 const RowOne = styled.div`
@@ -63,6 +59,10 @@ const RowOne = styled.div`
     }
     &:nth-of-type(2) {
       background-color: #32525b;
+    }
+    span {
+      font-weight: 600;
+      color: white;
     }
   }
 `;
@@ -90,6 +90,10 @@ const RowTwo = styled.div`
 
     &:nth-of-type(2) {
       background-color: #ffa101;
+    }
+    span {
+      font-weight: 600;
+      color: white;
     }
   }
 `;
