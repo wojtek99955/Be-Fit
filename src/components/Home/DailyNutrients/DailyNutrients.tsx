@@ -35,6 +35,10 @@ const Wrapper = styled.div<Loading>`
   height: 100%;
   gap: 1.5rem;
   opacity: ${({ loading }) => (loading ? "0" : "1")};
+  span {
+    font-weight: 600;
+    color: #555555;
+  }
 `;
 
 const RowOne = styled.div`
