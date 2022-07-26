@@ -37,7 +37,7 @@ const Wrapper = styled.div<Loading>`
   opacity: ${({ loading }) => (loading ? "0" : "1")};
   span {
     font-weight: 600;
-    color: #555555;
+    color: white;
   }
 `;
 
@@ -56,12 +56,13 @@ const RowOne = styled.div`
     font-size: 0.9rem;
     padding: 0.5rem;
     border-radius: 8px;
+    color: white;
 
     &:first-of-type {
-      background-color: #efabaa;
+      background-color: #e1605e;
     }
     &:nth-of-type(2) {
-      background-color: #c8dce1;
+      background-color: #32525b;
     }
   }
 `;
@@ -81,13 +82,14 @@ const RowTwo = styled.div`
     font-size: 0.9rem;
     padding: 0.5rem;
     border-radius: 8px;
+    color: white;
 
     &:first-of-type {
-      background-color: #c7e1c7;
+      background-color: #019d51;
     }
 
     &:nth-of-type(2) {
-      background-color: #ffe9c5;
+      background-color: #ffa101;
     }
   }
 `;
