@@ -1,37 +1,9 @@
-import { Box, SettingsIcon, StyledLink } from "../CardStyles";
+import { Box, StyledLink } from "../CardStyles";
 import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../../AuthContext";
 import { getDoc, doc } from "firebase/firestore";
 import { db } from "../../../firebase";
-import styled from "styled-components";
-
-interface Loading {
-  loading?: boolean;
-}
-
-const Calories = styled.div<Loading>`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: ${({ loading }) => (loading ? "0" : "1")};
-
-  strong {
-    font-size: 2.5rem;
-  }
-  span {
-    color: #a29e9e;
-  }
-`;
-
-export const StyledSettingsIcon = styled(SettingsIcon)`
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-`;
+import { Calories, StyledSettingsIcon } from "./RemainCaloriesStyle";
 
 const RemainCalories = () => {
   const ctx = useContext(AuthContext);
