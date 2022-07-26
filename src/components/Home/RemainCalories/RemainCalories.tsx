@@ -6,7 +6,7 @@ import { db } from "../../../firebase";
 import styled from "styled-components";
 
 interface Loading {
-  loading: boolean;
+  loading?: boolean;
 }
 
 const Calories = styled.div<Loading>`
@@ -77,14 +77,24 @@ const RemainCalories = () => {
       <StyledLink to="/track-calories">
         <StyledSettingsIcon />
       </StyledLink>
-      <Calories loading={loading}>
-        {calorieIntake - consumedKcal! <= 0 ? (
-          <strong>0</strong>
-        ) : (
-          <strong>{calorieIntake - consumedKcal!}</strong>
-        )}
-        <span>calories left</span>
-      </Calories>
+      {consumedKcal ? (
+        <Calories loading={loading}>
+          <>
+            {calorieIntake - consumedKcal! <= 0 ? (
+              <strong>0</strong>
+            ) : (
+              <strong>{calorieIntake - consumedKcal!}</strong>
+            )}
+
+            <span>calories left</span>
+          </>
+        </Calories>
+      ) : (
+        <Calories>
+          <strong>{calorieIntake}</strong>
+          <span>calories left</span>
+        </Calories>
+      )}
     </Box>
   );
 };
