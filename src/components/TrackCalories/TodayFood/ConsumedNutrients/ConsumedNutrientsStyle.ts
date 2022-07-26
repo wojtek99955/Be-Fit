@@ -9,7 +9,7 @@ export const Consumed = styled.div<LoadingProps>`
   border: ${({ loading }) =>
     loading ? "4px solid #f3f4f6" : "4px solid #019d51"};
   padding: 2rem;
-  background-color: ${({ loading }) => (loading ? "#f3f4f6" : "white")};
+  background-color: white;
 `;
 
 export const ConsumedNutrients = styled.div<LoadingProps>`
