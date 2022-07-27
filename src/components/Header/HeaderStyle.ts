@@ -235,6 +235,21 @@ export const LoggedHeaderContainer = styled.div`
 export const HamburgerIcon = styled(GiHamburgerMenu)`
   font-size: 1.8rem;
   color: #555555;
-  margin-right: 2rem;
   cursor: pointer;
+`;
+
+export const HamburgerContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 2rem;
+  border-radius: 5px;
+  padding: 0.2rem;
+
+  &:hover {
+    background-color: #f0f2f2;
+  }
+  &:active {
+    background-color: #e4e7e8;
+  }
 `;

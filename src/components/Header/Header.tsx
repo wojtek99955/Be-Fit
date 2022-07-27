@@ -23,6 +23,7 @@ import {
   Nav,
   LoggedNavItem,
   HamburgerIcon,
+  HamburgerContainer,
 } from "./HeaderStyle";
 import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
@@ -78,7 +79,9 @@ const Header = () => {
         location.pathname === "/signup" ||
         location.pathname === "/signin" ||
         location.pathname === "/forgot-password" ? null : (
-          <HamburgerIcon />
+          <HamburgerContainer>
+            <HamburgerIcon />
+          </HamburgerContainer>
         )}
         <Logo src={img} onClick={goHome}></Logo>
         <nav>
