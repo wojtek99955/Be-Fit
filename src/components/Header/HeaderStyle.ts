@@ -236,4 +236,5 @@ export const HamburgerIcon = styled(GiHamburgerMenu)`
   font-size: 1.8rem;
   color: #555555;
   margin-right: 2rem;
+  cursor: pointer;
 `;
