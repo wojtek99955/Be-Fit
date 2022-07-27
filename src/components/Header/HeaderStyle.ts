@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { FiSettings } from "react-icons/fi";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 interface StyleProps {
   location: any;
@@ -228,4 +229,10 @@ export const LoggedHeaderContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
+`;
+
+export const HamburgerIcon = styled(GiHamburgerMenu)`
+  font-size: 1.8rem;
+  color: #555555;
+  margin-right: 2rem;
 `;

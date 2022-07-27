@@ -22,6 +22,7 @@ import {
   Icons,
   Nav,
   LoggedNavItem,
+  HamburgerIcon,
 } from "./HeaderStyle";
 import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
@@ -73,6 +74,12 @@ const Header = () => {
   return (
     <StyledHeader location={location}>
       <HeaderContainer>
+        {location.pathname === "/" ||
+        location.pathname === "/signup" ||
+        location.pathname === "/signin" ||
+        location.pathname === "/forgot-password" ? null : (
+          <HamburgerIcon />
+        )}
         <Logo src={img} onClick={goHome}></Logo>
         <nav>
           {location.pathname === "/" ||
