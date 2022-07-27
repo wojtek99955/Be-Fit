@@ -117,6 +117,18 @@ export const DeleteIcon = styled(AiOutlineDelete)`
   position: absolute;
   right: 1rem;
   top: 1rem;
-  font-size: 1.5rem;
   cursor: pointer;
+  font-size: 2rem;
+  padding: 0.3rem;
+  border-radius: 12px;
+  color: #e67978;
+
+  &:hover {
+    background-color: #e36d6b;
+    color: white;
+  }
+
+  &:active {
+    background-color: #e1605e;
+  }
 `;
