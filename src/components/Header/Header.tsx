@@ -99,7 +99,7 @@ const Header = () => {
             <>
               <Nav>
                 <LoggedNavItem>
-                  <div>Calculators</div>
+                  <StyledLink to="/calculators">Calculators</StyledLink>
                 </LoggedNavItem>
                 <LoggedNavItem>
                   <StyledLink to="/track-calories">Track calories</StyledLink>

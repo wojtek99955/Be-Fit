@@ -210,17 +210,6 @@ export const LoggedNavItem = styled.div`
   align-items: center;
   cursor: pointer;
 
-  div {
-    border-radius: 8px;
-    padding: 0.6rem 0.8rem;
-
-    &:hover {
-      background-color: #f0f2f2;
-    }
-    &:active {
-      background-color: #e4e7e8;
-    }
-  }
   a {
     border-radius: 8px;
     padding: 0.6rem 0.8rem;
