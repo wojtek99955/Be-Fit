@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../AuthContext";
-import { collection, onSnapshot } from "firebase/firestore";
+import { collection, deleteDoc, onSnapshot, doc } from "firebase/firestore";
 import { db } from "../../../firebase";
 import {
   Container,
@@ -15,6 +15,7 @@ import {
   UpIcon,
   DownIcon,
   CurrentDate,
+  DeleteIcon,
 } from "./TodayFoodStyle";
 import ConsumedNutrientsData from "./ConsumedNutrients/ConsumedNutrientsData";
 import RemainCalories from "./RemainCalories/RemainCalories";
@@ -49,10 +50,17 @@ const TodayFood = () => {
     }
     getData();
   }, []);
+  console.log(todayFoods);
   const date = new Date();
   const month = date.getMonth() + 1;
   const day = date.getDate();
   const year = date.getFullYear();
+
+  const deleteItem = (id: number) => {
+    const docRef = doc(db, `users/${uid}/food`, `${id}`);
+    deleteDoc(docRef);
+  };
+  console.log(todayFoods[0]?.id);
   return (
     <Container>
       <CurrentDate>
@@ -103,6 +111,11 @@ const TodayFood = () => {
                         Kcal <strong>{item.details.kcal}</strong>
                       </div>
                     </Calories>
+                    <DeleteIcon
+                      onClick={() => {
+                        deleteItem(item.id);
+                      }}
+                    />
                   </FoodItem>
                 );
               })
