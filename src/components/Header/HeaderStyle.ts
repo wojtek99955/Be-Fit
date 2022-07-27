@@ -15,12 +15,14 @@ export const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
   padding: 0 1rem;
+  height: 100%;
 
   nav {
     display: flex;
     justify-content: space-between;
     gap: 1.5rem;
     width: 100%;
+    height: 100%;
   }
 `;
 export const StyledHeader = styled.header<StyleProps>`
@@ -207,6 +209,29 @@ export const LoggedNavItem = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+
+  div {
+    border-radius: 8px;
+    padding: 0.4rem 0.8rem;
+
+    &:hover {
+      background-color: #f0f2f2;
+    }
+    &:active {
+      background-color: #e4e7e8;
+    }
+  }
+  a {
+    border-radius: 8px;
+    padding: 0.4rem 0.8rem;
+
+    &:hover {
+      background-color: #f0f2f2;
+    }
+    &:active {
+      background-color: #e4e7e8;
+    }
+  }
 `;
 
 export const LoggedHeaderContainer = styled.div`

@@ -98,7 +98,9 @@ const Header = () => {
           ) : (
             <>
               <Nav>
-                <LoggedNavItem>Calculators</LoggedNavItem>
+                <LoggedNavItem>
+                  <div>Calculators</div>
+                </LoggedNavItem>
                 <LoggedNavItem>
                   <StyledLink to="/track-calories">Track calories</StyledLink>
                 </LoggedNavItem>
