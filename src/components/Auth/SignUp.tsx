@@ -7,6 +7,7 @@ import {
   StyledField,
   StyledLink,
   ErrorMsg,
+  LoadingContainer,
 } from "./AuthStyle";
 import { Form, Formik, ErrorMessage } from "formik";
 import ValidationError from "./ValidationError";
@@ -81,7 +82,15 @@ const SignUp = () => {
             name="passwordConfirmation"
             component={ValidationError}
           />
-          <button type="submit">Sign Up</button>
+          <button type="submit">
+            {loading && !error ? (
+              <LoadingContainer>
+                <Loader />
+              </LoadingContainer>
+            ) : (
+              "Sign up"
+            )}
+          </button>
         </Form>
       </Formik>
       {error && <ErrorMsg>User with this email already exists</ErrorMsg>}
@@ -92,7 +101,6 @@ const SignUp = () => {
       ) : (
         <StyledLink to="/signin">Already have an account? Sign in!</StyledLink>
       )}
-      {loading && !error && <Loader />}
     </FormContainer>
   );
 };
