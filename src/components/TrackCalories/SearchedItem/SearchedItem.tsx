@@ -54,7 +54,9 @@ const SearchedItem = ({
       const month = (await date.getMonth()) + 1;
       const day = await date.getDate();
       const year = await date.getFullYear();
-      await setDoc(doc(db, `users/${uid}/food`, `${nanoid()}`), {
+      const nanoId = nanoid();
+      await setDoc(doc(db, `users/${uid}/food`, `${nanoId}`), {
+        id: nanoId,
         name: queryAmount?.name,
         date: `${day}${month}${year}`,
         details: {
