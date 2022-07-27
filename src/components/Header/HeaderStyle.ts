@@ -13,13 +13,14 @@ interface ImageProps {
 
 export const HeaderContainer = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 0 1rem;
 
   nav {
     display: flex;
+    justify-content: space-between;
     gap: 1.5rem;
+    width: 100%;
   }
 `;
 export const StyledHeader = styled.header<StyleProps>`
@@ -191,4 +192,26 @@ export const Icons = styled.div`
   display: flex;
   align-items: center;
   gap: 1.2rem;
+`;
+
+export const Nav = styled.div`
+  display: flex;
+  gap: 1rem;
+`;
+
+export const LoggedNavItem = styled.div`
+  border: none;
+  background-color: transparent;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+`;
+
+export const LoggedHeaderContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 `;

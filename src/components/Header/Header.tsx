@@ -20,6 +20,8 @@ import {
   DropdownUserIcon,
   Email,
   Icons,
+  Nav,
+  LoggedNavItem,
 } from "./HeaderStyle";
 import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
@@ -95,6 +97,12 @@ const Header = () => {
             </>
           ) : (
             <>
+              <Nav>
+                <LoggedNavItem>Calculators</LoggedNavItem>
+                <LoggedNavItem>
+                  <StyledLink to="/track-calories">Track calories</StyledLink>
+                </LoggedNavItem>
+              </Nav>
               <Icons>
                 <SettingsIcon
                   onClick={() => {
