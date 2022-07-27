@@ -212,7 +212,7 @@ export const LoggedNavItem = styled.div`
 
   div {
     border-radius: 8px;
-    padding: 0.4rem 0.8rem;
+    padding: 0.6rem 0.8rem;
 
     &:hover {
       background-color: #f0f2f2;
@@ -223,7 +223,7 @@ export const LoggedNavItem = styled.div`
   }
   a {
     border-radius: 8px;
-    padding: 0.4rem 0.8rem;
+    padding: 0.6rem 0.8rem;
 
     &:hover {
       background-color: #f0f2f2;
