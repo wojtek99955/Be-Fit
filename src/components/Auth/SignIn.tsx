@@ -10,6 +10,7 @@ import {
   StyledField,
   StyledLink,
   ErrorMsg,
+  LoadingContainer,
 } from "./AuthStyle";
 import ValidationError from "./ValidationError";
 import * as yup from "yup";
@@ -41,7 +42,7 @@ const SignIn = () => {
               values.email,
               values.password
             );
-            setLoading(false);
+            setLoading(true);
             navigate("/home");
           } catch {
             setError(true);
@@ -57,12 +58,19 @@ const SignIn = () => {
           <ErrorMessage name="password" component={ValidationError} />
           <StyledLink to="/forgot-password">Forgot password?</StyledLink>
 
-          <button type="submit">SignUp</button>
+          <button type="submit">
+            {loading && !error ? (
+              <LoadingContainer>
+                <Loader />
+              </LoadingContainer>
+            ) : (
+              "Sign Up"
+            )}
+          </button>
         </Form>
       </Formik>
       {error && <ErrorMsg>Invalid email or password</ErrorMsg>}
       <StyledLink to="/signup"> Don't have an account? Sign up!</StyledLink>
-      {loading && !error && <Loader />}
     </FormContainer>
   );
 };
