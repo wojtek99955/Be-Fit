@@ -24,10 +24,13 @@ export const FormContainer = styled.div`
   }
 
   button {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #ffa101;
     border: none;
-    padding: 0.8rem 2rem;
+    padding: 0 2rem;
+    height: 2.8rem;
     color: white;
     width: 100%;
     cursor: pointer;
@@ -57,4 +60,11 @@ export const StyledLink = styled(Link)`
 export const ErrorMsg = styled.div`
   color: red;
   margin-bottom: 1rem;
+`;
+
+export const LoadingContainer = styled.div`
+  height: 2.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
