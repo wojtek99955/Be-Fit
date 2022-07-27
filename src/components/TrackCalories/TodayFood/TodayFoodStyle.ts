@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { AiOutlineDownCircle } from "react-icons/ai";
 import { AiOutlineUpCircle } from "react-icons/ai";
+import { AiOutlineDelete } from "react-icons/ai";
 
 export const Container = styled.div`
   max-width: 800px;
@@ -12,6 +13,7 @@ export const FoodItem = styled.div`
     inset 0 0 0 1px rgba(255, 255, 255, 0.5);
   padding: 1.5rem;
   display: grid;
+  position: relative;
   grid-template-columns: repeat(4, 1fr);
   justify-content: space-around;
   align-items: center;
@@ -109,4 +111,12 @@ export const CurrentDate = styled.div`
     margin-top: 1rem;
     font-size: 1.2rem;
   }
+`;
+
+export const DeleteIcon = styled(AiOutlineDelete)`
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
 `;
