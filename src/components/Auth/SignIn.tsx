@@ -64,7 +64,7 @@ const SignIn = () => {
                 <Loader />
               </LoadingContainer>
             ) : (
-              "Sign Up"
+              "Sign in"
             )}
           </button>
         </Form>
