@@ -72,6 +72,7 @@ export const StyledHeader = styled.header<StyleProps>`
 export const Logo = styled.img`
   cursor: pointer;
   width: 7rem;
+  margin-right: 2rem;
 `;
 
 export const UserIcon = styled.div<ImageProps>`
