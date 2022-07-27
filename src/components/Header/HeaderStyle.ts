@@ -3,6 +3,7 @@ import { FiSettings } from "react-icons/fi";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { BiChevronDown } from "react-icons/bi";
 
 interface StyleProps {
   location: any;
@@ -159,6 +160,8 @@ export const StyledLink = styled(Link)`
   color: black;
   padding: 1rem;
   display: block;
+  display: flex;
+  align-items: center;
 `;
 
 export const UserData = styled.div``;
@@ -252,4 +255,9 @@ export const HamburgerContainer = styled.div`
   &:active {
     background-color: #e4e7e8;
   }
+`;
+
+export const DownIcon = styled(BiChevronDown)`
+  font-size: 1.3rem;
+  margin-left: 0.3rem;
 `;

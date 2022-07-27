@@ -24,6 +24,7 @@ import {
   LoggedNavItem,
   HamburgerIcon,
   HamburgerContainer,
+  DownIcon,
 } from "./HeaderStyle";
 import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
@@ -109,7 +110,9 @@ const Header = () => {
             <>
               <Nav>
                 <LoggedNavItem>
-                  <StyledLink to="/calculators">Calculators</StyledLink>
+                  <StyledLink to="/calculators">
+                    Calculators <DownIcon />{" "}
+                  </StyledLink>
                 </LoggedNavItem>
                 <LoggedNavItem>
                   <StyledLink to="/track-calories">Track calories</StyledLink>
