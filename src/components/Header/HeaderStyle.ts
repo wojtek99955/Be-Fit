@@ -233,7 +233,7 @@ export const LoggedHeaderContainer = styled.div`
 `;
 
 export const HamburgerIcon = styled(GiHamburgerMenu)`
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   color: #555555;
   cursor: pointer;
 `;
