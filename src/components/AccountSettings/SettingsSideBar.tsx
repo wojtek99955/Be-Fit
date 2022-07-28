@@ -36,30 +36,28 @@ const StyledNavLink = styled(NavLink)`
 
 const SettingsSideBar = () => {
   return (
-    <>
-      <nav>
-        <ul>
-          <li>
-            <StyledNavLink to="/settings/account">
-              <UserIcon />
-              Your account
-            </StyledNavLink>
-          </li>
-          <li>
-            <StyledNavLink to="/settings/security">
-              <LockIcon />
-              Security
-            </StyledNavLink>
-          </li>
-          <li>
-            <StyledNavLink to="/settings/email">
-              <EmailIcon />
-              Email <br /> preferences
-            </StyledNavLink>
-          </li>
-        </ul>
-      </nav>
-    </>
+    <nav>
+      <ul>
+        <li>
+          <StyledNavLink to="/settings/account">
+            <UserIcon />
+            Your account
+          </StyledNavLink>
+        </li>
+        <li>
+          <StyledNavLink to="/settings/security">
+            <LockIcon />
+            Security
+          </StyledNavLink>
+        </li>
+        <li>
+          <StyledNavLink to="/settings/email">
+            <EmailIcon />
+            Email <br /> preferences
+          </StyledNavLink>
+        </li>
+      </ul>
+    </nav>
   );
 };
 
