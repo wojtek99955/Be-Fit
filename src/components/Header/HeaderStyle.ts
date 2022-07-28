@@ -282,6 +282,7 @@ export const HamburgerContainer = styled.div`
   margin-right: 2rem;
   border-radius: 5px;
   padding: 0.2rem;
+  transition: background-color 300ms;
 
   &:hover {
     background-color: #f0f2f2;
