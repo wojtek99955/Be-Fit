@@ -17,6 +17,7 @@ const EmailIcon = styled(HiOutlineMail)`
 `;
 
 const StyledNavLink = styled(NavLink)`
+  transition: background-color 300ms;
   &:hover {
     background-color: #f0f2f2;
   }
