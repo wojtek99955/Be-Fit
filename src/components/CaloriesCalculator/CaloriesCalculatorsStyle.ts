@@ -7,7 +7,7 @@ interface StylesProps {
 }
 export const Container = styled.div`
   padding: 1rem;
-  width: calc(100vw - 14rem);
+  width: 100%;
   height: calc(100vh - 3.5rem);
   position: relative;
   top: 3.5rem;
