@@ -54,42 +54,40 @@ const SideBar = () => {
       location.pathname === "/settings/email" ? (
         <SettingsSideBar />
       ) : (
-        <>
-          <nav>
-            <ul>
-              <li>
-                <StyledNavLink to="/home">
-                  <HomeIcon />
-                  Home page
-                </StyledNavLink>
-              </li>
-              <li>
-                <StyledNavLink to="/my-goal">
-                  <GoalIcon />
-                  My goal
-                </StyledNavLink>
-              </li>
-              <li>
-                <StyledNavLink to="/calculators">
-                  <CalculatorIcon />
-                  Calculators
-                </StyledNavLink>
-              </li>
-              <li>
-                <StyledNavLink to="/calories-calculator">
-                  <FoodCalories />
-                  Check calories
-                </StyledNavLink>
-              </li>
-              <li>
-                <StyledNavLink to="/track-calories">
-                  <WeightIcon />
-                  Track Calories
-                </StyledNavLink>
-              </li>
-            </ul>
-          </nav>
-        </>
+        <nav>
+          <ul>
+            <li>
+              <StyledNavLink to="/home">
+                <HomeIcon />
+                Home page
+              </StyledNavLink>
+            </li>
+            <li>
+              <StyledNavLink to="/my-goal">
+                <GoalIcon />
+                My goal
+              </StyledNavLink>
+            </li>
+            <li>
+              <StyledNavLink to="/calculators">
+                <CalculatorIcon />
+                Calculators
+              </StyledNavLink>
+            </li>
+            <li>
+              <StyledNavLink to="/calories-calculator">
+                <FoodCalories />
+                Check calories
+              </StyledNavLink>
+            </li>
+            <li>
+              <StyledNavLink to="/track-calories">
+                <WeightIcon />
+                Track Calories
+              </StyledNavLink>
+            </li>
+          </ul>
+        </nav>
       )}
     </Container>
   );
