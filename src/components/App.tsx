@@ -2,7 +2,7 @@ import SignUp from "./Auth/SignUp";
 import { Routes, Navigate, Route, useNavigate } from "react-router-dom";
 import Home from "./Home/Home";
 import SignIn from "./Auth/SignIn";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "./AuthContext";
 import StartPage from "./StartPage";
 import Header from "./Header/Header";
@@ -33,14 +33,16 @@ function App() {
   const ctx = useContext(AuthContext);
   const islogged = ctx?.currentUser;
   const navigation = useNavigate();
+  const [showSideBar, setShowSideBar] = useState(true);
+  console.log("side bar" + showSideBar);
 
   const RequireAuth = ({ children }: AuthProps) => {
     return islogged ? children : <Navigate to="/signup" />;
   };
   return (
     <div className="App" style={{ display: "flex" }}>
-      <Header />
-      {islogged ? <SideBar /> : null}
+      <Header setShowSideBar={setShowSideBar} />
+      {islogged && showSideBar ? <SideBar /> : null}
       <Routes>
         <Route path="/" element={<Start />}>
           <Route index element={<StartPage />} />
