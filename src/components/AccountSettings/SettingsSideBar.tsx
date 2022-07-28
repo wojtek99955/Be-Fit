@@ -1,4 +1,3 @@
-import { Container } from "../SideBar/SideBarStyle";
 import SideBarUserData from "../SideBarUserData";
 import styled from "styled-components";
 import { BiUserCircle } from "react-icons/bi";
