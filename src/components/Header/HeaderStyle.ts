@@ -22,6 +22,7 @@ export const HeaderContainer = styled.div`
   nav {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     gap: 1.5rem;
     width: 100%;
     height: 100%;
