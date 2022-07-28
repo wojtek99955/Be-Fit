@@ -91,6 +91,7 @@ export const UserIcon = styled.div<ImageProps>`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  margin-left: 1.5rem;
 `;
 
 export const SettingsIcon = styled(FiSettings)`
@@ -150,9 +151,27 @@ export const LogoutContainer = styled.div`
 `;
 
 export const AddIcon = styled(IoMdAddCircleOutline)`
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: #ffa101;
   cursor: pointer;
+  position: absolute;
+`;
+export const IconContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  padding: 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  transition: background-color 300ms;
+
+  &:hover {
+    background-color: #f0f2f2;
+  }
+  &:active {
+    background-color: #e4e7e8;
+  }
 `;
 
 export const StyledLink = styled(Link)`
@@ -198,7 +217,6 @@ export const UserDataContainer = styled.div`
 export const Icons = styled.div`
   display: flex;
   align-items: center;
-  gap: 1.2rem;
 `;
 
 export const Nav = styled.div`
@@ -240,6 +258,21 @@ export const HamburgerIcon = styled(GiHamburgerMenu)`
   font-size: 1.6rem;
   color: #555555;
   cursor: pointer;
+`;
+
+export const SettingsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  padding: 0.5rem;
+
+  &:hover {
+    background-color: #f0f2f2;
+  }
+  &:active {
+    background-color: #e4e7e8;
+  }
 `;
 
 export const HamburgerContainer = styled.div`

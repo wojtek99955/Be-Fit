@@ -27,6 +27,7 @@ import {
   DownIcon,
   Calculators,
   CalculatorsDropdown,
+  IconContainer,
 } from "./HeaderStyle";
 import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
@@ -160,16 +161,20 @@ const Header = ({ setShowSideBar }: Props) => {
                 </LoggedNavItem>
               </Nav>
               <Icons>
-                <SettingsIcon
-                  onClick={() => {
-                    navigate("/settings");
-                  }}
-                />
-                <AddIcon
-                  onClick={() => {
-                    navigate("/track-calories");
-                  }}
-                />
+                <IconContainer>
+                  <SettingsIcon
+                    onClick={() => {
+                      navigate("/settings");
+                    }}
+                  />
+                </IconContainer>
+                <IconContainer>
+                  <AddIcon
+                    onClick={() => {
+                      navigate("/track-calories");
+                    }}
+                  />
+                </IconContainer>
                 <ProfileSettings>
                   <UserIcon
                     url={data?.avatarImg}
