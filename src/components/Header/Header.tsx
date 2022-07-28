@@ -25,6 +25,8 @@ import {
   HamburgerIcon,
   HamburgerContainer,
   DownIcon,
+  Calculators,
+  CalculatorsDropdown,
 } from "./HeaderStyle";
 import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
@@ -35,6 +37,7 @@ const Header = () => {
   let navigate = useNavigate();
   const ctx = useContext(AuthContext);
   const [openProfileMenu, setOpenProfileMenu] = useState(false);
+  const [openCalculatorsDropdown, setOpenCalculatorsDropdown] = useState(false);
   const profileMenuRef = useRef<HTMLDivElement>(null);
 
   const handleProfileMenuOpen = (e: any) => {
@@ -73,6 +76,11 @@ const Header = () => {
   const goHome = () => {
     ctx?.currentUser ? navigate("/home") : navigate("/");
   };
+
+  const toggleCalcDropdown = () => {
+    setOpenCalculatorsDropdown((prev) => !prev);
+  };
+
   return (
     <StyledHeader location={location}>
       <HeaderContainer>
@@ -110,9 +118,23 @@ const Header = () => {
             <>
               <Nav>
                 <LoggedNavItem>
-                  <StyledLink to="/calculators">
-                    Calculators <DownIcon />{" "}
-                  </StyledLink>
+                  <Calculators
+                    onMouseEnter={toggleCalcDropdown}
+                    onMouseLeave={toggleCalcDropdown}
+                  >
+                    <StyledLink to="/calculators">
+                      Calculators <DownIcon />
+                    </StyledLink>
+                    {openCalculatorsDropdown ? (
+                      <CalculatorsDropdown>
+                        <ul>
+                          <li>eee</li>
+                          <li>eee</li>
+                          <li>egeg</li>
+                        </ul>
+                      </CalculatorsDropdown>
+                    ) : null}
+                  </Calculators>
                 </LoggedNavItem>
                 <LoggedNavItem>
                   <StyledLink to="/track-calories">Track calories</StyledLink>

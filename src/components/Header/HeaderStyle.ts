@@ -261,3 +261,13 @@ export const DownIcon = styled(BiChevronDown)`
   font-size: 1.3rem;
   margin-left: 0.3rem;
 `;
+
+export const Calculators = styled.div`
+  position: relative;
+`;
+
+export const CalculatorsDropdown = styled.div`
+  position: absolute;
+  top: 100%;
+  border: 1px solid #e1e4e7;
+`;
