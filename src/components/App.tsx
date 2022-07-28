@@ -11,7 +11,6 @@ import SideBar from "./SideBar/SideBar";
 import Calculators from "./Calculators/Calculators";
 import BodyMeasurements from "./BodyMeasurement/BodyMeasurements";
 import AccountSettings from "./AccountSettings/AccountSettings";
-import SettingsSideBar from "./AccountSettings/SettingsSideBar";
 import YourAccount from "./AccountSettings/YourAccount";
 import Email from "./AccountSettings/Email";
 import Security from "./AccountSettings/Security/Security";
