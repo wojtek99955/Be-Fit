@@ -41,6 +41,7 @@ function App() {
   return (
     <div className="App" style={{ display: "flex" }}>
       <Header />
+      {islogged ? <SideBar /> : null}
       <Routes>
         <Route path="/" element={<Start />}>
           <Route index element={<StartPage />} />
@@ -52,10 +53,7 @@ function App() {
           path="/home"
           element={
             <RequireAuth>
-              <>
-                <SideBar />
-                <Home />
-              </>
+              <Home />
             </RequireAuth>
           }
         />
@@ -63,10 +61,7 @@ function App() {
           path="calculators"
           element={
             <RequireAuth>
-              <>
-                <SideBar />
-                <CalculatorsLayout />
-              </>
+              <CalculatorsLayout />
             </RequireAuth>
           }
         >
@@ -83,10 +78,7 @@ function App() {
           path="/my-body"
           element={
             <RequireAuth>
-              <>
-                <SideBar />
-                <BodyMeasurements />
-              </>
+              <BodyMeasurements />
             </RequireAuth>
           }
         />
@@ -109,10 +101,7 @@ function App() {
           path="/calories-calculator"
           element={
             <RequireAuth>
-              <>
-                <SideBar />
-                <CaloriesCalculator />
-              </>
+              <CaloriesCalculator />
             </RequireAuth>
           }
         />
@@ -120,9 +109,7 @@ function App() {
           path="track-calories"
           element={
             <RequireAuth>
-              <>
-                <SideBar /> <TrackCalories />
-              </>
+              <TrackCalories />
             </RequireAuth>
           }
         />
@@ -130,10 +117,7 @@ function App() {
           path="my-goal"
           element={
             <RequireAuth>
-              <>
-                <SideBar />
-                <YourGoal />
-              </>
+              <YourGoal />
             </RequireAuth>
           }
         />
