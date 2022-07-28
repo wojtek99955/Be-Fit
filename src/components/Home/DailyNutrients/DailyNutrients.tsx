@@ -31,6 +31,7 @@ const DailyNutrients = () => {
       setLoading(false);
     } else {
       console.log("No such document");
+      setLoading(false);
     }
   }
   useEffect(() => {
@@ -43,24 +44,24 @@ const DailyNutrients = () => {
       </StyledLink>
       <Wrapper loading={loading}>
         <Kcal>
-          <strong>{nutrients?.kcal}</strong>
+          <strong>{nutrients ? nutrients.kcal : 0}</strong>
           <span>kcal</span>
         </Kcal>
         <Nutrients>
           <RowOne>
             <div>
-              Fat: <span>{nutrients?.fat} g</span>
+              Fat: <span>{nutrients ? nutrients?.fat : 0} g</span>
             </div>
             <div>
-              Carbo: <span>{nutrients?.carbo} g</span>
+              Carbo: <span>{nutrients ? nutrients?.carbo : 0} g</span>
             </div>
           </RowOne>
           <RowTwo>
             <div>
-              Protein: <span>{nutrients?.protein} g</span>
+              Protein: <span>{nutrients ? nutrients?.protein : 0} g</span>
             </div>
             <div>
-              Fiber: <span>{nutrients?.fiber} g</span>
+              Fiber: <span>{nutrients ? nutrients?.fiber : 0} g</span>
             </div>
           </RowTwo>
         </Nutrients>
