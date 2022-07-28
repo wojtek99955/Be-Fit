@@ -21,7 +21,7 @@ export const Container = styled.div`
 
 export const MainImg = styled.div`
   width: 100%;
-  height: 16rem;
+  height: 20rem;
   background: rgba(0, 0, 0, 0.3) url(${img});
   background-blend-mode: darken;
   background-size: cover;
