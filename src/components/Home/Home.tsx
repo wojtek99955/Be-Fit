@@ -14,7 +14,7 @@ import DailyNutrients from "./DailyNutrients/DailyNutrients";
 
 const Container = styled.section`
   padding: 1rem;
-  width: calc(100vw - 14rem);
+  width: 100%;
   background-color: #f5f2f6;
   height: calc(100vh - 3.5rem);
   position: relative;
