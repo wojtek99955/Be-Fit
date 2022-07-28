@@ -27,6 +27,7 @@ export const Container = styled.aside`
   }
 `;
 export const StyledNavLink = styled(NavLink)`
+  transition: background-color 300ms;
   &:hover {
     background-color: #f0f2f2;
   }
