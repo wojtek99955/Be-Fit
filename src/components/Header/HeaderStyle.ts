@@ -167,8 +167,8 @@ export const StyledLink = styled(Link)`
 export const UserData = styled.div``;
 
 export const DropdownUserIcon = styled.div<ImageProps>`
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 3rem;
+  height: 3rem;
   background-color: #ffa101;
   border-radius: 50%;
   position: relative;
