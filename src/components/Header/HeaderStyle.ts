@@ -264,11 +264,14 @@ export const DownIcon = styled(BiChevronDown)`
 
 export const Calculators = styled.div`
   position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
 `;
 
 export const CalculatorsDropdown = styled.div`
   position: absolute;
-  top: 110%;
+  top: 95%;
   border: 1px solid #e1e4e7;
   left: 0;
   -webkit-box-shadow: -3px 0px 48px -1px rgba(225, 228, 231, 1);
@@ -277,4 +280,16 @@ export const CalculatorsDropdown = styled.div`
   z-index: 10;
   background-color: white;
   width: 13rem;
+  ul {
+    list-style: none;
+  }
+  li {
+    cursor: pointer;
+    &:hover {
+      background-color: #fae6b1;
+    }
+  }
+  a {
+    border-radius: 0;
+  }
 `;
