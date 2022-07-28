@@ -38,7 +38,7 @@ const StyledNavLink = styled(NavLink)`
 
 const SettingsSideBar = () => {
   return (
-    <Container>
+    <>
       <SideBarUserData />
       <nav>
         <ul>
@@ -62,7 +62,7 @@ const SettingsSideBar = () => {
           </li>
         </ul>
       </nav>
-    </Container>
+    </>
   );
 };
 
