@@ -21,7 +21,7 @@ export const HeaderContainer = styled.div`
 
   nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     gap: 1.5rem;
     width: 100%;
     height: 100%;
@@ -221,7 +221,9 @@ export const Icons = styled.div`
 
 export const Nav = styled.div`
   display: flex;
+  justify-content: space-between;
   gap: 1rem;
+  margin-right: auto;
 `;
 
 export const LoggedNavItem = styled.div`
