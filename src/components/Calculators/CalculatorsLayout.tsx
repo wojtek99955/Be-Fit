@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.section`
-  width: calc(100vw - 14rem);
+  width: 100%;
   height: calc(100vh - 3.5rem);
   position: relative;
   top: 3.5rem;
