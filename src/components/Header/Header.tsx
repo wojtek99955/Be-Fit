@@ -33,7 +33,11 @@ import { db } from "../../firebase";
 
 const img = require("../../assets/images/logo.png");
 
-const Header = () => {
+interface Props {
+  setShowSideBar: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Header = ({ setShowSideBar }: Props) => {
   let navigate = useNavigate();
   const ctx = useContext(AuthContext);
   const [openProfileMenu, setOpenProfileMenu] = useState(false);
@@ -80,6 +84,9 @@ const Header = () => {
   const toggleCalcDropdown = () => {
     setOpenCalculatorsDropdown((prev) => !prev);
   };
+  const toggleSideBar = () => {
+    setShowSideBar((prev) => !prev);
+  };
 
   return (
     <StyledHeader location={location}>
@@ -88,7 +95,7 @@ const Header = () => {
         location.pathname === "/signup" ||
         location.pathname === "/signin" ||
         location.pathname === "/forgot-password" ? null : (
-          <HamburgerContainer>
+          <HamburgerContainer onClick={toggleSideBar}>
             <HamburgerIcon />
           </HamburgerContainer>
         )}
