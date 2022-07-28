@@ -86,10 +86,7 @@ function App() {
           path="settings"
           element={
             <RequireAuth>
-              <>
-                <SettingsSideBar />
-                <AccountSettings />
-              </>
+              <AccountSettings />
             </RequireAuth>
           }
         >
