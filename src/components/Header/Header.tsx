@@ -128,9 +128,16 @@ const Header = () => {
                     {openCalculatorsDropdown ? (
                       <CalculatorsDropdown>
                         <ul>
-                          <li>eee</li>
-                          <li>eee</li>
-                          <li>egeg</li>
+                          <li>
+                            <StyledLink to="/calculators/body-calculators">
+                              Body Calculators
+                            </StyledLink>
+                          </li>
+                          <li>
+                            <StyledLink to="/calculators/activity-calculators">
+                              My body
+                            </StyledLink>
+                          </li>
                         </ul>
                       </CalculatorsDropdown>
                     ) : null}
