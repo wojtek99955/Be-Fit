@@ -17,7 +17,7 @@ export const Container = styled.aside`
   top: 3.5rem;
   height: calc(100vh - 3.5rem);
   padding: 0.8rem;
-  width: 14rem;
+  max-width: 14rem;
   ul {
     list-style-type: none;
   }
