@@ -1,4 +1,3 @@
-import SideBarUserData from "../SideBarUserData";
 import styled from "styled-components";
 import { BiUserCircle } from "react-icons/bi";
 import { BiLock } from "react-icons/bi";
@@ -38,7 +37,6 @@ const StyledNavLink = styled(NavLink)`
 const SettingsSideBar = () => {
   return (
     <>
-      <SideBarUserData />
       <nav>
         <ul>
           <li>
