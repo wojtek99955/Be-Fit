@@ -146,6 +146,9 @@ const Header = () => {
                 <LoggedNavItem>
                   <StyledLink to="/track-calories">Track calories</StyledLink>
                 </LoggedNavItem>
+                <LoggedNavItem>
+                  <StyledLink to="/check-calories">Check calories</StyledLink>
+                </LoggedNavItem>
               </Nav>
               <Icons>
                 <SettingsIcon
