@@ -3,7 +3,7 @@ import { Field } from "formik";
 
 export const Container = styled.section`
   margin-top: 6rem;
-  width: calc(100vw - 14rem);
+  width: 100%;
 `;
 
 export const Row = styled.div`

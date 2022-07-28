@@ -4,7 +4,7 @@ const img = require("../../assets/images/track-calories.jpg");
 
 export const Container = styled.section`
   padding: 1rem;
-  width: calc(100vw - 14rem);
+  width: 100%;
   height: calc(100vh - 3.5rem);
   background-color: white;
   position: relative;
