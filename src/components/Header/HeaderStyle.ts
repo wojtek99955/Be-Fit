@@ -218,6 +218,7 @@ export const LoggedNavItem = styled.div`
   a {
     border-radius: 8px;
     padding: 0.6rem 0.8rem;
+    transition: background-color 300ms;
 
     &:hover {
       background-color: #f0f2f2;
