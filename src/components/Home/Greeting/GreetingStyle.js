@@ -77,6 +77,7 @@ export const StyledLink = styled(Link)`
   justify-content: center;
   align-items: center;
   font-size: 1rem;
+  transition: background-color 300ms;
   &:hover {
     background-color: white;
   }
@@ -85,6 +86,7 @@ export const StyledLink = styled(Link)`
 export const CalculatorIcon = styled(BiCalculator)`
   color: white;
   font-size: 1.5rem;
+  transition: color 300ms;
   ${StyledLink}:hover & {
     color: #ffa101;
   }
@@ -93,6 +95,7 @@ export const CalculatorIcon = styled(BiCalculator)`
 export const GoalIcon = styled(RiMedalLine)`
   color: white;
   font-size: 1.5rem;
+  transition: color 300ms;
   ${StyledLink}:hover & {
     color: #ffa101;
   }
@@ -100,6 +103,7 @@ export const GoalIcon = styled(RiMedalLine)`
 
 export const FoodCalories = styled(MdOutlineFastfood)`
   color: white;
+  transition: color 300ms;
   font-size: 1.5rem;
   ${StyledLink}:hover & {
     color: #ffa101;
