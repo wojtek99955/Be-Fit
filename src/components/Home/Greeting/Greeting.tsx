@@ -39,7 +39,7 @@ const Greeting = () => {
           Calculators
         </LinkContainer>
         <LinkContainer>
-          <StyledLink to="/your-goal">
+          <StyledLink to="/my-goal">
             <GoalIcon />
           </StyledLink>
           Your goal
