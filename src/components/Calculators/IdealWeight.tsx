@@ -62,7 +62,6 @@ const IdealWeight = () => {
               } else if (values.gender === "female") {
                 setWeight((+values.height - 100) * 0.85);
               }
-              console.log(values);
             }}
           >
             <Form>
