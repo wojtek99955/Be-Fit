@@ -9,6 +9,7 @@ import {
   CalculatorIcon,
   GoalIcon,
   FoodCalories,
+  WeightIcon,
 } from "./GreetingStyle";
 import HealthyStyleIcon from "../../../assets/svg/HealthyStyleIcon";
 import WorkOutIcon from "../../../assets/svg/WorkOutIcon";
@@ -38,6 +39,9 @@ const Greeting = () => {
         </StyledLink>
         <StyledLink to="check-calories">
           <FoodCalories />
+        </StyledLink>
+        <StyledLink to="track-calories">
+          <WeightIcon />
         </StyledLink>
       </LinkIcons>
     </Container>

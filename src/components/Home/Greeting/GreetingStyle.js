@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { BiCalculator } from "react-icons/bi";
 import { RiMedalLine } from "react-icons/ri";
 import { MdOutlineFastfood } from "react-icons/md";
+import { MdOutlineMonitorWeight } from "react-icons/md";
 
 export const Container = styled.div`
   /* background-color: rgba(250, 230, 177, 1);
@@ -102,6 +103,15 @@ export const GoalIcon = styled(RiMedalLine)`
 `;
 
 export const FoodCalories = styled(MdOutlineFastfood)`
+  color: white;
+  transition: color 300ms;
+  font-size: 1.5rem;
+  ${StyledLink}:hover & {
+    color: #ffa101;
+  }
+`;
+
+export const WeightIcon = styled(MdOutlineMonitorWeight)`
   color: white;
   transition: color 300ms;
   font-size: 1.5rem;
