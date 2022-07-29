@@ -22,6 +22,8 @@ Link : https://wojtekk-dev-fancy-shop.netlify.app/
 - delete user
 - change password, change name, change email
 - forgot password via email
+- tracking calorie intake
+- fitness calculators
 
 ## Installation
 
