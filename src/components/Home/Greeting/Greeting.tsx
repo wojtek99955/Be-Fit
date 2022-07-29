@@ -45,7 +45,7 @@ const Greeting = () => {
           Your goal
         </LinkContainer>
         <LinkContainer>
-          <StyledLink to="check-calories">
+          <StyledLink to="calories-calculator">
             <FoodCalories />
           </StyledLink>
           Check calories
