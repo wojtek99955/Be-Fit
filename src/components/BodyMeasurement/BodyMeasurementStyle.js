@@ -27,12 +27,6 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const Row = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-`;
-
 export const StyledField = styled(Field)`
   margin: auto;
   display: block;

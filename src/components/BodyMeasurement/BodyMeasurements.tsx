@@ -3,7 +3,7 @@ import { setDoc, doc } from "firebase/firestore";
 import { db } from "../../firebase";
 import { AuthContext } from "../AuthContext";
 import { useContext } from "react";
-import { Container, Wrapper, Row, StyledField } from "./BodyMeasurementStyle";
+import { Container, Wrapper, StyledField } from "./BodyMeasurementStyle";
 import * as yup from "yup";
 import { ErrorMsg } from "../Auth/AuthStyle";
 
