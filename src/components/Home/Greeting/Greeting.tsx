@@ -36,21 +36,25 @@ const Greeting = () => {
           <StyledLink to="/calculators">
             <CalculatorIcon />
           </StyledLink>
+          Calculators
         </LinkContainer>
         <LinkContainer>
           <StyledLink to="/your-goal">
             <GoalIcon />
           </StyledLink>
+          Your goal
         </LinkContainer>
         <LinkContainer>
           <StyledLink to="check-calories">
             <FoodCalories />
           </StyledLink>
+          Check calories
         </LinkContainer>
         <LinkContainer>
           <StyledLink to="track-calories">
             <WeightIcon />
           </StyledLink>
+          Track calories
         </LinkContainer>
       </LinkIcons>
     </Container>
