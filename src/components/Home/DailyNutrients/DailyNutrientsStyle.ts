@@ -34,7 +34,7 @@ export const Wrapper = styled.div<Loading>`
   flex-direction: column;
   justify-content: center;
   height: 100%;
-  gap: 1.5rem;
+  gap: 2.5rem;
   opacity: ${({ loading }) => (loading ? "0" : "1")};
 `;
 
