@@ -327,5 +327,6 @@ export const CalculatorsDropdown = styled.div`
   }
   a {
     border-radius: 0;
+    padding: 1rem;
   }
 `;
