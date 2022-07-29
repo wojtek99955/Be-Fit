@@ -1,4 +1,8 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { BiCalculator } from "react-icons/bi";
+import { RiMedalLine } from "react-icons/ri";
+import { MdOutlineFastfood } from "react-icons/md";
 
 export const Container = styled.div`
   /* background-color: rgba(250, 230, 177, 1);
@@ -55,4 +59,47 @@ export const InputContainer = styled.div`
   border-radius: 8px;
   background-color: white;
   width: clamp(15rem, 50%, 30rem);
+`;
+
+export const LinkIcons = styled.div`
+  display: flex;
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #00a364;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  &:hover {
+    background-color: white;
+  }
+`;
+
+export const CalculatorIcon = styled(BiCalculator)`
+  color: white;
+  font-size: 1.5rem;
+  ${StyledLink}:hover & {
+    color: #ffa101;
+  }
+`;
+
+export const GoalIcon = styled(RiMedalLine)`
+  color: white;
+  font-size: 1.5rem;
+  ${StyledLink}:hover & {
+    color: #ffa101;
+  }
+`;
+
+export const FoodCalories = styled(MdOutlineFastfood)`
+  color: white;
+  font-size: 1.5rem;
+  ${StyledLink}:hover & {
+    color: #ffa101;
+  }
 `;
