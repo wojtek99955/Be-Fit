@@ -6,15 +6,7 @@ import { MdOutlineFastfood } from "react-icons/md";
 import { MdOutlineMonitorWeight } from "react-icons/md";
 
 export const Container = styled.div`
-  /* background-color: rgba(250, 230, 177, 1);
-  background-image: linear-gradient(
-    90deg,
-    rgba(250, 230, 177, 1) 0%,
-    rgba(255, 161, 1, 1) 50%,
-    rgba(49, 82, 91, 0.84) 94%
-  ); */
   background-color: #00d683;
-
   height: 15rem;
   border-radius: 8px;
   margin-bottom: 2rem;
