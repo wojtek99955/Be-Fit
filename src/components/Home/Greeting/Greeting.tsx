@@ -51,7 +51,7 @@ const Greeting = () => {
           Check calories
         </LinkContainer>
         <LinkContainer>
-          <StyledLink to="track-calories">
+          <StyledLink to="/track-calories">
             <WeightIcon />
           </StyledLink>
           Track calories
