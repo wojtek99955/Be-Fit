@@ -322,10 +322,8 @@ export const CalculatorsDropdown = styled.div`
     list-style: none;
   }
   li {
+    color: white;
     cursor: pointer;
-    &:hover {
-      background-color: #fae6b1;
-    }
   }
   a {
     border-radius: 0;
