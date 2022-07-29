@@ -98,7 +98,6 @@ const SearchedItem = ({
             initialValues={{ amount: 100 }}
             onSubmit={async (val) => {
               setFoodWeight(val.amount);
-              console.log(queryAmount);
             }}
             validationSchema={amountValidationSchema}
           >
