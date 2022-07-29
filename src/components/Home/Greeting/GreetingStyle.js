@@ -111,3 +111,5 @@ export const WeightIcon = styled(MdOutlineMonitorWeight)`
     color: #ffa101;
   }
 `;
+
+export const LinkContainer = styled.div``;
