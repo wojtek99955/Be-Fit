@@ -112,4 +112,11 @@ export const WeightIcon = styled(MdOutlineMonitorWeight)`
   }
 `;
 
-export const LinkContainer = styled.div``;
+export const LinkContainer = styled.div`
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+`;
