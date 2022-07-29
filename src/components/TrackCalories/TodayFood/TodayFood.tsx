@@ -35,7 +35,6 @@ const TodayFood = () => {
       const day = date.getDate();
       const year = date.getFullYear();
       await onSnapshot(collection(db, `users/${uid}/food`), (docs: any) => {
-        console.log("dodano");
         const foodz: any = [];
 
         docs.forEach((doc: any) => {
@@ -50,7 +49,6 @@ const TodayFood = () => {
     }
     getData();
   }, []);
-  console.log(todayFoods);
   const date = new Date();
   const month = date.getMonth() + 1;
   const day = date.getDate();
@@ -60,7 +58,6 @@ const TodayFood = () => {
     const docRef = doc(db, `users/${uid}/food`, `${id}`);
     deleteDoc(docRef);
   };
-  console.log(todayFoods[0]?.id);
   return (
     <Container>
       <CurrentDate>
