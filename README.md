@@ -15,6 +15,7 @@ Link : https://wojtekk-dev-fancy-shop.netlify.app/
 - firebase
 - formik
 - styled-components
+- yup
 
 ## Features
 
