@@ -63,6 +63,8 @@ export const InputContainer = styled.div`
 
 export const LinkIcons = styled.div`
   display: flex;
+  gap: 2.5rem;
+  margin-top: 2rem;
 `;
 
 export const StyledLink = styled(Link)`
