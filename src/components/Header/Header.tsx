@@ -70,7 +70,6 @@ const Header = ({ setShowSideBar }: Props) => {
   const [data, setData] = useState<any>("");
   const uid: string = ctx?.currentUser?.uid;
 
-  console.log();
   useEffect(() => {
     onSnapshot(doc(db, `users/${uid}`), (doc) => {
       setData(doc.data());
