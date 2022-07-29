@@ -10,6 +10,7 @@ import {
   GoalIcon,
   FoodCalories,
   WeightIcon,
+  LinkContainer,
 } from "./GreetingStyle";
 import HealthyStyleIcon from "../../../assets/svg/HealthyStyleIcon";
 import WorkOutIcon from "../../../assets/svg/WorkOutIcon";
@@ -31,18 +32,26 @@ const Greeting = () => {
         <SearchInput placeholder="Search" />
       </InputContainer>
       <LinkIcons>
-        <StyledLink to="/calculators">
-          <CalculatorIcon />
-        </StyledLink>
-        <StyledLink to="/your-goal">
-          <GoalIcon />
-        </StyledLink>
-        <StyledLink to="check-calories">
-          <FoodCalories />
-        </StyledLink>
-        <StyledLink to="track-calories">
-          <WeightIcon />
-        </StyledLink>
+        <LinkContainer>
+          <StyledLink to="/calculators">
+            <CalculatorIcon />
+          </StyledLink>
+        </LinkContainer>
+        <LinkContainer>
+          <StyledLink to="/your-goal">
+            <GoalIcon />
+          </StyledLink>
+        </LinkContainer>
+        <LinkContainer>
+          <StyledLink to="check-calories">
+            <FoodCalories />
+          </StyledLink>
+        </LinkContainer>
+        <LinkContainer>
+          <StyledLink to="track-calories">
+            <WeightIcon />
+          </StyledLink>
+        </LinkContainer>
       </LinkIcons>
     </Container>
   );
