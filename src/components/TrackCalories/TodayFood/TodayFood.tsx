@@ -94,7 +94,7 @@ const TodayFood = () => {
                         Fat <span>{item.details.fat} g</span>
                       </div>
                       <div>
-                        Fiber <span>{item.details.fiber} g</span>
+                        Fiber <span>{item.details.fiber.toFixed(1)} g</span>
                       </div>
                       <div>
                         Protein <span>{item.details.protein} g</span>
