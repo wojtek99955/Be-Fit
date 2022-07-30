@@ -6,8 +6,6 @@ Fitness app
 
 ## Live
 
-Link : https://wojtekk-dev-fancy-shop.netlify.app/
-
 ## Technologies
 
 - reactjs
