@@ -24,6 +24,7 @@ Fitness app
 - forgot password via email
 - tracking calorie intake
 - fitness calculators
+- weight calculators
 
 ## Installation
 
