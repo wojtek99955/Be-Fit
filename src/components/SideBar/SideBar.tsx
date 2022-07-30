@@ -33,6 +33,7 @@ const SideBar = () => {
   return (
     <>
       {location.pathname === "/signin" ||
+      location.pathname === "/" ||
       location.pathname === "/signup" ? null : (
         <Container>
           <User>
