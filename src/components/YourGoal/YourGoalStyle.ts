@@ -2,8 +2,12 @@ import styled from "styled-components";
 import { Field } from "formik";
 
 export const Container = styled.section`
-  margin-top: 6rem;
+  padding: 1rem;
   width: 100%;
+  height: calc(100vh - 3.5rem);
+  position: relative;
+  top: 3.5rem;
+  overflow-y: scroll;
 `;
 
 export const Row = styled.div`
