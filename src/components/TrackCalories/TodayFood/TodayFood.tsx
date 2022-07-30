@@ -87,25 +87,25 @@ const TodayFood = () => {
                       <h3>{item.name}</h3>
                     </Name>
                     <Amount>
-                      <span>{item.details.amount} g</span>
+                      <span>{item.details.amount.toFixed(1)} g</span>
                     </Amount>
                     <Nutrients>
                       <div>
-                        Fat <span>{item.details.fat} g</span>
+                        Fat <span>{item.details.fat.toFixed(1)} g</span>
                       </div>
                       <div>
                         Fiber <span>{item.details.fiber.toFixed(1)} g</span>
                       </div>
                       <div>
-                        Protein <span>{item.details.protein} g</span>
+                        Protein <span>{item.details.protein.toFixed(1)} g</span>
                       </div>
                       <div>
-                        Carbo <span>{item.details.carbo} g</span>
+                        Carbo <span>{item.details.carbo.toFixed(1)} g</span>
                       </div>
                     </Nutrients>
                     <Calories>
                       <div>
-                        Kcal <strong>{item.details.kcal}</strong>
+                        Kcal <strong>{item.details.kcal.toFixed(1)}</strong>
                       </div>
                     </Calories>
                     <DeleteIcon
