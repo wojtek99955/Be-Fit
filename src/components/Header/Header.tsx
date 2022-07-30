@@ -137,12 +137,12 @@ const Header = ({ setShowSideBar }: Props) => {
                         <ul>
                           <li>
                             <StyledLink to="/calculators/body-calculators">
-                              Body Calculators
+                              Body calculators
                             </StyledLink>
                           </li>
                           <li>
                             <StyledLink to="/calculators/activity-calculators">
-                              My body
+                              Activity calculators
                             </StyledLink>
                           </li>
                         </ul>
