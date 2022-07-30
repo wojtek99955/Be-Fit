@@ -36,7 +36,9 @@ const RemainCalories = ({ consumed }: Props) => {
     setConsumedKcal(calorieAmount);
   }, [consumed]);
 
-  const remainCalories = data?.calorieIntake - consumedKcal!;
+  const remainCalories = Number(
+    (data?.calorieIntake - consumedKcal!).toFixed(1)
+  );
   return (
     <Container loading={loading}>
       <RemainedCalories loading={loading}>
