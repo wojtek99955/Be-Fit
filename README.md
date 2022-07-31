@@ -25,6 +25,7 @@ Fitness app
 - tracking calorie intake
 - fitness calculators
 - weight calculators
+- realtime database
 
 ## Installation
 
