@@ -8,6 +8,11 @@ export const Container = styled.section`
   position: relative;
   top: 3.5rem;
   overflow-y: scroll;
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
 `;
 
 export const Row = styled.div`
@@ -29,7 +34,7 @@ export const StyledField = styled(Field)`
 `;
 
 export const FormContainer = styled.div`
-  margin-top: 3rem;
+  margin-top: 5rem;
   button {
     background-color: #ffa101;
     border: none;
