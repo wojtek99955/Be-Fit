@@ -61,6 +61,7 @@ const YourGoal = () => {
     <Container>
       <Wrapper>
         <h1>Your goal </h1>
+        <p>Set your weight goal</p>
         <FormContainer>
           <Formik
             initialValues={initialValues}
