@@ -20,8 +20,8 @@ import {
 } from "./YourGoalStyle";
 
 const initialValues = {
-  currentWeight: 0,
-  goalWeight: 0,
+  currentWeight: "",
+  goalWeight: "",
   calorieDeficit: 0,
 };
 
