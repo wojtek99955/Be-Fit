@@ -62,7 +62,7 @@ const YourGoal = () => {
     <Container>
       <Wrapper>
         <Text>
-          <h1>Your goal </h1>
+          <h2>Your goal </h2>
           <p>Set your weight goal!</p>
           <p>
             This weight loss calculator can help you reach your weight loss

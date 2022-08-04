@@ -8,11 +8,6 @@ export const Container = styled.section`
   position: relative;
   top: 3.5rem;
   overflow-y: scroll;
-
-  h1 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-  }
 `;
 
 export const Row = styled.div`
@@ -134,4 +129,16 @@ export const RangeTitle = styled.div`
   margin-bottom: 1rem;
 `;
 
-export const Text = styled.div``;
+export const Text = styled.div`
+  h2 {
+    margin-bottom: 2rem;
+    font-size: 3rem;
+    color: #555555;
+  }
+  p {
+    line-height: 1.8rem;
+    font-size: 1.1rem;
+    color: #555555;
+    margin-bottom: 2rem;
+  }
+`;
