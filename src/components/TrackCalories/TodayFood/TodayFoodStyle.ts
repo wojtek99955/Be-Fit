@@ -120,7 +120,7 @@ export const DeleteIcon = styled(AiOutlineDelete)`
   cursor: pointer;
   font-size: 2rem;
   padding: 0.3rem;
-  border-radius: 12px;
+  border-radius: 50%;
   color: #e67978;
 
   &:hover {
