@@ -17,6 +17,7 @@ import {
   FieldContainer,
   StyledLabel,
   RangeTitle,
+  Text,
 } from "./YourGoalStyle";
 
 const initialValues = {
@@ -60,19 +61,21 @@ const YourGoal = () => {
   return (
     <Container>
       <Wrapper>
-        <h1>Your goal </h1>
-        <p>Set your weight goal!</p>
-        <p>
-          This weight loss calculator can help you reach your weight loss goal.
-          Enter how much weight you want to lose and by when. It will calculate
-          the daily calories needed to reach your desired weight loss. Accurate
-          for individuals 18 years and over who are not pregnant or
-          breastfeeding.
-        </p>
-        <p>
-          Accurate for individuals 18 years and over who are not pregnant or
-          breastfeeding.
-        </p>
+        <Text>
+          <h1>Your goal </h1>
+          <p>Set your weight goal!</p>
+          <p>
+            This weight loss calculator can help you reach your weight loss
+            goal. Enter how much weight you want to lose and by when. It will
+            calculate the daily calories needed to reach your desired weight
+            loss. Accurate for individuals 18 years and over who are not
+            pregnant or breastfeeding.
+          </p>
+          <p>
+            Accurate for individuals 18 years and over who are not pregnant or
+            breastfeeding.
+          </p>
+        </Text>
         <FormContainer>
           <Formik
             initialValues={initialValues}
