@@ -69,6 +69,10 @@ const YourGoal = () => {
           for individuals 18 years and over who are not pregnant or
           breastfeeding.
         </p>
+        <p>
+          Accurate for individuals 18 years and over who are not pregnant or
+          breastfeeding.
+        </p>
         <FormContainer>
           <Formik
             initialValues={initialValues}
