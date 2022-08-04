@@ -35,6 +35,7 @@ export const StyledField = styled(Field)`
 
 export const FormContainer = styled.div`
   margin-top: 5rem;
+  width: 180%;
   button {
     background-color: #ffa101;
     border: none;
@@ -99,7 +100,9 @@ export const RangeValue = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  max-width: 600px;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: row-reverse;
   margin: auto;
 `;
 
@@ -129,3 +132,5 @@ export const RangeTitle = styled.div`
   color: #555555;
   margin-bottom: 1rem;
 `;
+
+export const Text = styled.div``;
