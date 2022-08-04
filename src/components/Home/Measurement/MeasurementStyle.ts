@@ -89,11 +89,6 @@ export const WeightIcon = styled(GiWeight)`
   font-size: 1.2rem;
   color: white;
 `;
-export const SettingsIcon = styled(GoSettings)`
-  font-size: 1.5rem;
-  color: #bcbcbc;
-  cursor: pointer;
-`;
 
 export const StyledLink = styled(Link)`
   text-decoration: none;

@@ -14,9 +14,9 @@ import {
   CalendarIcon,
   HeightIcon,
   WeightIcon,
-  SettingsIcon,
   StyledLink,
 } from "./MeasurementStyle";
+import { SettingsIcon } from "../CardStyles";
 
 const Measurement = () => {
   const [loading, setLoading] = useState(true);
