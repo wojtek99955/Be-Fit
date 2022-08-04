@@ -14,6 +14,9 @@ export const SettingsIcon = styled(GoSettings)`
   font-size: 1.5rem;
   color: #bcbcbc;
   cursor: pointer;
+  &:hover {
+    color: #878787;
+  }
 `;
 
 export const StyledLink = styled(Link)`
