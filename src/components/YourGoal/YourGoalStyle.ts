@@ -104,6 +104,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: row-reverse;
   margin: auto;
+  gap: 2rem;
 `;
 
 export const Result = styled.div`
