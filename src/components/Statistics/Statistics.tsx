@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import FitnessStats from "../../assets/svg/FitnessStats";
 
 export const Container = styled.section`
   padding: 1rem;
@@ -30,10 +31,20 @@ export const Header = styled.div`
   }
 `;
 
+const FitnessStatsIconContainer = styled.div`
+  width: 10rem;
+  position: absolute;
+  top: 20%;
+  left: 10%;
+`;
+
 const Statistics = () => {
   return (
     <Container>
       <Header>
+        <FitnessStatsIconContainer>
+          <FitnessStats />
+        </FitnessStatsIconContainer>
         <h1>Statistics</h1>
       </Header>
     </Container>
