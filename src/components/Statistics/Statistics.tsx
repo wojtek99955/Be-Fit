@@ -95,7 +95,25 @@ const Statistics = () => {
       <h2>This month</h2>
       <Charts>
         <DoughnutChart>
-          <Doughnut data={data} />
+          <Doughnut
+            data={data}
+            options={{
+              plugins: {
+                legend: {
+                  display: true,
+                  position: "bottom",
+                  title: {
+                    text: "Nutrients",
+                    padding: 15,
+                    display: true,
+                    font: {
+                      size: 20,
+                    },
+                  },
+                },
+              },
+            }}
+          />
         </DoughnutChart>
       </Charts>
     </Container>
