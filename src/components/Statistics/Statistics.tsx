@@ -10,6 +10,11 @@ export const Container = styled.section`
   position: relative;
   top: 3.5rem;
   overflow-y: scroll;
+
+  h2 {
+    font-size: 2rem;
+    text-align: center;
+  }
 `;
 
 export const Header = styled.div`
@@ -57,6 +62,8 @@ const Statistics = () => {
           <StatisticsPieChartIcon />
         </PieChartIconContainer>
       </Header>
+
+      <h2>This month</h2>
     </Container>
   );
 };
