@@ -59,6 +59,7 @@ const SearchedItem = ({
         id: nanoId,
         name: queryAmount?.name,
         date: `${day}${month}${year}`,
+        month: month,
         details: {
           fat: queryAmount?.details?.FAT,
           kcal: queryAmount?.details?.ENERC_KCAL,
