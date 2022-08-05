@@ -51,7 +51,6 @@ export const PieChartIconContainer = styled.div`
 export const Chart = styled.div`
   width: 20rem;
   height: 20rem;
-  margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,4 +62,6 @@ export const Chart = styled.div`
 export const Charts = styled.div`
   margin: 4rem auto;
   display: flex;
+  justify-content: center;
+  gap: 5rem;
 `;
