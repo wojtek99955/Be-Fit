@@ -52,8 +52,16 @@ export const Chart = styled.div`
   width: 20rem;
   height: 20rem;
   margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3f4f6;
+  padding: 1rem;
+  border-radius: 12px;
 `;
 
 export const Charts = styled.div`
   margin: 4rem 0;
+  display: flex;
+  align-items: center;
 `;
