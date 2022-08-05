@@ -33,7 +33,9 @@ export const Header = styled.div`
 const Statistics = () => {
   return (
     <Container>
-      <Header>Statistics</Header>
+      <Header>
+        <h1>Statistics</h1>
+      </Header>
     </Container>
   );
 };
