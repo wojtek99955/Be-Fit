@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import FitnessStats from "../../assets/svg/FitnessStats";
+import StatisticsPieChartIcon from "../../assets/svg/StatisticsPieChartIcon";
 
 export const Container = styled.section`
   padding: 1rem;
@@ -38,6 +39,13 @@ const FitnessStatsIconContainer = styled.div`
   left: 10%;
 `;
 
+const PieChartIconContainer = styled.div`
+  width: 9rem;
+  position: absolute;
+  right: 10%;
+  top: 15%;
+`;
+
 const Statistics = () => {
   return (
     <Container>
@@ -46,6 +54,9 @@ const Statistics = () => {
           <FitnessStats />
         </FitnessStatsIconContainer>
         <h1>Statistics</h1>
+        <PieChartIconContainer>
+          <StatisticsPieChartIcon />
+        </PieChartIconContainer>
       </Header>
     </Container>
   );
