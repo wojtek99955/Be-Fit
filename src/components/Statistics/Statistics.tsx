@@ -3,10 +3,10 @@ import FitnessStats from "../../assets/svg/FitnessStats";
 import StatisticsPieChartIcon from "../../assets/svg/StatisticsPieChartIcon";
 import { Chart as ChartJS, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
-import { Chart, ArcElement } from "chart.js";
+import { ArcElement } from "chart.js";
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../AuthContext";
-import { getDoc, doc, collection, getDocs } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 
 export const Container = styled.section`
@@ -71,15 +71,12 @@ const Statistics = () => {
   ChartJS.register(ArcElement, Tooltip, Legend);
 
   const [nutrients, setNutrients] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
 
   async function getNutrients() {
     const date = new Date();
     const month = date.getMonth() + 1;
-    const day = date.getDate();
-    const year = date.getFullYear();
 
     const foodRef = await collection(db, `users/${uid}/food`);
     const docsSnap = await getDocs(foodRef);
