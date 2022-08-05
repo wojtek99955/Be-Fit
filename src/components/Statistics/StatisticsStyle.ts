@@ -61,7 +61,6 @@ export const Chart = styled.div`
 `;
 
 export const Charts = styled.div`
-  margin: 4rem 0;
+  margin: 4rem auto;
   display: flex;
-  align-items: center;
 `;
