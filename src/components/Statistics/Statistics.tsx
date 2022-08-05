@@ -1,15 +1,5 @@
 import FitnessStats from "../../assets/svg/FitnessStats";
 import StatisticsPieChartIcon from "../../assets/svg/StatisticsPieChartIcon";
-import {
-  Chart as ChartJS,
-  Tooltip,
-  Legend,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-} from "chart.js";
-import { Doughnut, Bar } from "react-chartjs-2";
-import { ArcElement } from "chart.js";
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../AuthContext";
 import { collection, getDocs } from "firebase/firestore";
@@ -26,15 +16,6 @@ import DoughNutChart from "./DoughNutChart";
 import VerticalChart from "./VerticalChart";
 
 const Statistics = () => {
-  ChartJS.register(
-    ArcElement,
-    Tooltip,
-    Legend,
-    CategoryScale,
-    LinearScale,
-    BarElement
-  );
-
   const [nutrients, setNutrients] = useState<any>(null);
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
