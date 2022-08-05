@@ -1,7 +1,14 @@
 import FitnessStats from "../../assets/svg/FitnessStats";
 import StatisticsPieChartIcon from "../../assets/svg/StatisticsPieChartIcon";
-import { Chart as ChartJS, Tooltip, Legend } from "chart.js";
-import { Doughnut } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  Tooltip,
+  Legend,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+} from "chart.js";
+import { Doughnut, Bar } from "react-chartjs-2";
 import { ArcElement } from "chart.js";
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../AuthContext";
@@ -12,12 +19,19 @@ import {
   Header,
   FitnessStatsIconContainer,
   PieChartIconContainer,
-  DoughnutChart,
+  Chart,
   Charts,
 } from "./StatisticsStyle";
 
 const Statistics = () => {
-  ChartJS.register(ArcElement, Tooltip, Legend);
+  ChartJS.register(
+    ArcElement,
+    Tooltip,
+    Legend,
+    CategoryScale,
+    LinearScale,
+    BarElement
+  );
 
   const [nutrients, setNutrients] = useState<any>(null);
   const ctx = useContext(AuthContext);
@@ -81,6 +95,33 @@ const Statistics = () => {
     ],
   };
 
+  const horizontalData = {
+    labels: ["Nutrients"],
+
+    datasets: [
+      {
+        label: "Fat",
+        data: [nutrients?.fat],
+        backgroundColor: "rgba(255, 99, 132, 1)",
+      },
+      {
+        label: "Carbo",
+        data: [nutrients?.carbo],
+        backgroundColor: "rgba(54, 162, 235, 1)",
+      },
+      {
+        label: "Protein",
+        data: [nutrients?.protein],
+        backgroundColor: "rgba(255, 206, 86, 1)",
+      },
+      {
+        label: "Fiber",
+        data: [nutrients?.fiber],
+        backgroundColor: "rgba(75, 192, 192, 1)",
+      },
+    ],
+  };
+
   return (
     <Container>
       <Header>
@@ -94,7 +135,7 @@ const Statistics = () => {
       </Header>
       <h2>This month</h2>
       <Charts>
-        <DoughnutChart>
+        <Chart>
           <Doughnut
             data={data}
             options={{
@@ -114,7 +155,24 @@ const Statistics = () => {
               },
             }}
           />
-        </DoughnutChart>
+        </Chart>
+        <Chart>
+          <Bar
+            data={horizontalData}
+            options={{
+              responsive: true,
+              plugins: {
+                legend: {
+                  position: "top",
+                },
+                title: {
+                  display: true,
+                  text: "Whom'st let the dogs out",
+                },
+              },
+            }}
+          />
+        </Chart>
       </Charts>
     </Container>
   );
