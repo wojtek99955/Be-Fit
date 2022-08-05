@@ -48,7 +48,7 @@ export const PieChartIconContainer = styled.div`
   top: 18%;
 `;
 
-export const DoughnutChart = styled.div`
+export const Chart = styled.div`
   width: 20rem;
   height: 20rem;
   margin: auto;
