@@ -10,8 +10,32 @@ export const Container = styled.section`
   overflow-y: scroll;
 `;
 
+export const Header = styled.div`
+  background-color: #00c579;
+  height: 15rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 2.5rem;
+  position: relative;
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 2;
+  }
+`;
+
 const Statistics = () => {
-  return <Container>Statistics</Container>;
+  return (
+    <Container>
+      <Header>Statistics</Header>
+    </Container>
+  );
 };
 
 export default Statistics;
