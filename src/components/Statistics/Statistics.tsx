@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import FitnessStats from "../../assets/svg/FitnessStats";
 import StatisticsPieChartIcon from "../../assets/svg/StatisticsPieChartIcon";
+import { Chart as ChartJS, Tooltip, Legend } from "chart.js";
+import { Doughnut } from "react-chartjs-2";
+import { Chart, ArcElement } from "chart.js";
 
 export const Container = styled.section`
   padding: 1rem;
@@ -50,7 +53,38 @@ const PieChartIconContainer = styled.div`
   top: 18%;
 `;
 
+const DoughnutChart = styled.div`
+  width: 20rem;
+  height: 20rem;
+  margin: auto;
+`;
+
+export const data = {
+  labels: ["Fat", "Carbo", "Protein", "Fiber"],
+  datasets: [
+    {
+      label: "# of Votes",
+      data: [50, 19, 3, 5],
+      backgroundColor: [
+        "rgba(255, 99, 132, 0.2)",
+        "rgba(54, 162, 235, 0.2)",
+        "rgba(255, 206, 86, 0.2)",
+        "rgba(75, 192, 192, 0.2)",
+      ],
+      borderColor: [
+        "rgba(255, 99, 132, 1)",
+        "rgba(54, 162, 235, 1)",
+        "rgba(255, 206, 86, 1)",
+        "rgba(75, 192, 192, 1)",
+      ],
+      borderWidth: 1,
+    },
+  ],
+};
+
 const Statistics = () => {
+  ChartJS.register(ArcElement, Tooltip, Legend);
+
   return (
     <Container>
       <Header>
@@ -62,8 +96,10 @@ const Statistics = () => {
           <StatisticsPieChartIcon />
         </PieChartIconContainer>
       </Header>
-
       <h2>This month</h2>
+      <DoughnutChart>
+        <Doughnut data={data} />
+      </DoughnutChart>
     </Container>
   );
 };
