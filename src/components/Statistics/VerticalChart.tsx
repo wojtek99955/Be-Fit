@@ -16,7 +16,7 @@ interface Props {
 
 const VerticalChart = ({ nutrients }: Props) => {
   const horizontalData = {
-    labels: ["Nutrients"],
+    labels: [""],
 
     datasets: [
       {
@@ -50,10 +50,6 @@ const VerticalChart = ({ nutrients }: Props) => {
           plugins: {
             legend: {
               position: "bottom",
-            },
-            title: {
-              display: true,
-              text: "Whom'st let the dogs out",
             },
           },
         }}

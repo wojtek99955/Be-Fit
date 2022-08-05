@@ -37,14 +37,6 @@ const DoughNutChart = ({ nutrients }: Props) => {
             legend: {
               display: true,
               position: "bottom",
-              title: {
-                text: "Nutrients",
-                padding: 15,
-                display: true,
-                font: {
-                  size: 20,
-                },
-              },
             },
           },
         }}
