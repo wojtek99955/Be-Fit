@@ -1,0 +1,65 @@
+import { Bar } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  Tooltip,
+  Legend,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+} from "chart.js";
+
+ChartJS.register(Tooltip, Legend, CategoryScale, LinearScale, BarElement);
+
+interface Props {
+  nutrients: any;
+}
+
+const VerticalChart = ({ nutrients }: Props) => {
+  const horizontalData = {
+    labels: ["Nutrients"],
+
+    datasets: [
+      {
+        label: "Fat",
+        data: [nutrients?.fat],
+        backgroundColor: "rgba(255, 99, 132, 1)",
+      },
+      {
+        label: "Carbo",
+        data: [nutrients?.carbo],
+        backgroundColor: "rgba(54, 162, 235, 1)",
+      },
+      {
+        label: "Protein",
+        data: [nutrients?.protein],
+        backgroundColor: "rgba(255, 206, 86, 1)",
+      },
+      {
+        label: "Fiber",
+        data: [nutrients?.fiber],
+        backgroundColor: "rgba(75, 192, 192, 1)",
+      },
+    ],
+  };
+  return (
+    <>
+      <Bar
+        data={horizontalData}
+        options={{
+          responsive: true,
+          plugins: {
+            legend: {
+              position: "bottom",
+            },
+            title: {
+              display: true,
+              text: "Whom'st let the dogs out",
+            },
+          },
+        }}
+      />
+    </>
+  );
+};
+
+export default VerticalChart;

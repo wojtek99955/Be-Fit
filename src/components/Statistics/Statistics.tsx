@@ -23,6 +23,7 @@ import {
   Charts,
 } from "./StatisticsStyle";
 import DoughNutChart from "./DoughNutChart";
+import VerticalChart from "./VerticalChart";
 
 const Statistics = () => {
   ChartJS.register(
@@ -75,33 +76,6 @@ const Statistics = () => {
     getNutrients();
   }, []);
 
-  const horizontalData = {
-    labels: ["Nutrients"],
-
-    datasets: [
-      {
-        label: "Fat",
-        data: [nutrients?.fat],
-        backgroundColor: "rgba(255, 99, 132, 1)",
-      },
-      {
-        label: "Carbo",
-        data: [nutrients?.carbo],
-        backgroundColor: "rgba(54, 162, 235, 1)",
-      },
-      {
-        label: "Protein",
-        data: [nutrients?.protein],
-        backgroundColor: "rgba(255, 206, 86, 1)",
-      },
-      {
-        label: "Fiber",
-        data: [nutrients?.fiber],
-        backgroundColor: "rgba(75, 192, 192, 1)",
-      },
-    ],
-  };
-
   return (
     <Container>
       <Header>
@@ -119,21 +93,7 @@ const Statistics = () => {
           <DoughNutChart nutrients={nutrients} />
         </Chart>
         <Chart>
-          <Bar
-            data={horizontalData}
-            options={{
-              responsive: true,
-              plugins: {
-                legend: {
-                  position: "bottom",
-                },
-                title: {
-                  display: true,
-                  text: "Whom'st let the dogs out",
-                },
-              },
-            }}
-          />
+          <VerticalChart nutrients={nutrients} />
         </Chart>
       </Charts>
     </Container>
