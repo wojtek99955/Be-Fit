@@ -53,7 +53,7 @@ const Statistics = () => {
         <FitnessStatsIconContainer>
           <FitnessStats />
         </FitnessStatsIconContainer>
-        <h1>Statistics</h1>
+        <h1>Monthly statistics</h1>
         <PieChartIconContainer>
           <StatisticsPieChartIcon />
         </PieChartIconContainer>
