@@ -22,6 +22,7 @@ import {
   Chart,
   Charts,
 } from "./StatisticsStyle";
+import DoughNutChart from "./DoughNutChart";
 
 const Statistics = () => {
   ChartJS.register(
@@ -74,27 +75,6 @@ const Statistics = () => {
     getNutrients();
   }, []);
 
-  const data = {
-    labels: ["Fat", "Carbo", "Protein", "Fiber"],
-    datasets: [
-      {
-        label: "# of Votes",
-        data: [
-          nutrients?.fat,
-          nutrients?.carbo,
-          nutrients?.protein,
-          nutrients?.fiber,
-        ],
-        backgroundColor: [
-          "rgba(255, 99, 132, 1)",
-          "rgba(54, 162, 235, 1)",
-          "rgba(255, 206, 86, 1)",
-          "rgba(75, 192, 192, 1)",
-        ],
-      },
-    ],
-  };
-
   const horizontalData = {
     labels: ["Nutrients"],
 
@@ -136,25 +116,7 @@ const Statistics = () => {
       <h2>This month</h2>
       <Charts>
         <Chart>
-          <Doughnut
-            data={data}
-            options={{
-              plugins: {
-                legend: {
-                  display: true,
-                  position: "bottom",
-                  title: {
-                    text: "Nutrients",
-                    padding: 15,
-                    display: true,
-                    font: {
-                      size: 20,
-                    },
-                  },
-                },
-              },
-            }}
-          />
+          <DoughNutChart nutrients={nutrients} />
         </Chart>
         <Chart>
           <Bar
@@ -163,7 +125,7 @@ const Statistics = () => {
               responsive: true,
               plugins: {
                 legend: {
-                  position: "top",
+                  position: "bottom",
                 },
                 title: {
                   display: true,
