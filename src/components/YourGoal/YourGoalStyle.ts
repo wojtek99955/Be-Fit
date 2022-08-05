@@ -29,7 +29,6 @@ export const StyledField = styled(Field)`
 `;
 
 export const FormContainer = styled.div`
-  margin-top: 5rem;
   max-width: 25rem;
   button {
     background-color: #ffa101;
@@ -99,6 +98,7 @@ export const Wrapper = styled.div`
   flex-direction: row-reverse;
   margin: auto;
   gap: 2rem;
+  margin-top: 2rem;
 `;
 
 export const Result = styled.div`
