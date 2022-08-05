@@ -26,7 +26,6 @@ export const Header = styled.div`
   position: relative;
   h1 {
     font-size: 2.5rem;
-    margin-bottom: 2rem;
     position: relative;
     z-index: 2;
   }
