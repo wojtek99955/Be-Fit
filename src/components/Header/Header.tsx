@@ -158,6 +158,9 @@ const Header = ({ setShowSideBar }: Props) => {
                     Check calories
                   </StyledLink>
                 </LoggedNavItem>
+                <LoggedNavItem>
+                  <StyledLink to="/statistics">Statistics</StyledLink>
+                </LoggedNavItem>
               </Nav>
               <Icons>
                 <IconContainer>
