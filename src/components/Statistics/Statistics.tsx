@@ -32,17 +32,17 @@ export const Header = styled.div`
 `;
 
 const FitnessStatsIconContainer = styled.div`
-  width: 10rem;
+  width: 11rem;
   position: absolute;
   top: 20%;
   left: 10%;
 `;
 
 const PieChartIconContainer = styled.div`
-  width: 9rem;
+  width: 11rem;
   position: absolute;
   right: 10%;
-  top: 15%;
+  top: 18%;
 `;
 
 const Statistics = () => {
