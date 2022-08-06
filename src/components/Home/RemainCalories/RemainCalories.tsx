@@ -54,7 +54,7 @@ const RemainCalories = () => {
       {
         label: "# of Votes",
         data: [calorieIntake, calorieIntake - consumedKcal!],
-        backgroundColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)"],
+        backgroundColor: ["#e4e7e8", "#00C579"],
       },
     ],
     text: "cos",
