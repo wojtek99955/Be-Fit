@@ -74,25 +74,24 @@ const RemainCalories = () => {
       <StyledLink to="/track-calories">
         <StyledSettingsIcon />
       </StyledLink>
-      <ChartWrapper>
-        <Doughnut
-          data={chartData}
-          options={{
-            responsive: true,
-            cutout: "60%",
-            plugins: {
-              legend: {
-                display: false,
-              },
+      <Doughnut
+        style={{ position: "relative", zIndex: 2 }}
+        data={chartData}
+        options={{
+          responsive: true,
+          cutout: "60%",
+          plugins: {
+            legend: {
+              display: false,
             },
-            elements: {
-              arc: {
-                borderWidth: 3,
-              },
+          },
+          elements: {
+            arc: {
+              borderWidth: 3,
             },
-          }}
-        />
-      </ChartWrapper>
+          },
+        }}
+      />
       {consumedKcal ? (
         <Calories loading={loading}>
           <>
