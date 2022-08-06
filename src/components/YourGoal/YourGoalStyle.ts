@@ -8,6 +8,7 @@ export const Container = styled.section`
   position: relative;
   top: 3.5rem;
   overflow-y: scroll;
+  margin: auto;
 `;
 
 export const Row = styled.div`
@@ -95,8 +96,7 @@ export const RangeValue = styled.div`
 
 export const Wrapper = styled.div`
   display: flex;
-  flex-direction: row-reverse;
-  margin: auto;
+  justify-content: center;
   gap: 2rem;
   margin-top: 2rem;
 `;

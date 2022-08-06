@@ -61,21 +61,6 @@ const YourGoal = () => {
   return (
     <Container>
       <Wrapper>
-        <Text>
-          <h2>Your goal </h2>
-          <p>Set your weight goal!</p>
-          <p>
-            This weight loss calculator can help you reach your weight loss
-            goal. Enter how much weight you want to lose and by when. It will
-            calculate the daily calories needed to reach your desired weight
-            loss. Accurate for individuals 18 years and over who are not
-            pregnant or breastfeeding.
-          </p>
-          <p>
-            Accurate for individuals 18 years and over who are not pregnant or
-            breastfeeding.
-          </p>
-        </Text>
         <FormContainer>
           <Formik
             initialValues={initialValues}
@@ -143,6 +128,21 @@ const YourGoal = () => {
             <div>{result ? result.days : 0} days</div>
           </Result>
         </FormContainer>
+        <Text>
+          <h2>Your goal </h2>
+          <p>Set your weight goal!</p>
+          <p>
+            This weight loss calculator can help you reach your weight loss
+            goal. Enter how much weight you want to lose and by when. It will
+            calculate the daily calories needed to reach your desired weight
+            loss. Accurate for individuals 18 years and over who are not
+            pregnant or breastfeeding.
+          </p>
+          <p>
+            Accurate for individuals 18 years and over who are not pregnant or
+            breastfeeding.
+          </p>
+        </Text>
       </Wrapper>
     </Container>
   );
