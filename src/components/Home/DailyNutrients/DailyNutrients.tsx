@@ -53,6 +53,7 @@ const DailyNutrients = () => {
         ],
       },
     ],
+    text: "cos",
   };
   console.log(nutrients);
   return (
@@ -65,10 +66,15 @@ const DailyNutrients = () => {
           data={data}
           options={{
             responsive: true,
+            cutout: "60%",
             plugins: {
               legend: {
                 display: false,
-                position: "bottom",
+              },
+            },
+            elements: {
+              arc: {
+                borderWidth: 3,
               },
             },
           }}
