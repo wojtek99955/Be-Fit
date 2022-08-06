@@ -4,6 +4,10 @@ import { AuthContext } from "../../AuthContext";
 import { getDoc, doc } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { Calories, StyledSettingsIcon } from "./RemainCaloriesStyle";
+import { Doughnut } from "react-chartjs-2";
+import { Chart as ChartJS, Tooltip, Legend, ArcElement } from "chart.js";
+import CalorieIntake from "../../Calculators/CalorieIntakeCalculator/CalorieIntake";
+ChartJS.register(Tooltip, Legend, ArcElement);
 
 const RemainCalories = () => {
   const ctx = useContext(AuthContext);
@@ -44,11 +48,46 @@ const RemainCalories = () => {
     getCalorieIntake();
   }, []);
 
+  const chartData = {
+    labels: ["Daily intake", "Calories left"],
+    datasets: [
+      {
+        label: "# of Votes",
+        data: [calorieIntake, calorieIntake - consumedKcal!],
+        backgroundColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)"],
+      },
+    ],
+    text: "cos",
+  };
+
   return (
-    <Box>
+    <Box
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <StyledLink to="/track-calories">
         <StyledSettingsIcon />
       </StyledLink>
+      <Doughnut
+        data={chartData}
+        options={{
+          responsive: true,
+          cutout: "60%",
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+          elements: {
+            arc: {
+              borderWidth: 3,
+            },
+          },
+        }}
+      />
       {consumedKcal ? (
         <Calories loading={loading}>
           <>
