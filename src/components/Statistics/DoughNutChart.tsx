@@ -9,7 +9,7 @@ const DoughNutChart = ({ nutrients }: Props) => {
   ChartJS.register(Tooltip, Legend, ArcElement);
 
   const data = {
-    labels: ["Fat", "Carbo", "Protein", "Fiber"],
+    labels: ["Fats", "Carbohydrates", "Proteins", "Fiber"],
     datasets: [
       {
         label: "# of Votes",
