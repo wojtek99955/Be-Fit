@@ -7,7 +7,7 @@ export const Box = styled.div`
   padding: 1rem;
   border-radius: 12px;
   position: relative;
-  min-height: 18rem;
+  min-height: 20rem;
 `;
 
 export const SettingsIcon = styled(GoSettings)`
