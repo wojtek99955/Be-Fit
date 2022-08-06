@@ -1,14 +1,9 @@
-import { Box, StyledLink } from "../CardStyles";
+import { StyledLink } from "../CardStyles";
 import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../../AuthContext";
 import { getDoc, doc } from "firebase/firestore";
 import { db } from "../../../firebase";
-import {
-  Kcal,
-  Wrapper,
-  StyledSettingsIcon,
-  StyledBox,
-} from "./DailyNutrientsStyle";
+import { Kcal, StyledSettingsIcon, StyledBox } from "./DailyNutrientsStyle";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, Tooltip, Legend, ArcElement } from "chart.js";
 ChartJS.register(Tooltip, Legend, ArcElement);
@@ -66,7 +61,6 @@ const DailyNutrients = () => {
       <StyledLink to="/track-calories">
         <StyledSettingsIcon />
       </StyledLink>
-
       <Doughnut
         data={data}
         options={{
