@@ -72,9 +72,21 @@ const Statistics = () => {
         </PieChartIconContainer>
       </Header>
       <h2>This month</h2>
-      <ChartsBtns>
-        <button>Nutrients</button>
-        <button>Calories</button>
+      <ChartsBtns active={activeCharts}>
+        <button
+          onClick={() => {
+            setActiveCharts(true);
+          }}
+        >
+          Nutrients
+        </button>
+        <button
+          onClick={() => {
+            setActiveCharts(false);
+          }}
+        >
+          Calories
+        </button>
       </ChartsBtns>
       <Charts>
         <Chart>

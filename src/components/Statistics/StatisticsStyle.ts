@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+interface ActiveCharts {
+  active: boolean;
+}
+
 export const Container = styled.section`
   padding: 1rem;
   width: 100%;
@@ -12,18 +16,6 @@ export const Container = styled.section`
   h2 {
     font-size: 2rem;
     text-align: center;
-  }
-  button {
-    border-radius: 8px;
-    border: none;
-    padding: 0.6rem 0.8rem;
-    transition: background-color 300ms;
-    cursor: pointer;
-    background-color: #f0f2f2;
-
-    &:hover {
-      background-color: #e4e7e8;
-    }
   }
 `;
 
@@ -78,8 +70,22 @@ export const Charts = styled.div`
   gap: 5rem;
 `;
 
-export const ChartsBtns = styled.div`
+export const ChartsBtns = styled.div<ActiveCharts>`
   display: flex;
   gap: 1rem;
   padding: 1.5rem 0;
+
+  button {
+    border-radius: 8px;
+    border: none;
+    padding: 0.6rem 0.8rem;
+    cursor: pointer;
+
+    &:first-child {
+      background-color: ${({ active }) => (active ? "#b2bcbc" : "#f0f2f2")};
+    }
+    &:nth-child(2) {
+      background-color: ${({ active }) => (active ? "#f0f2f2" : "#b2bcbc")};
+    }
+  }
 `;
