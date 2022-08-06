@@ -57,6 +57,8 @@ const Statistics = () => {
     getNutrients();
   }, []);
 
+  const [activeCharts, setActiveCharts] = useState(true);
+
   return (
     <Container>
       <Header>
@@ -69,6 +71,8 @@ const Statistics = () => {
         </PieChartIconContainer>
       </Header>
       <h2>This month</h2>
+      <button>Nutrients</button>
+      <button>Calories</button>
       <Charts>
         <Chart>
           <DoughNutChart nutrients={nutrients} />
