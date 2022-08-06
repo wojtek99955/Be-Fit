@@ -1,12 +1,12 @@
 import { Doughnut } from "react-chartjs-2";
-import { Chart as ChartJS, Tooltip, Legend } from "chart.js";
+import { Chart as ChartJS, Tooltip, Legend, ArcElement } from "chart.js";
 
 interface Props {
   nutrients: any;
 }
 
 const DoughNutChart = ({ nutrients }: Props) => {
-  ChartJS.register(Tooltip, Legend);
+  ChartJS.register(Tooltip, Legend, ArcElement);
 
   const data = {
     labels: ["Fat", "Carbo", "Protein", "Fiber"],
