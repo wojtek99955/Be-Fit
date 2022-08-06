@@ -48,10 +48,10 @@ const RemainCalories = () => {
   }, []);
 
   const chartData = {
-    labels: ["Daily intake", "Calories left"],
+    labels: ["Consumed calories", "Daily intake"],
     datasets: [
       {
-        data: [calorieIntake, calorieIntake - consumedKcal!],
+        data: [consumedKcal!, calorieIntake],
         backgroundColor: ["#e4e7e8", "#00C579"],
       },
     ],
