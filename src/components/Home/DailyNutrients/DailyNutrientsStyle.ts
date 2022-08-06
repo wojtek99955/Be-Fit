@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { SettingsIcon } from "../CardStyles";
+import { Box } from "../CardStyles";
 
 export const StyledSettingsIcon = styled(SettingsIcon)`
   position: absolute;
@@ -32,4 +33,10 @@ export const Wrapper = styled.div<Loading>`
   justify-content: center;
   gap: 2.5rem;
   opacity: ${({ loading }) => (loading ? "0" : "1")};
+`;
+
+export const StyledBox = styled(Box)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
