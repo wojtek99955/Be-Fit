@@ -12,6 +12,9 @@ export const Kcal = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   strong {
     font-size: 2.5rem;
   }
