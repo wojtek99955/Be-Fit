@@ -20,17 +20,17 @@ const VerticalChart = ({ nutrients }: Props) => {
 
     datasets: [
       {
-        label: "Fat",
+        label: "Fats",
         data: [nutrients?.fat],
         backgroundColor: "rgba(255, 99, 132, 1)",
       },
       {
-        label: "Carbo",
+        label: "Carbohydrates",
         data: [nutrients?.carbo],
         backgroundColor: "rgba(54, 162, 235, 1)",
       },
       {
-        label: "Protein",
+        label: "Proteins",
         data: [nutrients?.protein],
         backgroundColor: "rgba(255, 206, 86, 1)",
       },
