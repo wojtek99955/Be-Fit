@@ -6,7 +6,6 @@ import { db } from "../../../firebase";
 import { Calories, StyledSettingsIcon } from "./RemainCaloriesStyle";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, Tooltip, Legend, ArcElement } from "chart.js";
-import CalorieIntake from "../../Calculators/CalorieIntakeCalculator/CalorieIntake";
 ChartJS.register(Tooltip, Legend, ArcElement);
 
 const RemainCalories = () => {
