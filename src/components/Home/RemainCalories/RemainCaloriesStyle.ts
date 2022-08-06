@@ -14,6 +14,7 @@ export const Calories = styled.div<Loading>`
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: ${({ loading }) => (loading ? "0" : "1")};
+  z-index: 0;
 
   strong {
     font-size: 2.5rem;
@@ -27,4 +28,9 @@ export const StyledSettingsIcon = styled(SettingsIcon)`
   position: absolute;
   top: 1rem;
   right: 1rem;
+`;
+
+export const ChartWrapper = styled.div`
+  position: relative;
+  z-index: 1;
 `;

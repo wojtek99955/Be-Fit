@@ -3,7 +3,11 @@ import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../../AuthContext";
 import { getDoc, doc } from "firebase/firestore";
 import { db } from "../../../firebase";
-import { Calories, StyledSettingsIcon } from "./RemainCaloriesStyle";
+import {
+  Calories,
+  StyledSettingsIcon,
+  ChartWrapper,
+} from "./RemainCaloriesStyle";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, Tooltip, Legend, ArcElement } from "chart.js";
 ChartJS.register(Tooltip, Legend, ArcElement);
@@ -70,23 +74,25 @@ const RemainCalories = () => {
       <StyledLink to="/track-calories">
         <StyledSettingsIcon />
       </StyledLink>
-      <Doughnut
-        data={chartData}
-        options={{
-          responsive: true,
-          cutout: "60%",
-          plugins: {
-            legend: {
-              display: false,
+      <ChartWrapper>
+        <Doughnut
+          data={chartData}
+          options={{
+            responsive: true,
+            cutout: "60%",
+            plugins: {
+              legend: {
+                display: false,
+              },
             },
-          },
-          elements: {
-            arc: {
-              borderWidth: 3,
+            elements: {
+              arc: {
+                borderWidth: 3,
+              },
             },
-          },
-        }}
-      />
+          }}
+        />
+      </ChartWrapper>
       {consumedKcal ? (
         <Calories loading={loading}>
           <>
