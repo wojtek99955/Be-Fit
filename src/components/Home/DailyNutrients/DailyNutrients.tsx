@@ -11,6 +11,9 @@ import {
   RowTwo,
   StyledSettingsIcon,
 } from "./DailyNutrientsStyle";
+import { Doughnut } from "react-chartjs-2";
+import { Chart as ChartJS, Tooltip, Legend, ArcElement } from "chart.js";
+ChartJS.register(Tooltip, Legend, ArcElement);
 
 const DailyNutrients = () => {
   const [nutrients, setNutrients] = useState<any>(null);
@@ -37,34 +40,46 @@ const DailyNutrients = () => {
   useEffect(() => {
     getNutrients();
   }, []);
+
+  const data = {
+    labels: ["Fat", "Carbo", "Protein", "Fiber"],
+    datasets: [
+      {
+        label: "# of Votes",
+        data: [
+          nutrients?.fat,
+          nutrients?.carbo,
+          nutrients?.protein,
+          nutrients?.fiber,
+        ],
+        backgroundColor: [
+          "rgba(255, 99, 132, 1)",
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 206, 86, 1)",
+          "rgba(75, 192, 192, 1)",
+        ],
+      },
+    ],
+  };
+  console.log(nutrients);
   return (
     <Box>
       <StyledLink to="/track-calories">
         <StyledSettingsIcon />
       </StyledLink>
       <Wrapper loading={loading}>
-        <Kcal>
-          <strong>{nutrients ? nutrients.kcal : 0}</strong>
-          <span>kcal</span>
-        </Kcal>
-        <Nutrients>
-          <RowOne>
-            <div>
-              Fat: <span>{nutrients ? nutrients?.fat : 0} g</span>
-            </div>
-            <div>
-              Carbo: <span>{nutrients ? nutrients?.carbo : 0} g</span>
-            </div>
-          </RowOne>
-          <RowTwo>
-            <div>
-              Protein: <span>{nutrients ? nutrients?.protein : 0} g</span>
-            </div>
-            <div>
-              Fiber: <span>{nutrients ? nutrients?.fiber : 0} g</span>
-            </div>
-          </RowTwo>
-        </Nutrients>
+        <Doughnut
+          data={data}
+          options={{
+            plugins: {
+              legend: {
+                display: false,
+                position: "bottom",
+              },
+            },
+          }}
+        />
+        <Kcal>{nutrients?.kcal}</Kcal>
       </Wrapper>
     </Box>
   );
