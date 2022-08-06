@@ -51,7 +51,7 @@ const ConsumedNutrientsData = ({ consumed, loading }: Props) => {
       setDoc(
         doc(db, `users/${uid}/consumedNutrients`, `${day}${month}${year}`),
         {
-          kcal: consumedCalories.toFixed(1),
+          kcal: consumedCalories.toFixed(0),
           fat: consumedFat.toFixed(1),
           fiber: consumedFiber.toFixed(1),
           protein: consumedProtein.toFixed(1),
