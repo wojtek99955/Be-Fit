@@ -88,14 +88,16 @@ const Statistics = () => {
           Calories
         </button>
       </ChartsBtns>
-      <Charts>
-        <Chart>
-          <DoughNutChart nutrients={nutrients} />
-        </Chart>
-        <Chart>
-          <VerticalChart nutrients={nutrients} />
-        </Chart>
-      </Charts>
+      {activeCharts ? (
+        <Charts>
+          <Chart>
+            <DoughNutChart nutrients={nutrients} />
+          </Chart>
+          <Chart>
+            <VerticalChart nutrients={nutrients} />
+          </Chart>
+        </Charts>
+      ) : null}
     </Container>
   );
 };
