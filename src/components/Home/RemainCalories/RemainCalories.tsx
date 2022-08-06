@@ -73,7 +73,7 @@ const RemainCalories = () => {
         data={chartData}
         options={{
           responsive: true,
-          cutout: "60%",
+          cutout: "65%",
           plugins: {
             legend: {
               display: false,

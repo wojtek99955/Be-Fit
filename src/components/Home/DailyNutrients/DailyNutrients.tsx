@@ -65,7 +65,7 @@ const DailyNutrients = () => {
         data={data}
         options={{
           responsive: true,
-          cutout: "60%",
+          cutout: "65%",
           plugins: {
             legend: {
               display: false,
