@@ -13,6 +13,18 @@ export const Container = styled.section`
     font-size: 2rem;
     text-align: center;
   }
+  button {
+    border-radius: 8px;
+    border: none;
+    padding: 0.6rem 0.8rem;
+    transition: background-color 300ms;
+    cursor: pointer;
+    background-color: #f0f2f2;
+
+    &:hover {
+      background-color: #e4e7e8;
+    }
+  }
 `;
 
 export const Header = styled.div`
