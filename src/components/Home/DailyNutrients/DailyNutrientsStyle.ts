@@ -22,12 +22,6 @@ export const Kcal = styled.div`
     color: #a29e9e;
   }
 `;
-export const Nutrients = styled.div`
-  span {
-    font-weight: 600;
-    color: white;
-  }
-`;
 
 interface Loading {
   loading: boolean;
@@ -36,61 +30,6 @@ export const Wrapper = styled.div<Loading>`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100%;
-  width: 100%;
   gap: 2.5rem;
   opacity: ${({ loading }) => (loading ? "0" : "1")};
-`;
-
-export const RowOne = styled.div`
-  display: flex;
-  gap: 0.5rem;
-  width: 100%;
-  justify-content: space-between;
-  margin-bottom: 0.5rem;
-
-  div {
-    display: flex;
-    justify-content: space-between;
-    width: 7rem;
-    width: 50%;
-    font-size: 0.9rem;
-    padding: 0.7rem 0.5rem;
-    border-radius: 8px;
-    color: white;
-
-    &:first-of-type {
-      background-color: #e1605e;
-    }
-    &:nth-of-type(2) {
-      background-color: #32525b;
-    }
-  }
-`;
-
-export const RowTwo = styled.div`
-  display: flex;
-  gap: 0.5rem;
-  width: 100%;
-  justify-content: space-between;
-  margin-bottom: 0.5rem;
-
-  div {
-    display: flex;
-    justify-content: space-between;
-    width: 7rem;
-    width: 50%;
-    font-size: 0.9rem;
-    padding: 0.7rem 0.5rem;
-    border-radius: 8px;
-    color: white;
-
-    &:first-of-type {
-      background-color: #019d51;
-    }
-
-    &:nth-of-type(2) {
-      background-color: #ffa101;
-    }
-  }
 `;
