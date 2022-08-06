@@ -77,3 +77,9 @@ export const Charts = styled.div`
   justify-content: center;
   gap: 5rem;
 `;
+
+export const ChartsBtns = styled.div`
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem 0;
+`;

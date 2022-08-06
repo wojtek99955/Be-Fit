@@ -11,6 +11,7 @@ import {
   PieChartIconContainer,
   Chart,
   Charts,
+  ChartsBtns,
 } from "./StatisticsStyle";
 import DoughNutChart from "./DoughNutChart";
 import VerticalChart from "./VerticalChart";
@@ -71,8 +72,10 @@ const Statistics = () => {
         </PieChartIconContainer>
       </Header>
       <h2>This month</h2>
-      <button>Nutrients</button>
-      <button>Calories</button>
+      <ChartsBtns>
+        <button>Nutrients</button>
+        <button>Calories</button>
+      </ChartsBtns>
       <Charts>
         <Chart>
           <DoughNutChart nutrients={nutrients} />
