@@ -71,6 +71,7 @@ const DailyNutrients = () => {
         <Doughnut
           data={data}
           options={{
+            responsive: true,
             plugins: {
               legend: {
                 display: false,

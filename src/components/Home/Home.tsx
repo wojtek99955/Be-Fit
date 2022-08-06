@@ -23,7 +23,7 @@ const Container = styled.section`
 `;
 const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 2rem;
   max-width: 1400px;
   margin: auto;
