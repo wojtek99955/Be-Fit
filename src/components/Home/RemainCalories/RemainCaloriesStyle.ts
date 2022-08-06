@@ -29,8 +29,3 @@ export const StyledSettingsIcon = styled(SettingsIcon)`
   top: 1rem;
   right: 1rem;
 `;
-
-export const ChartWrapper = styled.div`
-  position: relative;
-  z-index: 1;
-`;

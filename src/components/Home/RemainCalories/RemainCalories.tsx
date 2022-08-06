@@ -3,11 +3,7 @@ import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../../AuthContext";
 import { getDoc, doc } from "firebase/firestore";
 import { db } from "../../../firebase";
-import {
-  Calories,
-  StyledSettingsIcon,
-  ChartWrapper,
-} from "./RemainCaloriesStyle";
+import { Calories, StyledSettingsIcon } from "./RemainCaloriesStyle";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, Tooltip, Legend, ArcElement } from "chart.js";
 ChartJS.register(Tooltip, Legend, ArcElement);
@@ -55,12 +51,10 @@ const RemainCalories = () => {
     labels: ["Daily intake", "Calories left"],
     datasets: [
       {
-        label: "# of Votes",
         data: [calorieIntake, calorieIntake - consumedKcal!],
         backgroundColor: ["#e4e7e8", "#00C579"],
       },
     ],
-    text: "cos",
   };
 
   return (
