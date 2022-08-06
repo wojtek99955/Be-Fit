@@ -3,7 +3,12 @@ import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../../AuthContext";
 import { getDoc, doc } from "firebase/firestore";
 import { db } from "../../../firebase";
-import { Kcal, Wrapper, StyledSettingsIcon } from "./DailyNutrientsStyle";
+import {
+  Kcal,
+  Wrapper,
+  StyledSettingsIcon,
+  StyledBox,
+} from "./DailyNutrientsStyle";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, Tooltip, Legend, ArcElement } from "chart.js";
 ChartJS.register(Tooltip, Legend, ArcElement);
@@ -57,34 +62,33 @@ const DailyNutrients = () => {
   };
   console.log(nutrients);
   return (
-    <Box>
+    <StyledBox>
       <StyledLink to="/track-calories">
         <StyledSettingsIcon />
       </StyledLink>
-      <Wrapper loading={loading}>
-        <Doughnut
-          data={data}
-          options={{
-            responsive: true,
-            cutout: "60%",
-            plugins: {
-              legend: {
-                display: false,
-              },
+
+      <Doughnut
+        data={data}
+        options={{
+          responsive: true,
+          cutout: "60%",
+          plugins: {
+            legend: {
+              display: false,
             },
-            elements: {
-              arc: {
-                borderWidth: 3,
-              },
+          },
+          elements: {
+            arc: {
+              borderWidth: 3,
             },
-          }}
-        />
-        <Kcal>
-          <strong>{nutrients?.kcal}</strong>
-          <span>kcal</span>
-        </Kcal>
-      </Wrapper>
-    </Box>
+          },
+        }}
+      />
+      <Kcal>
+        <strong>{nutrients?.kcal}</strong>
+        <span>kcal</span>
+      </Kcal>
+    </StyledBox>
   );
 };
 
