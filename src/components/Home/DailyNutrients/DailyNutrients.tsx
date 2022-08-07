@@ -79,7 +79,7 @@ const DailyNutrients = () => {
         }}
       />
       <Kcal>
-        <strong>{nutrients?.kcal}</strong>
+        <strong>{nutrients ? nutrients?.kcal : 0}</strong>
         <span>kcal</span>
       </Kcal>
     </StyledBox>
