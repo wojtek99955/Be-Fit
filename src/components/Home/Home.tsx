@@ -24,8 +24,9 @@ const Container = styled.section`
 const GridContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 2rem;
-  max-width: 1400px;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 1300px;
   margin: auto;
 `;
 
