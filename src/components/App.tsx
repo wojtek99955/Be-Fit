@@ -1,5 +1,5 @@
 import SignUp from "./Auth/SignUp";
-import { Routes, Navigate, Route, useNavigate } from "react-router-dom";
+import { Routes, Navigate, Route } from "react-router-dom";
 import Home from "./Home/Home";
 import SignIn from "./Auth/SignIn";
 import { useContext, useState } from "react";
@@ -37,9 +37,7 @@ interface AuthProps {
 function App() {
   const ctx = useContext(AuthContext);
   const islogged = ctx?.currentUser;
-  const navigation = useNavigate();
   const [showSideBar, setShowSideBar] = useState(true);
-  console.log("side bar" + showSideBar);
 
   const RequireAuth = ({ children }: AuthProps) => {
     return islogged ? children : <Navigate to="/signup" />;
