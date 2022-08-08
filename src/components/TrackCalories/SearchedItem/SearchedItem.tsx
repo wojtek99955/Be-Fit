@@ -24,7 +24,6 @@ interface Props {
   query: any;
   setFoodWeight: React.Dispatch<React.SetStateAction<number>>;
   foodWeight: number;
-  setQuery: React.Dispatch<any>;
 }
 
 const amountValidationSchema = yup.object().shape({
@@ -36,13 +35,7 @@ const amountValidationSchema = yup.object().shape({
     .positive("only positive numbers"),
 });
 
-const SearchedItem = ({
-  loading,
-  query,
-  foodWeight,
-  setFoodWeight,
-  setQuery,
-}: Props) => {
+const SearchedItem = ({ loading, query, foodWeight, setFoodWeight }: Props) => {
   const [queryAmount, setQueryAmount] = useState<any>({});
 
   const ctx = useContext(AuthContext);
