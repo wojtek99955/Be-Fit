@@ -8,6 +8,8 @@ import {
 } from "./CalculatorsStyle";
 import { Formik, Form, ErrorMessage, Field } from "formik";
 import { useState } from "react";
+import * as yup from "yup";
+import { ErrorMsg } from "../Auth/AuthStyle";
 
 const JumpingRope = () => {
   const initialValues = {
@@ -15,6 +17,11 @@ const JumpingRope = () => {
     level: "",
     duration: "",
   };
+
+  const validationSchema = yup.object().shape({
+    weight: yup.string().required("required"),
+    duration: yup.string().required("required"),
+  });
 
   const getResult = (weight: number, level: number, duration: number) => {
     return ((3.5 * level * weight) / 200) * duration;
@@ -38,6 +45,7 @@ const JumpingRope = () => {
         <FormWrapper>
           <Formik
             initialValues={initialValues}
+            validationSchema={validationSchema}
             onSubmit={(val) =>
               setResult(getResult(+val.weight, +val.level, +val.duration))
             }
@@ -49,6 +57,7 @@ const JumpingRope = () => {
                 id="weight"
                 placeholder="weight"
               />
+              <ErrorMessage name="weight" component={ErrorMsg} />
               <Field as="select" name="level">
                 <option value="8.8"> less then 100 skips</option>
                 <option value="11.8">100 - 120 skips</option>
@@ -60,6 +69,7 @@ const JumpingRope = () => {
                 id="duration"
                 placeholder="duration"
               />
+              <ErrorMessage name="duration" component={ErrorMsg} />
               <button type="submit">Calculate</button>
             </Form>
           </Formik>
