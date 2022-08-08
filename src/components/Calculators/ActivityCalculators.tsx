@@ -56,9 +56,14 @@ const CalculatorsContainer = styled.div`
 `;
 
 const ActivityCalculators = () => {
+  let navigate = useNavigate();
   return (
     <Container>
-      <CalculatorsContainer>
+      <CalculatorsContainer
+        onClick={() => {
+          navigate("/calculators/activity-calculators/jumping-rope");
+        }}
+      >
         <div>
           <JumpingRopeIcon />
 
