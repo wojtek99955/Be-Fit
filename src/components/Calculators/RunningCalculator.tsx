@@ -16,6 +16,20 @@ const RunningCalculator = () => {
     duration: "",
     level: "",
   };
+
+  const validationSchema = yup.object().shape({
+    weight: yup
+      .number()
+      .required("required")
+      .min(30, "30 is a minimum value")
+      .max(250, "250 is a maximum value"),
+    duration: yup
+      .number()
+      .required("required")
+      .min(1, "1 is a minimum value")
+      .max(300, "300 is a maximum value"),
+  });
+
   const getResult = (weight: number, level: number, duration: number) => {
     return ((3.5 * level * weight) / 200) * duration;
   };
@@ -39,6 +53,7 @@ const RunningCalculator = () => {
         <FormWrapper>
           <Formik
             initialValues={initialValues}
+            validationSchema={validationSchema}
             onSubmit={(val) =>
               setResult(getResult(+val.weight, +val.level, +val.duration))
             }
