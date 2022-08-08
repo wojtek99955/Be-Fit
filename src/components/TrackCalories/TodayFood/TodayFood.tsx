@@ -105,7 +105,7 @@ const TodayFood = () => {
                     </Nutrients>
                     <Calories>
                       <div>
-                        Kcal <strong>{item.details.kcal.toFixed(1)}</strong>
+                        Kcal <strong>{item.details.kcal.toFixed(0)}</strong>
                       </div>
                     </Calories>
                     <DeleteIcon
