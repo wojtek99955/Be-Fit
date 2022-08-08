@@ -41,7 +41,7 @@ const ConsumedNutrientsData = ({ consumed, loading }: Props) => {
       return acc + obj.details.carbo;
     }, 0);
     setConsumedNutrients({
-      kcal: consumedCalories.toFixed(1),
+      kcal: consumedCalories.toFixed(0),
       fat: consumedFat.toFixed(1),
       fiber: consumedFiber.toFixed(1),
       protein: consumedProtein.toFixed(1),
