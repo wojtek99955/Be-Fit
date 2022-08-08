@@ -1,6 +1,13 @@
 import styled from "styled-components";
-import { Container, Wrapper, Text, FormWrapper } from "./CalculatorsStyle";
+import {
+  Container,
+  Wrapper,
+  Text,
+  FormWrapper,
+  Result,
+} from "./CalculatorsStyle";
 import { Formik, Form, ErrorMessage, Field } from "formik";
+import { useState } from "react";
 
 const JumpingRope = () => {
   const initialValues = {
@@ -8,6 +15,11 @@ const JumpingRope = () => {
     level: "",
     duration: "",
   };
+
+  const getResult = (weight: number, level: number, duration: number) => {
+    return ((3.5 * level * weight) / 200) * duration;
+  };
+  const [result, setResult] = useState<null | number>(null);
   return (
     <Container>
       <Wrapper>
@@ -26,7 +38,9 @@ const JumpingRope = () => {
         <FormWrapper>
           <Formik
             initialValues={initialValues}
-            onSubmit={(val) => console.log(val)}
+            onSubmit={(val) =>
+              setResult(getResult(+val.weight, +val.level, +val.duration))
+            }
           >
             <Form>
               <Field
@@ -49,6 +63,15 @@ const JumpingRope = () => {
               <button type="submit">Calculate</button>
             </Form>
           </Formik>
+          {result ? (
+            <Result>
+              <span>You'll burn</span>
+              <span>
+                <strong>{result.toFixed(1)}</strong>
+                <span>calories</span>
+              </span>
+            </Result>
+          ) : null}
         </FormWrapper>
       </Wrapper>
     </Container>
