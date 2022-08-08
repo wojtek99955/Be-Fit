@@ -59,7 +59,7 @@ const ConsumedNutrientsData = ({ consumed, loading }: Props) => {
         }
       );
     }
-  }, [consumed]);
+  }, [consumed, consumedNutrients, uid]);
 
   return (
     <Consumed loading={loading}>
