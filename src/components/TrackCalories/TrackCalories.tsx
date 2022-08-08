@@ -93,7 +93,6 @@ const TrackCalories = () => {
               query={query}
               setFoodWeight={setFoodWeight}
               foodWeight={foodWeight}
-              setQuery={setQuery}
             />
           </>
         ) : null}
