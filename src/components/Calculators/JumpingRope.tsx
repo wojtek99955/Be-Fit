@@ -19,8 +19,16 @@ const JumpingRope = () => {
   };
 
   const validationSchema = yup.object().shape({
-    weight: yup.string().required("required"),
-    duration: yup.string().required("required"),
+    weight: yup
+      .number()
+      .required("required")
+      .min(30, "30 is a minimum value")
+      .max(250, "250 is a maximum value"),
+    duration: yup
+      .number()
+      .required("required")
+      .min(1, "1 is a minimum value")
+      .max(300, "300 is a maximum value"),
   });
 
   const getResult = (weight: number, level: number, duration: number) => {
@@ -59,7 +67,7 @@ const JumpingRope = () => {
               />
               <ErrorMessage name="weight" component={ErrorMsg} />
               <Field as="select" name="level">
-                <option value="8.8"> less then 100 skips</option>
+                <option value="8.8"> less than 100 skips</option>
                 <option value="11.8">100 - 120 skips</option>
                 <option value="12.3">120-160 skips</option>
               </Field>
