@@ -28,6 +28,7 @@ import Statistics from "./Statistics/Statistics";
 import ActivityCalculatorsLayout from "./Calculators/ActivityCalculatorsLayout.tsx";
 import ActivityCalculators from "./Calculators/ActivityCalculators";
 import JumpingRope from "./Calculators/JumpingRope";
+import RunningCalculator from "./Calculators/RunningCalculator";
 
 interface AuthProps {
   children: JSX.Element;
@@ -83,6 +84,7 @@ function App() {
           >
             <Route index element={<ActivityCalculators />} />
             <Route path="jumping-rope" element={<JumpingRope />} />
+            <Route path="running" element={<RunningCalculator />} />
           </Route>
         </Route>
 

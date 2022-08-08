@@ -70,7 +70,11 @@ const ActivityCalculators = () => {
           <h1>Jumping rope</h1>
         </div>
       </CalculatorsContainer>
-      <CalculatorsContainer>
+      <CalculatorsContainer
+        onClick={() => {
+          navigate("/calculators/activity-calculators/running");
+        }}
+      >
         <div>
           <RunningIcon />
 
