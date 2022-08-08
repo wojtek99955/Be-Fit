@@ -71,7 +71,11 @@ const Calculators = () => {
           </div>
         </CalculatorsContainer>
       </BodyCalculators>
-      <ActivityCalculators>
+      <ActivityCalculators
+        onClick={() => {
+          navigation("/calculators/activity-calculators");
+        }}
+      >
         <CalculatorsContainer>
           <div>
             <ActivityIcon />
