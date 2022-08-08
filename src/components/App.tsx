@@ -25,6 +25,8 @@ import ForgotPassword from "./Auth/ForgotPassword";
 import TrackCalories from "./TrackCalories/TrackCalories";
 import YourGoal from "./YourGoal/YourGoal";
 import Statistics from "./Statistics/Statistics";
+import ActivityCalculatorsLayout from "./Calculators/ActivityCalculatorsLayout.tsx";
+import ActivityCalculators from "./Calculators/ActivityCalculators";
 
 interface AuthProps {
   children: JSX.Element;
@@ -73,6 +75,12 @@ function App() {
             <Route path="bmi" element={<BMICalc />} />
             <Route path="ideal-weight" element={<IdealWeight />} />
             <Route path="calorie-intake" element={<CalorieIntake />} />
+          </Route>
+          <Route
+            path="activity-calculators"
+            element={<ActivityCalculatorsLayout />}
+          >
+            <Route index element={<ActivityCalculators />} />
           </Route>
         </Route>
 
