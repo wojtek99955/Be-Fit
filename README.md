@@ -14,6 +14,7 @@ Fitness app
 - formik
 - styled-components
 - yup
+- react-charts
 
 ## Features
 
