@@ -1,18 +1,27 @@
+import { useState } from "react";
 import ReactDOM from "react-dom";
-import { Container, Wrapper, StyledLink } from "./UpdateProfileModal";
+import { Container, Wrapper } from "./UpdateProfileModalStyle";
 
-const Modal = () => {
+const UpdateProfileModal = () => {
+  const [page, setPage] = useState(0);
+
   return ReactDOM.createPortal(
     <Container>
-      <Wrapper>
-        <h1>Add Additional Data To Your Account</h1>
-        <StyledLink to="/my-body">
-          <button>update</button>
-        </StyledLink>
-      </Wrapper>
+      {page === 0 && (
+        <Wrapper>
+          <h1>Add Additional Data To Your Account</h1>
+          <button
+            onClick={() => {
+              setPage(1);
+            }}
+          >
+            update
+          </button>
+        </Wrapper>
+      )}
     </Container>,
     document.getElementById("portal")!
   );
 };
 
-export default Modal;
+export default UpdateProfileModal;

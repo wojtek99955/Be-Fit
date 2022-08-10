@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 export const Container = styled.div`
   position: absolute;
@@ -34,8 +33,4 @@ export const Wrapper = styled.div`
       background-color: #cf8300;
     }
   }
-`;
-
-export const StyledLink = styled(Link)`
-  text-decoration: none;
 `;

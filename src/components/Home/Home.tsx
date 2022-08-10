@@ -7,7 +7,7 @@ import { useState, useEffect, useContext } from "react";
 import { getDoc, doc } from "firebase/firestore";
 import { db } from "../../firebase";
 import { AuthContext } from "../AuthContext";
-import Modal from "../UpdateProfileModal/UpdateProfileModal";
+import UpdateProfileModal from "../UpdateProfileModal/UpdateProfileModal";
 import CalorieIntake from "./CalorieIntake";
 import RemainCalories from "./RemainCalories/RemainCalories";
 import DailyNutrients from "./DailyNutrients/DailyNutrients";
@@ -52,7 +52,7 @@ const Home = () => {
   return (
     <Container>
       <Greeting />
-      {showModal ? <Modal /> : null}
+      {showModal ? <UpdateProfileModal /> : null}
       <GridContainer>
         {data && (
           <>
