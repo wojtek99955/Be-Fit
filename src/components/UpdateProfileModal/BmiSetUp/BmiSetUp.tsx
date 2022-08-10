@@ -81,7 +81,7 @@ const BmiSetUp = ({ setPage }: Props) => {
             />
             <ErrorMessage name="weight" component={ErrorMsg} />
 
-            <button type="submit">Save</button>
+            <button type="submit">Next</button>
           </Form>
         </Formik>
       </FormContainer>
