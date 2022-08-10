@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ReactDOM from "react-dom";
-import BmiSetUp from "./BmiSetUp";
+import BmiSetUp from "./BmiSetUp/BmiSetUp";
 import { Container, Wrapper } from "./UpdateProfileModalStyle";
 
 const UpdateProfileModal = () => {
