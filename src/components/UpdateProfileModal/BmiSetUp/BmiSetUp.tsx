@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { Wrapper } from "../UpdateProfileModalStyle";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
