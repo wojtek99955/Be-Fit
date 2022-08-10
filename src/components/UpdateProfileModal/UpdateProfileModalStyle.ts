@@ -14,9 +14,9 @@ export const Container = styled.div`
 
 export const Wrapper = styled.div`
   background-color: white;
+  width: 30rem;
   padding: 1rem;
   h1 {
-    max-width: 20rem;
     text-align: center;
   }
   button {
