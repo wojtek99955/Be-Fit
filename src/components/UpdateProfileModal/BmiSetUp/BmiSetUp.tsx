@@ -35,7 +35,11 @@ const validationSchema = yup.object().shape({
     .required("required"),
 });
 
-const BmiSetUp = () => {
+interface Props {
+  setPage: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const BmiSetUp = ({ setPage }: Props) => {
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
   return (
@@ -76,7 +80,14 @@ const BmiSetUp = () => {
             />
             <ErrorMessage name="weight" component={ErrorMsg} />
 
-            <button type="submit">Save</button>
+            <button
+              type="submit"
+              onClick={() => {
+                setPage(2);
+              }}
+            >
+              Save
+            </button>
           </Form>
         </Formik>
       </FormContainer>
