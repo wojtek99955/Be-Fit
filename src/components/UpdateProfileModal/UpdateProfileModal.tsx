@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ReactDOM from "react-dom";
 import BmiSetUp from "./BmiSetUp/BmiSetUp";
+import CalorieIntakeSetup from "./CalorieIntakeSetup/CalorieIntakeSetup";
 import { Container, Wrapper } from "./UpdateProfileModalStyle";
 
 const UpdateProfileModal = () => {
@@ -20,7 +21,8 @@ const UpdateProfileModal = () => {
           </button>
         </Wrapper>
       )}
-      {page === 1 && <BmiSetUp />}
+      {page === 1 && <BmiSetUp setPage={setPage} />}
+      {page === 2 && <CalorieIntakeSetup />}
     </Container>,
     document.getElementById("portal")!
   );
