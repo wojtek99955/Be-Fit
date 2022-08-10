@@ -6,6 +6,8 @@ import { AuthContext } from "../../AuthContext";
 import { setDoc, doc } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { Title, Wrapper } from "../UpdateProfileModalStyle";
+import { FormContainer } from "../UpdateProfileModalStyle";
+import { Row, InputContainer, InputWrapper } from "./CalorieIntakeSetupStyle";
 
 enum Activity {
   zero = "zero physical activity",
@@ -114,6 +116,90 @@ const CalorieIntakeSetup = () => {
   return (
     <Wrapper>
       <Title>Set up calorie intake</Title>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={async (values) => {
+          try {
+            const intake = await getIntake(values);
+            setIntake(intake);
+            setGoal(values.goal);
+            await setDoc(
+              doc(db, `users/${uid}/body-details`, "calorie-intake"),
+              {
+                calorieIntake: intake,
+              }
+            );
+          } catch {
+            console.log("error");
+          }
+        }}
+      >
+        <FormContainer>
+          <Form>
+            <Row>
+              <InputContainer>
+                <InputWrapper>
+                  <div>Gender</div>
+                  <Field as="select" name="gender">
+                    <option value="-"></option>
+                    <option value="male">male</option>
+                    <option value="female">female</option>
+                  </Field>
+                </InputWrapper>
+                <ErrorMessage name="gender" component={ErrorMsg} />
+              </InputContainer>
+              <InputContainer>
+                <InputWrapper>
+                  <label htmlFor="age">Age</label>
+                  <Field name="age" id="age" />
+                </InputWrapper>
+                <ErrorMessage name="age" component={ErrorMsg} />
+              </InputContainer>
+            </Row>
+            <Row>
+              <InputContainer>
+                <InputWrapper>
+                  <label htmlFor="weight">Weight</label>
+                  <Field name="weight" id="weight" />
+                </InputWrapper>
+                <ErrorMessage name="weight" component={ErrorMsg} />
+              </InputContainer>
+              <InputContainer>
+                <InputWrapper>
+                  <label htmlFor="height">Height</label>
+                  <Field name="height" id="height" />
+                </InputWrapper>
+                <ErrorMessage name="height" component={ErrorMsg} />
+              </InputContainer>
+            </Row>
+            <div>Goal</div>
+            <Field as="select" name="goal">
+              <option value="-"></option>
+              <option value="maintain">maintain</option>
+              <option value="loose">loose</option>
+              <option value="gain">gain</option>
+            </Field>
+            <ErrorMessage name="goal" component={ErrorMsg} />
+            <div>Activity</div>
+            <Field as="select" name="activityLevel">
+              <option value="-"></option>
+              <option value={Activity.zero}>{Activity.zero}</option>
+              <option value={Activity.rarely}>{Activity.rarely}</option>
+              <option value={Activity.sedentaryLifestyle}>
+                {Activity.sedentaryLifestyle}
+              </option>
+              <option value={Activity.moderateActivity}>
+                {Activity.moderateActivity}
+              </option>
+              <option value={Activity.veryActive}>{Activity.veryActive}</option>
+              <option value={Activity.sport}>{Activity.sport}</option>
+            </Field>
+            <ErrorMessage name="activityLevel" component={ErrorMsg} />
+            <button type="submit">Get result</button>
+          </Form>
+        </FormContainer>
+      </Formik>
     </Wrapper>
   );
 };
