@@ -124,8 +124,6 @@ const CalorieIntakeSetup = ({ setPage }: Props) => {
         onSubmit={async (values) => {
           try {
             const intake = await getIntake(values);
-            setIntake(intake);
-            setGoal(values.goal);
             await setDoc(
               doc(db, `users/${uid}/body-details`, "calorie-intake"),
               {
