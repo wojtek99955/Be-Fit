@@ -23,9 +23,7 @@ export const Wrapper = styled.div`
     border: none;
     display: block;
     background-color: green;
-    margin: auto;
     padding: 0.8rem 2rem;
-    margin-top: 8rem;
     color: white;
     background-color: #ffa101;
     cursor: pointer;
@@ -76,4 +74,11 @@ export const FormContainer = styled.div`
     margin-top: 1rem;
     padding-left: 0.3rem;
   }
+`;
+
+export const BtnsContainer = styled.div`
+  display: flex;
+  margin-top: 3rem;
+  justify-content: space-between;
+  width: 100%;
 `;
