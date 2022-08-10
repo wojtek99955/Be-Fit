@@ -130,6 +130,7 @@ const CalorieIntakeSetup = ({ setPage }: Props) => {
                 calorieIntake: intake,
               }
             );
+            setPage(3);
           } catch {
             console.log("error");
           }
@@ -197,7 +198,7 @@ const CalorieIntakeSetup = ({ setPage }: Props) => {
             </Field>
             <ErrorMessage name="activityLevel" component={ErrorMsg} />
             <BtnsContainer>
-              <button>Prev</button>
+              <button onClick={() => setPage(1)}>Prev</button>
               <button type="submit">Next</button>
             </BtnsContainer>
           </Form>
