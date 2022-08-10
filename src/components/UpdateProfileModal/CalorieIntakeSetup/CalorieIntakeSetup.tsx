@@ -196,7 +196,7 @@ const CalorieIntakeSetup = () => {
               <option value={Activity.sport}>{Activity.sport}</option>
             </Field>
             <ErrorMessage name="activityLevel" component={ErrorMsg} />
-            <button type="submit">Get result</button>
+            <button type="submit">Next</button>
           </Form>
         </FormContainer>
       </Formik>
