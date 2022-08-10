@@ -74,8 +74,6 @@ interface Props {
 const CalorieIntakeSetup = ({ setPage }: Props) => {
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
-  const [intake, setIntake] = useState<string | null>("");
-  const [goal, setGoal] = useState("");
 
   function getIntake(values: any) {
     function getBMR() {
