@@ -7,7 +7,7 @@ import { useState, useEffect, useContext } from "react";
 import { getDoc, doc } from "firebase/firestore";
 import { db } from "../../firebase";
 import { AuthContext } from "../AuthContext";
-import Modal from "../../Modal";
+import Modal from "../UpdateProfileModal/UpdateProfileModal";
 import CalorieIntake from "./CalorieIntake";
 import RemainCalories from "./RemainCalories/RemainCalories";
 import DailyNutrients from "./DailyNutrients/DailyNutrients";
