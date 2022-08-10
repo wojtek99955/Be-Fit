@@ -6,7 +6,7 @@ import { AuthContext } from "../../AuthContext";
 import { setDoc, doc } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { Title, Wrapper } from "../UpdateProfileModalStyle";
-import { FormContainer } from "../UpdateProfileModalStyle";
+import { FormContainer, BtnsContainer } from "../UpdateProfileModalStyle";
 import { Row, InputContainer, InputWrapper } from "./CalorieIntakeSetupStyle";
 
 enum Activity {
@@ -196,7 +196,10 @@ const CalorieIntakeSetup = () => {
               <option value={Activity.sport}>{Activity.sport}</option>
             </Field>
             <ErrorMessage name="activityLevel" component={ErrorMsg} />
-            <button type="submit">Next</button>
+            <BtnsContainer>
+              <button>Prev</button>
+              <button type="submit">Next</button>
+            </BtnsContainer>
           </Form>
         </FormContainer>
       </Formik>
