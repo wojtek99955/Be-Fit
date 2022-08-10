@@ -22,7 +22,7 @@ const UpdateProfileModal = () => {
         </Wrapper>
       )}
       {page === 1 && <BmiSetUp setPage={setPage} />}
-      {page === 2 && <CalorieIntakeSetup />}
+      {page === 2 && <CalorieIntakeSetup setPage={setPage} />}
     </Container>,
     document.getElementById("portal")!
   );

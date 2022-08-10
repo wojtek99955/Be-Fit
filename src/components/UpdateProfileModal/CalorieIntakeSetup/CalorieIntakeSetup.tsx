@@ -67,7 +67,11 @@ const validationSchema = yup.object().shape({
     .required("required"),
 });
 
-const CalorieIntakeSetup = () => {
+interface Props {
+  setPage: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const CalorieIntakeSetup = ({ setPage }: Props) => {
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
   const [intake, setIntake] = useState<string | null>("");
