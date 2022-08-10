@@ -9,13 +9,13 @@ const UpdateProfileModal = () => {
     <Container>
       {page === 0 && (
         <Wrapper>
-          <h1>Add Additional Data To Your Account</h1>
+          <h1>Set up your profile</h1>
           <button
             onClick={() => {
               setPage(1);
             }}
           >
-            update
+            start
           </button>
         </Wrapper>
       )}
