@@ -1,4 +1,4 @@
-import { Wrapper } from "../UpdateProfileModalStyle";
+import { Wrapper, Title } from "../UpdateProfileModalStyle";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 import { ErrorMsg } from "../../Auth/AuthStyle";
@@ -40,7 +40,7 @@ const BmiSetUp = () => {
   const uid = ctx?.currentUser.uid;
   return (
     <Wrapper>
-      BmiSetUp
+      <Title>Set up your BMI</Title>
       <FormContainer>
         <Formik
           initialValues={initialValues}
