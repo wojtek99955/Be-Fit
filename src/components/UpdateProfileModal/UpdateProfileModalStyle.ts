@@ -27,7 +27,8 @@ export const Wrapper = styled.div`
     color: white;
     background-color: #ffa101;
     cursor: pointer;
-    font-size: 1.2rem;
+    border-radius: 12px;
+    font-size: 1rem;
     &:hover {
       background-color: #cf8300;
     }
