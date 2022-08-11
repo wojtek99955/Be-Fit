@@ -17,7 +17,13 @@ const UpdateGoal = ({ setPage, setShowModal }: Props) => {
         >
           Prev
         </button>
-        <button>Done</button>
+        <button
+          onClick={() => {
+            setShowModal(false);
+          }}
+        >
+          Done
+        </button>
       </BtnsContainer>
     </Wrapper>
   );
