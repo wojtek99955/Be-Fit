@@ -1,5 +1,10 @@
 import { Title, Wrapper } from "../UpdateProfileModalStyle";
-const UpdateGoal = () => {
+
+interface Props {
+  setPage: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const UpdateGoal = ({ setPage }: Props) => {
   return (
     <Wrapper>
       <Title>Set your goal</Title>
