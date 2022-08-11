@@ -26,10 +26,12 @@ const validationSchema = yup.object().shape({
   currentWeight: yup
     .number()
     .min(40, "40 is a minimum value")
+    .max(250, "250 is a maximum value")
     .required("required"),
   targetWeight: yup
     .number()
     .min(30, "30 is a minimum value")
+    .max(100, "100 is a maximum value")
     .required("required"),
 });
 
