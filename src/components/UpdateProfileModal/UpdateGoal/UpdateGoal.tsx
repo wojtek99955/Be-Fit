@@ -51,7 +51,7 @@ const UpdateGoal = ({ setPage, setShowModal }: Props) => {
             <ErrorMessage name="currentWeight" component={ErrorMsg} />
             <label htmlFor="targetWeight">Target weight</label>
             <Field type="number" id="targetWeight" name="targetWeight" />
-            <ErrorMessage name="targetWeight" />
+            <ErrorMessage name="targetWeight" component={ErrorMsg} />
             <BtnsContainer>
               <button
                 onClick={() => {
