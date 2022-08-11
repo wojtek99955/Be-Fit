@@ -1,6 +1,10 @@
-import { Wrapper } from "../UpdateProfileModalStyle";
+import { Title, Wrapper } from "../UpdateProfileModalStyle";
 const UpdateGoal = () => {
-  return <Wrapper>UpdateGoal</Wrapper>;
+  return (
+    <Wrapper>
+      <Title>Set your goal</Title>
+    </Wrapper>
+  );
 };
 
 export default UpdateGoal;
