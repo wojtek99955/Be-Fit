@@ -11,7 +11,11 @@ import {
 } from "./UpdateProfileModalStyle";
 import SetAccountIcon from "../../assets/svg/SetAccountIcon";
 
-const UpdateProfileModal = () => {
+interface Props {
+  setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const UpdateProfileModal = ({ setShowModal }: Props) => {
   const [page, setPage] = useState(0);
 
   return ReactDOM.createPortal(
@@ -33,7 +37,9 @@ const UpdateProfileModal = () => {
       )}
       {page === 1 && <BmiSetUp setPage={setPage} />}
       {page === 2 && <CalorieIntakeSetup setPage={setPage} />}
-      {page === 3 && <UpdateGoal setPage={setPage} />}
+      {page === 3 && (
+        <UpdateGoal setPage={setPage} setShowModal={setShowModal} />
+      )}
     </Container>,
     document.getElementById("portal")!
   );

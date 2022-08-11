@@ -2,14 +2,21 @@ import { Title, Wrapper, BtnsContainer } from "../UpdateProfileModalStyle";
 
 interface Props {
   setPage: React.Dispatch<React.SetStateAction<number>>;
+  setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const UpdateGoal = ({ setPage }: Props) => {
+const UpdateGoal = ({ setPage, setShowModal }: Props) => {
   return (
     <Wrapper>
       <Title>Set your goal</Title>
       <BtnsContainer>
-        <button>Prev</button>
+        <button
+          onClick={() => {
+            setPage(2);
+          }}
+        >
+          Prev
+        </button>
         <button>Done</button>
       </BtnsContainer>
     </Wrapper>

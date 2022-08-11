@@ -52,7 +52,7 @@ const Home = () => {
   return (
     <Container>
       <Greeting />
-      {showModal ? <UpdateProfileModal /> : null}
+      {showModal ? <UpdateProfileModal setShowModal={setShowModal} /> : null}
       <GridContainer>
         {data && (
           <>
