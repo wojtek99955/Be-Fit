@@ -83,3 +83,14 @@ export const BtnsContainer = styled.div`
   justify-content: space-between;
   width: 100%;
 `;
+
+export const StartButton = styled.button`
+  margin: auto;
+  margin-top: 3rem;
+`;
+
+export const IconContainer = styled.div`
+  width: 80%;
+  margin: auto;
+  margin-top: 3rem;
+`;
