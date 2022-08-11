@@ -14,6 +14,7 @@ export const Container = styled.div`
 
 export const Wrapper = styled.div`
   background-color: white;
+  border-radius: 12px;
   width: 30rem;
   padding: 1rem;
   h1 {
