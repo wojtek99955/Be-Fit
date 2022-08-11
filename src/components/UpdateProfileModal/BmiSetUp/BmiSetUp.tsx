@@ -7,6 +7,7 @@ import { db } from "../../../firebase";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthContext";
 import { FormContainer } from "../UpdateProfileModalStyle";
+import { Button } from "./BmiSetUpStyles";
 
 const initialValues = {
   gender: "",
@@ -80,7 +81,7 @@ const BmiSetUp = ({ setPage }: Props) => {
               placeholder="weight"
             />
             <ErrorMessage name="weight" component={ErrorMsg} />
-            <button type="submit">Next</button>
+            <Button type="submit">Next</Button>
           </Form>
         </Formik>
       </FormContainer>
