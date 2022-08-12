@@ -16,6 +16,7 @@ export const RangeInput = styled.div`
     opacity: 0.7;
     -webkit-transition: 0.2s;
     transition: opacity 0.2s;
+    padding-left: 0;
     cursor: pointer;
 
     &:hover {
