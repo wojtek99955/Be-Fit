@@ -54,7 +54,7 @@ export const FormContainer = styled.div`
     height: 3rem;
     color: #55595b;
     padding-left: 0.5rem;
-    margin-top: 1rem;
+    margin: 1rem 0;
     font-weight: 600;
     &:-webkit-autofill,
     &:-webkit-autofill:hover,
