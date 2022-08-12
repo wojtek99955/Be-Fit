@@ -11,6 +11,7 @@ import { ErrorMsg } from "../../Auth/AuthStyle";
 import { AuthContext } from "../../AuthContext";
 import { setDoc, doc } from "firebase/firestore";
 import { db } from "../../../firebase";
+import { RangeInput } from "./UpdateGoalStyle";
 
 interface Props {
   setPage: React.Dispatch<React.SetStateAction<number>>;
@@ -20,6 +21,7 @@ interface Props {
 const initialValues = {
   currentWeight: "",
   targetWeight: "",
+  calorieDeficit: 0,
 };
 
 const validationSchema = yup.object().shape({
@@ -36,41 +38,77 @@ const validationSchema = yup.object().shape({
 });
 
 const UpdateGoal = ({ setPage, setShowModal }: Props) => {
+  const ctx = useContext(AuthContext);
+  const uid = ctx?.currentUser.uid;
+
+  function getDays(currentWeight: number, goalWeight: number, deficit: number) {
+    return ((currentWeight - goalWeight) * 7000) / deficit;
+  }
+  function weightToLoose(currentWeight: number, goalWeight: number) {
+    return currentWeight - goalWeight;
+  }
   return (
     <Wrapper>
       <Title>Set your goal</Title>
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={(val) => console.log(val)}
-      >
-        <FormContainer>
-          <Form>
-            <label htmlFor="currentWeight">Current weight</label>
-            <Field type="number" id="currentWeight" name="currentWeight" />
-            <ErrorMessage name="currentWeight" component={ErrorMsg} />
-            <label htmlFor="targetWeight">Target weight</label>
-            <Field type="number" id="targetWeight" name="targetWeight" />
-            <ErrorMessage name="targetWeight" component={ErrorMsg} />
-            <BtnsContainer>
-              <button
-                onClick={() => {
-                  setPage(2);
-                }}
-              >
-                Prev
-              </button>
-              <button
-                onClick={() => {
-                  setShowModal(false);
-                }}
-              >
-                Done
-              </button>
-            </BtnsContainer>
-          </Form>
-        </FormContainer>
-      </Formik>
+      <FormContainer>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={async (values) => {
+            const days = await getDays(
+              +values.currentWeight,
+              +values.targetWeight,
+              +values.calorieDeficit
+            );
+            const toLoose = await weightToLoose(
+              +values.currentWeight,
+              +values.targetWeight
+            );
+
+            await setDoc(doc(db, `users/${uid}/body-details`, "goals"), {
+              currentWeight: values.currentWeight,
+              goalWeight: values.targetWeight,
+              toLoose: toLoose,
+              days: days,
+            });
+            setShowModal(false);
+          }}
+        >
+          {({ values, handleChange }) => (
+            <Form>
+              <label htmlFor="currentWeight">Current weight</label>
+              <Field type="number" id="currentWeight" name="currentWeight" />
+              <ErrorMessage name="currentWeight" component={ErrorMsg} />
+              <label htmlFor="targetWeight">Target weight</label>
+              <Field type="number" id="targetWeight" name="targetWeight" />
+              <ErrorMessage name="targetWeight" component={ErrorMsg} />
+              <RangeInput>
+                <label>Calorie deficit</label>
+                <div>{values.calorieDeficit} kcal</div>
+
+                <Field
+                  type="range"
+                  min="0"
+                  max="1000"
+                  step="100"
+                  name="calorieDeficit"
+                  onChange={handleChange}
+                />
+              </RangeInput>
+              <BtnsContainer>
+                <button
+                  onClick={() => {
+                    setPage(2);
+                  }}
+                >
+                  Prev
+                </button>
+                <button type="submit">Done</button>
+              </BtnsContainer>
+            </Form>
+          )}
+        </Formik>
+      </FormContainer>
     </Wrapper>
   );
 };
