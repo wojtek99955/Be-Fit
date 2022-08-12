@@ -9,6 +9,7 @@ export const RangeInput = styled.div`
     -webkit-appearance: none;
     width: 100%;
     height: 0.5rem;
+    margin-bottom: 0;
     border-radius: 8px;
     background: #d3d3d3;
     outline: none;
