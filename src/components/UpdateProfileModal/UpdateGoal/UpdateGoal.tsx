@@ -83,7 +83,7 @@ const UpdateGoal = ({ setPage, setShowModal }: Props) => {
               <Field type="number" id="targetWeight" name="targetWeight" />
               <ErrorMessage name="targetWeight" component={ErrorMsg} />
               <RangeInput>
-                <label>Calorie deficit</label>
+                <label>Daily calorie deficit</label>
                 <div>{values.calorieDeficit} kcal</div>
 
                 <Field
