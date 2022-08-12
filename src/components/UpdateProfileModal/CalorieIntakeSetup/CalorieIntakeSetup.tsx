@@ -161,14 +161,14 @@ const CalorieIntakeSetup = ({ setPage }: Props) => {
             <Row>
               <InputContainer>
                 <InputWrapper>
-                  <label htmlFor="weight">Weight</label>
+                  <label htmlFor="weight">Weight (kg)</label>
                   <Field name="weight" id="weight" />
                 </InputWrapper>
                 <ErrorMessage name="weight" component={ErrorMsg} />
               </InputContainer>
               <InputContainer>
                 <InputWrapper>
-                  <label htmlFor="height">Height</label>
+                  <label htmlFor="height">Height (cm)</label>
                   <Field name="height" id="height" />
                 </InputWrapper>
                 <ErrorMessage name="height" component={ErrorMsg} />
