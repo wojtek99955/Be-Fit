@@ -76,10 +76,10 @@ const UpdateGoal = ({ setPage, setShowModal }: Props) => {
         >
           {({ values, handleChange }) => (
             <Form>
-              <label htmlFor="currentWeight">Current weight</label>
+              <label htmlFor="currentWeight">Current weight (kg)</label>
               <Field type="number" id="currentWeight" name="currentWeight" />
               <ErrorMessage name="currentWeight" component={ErrorMsg} />
-              <label htmlFor="targetWeight">Target weight</label>
+              <label htmlFor="targetWeight">Target weight (kg)</label>
               <Field type="number" id="targetWeight" name="targetWeight" />
               <ErrorMessage name="targetWeight" component={ErrorMsg} />
               <RangeInput>
