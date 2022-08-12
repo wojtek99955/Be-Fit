@@ -73,7 +73,7 @@ export const FormContainer = styled.div`
     height: 3rem;
     font-weight: 600;
     border: 2px solid #dfe2e7;
-    margin-top: 1rem;
+    margin: 1rem 0;
     padding-left: 0.3rem;
   }
 `;
