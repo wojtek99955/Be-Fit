@@ -11,7 +11,7 @@ export const Container = styled.div`
 export const FoodItem = styled.div`
   box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.1), 0 2px 4px 0 rgba(0, 0, 0, 0),
     inset 0 0 0 1px rgba(255, 255, 255, 0.5);
-  padding: 1.5rem;
+  padding: 2.5rem 1.5rem;
   display: grid;
   position: relative;
   grid-template-columns: repeat(4, 1fr);
@@ -132,4 +132,11 @@ export const DeleteIcon = styled(AiOutlineDelete)`
   &:active {
     background-color: #e1605e;
   }
+`;
+
+export const FoodIconContainer = styled.div`
+  width: 4rem;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
 `;

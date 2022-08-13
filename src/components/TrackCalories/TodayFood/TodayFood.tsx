@@ -16,10 +16,12 @@ import {
   DownIcon,
   CurrentDate,
   DeleteIcon,
+  FoodIconContainer,
 } from "./TodayFoodStyle";
 import ConsumedNutrientsData from "./ConsumedNutrients/ConsumedNutrientsData";
 import RemainCalories from "./RemainCalories/RemainCalories";
 import { nanoid } from "nanoid";
+import HealthyFoodIcon from "../../../assets/svg/HealthyFoodIcon";
 
 const TodayFood = () => {
   const [todayFoods, setTodayFoods] = useState<any>([]);
@@ -83,6 +85,9 @@ const TodayFood = () => {
             ? todayFoods.map((item: any) => {
                 return (
                   <FoodItem key={nanoid()}>
+                    <FoodIconContainer>
+                      <HealthyFoodIcon />
+                    </FoodIconContainer>
                     <Name>
                       <h3>{item.name}</h3>
                     </Name>
