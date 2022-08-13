@@ -166,7 +166,7 @@ const Header = ({ setShowSideBar }: Props) => {
                 <IconContainer>
                   <SettingsIcon
                     onClick={() => {
-                      navigate("/settings");
+                      navigate("/settings/account");
                     }}
                   />
                 </IconContainer>
