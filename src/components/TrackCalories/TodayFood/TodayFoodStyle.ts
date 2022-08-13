@@ -19,6 +19,7 @@ export const FoodItem = styled.div`
   align-items: center;
   border-radius: 12px;
   margin-bottom: 2rem;
+  background-color: #edf5f1;
   div {
     padding: 0.5rem;
     color: #555555;
