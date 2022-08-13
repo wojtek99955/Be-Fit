@@ -33,6 +33,10 @@ export const Wrapper = styled.div`
     &:hover {
       background-color: #cf8300;
     }
+    &:disabled {
+      background-color: #ffdda4;
+      cursor: default;
+    }
   }
 `;
 
