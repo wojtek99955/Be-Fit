@@ -60,33 +60,37 @@ const BmiSetUp = ({ setPage }: Props) => {
             setPage(2);
           }}
         >
-          <Form>
-            <label htmlFor="gender">Gender</label>
-            <Field as="select" name="gender">
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-            </Field>
-            <label htmlFor="age">Age </label>
-            <Field name="age" type="text" id="age" placeholder="age" />
-            <ErrorMessage name="age" component={ErrorMsg} />
-            <label htmlFor="height">Height (cm)</label>
-            <Field
-              name="height"
-              type="height"
-              id="height"
-              placeholder="height"
-            />
-            <ErrorMessage name="height" component={ErrorMsg} />
-            <label htmlFor="weight">Weight (kg)</label>
-            <Field
-              name="weight"
-              type="weight"
-              id="weight"
-              placeholder="weight"
-            />
-            <ErrorMessage name="weight" component={ErrorMsg} />
-            <Button type="submit">Next</Button>
-          </Form>
+          {({ dirty, isValid }) => (
+            <Form>
+              <label htmlFor="gender">Gender</label>
+              <Field as="select" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </Field>
+              <label htmlFor="age">Age </label>
+              <Field name="age" type="text" id="age" placeholder="age" />
+              <ErrorMessage name="age" component={ErrorMsg} />
+              <label htmlFor="height">Height (cm)</label>
+              <Field
+                name="height"
+                type="height"
+                id="height"
+                placeholder="height"
+              />
+              <ErrorMessage name="height" component={ErrorMsg} />
+              <label htmlFor="weight">Weight (kg)</label>
+              <Field
+                name="weight"
+                type="weight"
+                id="weight"
+                placeholder="weight"
+              />
+              <ErrorMessage name="weight" component={ErrorMsg} />
+              <Button type="submit" disabled={!(isValid && dirty)}>
+                Next
+              </Button>
+            </Form>
+          )}
         </Formik>
       </FormContainer>
     </Wrapper>
