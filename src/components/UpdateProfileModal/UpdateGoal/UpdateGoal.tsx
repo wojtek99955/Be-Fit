@@ -74,7 +74,7 @@ const UpdateGoal = ({ setPage, setShowModal }: Props) => {
             setShowModal(false);
           }}
         >
-          {({ values, handleChange }) => (
+          {({ values, handleChange, dirty, isValid }) => (
             <Form>
               <label htmlFor="currentWeight">Current weight (kg)</label>
               <Field type="number" id="currentWeight" name="currentWeight" />
@@ -103,7 +103,9 @@ const UpdateGoal = ({ setPage, setShowModal }: Props) => {
                 >
                   Prev
                 </button>
-                <button type="submit">Done</button>
+                <button type="submit" disabled={!(isValid && dirty)}>
+                  Done
+                </button>
               </BtnsContainer>
             </Form>
           )}
