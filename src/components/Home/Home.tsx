@@ -54,7 +54,7 @@ const Home = () => {
       <Greeting />
       {showModal ? <UpdateProfileModal setShowModal={setShowModal} /> : null}
       <GridContainer>
-        {data && (
+        {!showModal && (
           <>
             <Measurement />
             <BMI />
