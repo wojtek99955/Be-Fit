@@ -1,9 +1,13 @@
-import { Box, StyledLink } from "../CardStyles";
+import { Box } from "../CardStyles";
 import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../../AuthContext";
 import { getDoc, doc } from "firebase/firestore";
 import { db } from "../../../firebase";
-import { Calories, StyledSettingsIcon } from "./RemainCaloriesStyle";
+import {
+  Calories,
+  StyledSettingsIcon,
+  StyledLink,
+} from "./RemainCaloriesStyle";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, Tooltip, Legend, ArcElement } from "chart.js";
 ChartJS.register(Tooltip, Legend, ArcElement);

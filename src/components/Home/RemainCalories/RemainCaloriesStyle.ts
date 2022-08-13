@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { SettingsIcon } from "../CardStyles";
 
@@ -28,4 +29,9 @@ export const StyledSettingsIcon = styled(SettingsIcon)`
   position: absolute;
   top: 1rem;
   right: 1rem;
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  z-index: 3;
 `;
