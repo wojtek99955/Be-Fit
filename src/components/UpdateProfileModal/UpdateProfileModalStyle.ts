@@ -59,7 +59,7 @@ export const FormContainer = styled.div`
     color: #55595b;
     padding-left: 0.5rem;
     margin: 1rem 0;
-    font-weight: 600;
+    font-weight: 400;
     &:-webkit-autofill,
     &:-webkit-autofill:hover,
     &:-webkit-autofill:focus,
@@ -75,7 +75,7 @@ export const FormContainer = styled.div`
     color: #55595b;
     cursor: pointer;
     height: 3rem;
-    font-weight: 600;
+    font-weight: 400;
     border: 2px solid #dfe2e7;
     margin: 1rem 0;
     padding-left: 0.3rem;
