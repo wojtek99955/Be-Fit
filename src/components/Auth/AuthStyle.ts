@@ -60,6 +60,7 @@ export const StyledLink = styled(Link)`
 export const ErrorMsg = styled.div`
   color: red;
   margin-bottom: 1rem;
+  font-size: 0.9rem;
 `;
 
 export const LoadingContainer = styled.div`
