@@ -5,7 +5,7 @@ import {
   Row,
   ConsumedNutrients,
 } from "./ConsumedNutrientsStyle";
-import { setDoc, doc } from "firebase/firestore";
+import { setDoc, doc, serverTimestamp } from "firebase/firestore";
 import { AuthContext } from "../../../AuthContext";
 import { db } from "../../../../firebase";
 
@@ -56,8 +56,8 @@ const ConsumedNutrientsData = ({ consumed, loading }: Props) => {
           fiber: consumedFiber.toFixed(1),
           protein: consumedProtein.toFixed(1),
           carbo: consumedCarbo.toFixed(1),
-          month,
-          year,
+          timestamp: serverTimestamp(),
+          dayMonth: `${day}/${month}`,
         }
       );
     }
