@@ -13,6 +13,7 @@ const StyledBox = styled(Box)`
 `;
 
 const LastMonth = () => {
+  const [activeChart, setActiveChart] = useState("nutrients");
   const [data, setData] = useState<null | any>([]);
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
@@ -36,8 +37,11 @@ const LastMonth = () => {
   return (
     <StyledBox>
       <h3>Last 30 days</h3>
-      <NutrientsChart chartData={data} />
-      <CaloriesChart chartData={data} />
+      {activeChart === "nutrients" ? (
+        <NutrientsChart chartData={data} />
+      ) : (
+        <CaloriesChart chartData={data} />
+      )}
     </StyledBox>
   );
 };
