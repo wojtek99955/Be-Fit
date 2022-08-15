@@ -107,9 +107,6 @@ const LastMonth = () => {
   return (
     <StyledBox>
       <h3>Last 30 days</h3>
-      {data?.map((data: any) => {
-        return <p>{data.kcal}</p>;
-      })}
       <Line style={{ maxHeight: "13rem" }} options={options} data={dataChart} />
     </StyledBox>
   );
