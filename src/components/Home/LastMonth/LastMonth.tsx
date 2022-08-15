@@ -10,6 +10,10 @@ import CaloriesChart from "./CaloriesChart";
 const StyledBox = styled(Box)`
   max-width: 1300px;
   margin: 1rem auto;
+
+  h2 {
+    font-size: 1rem;
+  }
 `;
 
 const Header = styled.div`
@@ -69,7 +73,7 @@ const LastMonth = () => {
   return (
     <StyledBox>
       <Header>
-        <h3>Last 30 days</h3>
+        <h2>Last 30 days</h2>
         <ChangeChartDropdown onClick={handleOpenDropdown}>
           {activeChart === "nutrients" ? "Nutrients" : "Calories"}
           {showDropdown ? (
