@@ -60,7 +60,7 @@ const Header = ({ setShowSideBar }: Props) => {
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
-  }, [setOpenProfileMenu]);
+  }, [openProfileMenu]);
 
   const logOut = async () => {
     await auth.signOut();
