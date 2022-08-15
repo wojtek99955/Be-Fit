@@ -15,6 +15,7 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+import NutrientsChart from "./NutrientsChart";
 
 ChartJS.register(
   CategoryScale,
@@ -52,62 +53,10 @@ const LastMonth = () => {
     getData();
   }, [uid]);
 
-  const options = {
-    responsive: true,
-    plugins: {},
-  };
-
-  const labels = data.map((data: any) => {
-    return data.dayMonth;
-  });
-
-  const fat = data?.map((data: any) => {
-    return data.fat;
-  });
-  const protein = data?.map((data: any) => {
-    return data.protein;
-  });
-  const carbohydrates = data?.map((data: any) => {
-    return data.carbo;
-  });
-  const fiber = data?.map((data: any) => {
-    return data.fiber;
-  });
-
-  const dataChart = {
-    labels,
-    datasets: [
-      {
-        label: "Fat",
-        data: fat,
-        borderColor: "rgba(255, 99, 132, 1)",
-        backgroundColor: "rgba(255, 99, 132, 1)",
-      },
-      {
-        label: "Protein",
-        data: protein,
-        borderColor: "rgba(255, 206, 86, 1)",
-        backgroundColor: "rgba(255, 206, 86, 1)",
-      },
-      {
-        label: "Carbohydrates",
-        data: carbohydrates,
-        borderColor: "rgba(54, 162, 235, 1)",
-        backgroundColor: "rgba(54, 162, 235, 1)",
-      },
-      {
-        label: "Fiber",
-        data: fiber,
-        borderColor: "rgba(75, 192, 192, 1)",
-        backgroundColor: "rgba(75, 192, 192, 1)",
-      },
-    ],
-  };
-
   return (
     <StyledBox>
       <h3>Last 30 days</h3>
-      <Line style={{ maxHeight: "13rem" }} options={options} data={dataChart} />
+      <NutrientsChart chartData={data} />
     </StyledBox>
   );
 };
