@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-const img = require("../assets/images/main.jpg");
 
 const Main = styled.main`
   h1 {
