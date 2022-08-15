@@ -15,6 +15,7 @@ const Main = styled.main`
     padding: 1rem 2.3rem;
     display: block;
     margin: auto;
+    border-radius: 12px;
     font-size: 1.5rem;
     margin-top: 2.5rem;
     cursor: pointer;
