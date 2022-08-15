@@ -58,7 +58,7 @@ const LastMonth = () => {
   };
 
   const labels = data.map((data: any) => {
-    return [data.dayMonth];
+    return data.dayMonth;
   });
 
   const fat = data?.map((data: any) => {
