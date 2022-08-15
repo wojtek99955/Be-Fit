@@ -111,14 +111,14 @@ const Header = ({ setShowSideBar }: Props) => {
                   navigate("/signin");
                 }}
               >
-                Sign In
+                Sign in
               </button>
               <button
                 onClick={() => {
                   navigate("/signup");
                 }}
               >
-                Sign Up
+                Sign up
               </button>
             </>
           ) : (
