@@ -11,6 +11,7 @@ import UpdateProfileModal from "../UpdateProfileModal/UpdateProfileModal";
 import CalorieIntake from "./CalorieIntake";
 import RemainCalories from "./RemainCalories/RemainCalories";
 import DailyNutrients from "./DailyNutrients/DailyNutrients";
+import LastMonth from "./LastMonth/LastMonth";
 
 const Container = styled.section`
   padding: 1rem;
@@ -52,6 +53,7 @@ const Home = () => {
   return (
     <Container>
       <Greeting />
+      <LastMonth />
       {showModal ? <UpdateProfileModal setShowModal={setShowModal} /> : null}
       <GridContainer>
         {!showModal && (
