@@ -70,6 +70,12 @@ const LastMonth = () => {
   const protein = data?.map((data: any) => {
     return data.protein;
   });
+  const carbohydrates = data?.map((data: any) => {
+    return data.carbo;
+  });
+  const fiber = data?.map((data: any) => {
+    return data.fiber;
+  });
 
   const dataChart = {
     labels,
@@ -83,14 +89,26 @@ const LastMonth = () => {
       {
         label: "Fat",
         data: fat,
-        borderColor: "green",
-        backgroundColor: "green",
+        borderColor: "rgba(255, 99, 132, 1)",
+        backgroundColor: "rgba(255, 99, 132, 1)",
       },
       {
         label: "Protein",
         data: protein,
-        borderColor: "red",
-        backgroundColor: "red",
+        borderColor: "rgba(255, 206, 86, 1)",
+        backgroundColor: "rgba(255, 206, 86, 1)",
+      },
+      {
+        label: "Carbohydrates",
+        data: carbohydrates,
+        borderColor: "rgba(54, 162, 235, 1)",
+        backgroundColor: "rgba(54, 162, 235, 1)",
+      },
+      {
+        label: "Fiber",
+        data: fiber,
+        borderColor: "rgba(75, 192, 192, 1)",
+        backgroundColor: "rgba(75, 192, 192, 1)",
       },
     ],
   };
