@@ -60,10 +60,7 @@ const LastMonth = () => {
   const labels = data.map((data: any) => {
     return [data.dayMonth];
   });
-  console.log(data);
-  const caloriess = data?.map((data: any) => {
-    return data.kcal;
-  });
+
   const fat = data?.map((data: any) => {
     return data.fat;
   });
