@@ -4,28 +4,7 @@ import { useState, useEffect, useContext } from "react";
 import { collection, query, getDocs, orderBy } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { AuthContext } from "../../AuthContext";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-} from "chart.js";
-import { Line } from "react-chartjs-2";
 import NutrientsChart from "./NutrientsChart";
-
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
 
 const StyledBox = styled(Box)`
   max-width: 1300px;
