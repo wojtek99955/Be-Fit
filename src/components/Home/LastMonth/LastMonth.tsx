@@ -5,6 +5,7 @@ import { collection, query, getDocs, orderBy } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { AuthContext } from "../../AuthContext";
 import NutrientsChart from "./NutrientsChart";
+import CaloriesChart from "./CaloriesChart";
 
 const StyledBox = styled(Box)`
   max-width: 1300px;
@@ -36,6 +37,7 @@ const LastMonth = () => {
     <StyledBox>
       <h3>Last 30 days</h3>
       <NutrientsChart chartData={data} />
+      <CaloriesChart chartData={data} />
     </StyledBox>
   );
 };
