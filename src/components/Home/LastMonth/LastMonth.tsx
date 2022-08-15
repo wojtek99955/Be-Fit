@@ -12,8 +12,30 @@ const StyledBox = styled(Box)`
   margin: 1rem auto;
 `;
 
+const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const ChangeChartDropdown = styled.div`
+  color: #ffa101;
+  background-color: #ffe9c5;
+  padding: 0.3rem 0.8rem;
+  border-radius: 12px;
+  cursor: pointer;
+  position: relative;
+`;
+const DropdownItem = styled.div`
+  position: absolute;
+  background-color: white;
+  padding: 0.3rem 0.8rem;
+  left: 0;
+  width: 100%;
+  bottom: -2rem;
+`;
 const LastMonth = () => {
   const [activeChart, setActiveChart] = useState("nutrients");
+  const [showDropdown, setShowDropdown] = useState(false);
   const [data, setData] = useState<null | any>([]);
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
@@ -34,9 +56,29 @@ const LastMonth = () => {
     getData();
   }, [uid]);
 
+  const handleOpenDropdown = () => {
+    setShowDropdown((prev) => !prev);
+  };
+
+  const handleChangeChart = () => {
+    activeChart === "nutrients"
+      ? setActiveChart("calories")
+      : setActiveChart("nutrients");
+  };
+
   return (
     <StyledBox>
-      <h3>Last 30 days</h3>
+      <Header>
+        <h3>Last 30 days</h3>
+        <ChangeChartDropdown onClick={handleOpenDropdown}>
+          {activeChart === "nutrients" ? "Nutrients" : "Calories"}
+          {showDropdown ? (
+            <DropdownItem onClick={handleChangeChart}>
+              {activeChart === "nutrients" ? "Calories" : "Nutrients"}
+            </DropdownItem>
+          ) : null}
+        </ChangeChartDropdown>
+      </Header>
       {activeChart === "nutrients" ? (
         <NutrientsChart chartData={data} />
       ) : (
