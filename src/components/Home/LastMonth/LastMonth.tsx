@@ -81,12 +81,6 @@ const LastMonth = () => {
     labels,
     datasets: [
       {
-        label: "Calories",
-        data: caloriess,
-        borderColor: "rgb(255, 99, 132)",
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
-      },
-      {
         label: "Fat",
         data: fat,
         borderColor: "rgba(255, 99, 132, 1)",
