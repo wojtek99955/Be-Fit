@@ -119,11 +119,7 @@ const LastMonth = () => {
       {data?.map((data: any) => {
         return <p>{data.kcal}</p>;
       })}
-      <Line
-        style={{ maxWidth: "800px", maxHeight: "400px" }}
-        options={options}
-        data={dataChart}
-      />
+      <Line style={{ maxHeight: "13rem" }} options={options} data={dataChart} />
     </StyledBox>
   );
 };
