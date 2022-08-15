@@ -30,6 +30,7 @@ export const FormContainer = styled.div`
     background-color: #ffa101;
     border: none;
     padding: 0 2rem;
+    border-radius: 10px;
     height: 2.8rem;
     color: white;
     width: 100%;
