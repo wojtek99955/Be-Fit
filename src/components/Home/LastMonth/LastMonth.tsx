@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Box } from "../CardStyles";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import { collection, query, getDocs, orderBy } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { AuthContext } from "../../AuthContext";
@@ -19,6 +19,7 @@ const StyledBox = styled(Box)`
 const Header = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `;
 
 const ChangeChartDropdown = styled.div`
@@ -40,6 +41,8 @@ const DropdownItem = styled.div`
 const LastMonth = () => {
   const [activeChart, setActiveChart] = useState("nutrients");
   const [showDropdown, setShowDropdown] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
   const [data, setData] = useState<null | any>([]);
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
@@ -70,11 +73,24 @@ const LastMonth = () => {
       : setActiveChart("nutrients");
   };
 
+  const handleClickOutside = (e: any) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+      setShowDropdown(false);
+    }
+  };
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [showDropdown]);
+
   return (
     <StyledBox>
       <Header>
         <h2>Last 30 days</h2>
-        <ChangeChartDropdown onClick={handleOpenDropdown}>
+        <ChangeChartDropdown onClick={handleOpenDropdown} ref={dropdownRef}>
           {activeChart === "nutrients" ? "Nutrients" : "Calories"}
           {showDropdown ? (
             <DropdownItem onClick={handleChangeChart}>
