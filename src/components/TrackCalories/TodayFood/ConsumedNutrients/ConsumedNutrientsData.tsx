@@ -56,6 +56,8 @@ const ConsumedNutrientsData = ({ consumed, loading }: Props) => {
           fiber: consumedFiber.toFixed(1),
           protein: consumedProtein.toFixed(1),
           carbo: consumedCarbo.toFixed(1),
+          month,
+          year,
         }
       );
     }
