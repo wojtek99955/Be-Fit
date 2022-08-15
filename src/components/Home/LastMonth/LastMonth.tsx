@@ -54,15 +54,7 @@ const LastMonth = () => {
 
   const options = {
     responsive: true,
-    plugins: {
-      legend: {
-        position: "top" as const,
-      },
-      title: {
-        display: true,
-        text: "Chart.js Line Chart",
-      },
-    },
+    plugins: {},
   };
 
   const labels = data.map((data: any) => {
@@ -74,6 +66,9 @@ const LastMonth = () => {
   });
   const fat = data?.map((data: any) => {
     return data.fat;
+  });
+  const protein = data?.map((data: any) => {
+    return data.protein;
   });
 
   const dataChart = {
@@ -91,6 +86,12 @@ const LastMonth = () => {
         borderColor: "green",
         backgroundColor: "green",
       },
+      {
+        label: "Protein",
+        data: protein,
+        borderColor: "red",
+        backgroundColor: "red",
+      },
     ],
   };
 
@@ -100,7 +101,11 @@ const LastMonth = () => {
       {data?.map((data: any) => {
         return <p>{data.kcal}</p>;
       })}
-      <Line options={options} data={dataChart} />
+      <Line
+        style={{ maxWidth: "800px", maxHeight: "400px" }}
+        options={options}
+        data={dataChart}
+      />
     </StyledBox>
   );
 };
