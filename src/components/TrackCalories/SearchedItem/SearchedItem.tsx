@@ -13,7 +13,7 @@ import { Formik, Form, ErrorMessage } from "formik";
 import { ErrorMsg } from "../../Auth/AuthStyle";
 import * as yup from "yup";
 import { useContext, useState, useEffect } from "react";
-import { setDoc, doc } from "firebase/firestore";
+import { setDoc, doc, serverTimestamp } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { AuthContext } from "../../AuthContext";
 import { nanoid } from "nanoid";
@@ -61,6 +61,7 @@ const SearchedItem = ({ loading, query, foodWeight, setFoodWeight }: Props) => {
           carbo: queryAmount?.details?.CHOCDF,
           amount: foodWeight,
         },
+        timestamp: serverTimestamp(),
       });
     } catch {
       console.log("error");
