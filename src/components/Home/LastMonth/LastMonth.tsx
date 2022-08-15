@@ -1,14 +1,7 @@
 import styled from "styled-components";
 import { Box } from "../CardStyles";
 import { useState, useEffect, useContext } from "react";
-import {
-  collection,
-  query,
-  where,
-  onSnapshot,
-  getDocs,
-  orderBy,
-} from "firebase/firestore";
+import { collection, query, getDocs, orderBy } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { AuthContext } from "../../AuthContext";
 import {
@@ -44,10 +37,6 @@ const LastMonth = () => {
   const uid = ctx?.currentUser.uid;
   useEffect(() => {
     async function getData() {
-      const date = new Date();
-      const month = date.getMonth() + 1;
-      const year = date.getFullYear();
-
       const q = query(
         collection(db, `users/${uid}/consumedNutrients`),
         orderBy("timestamp", "desc")
