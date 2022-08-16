@@ -23,7 +23,7 @@ const LastMonth = () => {
     async function getData() {
       const q = query(
         collection(db, `users/${uid}/consumedNutrients`),
-        orderBy("timestamp", "desc")
+        orderBy("timestamp", "asc")
       );
       const foodz: any = [];
 
@@ -31,7 +31,7 @@ const LastMonth = () => {
       querySnapshot.forEach((doc) => {
         return foodz.push(doc.data());
       });
-      setData(foodz);
+      setData(foodz.slice(0, 30));
     }
     getData();
   }, [uid]);
