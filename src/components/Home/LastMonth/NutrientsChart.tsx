@@ -27,7 +27,11 @@ interface Props {
 const NutrientsChart = ({ chartData }: Props) => {
   const options = {
     responsive: true,
-    plugins: {},
+    plugins: {
+      legend: {
+        position: "bottom" as const,
+      },
+    },
   };
 
   const labels = chartData.map((data: any) => {
