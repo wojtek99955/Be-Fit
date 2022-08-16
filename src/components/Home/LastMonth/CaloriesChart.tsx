@@ -30,7 +30,11 @@ const CaloriesChart = ({ chartData }: Props) => {
   });
   const options = {
     responsive: true,
-    plugins: {},
+    plugins: {
+      legend: {
+        position: "bottom" as const,
+      },
+    },
   };
 
   const calories = chartData?.map((data: any) => {
