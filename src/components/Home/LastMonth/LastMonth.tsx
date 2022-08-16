@@ -9,6 +9,8 @@ import {
   Header,
   ChangeChartDropdown,
   DropdownItem,
+  UpIcon,
+  DownIcon,
 } from "./LastMonthStyle";
 
 const LastMonth = () => {
@@ -65,6 +67,7 @@ const LastMonth = () => {
         <h2>Last 30 days</h2>
         <ChangeChartDropdown onClick={handleOpenDropdown} ref={dropdownRef}>
           {activeChart === "nutrients" ? "Nutrients" : "Calories"}
+          {showDropdown ? <UpIcon /> : <DownIcon />}
           {showDropdown ? (
             <DropdownItem onClick={handleChangeChart}>
               {activeChart === "nutrients" ? "Calories" : "Nutrients"}

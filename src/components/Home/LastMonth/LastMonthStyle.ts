@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { Box } from "../CardStyles";
+import { BiChevronDown } from "react-icons/bi";
+import { BiChevronUp } from "react-icons/bi";
 
 export const StyledBox = styled(Box)`
   max-width: 1300px;
@@ -23,6 +25,8 @@ export const ChangeChartDropdown = styled.div`
   border-radius: 12px;
   cursor: pointer;
   position: relative;
+  display: flex;
+  align-items: center;
 `;
 export const DropdownItem = styled.div`
   position: absolute;
@@ -31,4 +35,14 @@ export const DropdownItem = styled.div`
   left: 0;
   width: 100%;
   bottom: -2rem;
+`;
+
+export const DownIcon = styled(BiChevronDown)`
+  font-size: 1.3rem;
+  margin-left: 0.3rem;
+`;
+
+export const UpIcon = styled(BiChevronUp)`
+  font-size: 1.3rem;
+  margin-left: 0.3rem;
 `;
