@@ -31,7 +31,8 @@ export const ChangeChartDropdown = styled.div`
 `;
 export const DropdownItem = styled.div`
   position: absolute;
-  background-color: white;
+  background-color: #f5f2f6;
+  border-radius: 12px;
   padding: 0.3rem 0.8rem;
   left: 0;
   width: 100%;
