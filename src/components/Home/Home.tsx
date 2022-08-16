@@ -27,7 +27,7 @@ const GridContainer = styled.div`
   grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-template-rows: repeat(2, minmax(0, 1fr));
   gap: 1rem;
-  max-width: 1300px;
+  max-width: 1100px;
   margin: auto;
 `;
 
