@@ -27,6 +27,7 @@ export const ChangeChartDropdown = styled.div`
   position: relative;
   display: flex;
   align-items: center;
+  font-size: 1rem;
 `;
 export const DropdownItem = styled.div`
   position: absolute;
