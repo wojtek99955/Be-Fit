@@ -22,7 +22,7 @@ export const Header = styled.div`
 export const ChangeChartDropdown = styled.div`
   color: #ffa101;
   background-color: #ffe9c5;
-  padding: 0.3rem 0.8rem;
+  padding: 0.4rem 0.8rem;
   border-radius: 12px;
   cursor: pointer;
   position: relative;
@@ -34,10 +34,10 @@ export const DropdownItem = styled.div`
   position: absolute;
   background-color: #f5f2f6;
   border-radius: 12px;
-  padding: 0.3rem 0.8rem;
+  padding: 0.4rem 0.8rem;
   left: 0;
   width: 100%;
-  bottom: -2rem;
+  bottom: -2.2rem;
   &:hover {
     background: #e4e7e8;
   }
