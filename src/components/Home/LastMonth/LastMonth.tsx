@@ -12,13 +12,14 @@ import {
   UpIcon,
   DownIcon,
 } from "./LastMonthStyle";
+import { NutrientsTypes } from "./ConsumedNutrientsInterface";
 
 const LastMonth = () => {
   const [activeChart, setActiveChart] = useState("nutrients");
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const [data, setData] = useState<null | any>([]);
+  const [data, setData] = useState<NutrientsTypes[] | null>(null);
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
   useEffect(() => {
