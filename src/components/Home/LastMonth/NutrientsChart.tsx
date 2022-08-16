@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import {
   Chart as ChartJS,
   CategoryScale,
