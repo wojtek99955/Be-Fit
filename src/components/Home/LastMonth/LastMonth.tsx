@@ -1,43 +1,16 @@
-import styled from "styled-components";
-import { Box } from "../CardStyles";
 import { useState, useEffect, useContext, useRef } from "react";
 import { collection, query, getDocs, orderBy } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { AuthContext } from "../../AuthContext";
 import NutrientsChart from "./NutrientsChart";
 import CaloriesChart from "./CaloriesChart";
+import {
+  StyledBox,
+  Header,
+  ChangeChartDropdown,
+  DropdownItem,
+} from "./LastMonthStyle";
 
-const StyledBox = styled(Box)`
-  max-width: 1300px;
-  margin: 1rem auto;
-
-  h2 {
-    font-size: 1rem;
-  }
-`;
-
-const Header = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const ChangeChartDropdown = styled.div`
-  color: #ffa101;
-  background-color: #ffe9c5;
-  padding: 0.3rem 0.8rem;
-  border-radius: 12px;
-  cursor: pointer;
-  position: relative;
-`;
-const DropdownItem = styled.div`
-  position: absolute;
-  background-color: white;
-  padding: 0.3rem 0.8rem;
-  left: 0;
-  width: 100%;
-  bottom: -2rem;
-`;
 const LastMonth = () => {
   const [activeChart, setActiveChart] = useState("nutrients");
   const [showDropdown, setShowDropdown] = useState(false);
