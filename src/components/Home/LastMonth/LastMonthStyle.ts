@@ -4,7 +4,7 @@ import { BiChevronDown } from "react-icons/bi";
 import { BiChevronUp } from "react-icons/bi";
 
 export const StyledBox = styled(Box)`
-  max-width: 1300px;
+  max-width: 1100px;
   margin: 1rem auto;
 
   h2 {
