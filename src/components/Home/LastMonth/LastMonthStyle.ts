@@ -37,6 +37,9 @@ export const DropdownItem = styled.div`
   left: 0;
   width: 100%;
   bottom: -2rem;
+  &:hover {
+    background: #e4e7e8;
+  }
 `;
 
 export const DownIcon = styled(BiChevronDown)`
