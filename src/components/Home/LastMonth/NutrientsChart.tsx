@@ -10,6 +10,7 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+import { NutrientsTypes } from "./ConsumedNutrientsInterface";
 
 ChartJS.register(
   CategoryScale,
@@ -21,7 +22,7 @@ ChartJS.register(
   Legend
 );
 interface Props {
-  chartData: any;
+  chartData: NutrientsTypes[] | null;
 }
 
 const NutrientsChart = ({ chartData }: Props) => {
@@ -34,20 +35,20 @@ const NutrientsChart = ({ chartData }: Props) => {
     },
   };
 
-  const labels = chartData.map((data: any) => {
+  const labels = chartData?.map((data: NutrientsTypes) => {
     return data.dayMonth;
   });
 
-  const fat = chartData?.map((data: any) => {
+  const fat = chartData?.map((data: NutrientsTypes) => {
     return data.fat;
   });
-  const protein = chartData?.map((data: any) => {
+  const protein = chartData?.map((data: NutrientsTypes) => {
     return data.protein;
   });
-  const carbohydrates = chartData?.map((data: any) => {
+  const carbohydrates = chartData?.map((data: NutrientsTypes) => {
     return data.carbo;
   });
-  const fiber = chartData?.map((data: any) => {
+  const fiber = chartData?.map((data: NutrientsTypes) => {
     return data.fiber;
   });
 
