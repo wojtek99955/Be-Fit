@@ -52,3 +52,11 @@ export const UpIcon = styled(BiChevronUp)`
   font-size: 1.3rem;
   margin-left: 0.3rem;
 `;
+
+interface Loading {
+  loading: boolean;
+}
+
+export const Wrapper = styled.div<Loading>`
+  opacity: ${({ loading }) => (loading ? "0" : "1")};
+`;

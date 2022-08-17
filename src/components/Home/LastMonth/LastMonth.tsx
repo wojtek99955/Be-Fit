@@ -11,12 +11,14 @@ import {
   DropdownItem,
   UpIcon,
   DownIcon,
+  Wrapper,
 } from "./LastMonthStyle";
 import { NutrientsTypes } from "./ConsumedNutrientsInterface";
 
 const LastMonth = () => {
   const [activeChart, setActiveChart] = useState("nutrients");
   const [showDropdown, setShowDropdown] = useState(false);
+  const [loading, setLoading] = useState(true);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const [data, setData] = useState<NutrientsTypes[] | null>(null);
@@ -35,6 +37,7 @@ const LastMonth = () => {
         return foodz.push(doc.data());
       });
       setData(foodz.slice(0, 30));
+      setLoading(false);
     }
     getData();
   }, [uid]);
@@ -64,23 +67,25 @@ const LastMonth = () => {
 
   return (
     <StyledBox>
-      <Header>
-        <h2>Last 30 days</h2>
-        <ChangeChartDropdown onClick={handleOpenDropdown} ref={dropdownRef}>
-          {activeChart === "nutrients" ? "Nutrients" : "Calories"}
-          {showDropdown ? <UpIcon /> : <DownIcon />}
-          {showDropdown ? (
-            <DropdownItem onClick={handleChangeChart}>
-              {activeChart === "nutrients" ? "Calories" : "Nutrients"}
-            </DropdownItem>
-          ) : null}
-        </ChangeChartDropdown>
-      </Header>
-      {activeChart === "nutrients" ? (
-        <NutrientsChart chartData={data} />
-      ) : (
-        <CaloriesChart chartData={data} />
-      )}
+      <Wrapper loading={loading}>
+        <Header>
+          <h2>Last 30 days</h2>
+          <ChangeChartDropdown onClick={handleOpenDropdown} ref={dropdownRef}>
+            {activeChart === "nutrients" ? "Nutrients" : "Calories"}
+            {showDropdown ? <UpIcon /> : <DownIcon />}
+            {showDropdown ? (
+              <DropdownItem onClick={handleChangeChart}>
+                {activeChart === "nutrients" ? "Calories" : "Nutrients"}
+              </DropdownItem>
+            ) : null}
+          </ChangeChartDropdown>
+        </Header>
+        {activeChart === "nutrients" ? (
+          <NutrientsChart chartData={data} />
+        ) : (
+          <CaloriesChart chartData={data} />
+        )}
+      </Wrapper>
     </StyledBox>
   );
 };
