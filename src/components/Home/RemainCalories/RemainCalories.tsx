@@ -1,4 +1,3 @@
-import { Box } from "../CardStyles";
 import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../../AuthContext";
 import { getDoc, doc } from "firebase/firestore";
