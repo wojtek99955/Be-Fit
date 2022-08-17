@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
-import { ErrorMsg } from "../../Auth/AuthStyle";
+import { ErrorMsg } from "../../../Auth/AuthStyle";
 import {
   Container,
   FormWrapper,
   Wrapper,
   Result,
   Text,
-} from "../CalculatorsStyle";
+} from "../../CalculatorsStyle";
 
 const initialValues = {
   gender: "",

@@ -6,9 +6,9 @@ import {
   Text,
   FormWrapper,
   Result,
-} from "./CalculatorsStyle";
+} from "../CalculatorsStyle";
 import * as yup from "yup";
-import { ErrorMsg } from "../Auth/AuthStyle";
+import { ErrorMsg } from "../../Auth/AuthStyle";
 
 const initialValues = {
   gender: "male",

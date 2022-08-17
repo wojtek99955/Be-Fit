@@ -1,7 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useContext, useState } from "react";
 import * as yup from "yup";
-import { ErrorMsg } from "../../Auth/AuthStyle";
+import { ErrorMsg } from "../../../Auth/AuthStyle";
 import {
   Container,
   Wrapper,
@@ -12,9 +12,9 @@ import {
   FormContainer,
   FormWrapper,
 } from "./CalorieIntakeCalculatorStyle";
-import { AuthContext } from "../../AuthContext";
+import { AuthContext } from "../../../AuthContext";
 import { setDoc, doc } from "firebase/firestore";
-import { db } from "../../../firebase";
+import { db } from "../../../../firebase";
 
 enum Activity {
   zero = "zero physical activity",
