@@ -14,6 +14,7 @@ import {
   Wrapper,
 } from "./LastMonthStyle";
 import { NutrientsTypes } from "./ConsumedNutrientsInterface";
+import { AnimatePresence } from "framer-motion";
 
 const LastMonth = () => {
   const [activeChart, setActiveChart] = useState("nutrients");
@@ -73,11 +74,18 @@ const LastMonth = () => {
           <ChangeChartDropdown onClick={handleOpenDropdown} ref={dropdownRef}>
             {activeChart === "nutrients" ? "Nutrients" : "Calories"}
             {showDropdown ? <UpIcon /> : <DownIcon />}
-            {showDropdown ? (
-              <DropdownItem onClick={handleChangeChart}>
-                {activeChart === "nutrients" ? "Calories" : "Nutrients"}
-              </DropdownItem>
-            ) : null}
+            <AnimatePresence>
+              {showDropdown ? (
+                <DropdownItem
+                  onClick={handleChangeChart}
+                  initial={{ y: "30%", opacity: 0, scale: 0.5 }}
+                  animate={{ y: "120%", opacity: 1, scale: 1 }}
+                  exit={{ y: "0%", opacity: 0, scale: 0.5 }}
+                >
+                  {activeChart === "nutrients" ? "Calories" : "Nutrients"}
+                </DropdownItem>
+              ) : null}
+            </AnimatePresence>
           </ChangeChartDropdown>
         </Header>
         {activeChart === "nutrients" ? (

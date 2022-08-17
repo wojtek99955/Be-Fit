@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Box } from "../CardStyles";
 import { BiChevronDown } from "react-icons/bi";
 import { BiChevronUp } from "react-icons/bi";
+import { motion } from "framer-motion";
 
 export const StyledBox = styled(Box)`
   max-width: 1100px;
@@ -30,14 +31,14 @@ export const ChangeChartDropdown = styled.div`
   align-items: center;
   font-size: 1rem;
 `;
-export const DropdownItem = styled.div`
+export const DropdownItem = styled(motion.div)`
   position: absolute;
   background-color: #f5f2f6;
   border-radius: 12px;
   padding: 0.4rem 0.8rem;
   left: 0;
   width: 100%;
-  bottom: -2.2rem;
+  /* bottom: -2.2rem; */
   &:hover {
     background: #e4e7e8;
   }
