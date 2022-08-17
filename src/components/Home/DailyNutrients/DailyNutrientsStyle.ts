@@ -27,16 +27,10 @@ export const Kcal = styled.div`
 interface Loading {
   loading: boolean;
 }
-export const Wrapper = styled.div<Loading>`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 2.5rem;
-  opacity: ${({ loading }) => (loading ? "0" : "1")};
-`;
 
-export const StyledBox = styled(Box)`
+export const StyledBox = styled(Box)<Loading>`
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: ${({ loading }) => (loading ? "0" : "1")};
 `;
