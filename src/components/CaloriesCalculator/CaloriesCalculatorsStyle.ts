@@ -217,3 +217,10 @@ export const InputContainer = styled.div`
     justify-content: center;
   }
 `;
+
+export const NoMealsFound = styled.h3`
+  font-size: 1.3rem;
+  color: red;
+  text-align: center;
+  margin-top: 2rem;
+`;

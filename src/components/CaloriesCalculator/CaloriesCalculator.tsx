@@ -13,6 +13,7 @@ import {
   FoodName,
   SearchIcon,
   InputContainer,
+  NoMealsFound,
 } from "./CaloriesCalculatorsStyle";
 
 const CaloriesCalculator = () => {
@@ -20,6 +21,7 @@ const CaloriesCalculator = () => {
   const [loading, setLoading] = useState<null | boolean>(null);
   const [showBoxes, setShowBoxes] = useState(false);
   const [foodWeight, setFoodWeight] = useState<number>(0);
+  const [error, setError] = useState(false);
 
   const capitalize = (s: string) => {
     return s.charAt(0).toUpperCase() + s.slice(1);
@@ -47,8 +49,12 @@ const CaloriesCalculator = () => {
                     name: data.text,
                   });
                   setLoading(false);
+                  setError(false);
                 } catch {
                   console.log("error fetch");
+                  setError(true);
+                  setLoading(false);
+                  setShowBoxes(false);
                 }
               }
             }}
@@ -67,9 +73,13 @@ const CaloriesCalculator = () => {
           </Formik>
         </ContentWrapper>
       </MainImg>
-      <FoodName loading={loading}>
-        <StyledH2>{query ? capitalize(query?.name) : null}</StyledH2>
-      </FoodName>
+      {!error ? (
+        <FoodName loading={loading}>
+          <StyledH2>{query ? capitalize(query?.name) : null}</StyledH2>
+        </FoodName>
+      ) : (
+        <NoMealsFound>No meals found</NoMealsFound>
+      )}
 
       {showBoxes ? (
         <Nutrients>
