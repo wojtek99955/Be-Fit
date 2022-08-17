@@ -20,6 +20,7 @@ const TrackCalories = () => {
   const [showBox, setShowBox] = useState(false);
   const [foodWeight, setFoodWeight] = useState<number>(100);
   const [todayFoods, setTodayFoods] = useState<any>(null);
+  const [error, setError] = useState(false);
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
 
@@ -73,6 +74,7 @@ const TrackCalories = () => {
                 setLoading(false);
               } catch {
                 console.log("error fetch");
+                setError(true);
               }
             }
           }}
@@ -93,6 +95,7 @@ const TrackCalories = () => {
               query={query}
               setFoodWeight={setFoodWeight}
               foodWeight={foodWeight}
+              error={error}
             />
           </>
         ) : null}
