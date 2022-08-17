@@ -51,7 +51,6 @@ const CaloriesCalculator = () => {
                   setLoading(false);
                   setError(false);
                 } catch {
-                  console.log("error fetch");
                   setError(true);
                   setLoading(false);
                   setShowBoxes(false);
