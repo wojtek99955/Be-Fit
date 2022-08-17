@@ -58,6 +58,8 @@ const ConsumedNutrientsData = ({ consumed, loading }: Props) => {
           carbo: consumedCarbo.toFixed(1),
           timestamp: serverTimestamp(),
           dayMonth: `${day}/${month}`,
+          year: year,
+          month: month,
         }
       );
     }
