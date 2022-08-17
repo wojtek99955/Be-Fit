@@ -13,8 +13,8 @@ import {
   Charts,
   ChartsBtns,
 } from "./StatisticsStyle";
-import DoughNutChart from "./DoughNutChart";
-import VerticalChart from "./VerticalChart";
+import DoughNutChart from "./NutrientsCharts/DoughNutChart";
+import VerticalChart from "./NutrientsCharts/VerticalChart";
 
 const Statistics = () => {
   const [nutrients, setNutrients] = useState<any>(null);
