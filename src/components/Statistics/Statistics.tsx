@@ -18,6 +18,7 @@ import VerticalChart from "./VerticalChart";
 
 const Statistics = () => {
   const [nutrients, setNutrients] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
 
@@ -53,6 +54,7 @@ const Statistics = () => {
       protein: consumedProtein.toFixed(1),
       carbo: consumedCarbo.toFixed(1),
     });
+    setLoading(false);
   }
   useEffect(() => {
     getNutrients();
@@ -90,10 +92,10 @@ const Statistics = () => {
       </ChartsBtns>
       {activeCharts ? (
         <Charts>
-          <Chart>
+          <Chart loading={loading}>
             <DoughNutChart nutrients={nutrients} />
           </Chart>
-          <Chart>
+          <Chart loading={loading}>
             <VerticalChart nutrients={nutrients} />
           </Chart>
         </Charts>

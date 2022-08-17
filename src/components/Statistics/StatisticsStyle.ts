@@ -3,6 +3,9 @@ import styled from "styled-components";
 interface ActiveCharts {
   active: boolean;
 }
+interface Loading {
+  loading: boolean;
+}
 
 export const Container = styled.section`
   padding: 1rem;
@@ -52,7 +55,7 @@ export const PieChartIconContainer = styled.div`
   top: 18%;
 `;
 
-export const Chart = styled.div`
+export const Chart = styled.div<Loading>`
   width: 20rem;
   height: 20rem;
   display: flex;
@@ -61,6 +64,7 @@ export const Chart = styled.div`
   background-color: #f3f4f6;
   padding: 1rem;
   border-radius: 12px;
+  opacity: ${({ loading }) => (loading ? "0" : "1")};
 `;
 
 export const Charts = styled.div`
