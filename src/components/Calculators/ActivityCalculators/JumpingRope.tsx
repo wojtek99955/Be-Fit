@@ -4,17 +4,17 @@ import {
   Text,
   FormWrapper,
   Result,
-} from "./CalculatorsStyle";
+} from "../CalculatorsStyle";
 import { Formik, Form, ErrorMessage, Field } from "formik";
 import { useState } from "react";
 import * as yup from "yup";
-import { ErrorMsg } from "../Auth/AuthStyle";
+import { ErrorMsg } from "../../Auth/AuthStyle";
 
-const RunningCalculator = () => {
+const JumpingRope = () => {
   const initialValues = {
     weight: "",
-    duration: "",
     level: "",
+    duration: "",
   };
 
   const validationSchema = yup.object().shape({
@@ -33,23 +33,22 @@ const RunningCalculator = () => {
   const getResult = (weight: number, level: number, duration: number) => {
     return ((3.5 * level * weight) / 200) * duration;
   };
-
   const [result, setResult] = useState<null | number>(null);
   return (
     <Container>
       <Wrapper>
         <Text>
-          <h2>Running</h2>
+          <h2>Jumping rope</h2>
           <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas illo
-            assumenda eligendi architecto a aliquam molestias commodi quasi
-            officia. Explicabo quidem porro cumque totam atque aliquam sunt odio
-            quam dolorem, animi ab reprehenderit labore inventore accusantium
-            similique nisi obcaecati perspiciatis consequuntur harum incidunt?
-            Odit dignissimos ullam consequuntur velit exercitationem suscipit
-            temporibus voluptates explicabo aperiam fuga! Dolor cum rerum vitae.
+            Skipping is a full body exercise that incorporates all the
+            significant muscles of your body and can help you with overall
+            weight loss as well as targeted muscle growth. From increasing core
+            strength to leg strength, skipping targets the cellulite fat stored
+            in these tough weight loss areas while keeping the heart rate up to
+            add a cardiovascular exercise element.
           </p>
         </Text>
+
         <FormWrapper>
           <Formik
             initialValues={initialValues}
@@ -67,11 +66,9 @@ const RunningCalculator = () => {
               />
               <ErrorMessage name="weight" component={ErrorMsg} />
               <Field as="select" name="level">
-                <option value="6"> slow jogging</option>
-                <option value="8">jogging</option>
-                <option value="10">9 km/h running</option>
-                <option value="13.5">13 km/h running</option>
-                <option value="16">16 km/h running</option>
+                <option value="8.8"> less than 100 skips</option>
+                <option value="11.8">100 - 120 skips</option>
+                <option value="12.3">120-160 skips</option>
               </Field>
               <Field
                 name="duration"
@@ -98,4 +95,4 @@ const RunningCalculator = () => {
   );
 };
 
-export default RunningCalculator;
+export default JumpingRope;

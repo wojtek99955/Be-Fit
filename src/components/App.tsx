@@ -25,10 +25,10 @@ import ForgotPassword from "./Auth/ForgotPassword";
 import TrackCalories from "./TrackCalories/TrackCalories";
 import YourGoal from "./YourGoal/YourGoal";
 import Statistics from "./Statistics/Statistics";
-import ActivityCalculatorsLayout from "./Calculators/ActivityCalculatorsLayout.tsx";
-import ActivityCalculators from "./Calculators/ActivityCalculators";
-import JumpingRope from "./Calculators/JumpingRope";
-import RunningCalculator from "./Calculators/RunningCalculator";
+import ActivityCalculatorsLayout from "./Calculators/ActivityCalculators/ActivityCalculatorsLayout.tsx";
+import ActivityCalculators from "./Calculators/ActivityCalculators/ActivityCalculators";
+import JumpingRope from "./Calculators/ActivityCalculators/JumpingRope";
+import RunningCalculator from "./Calculators/ActivityCalculators/RunningCalculator";
 
 interface AuthProps {
   children: JSX.Element;
