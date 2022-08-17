@@ -27,6 +27,7 @@ Fitness app
 - fitness calculators
 - weight calculators
 - realtime database
+- monthly statistics
 
 ## Installation
 
