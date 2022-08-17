@@ -10,7 +10,7 @@ interface ImageProps {
 }
 
 export const Container = styled.section`
-  margin-top: 6rem;
+  margin-top: 2rem;
   width: 40rem;
   margin-left: 1rem;
   margin-right: 1rem;
