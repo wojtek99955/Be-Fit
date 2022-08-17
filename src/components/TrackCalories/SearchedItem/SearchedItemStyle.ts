@@ -112,3 +112,9 @@ export const AddButton = styled.button`
     background-color: #cf8300;
   }
 `;
+
+export const NoFoodFound = styled.h3`
+  font-size: 1.3rem;
+  color: red;
+  text-align: center;
+`;

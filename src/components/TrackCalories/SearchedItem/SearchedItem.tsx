@@ -8,6 +8,7 @@ import {
   Nutrients,
   NutrientsWrapper,
   Calories,
+  NoFoodFound,
 } from "./SearchedItemStyle";
 import { Formik, Form, ErrorMessage } from "formik";
 import { ErrorMsg } from "../../Auth/AuthStyle";
@@ -24,6 +25,7 @@ interface Props {
   query: any;
   setFoodWeight: React.Dispatch<React.SetStateAction<number>>;
   foodWeight: number;
+  error: boolean;
 }
 
 const amountValidationSchema = yup.object().shape({
@@ -35,7 +37,13 @@ const amountValidationSchema = yup.object().shape({
     .positive("only positive numbers"),
 });
 
-const SearchedItem = ({ loading, query, foodWeight, setFoodWeight }: Props) => {
+const SearchedItem = ({
+  loading,
+  query,
+  foodWeight,
+  setFoodWeight,
+  error,
+}: Props) => {
   const [queryAmount, setQueryAmount] = useState<any>({});
 
   const ctx = useContext(AuthContext);
@@ -82,84 +90,90 @@ const SearchedItem = ({ loading, query, foodWeight, setFoodWeight }: Props) => {
   }, [query?.name, query?.details, foodWeight]);
 
   return (
-    <SearchedItemContainer>
-      <SearchItemWrapper loading={loading}>
-        <FoodName>
-          <h2>{query?.name}</h2>
-        </FoodName>
-        <Amount>
-          <Formik
-            validateOnMount
-            initialValues={{ amount: 100 }}
-            onSubmit={async (val) => {
-              setFoodWeight(val.amount);
-            }}
-            validationSchema={amountValidationSchema}
-          >
-            {({ handleChange, submitForm }) => (
-              <Form>
-                <AmountWrapper>
-                  <div>amount</div>
+    <>
+      {!error ? (
+        <SearchedItemContainer>
+          <SearchItemWrapper loading={loading}>
+            <FoodName>
+              <h2>{query?.name}</h2>
+            </FoodName>
+            <Amount>
+              <Formik
+                validateOnMount
+                initialValues={{ amount: 100 }}
+                onSubmit={async (val) => {
+                  setFoodWeight(val.amount);
+                }}
+                validationSchema={amountValidationSchema}
+              >
+                {({ handleChange, submitForm }) => (
+                  <Form>
+                    <AmountWrapper>
+                      <div>amount</div>
 
-                  <AmountField
-                    name="amount"
-                    type="number"
-                    onChange={(e: React.FormEvent<HTMLInputElement>) => {
-                      handleChange(e);
-                      submitForm();
-                    }}
-                  />
-                  <div>g</div>
-                </AmountWrapper>
-                <ErrorMessage name="amount" component={ErrorMsg} />
-                <AddButton
-                  type="submit"
-                  onClick={() => {
-                    addMeal(queryAmount);
-                  }}
-                >
-                  Add Meal
-                </AddButton>
-              </Form>
-            )}
-          </Formik>
-        </Amount>
-        <Nutrients>
-          <NutrientsWrapper>
-            <div>
-              fat
-              <span>
-                {((query?.details?.FAT * foodWeight) / 100).toFixed(1)} g
-              </span>
-            </div>
-            <div>
-              carbo
-              <span>
-                {((query?.details?.CHOCDF * foodWeight) / 100).toFixed(1)} g
-              </span>
-            </div>
-            <div>
-              fiber
-              <span>
-                {((query?.details?.FIBTG * foodWeight) / 100).toFixed(1)} g
-              </span>
-            </div>
-            <div>
-              protein
-              <span>
-                {((query?.details?.PROCNT * foodWeight) / 100).toFixed(1)} g
-              </span>
-            </div>
-          </NutrientsWrapper>
-        </Nutrients>
-        <Calories>
-          kcal
-          <strong>
-            {((query?.details?.ENERC_KCAL * foodWeight) / 100).toFixed(1)}
-          </strong>
-        </Calories>
-      </SearchItemWrapper>
-    </SearchedItemContainer>
+                      <AmountField
+                        name="amount"
+                        type="number"
+                        onChange={(e: React.FormEvent<HTMLInputElement>) => {
+                          handleChange(e);
+                          submitForm();
+                        }}
+                      />
+                      <div>g</div>
+                    </AmountWrapper>
+                    <ErrorMessage name="amount" component={ErrorMsg} />
+                    <AddButton
+                      type="submit"
+                      onClick={() => {
+                        addMeal(queryAmount);
+                      }}
+                    >
+                      Add Meal
+                    </AddButton>
+                  </Form>
+                )}
+              </Formik>
+            </Amount>
+            <Nutrients>
+              <NutrientsWrapper>
+                <div>
+                  fat
+                  <span>
+                    {((query?.details?.FAT * foodWeight) / 100).toFixed(1)} g
+                  </span>
+                </div>
+                <div>
+                  carbo
+                  <span>
+                    {((query?.details?.CHOCDF * foodWeight) / 100).toFixed(1)} g
+                  </span>
+                </div>
+                <div>
+                  fiber
+                  <span>
+                    {((query?.details?.FIBTG * foodWeight) / 100).toFixed(1)} g
+                  </span>
+                </div>
+                <div>
+                  protein
+                  <span>
+                    {((query?.details?.PROCNT * foodWeight) / 100).toFixed(1)} g
+                  </span>
+                </div>
+              </NutrientsWrapper>
+            </Nutrients>
+            <Calories>
+              kcal
+              <strong>
+                {((query?.details?.ENERC_KCAL * foodWeight) / 100).toFixed(1)}
+              </strong>
+            </Calories>
+          </SearchItemWrapper>
+        </SearchedItemContainer>
+      ) : (
+        <NoFoodFound>No meals found</NoFoodFound>
+      )}
+    </>
   );
 };
 
