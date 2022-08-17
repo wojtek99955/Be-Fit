@@ -15,6 +15,7 @@ import {
 } from "./StatisticsStyle";
 import DoughNutChart from "./NutrientsCharts/DoughNutChart";
 import VerticalChart from "./NutrientsCharts/VerticalChart";
+import CaloriesVerticalChart from "./CaloriesCharts/CaloriesVerticalChart";
 
 const Statistics = () => {
   const [nutrients, setNutrients] = useState<any>(null);
@@ -99,7 +100,9 @@ const Statistics = () => {
             <VerticalChart nutrients={nutrients} />
           </Chart>
         </Charts>
-      ) : null}
+      ) : (
+        <CaloriesVerticalChart />
+      )}
     </Container>
   );
 };
