@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext, useRef } from "react";
-import { collection, query, getDocs, orderBy } from "firebase/firestore";
+import { collection, query, getDocs, orderBy, limit } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { AuthContext } from "../../AuthContext";
 import NutrientsChart from "./NutrientsChart";
@@ -29,7 +29,8 @@ const LastMonth = () => {
     async function getData() {
       const q = query(
         collection(db, `users/${uid}/consumedNutrients`),
-        orderBy("timestamp", "asc")
+        orderBy("timestamp", "asc"),
+        limit(30)
       );
       const foodz: any = [];
 
@@ -37,7 +38,7 @@ const LastMonth = () => {
       querySnapshot.forEach((doc) => {
         return foodz.push(doc.data());
       });
-      setData(foodz.slice(0, 30));
+      setData(foodz);
       setLoading(false);
     }
     getData();
