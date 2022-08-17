@@ -72,6 +72,7 @@ const TrackCalories = () => {
                   name: data.text,
                 });
                 setLoading(false);
+                setError(false);
               } catch {
                 console.log("error fetch");
                 setError(true);
