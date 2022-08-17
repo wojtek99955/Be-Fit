@@ -83,7 +83,7 @@ const YourAccount = () => {
       const name = uid + file.name;
       const storageRef = ref(storage, `avatars/${name}`);
       setFile(null);
-      const snapshot = await uploadBytes(storageRef, file);
+      await uploadBytes(storageRef, file);
       const photoURL = await getDownloadURL(storageRef);
       console.log(photoURL);
       const userRef = doc(db, `users/${uid}`);
