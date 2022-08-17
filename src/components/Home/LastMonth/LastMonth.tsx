@@ -13,7 +13,7 @@ import {
   DownIcon,
   Wrapper,
 } from "./LastMonthStyle";
-import { NutrientsTypes } from "./ConsumedNutrientsInterface";
+import { NutrientsTypes } from "../../../assets/interfaces/ConsumedNutrientsInterface";
 import { AnimatePresence } from "framer-motion";
 
 const LastMonth = () => {

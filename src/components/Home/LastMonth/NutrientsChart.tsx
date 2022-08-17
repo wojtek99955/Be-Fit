@@ -9,7 +9,7 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-import { NutrientsTypes } from "./ConsumedNutrientsInterface";
+import { NutrientsTypes } from "../../../assets/interfaces/ConsumedNutrientsInterface";
 
 ChartJS.register(
   CategoryScale,
