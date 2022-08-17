@@ -15,6 +15,7 @@ Fitness app
 - styled-components
 - yup
 - react-charts
+- react-charts-2
 
 ## Features
 
