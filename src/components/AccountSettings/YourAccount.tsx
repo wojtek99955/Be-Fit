@@ -15,7 +15,6 @@ import {
   StyledField,
   FileInput,
   ConfirmPassword,
-  EmailInput,
 } from "./AccountSettingsStyle";
 import * as yup from "yup";
 import { ErrorMsg } from "../Auth/AuthStyle";
