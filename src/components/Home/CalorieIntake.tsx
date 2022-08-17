@@ -51,7 +51,7 @@ const Data = styled.div`
 `;
 
 const BoxWrapper = styled.div<StyleProps>`
-  opacity: ${({ loading }) => (!loading ? "1" : "0")};
+  opacity: ${({ loading }) => (loading ? "0" : "1")};
 `;
 
 const CalorieIntake = () => {
