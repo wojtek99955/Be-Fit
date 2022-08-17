@@ -7,6 +7,7 @@ import {
   Calories,
   StyledSettingsIcon,
   StyledLink,
+  StyledBox,
 } from "./RemainCaloriesStyle";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, Tooltip, Legend, ArcElement } from "chart.js";
@@ -62,7 +63,8 @@ const RemainCalories = () => {
   };
 
   return (
-    <Box
+    <StyledBox
+      loading={loading}
       style={{
         display: "flex",
         justifyContent: "center",
@@ -108,7 +110,7 @@ const RemainCalories = () => {
           <span>calories left</span>
         </Calories>
       )}
-    </Box>
+    </StyledBox>
   );
 };
 

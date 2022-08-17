@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { SettingsIcon } from "../CardStyles";
+import { Box } from "../CardStyles";
 
 interface Loading {
   loading?: boolean;
@@ -34,4 +35,8 @@ export const StyledSettingsIcon = styled(SettingsIcon)`
 export const StyledLink = styled(Link)`
   text-decoration: none;
   z-index: 3;
+`;
+
+export const StyledBox = styled(Box)<Loading>`
+  opacity: ${({ loading }) => (loading ? "0" : "1")};
 `;
