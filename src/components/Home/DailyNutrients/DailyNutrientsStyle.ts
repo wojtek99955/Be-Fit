@@ -2,6 +2,10 @@ import styled from "styled-components";
 import { SettingsIcon } from "../CardStyles";
 import { Box } from "../CardStyles";
 
+interface Loading {
+  loading: boolean;
+}
+
 export const StyledSettingsIcon = styled(SettingsIcon)`
   position: absolute;
   top: 1rem;
@@ -24,13 +28,23 @@ export const Kcal = styled.div`
   }
 `;
 
-interface Loading {
-  loading: boolean;
-}
-
-export const StyledBox = styled(Box)<Loading>`
+export const StyledBox = styled(Box)`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+export const Wrapper = styled.div<Loading>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  padding: 1rem;
   opacity: ${({ loading }) => (loading ? "0" : "1")};
 `;

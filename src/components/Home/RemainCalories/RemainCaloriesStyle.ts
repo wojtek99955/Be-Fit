@@ -15,7 +15,6 @@ export const Calories = styled.div<Loading>`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  opacity: ${({ loading }) => (loading ? "0" : "1")};
   z-index: 0;
 
   strong {
@@ -53,5 +52,5 @@ export const Wrapper = styled.div<Loading>`
   bottom: 0;
   margin: auto;
   padding: 1rem;
-  background-color: ${({ loading }) => (loading ? "1" : "0")};
+  opacity: ${({ loading }) => (loading ? "0" : "1")};
 `;
