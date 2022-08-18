@@ -38,5 +38,5 @@ export const StyledLink = styled(Link)`
 `;
 
 export const StyledBox = styled(Box)<Loading>`
-  opacity: ${({ loading }) => (loading ? "0" : "1")};
+  opacity: ${({ loading }) => (loading ? "1" : "0")};
 `;
