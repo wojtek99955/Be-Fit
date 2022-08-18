@@ -80,26 +80,24 @@ const CalorieIntake = () => {
 
   return (
     <>
-      {data.calorieIntake ? (
-        <Box>
-          <BoxWrapper loading={loading}>
-            <Header>
-              <h2>Calorie Intake </h2>
-              <StyledLink to="/calculators/body-calculators/calorie-intake">
-                <SettingsIcon />
-              </StyledLink>
-            </Header>
-            {data ? (
-              <Data>
-                <Wrapper>
-                  <strong>{data.calorieIntake}</strong>
-                  <div>kcal/day</div>
-                </Wrapper>
-              </Data>
-            ) : null}
-          </BoxWrapper>
-        </Box>
-      ) : null}
+      <Box>
+        <BoxWrapper loading={loading}>
+          <Header>
+            <h2>Calorie Intake </h2>
+            <StyledLink to="/calculators/body-calculators/calorie-intake">
+              <SettingsIcon />
+            </StyledLink>
+          </Header>
+          {data ? (
+            <Data>
+              <Wrapper>
+                <strong>{data.calorieIntake}</strong>
+                <div>kcal/day</div>
+              </Wrapper>
+            </Data>
+          ) : null}
+        </BoxWrapper>
+      </Box>
     </>
   );
 };
