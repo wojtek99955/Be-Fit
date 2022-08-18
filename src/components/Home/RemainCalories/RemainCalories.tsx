@@ -43,6 +43,7 @@ const RemainCalories = () => {
       setCalorieIntake(snap.data().calorieIntake);
     } else {
       console.log("No such document");
+      setLoading(false);
     }
   }
 
@@ -55,7 +56,7 @@ const RemainCalories = () => {
     labels: ["Consumed calories", "Daily intake"],
     datasets: [
       {
-        data: [consumedKcal!, calorieIntake],
+        data: [consumedKcal, calorieIntake],
         backgroundColor: ["#e4e7e8", "#00C579"],
       },
     ],
@@ -94,10 +95,10 @@ const RemainCalories = () => {
       {consumedKcal ? (
         <Calories loading={loading}>
           <>
-            {calorieIntake - consumedKcal! <= 0 ? (
-              <strong>0</strong>
-            ) : (
+            {consumedKcal ? (
               <strong>{calorieIntake - consumedKcal!}</strong>
+            ) : (
+              <strong>0</strong>
             )}
 
             <span>calories left</span>
