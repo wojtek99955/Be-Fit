@@ -32,6 +32,12 @@ const NutrientsChart = ({ chartData }: Props) => {
         position: "bottom" as const,
       },
     },
+    elements: {
+      line: {
+        tension: 0.3,
+        borderDashOffset: 30,
+      },
+    },
   };
 
   const labels = chartData?.map((data: NutrientsTypes) => {
