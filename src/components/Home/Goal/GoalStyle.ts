@@ -8,6 +8,7 @@ interface WrapperProps {
 export const Wrapper = styled.div<WrapperProps>`
   padding: 1rem;
   border-radius: 12px;
+  margin-top: 2rem;
   opacity: ${({ loading }) => (loading ? "0" : "1")};
   &:first-of-type {
     background-color: #faf2ef;
@@ -46,4 +47,8 @@ export const StyledSettingsIcon = styled(SettingsIcon)`
   position: absolute;
   top: 1rem;
   right: 1rem;
+`;
+
+export const BoxWrapper = styled.div<WrapperProps>`
+  opacity: ${({ loading }) => (loading ? "0" : "1")};
 `;

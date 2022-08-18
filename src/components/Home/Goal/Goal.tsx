@@ -1,4 +1,9 @@
-import { Wrapper, StyledBox, StyledSettingsIcon } from "./GoalStyle";
+import {
+  Wrapper,
+  StyledBox,
+  StyledSettingsIcon,
+  BoxWrapper,
+} from "./GoalStyle";
 import { StyledLink } from "../CardStyles";
 import { useEffect, useState, useContext } from "react";
 import { getDoc, doc } from "firebase/firestore";
@@ -30,17 +35,19 @@ const Goal = () => {
 
   return (
     <StyledBox>
-      <StyledLink to="/my-goal">
-        <StyledSettingsIcon />
-      </StyledLink>
-      <Wrapper loading={loading}>
-        <h2>Current weight</h2>
-        <p>{data.currentWeight}</p>
-      </Wrapper>
-      <Wrapper loading={loading}>
-        <h2>Target weight</h2>
-        <p>{data.goalWeight}</p>
-      </Wrapper>
+      <BoxWrapper loading={loading}>
+        <StyledLink to="/my-goal">
+          <StyledSettingsIcon />
+        </StyledLink>
+        <Wrapper loading={loading}>
+          <h2>Current weight</h2>
+          <p>{data.currentWeight}</p>
+        </Wrapper>
+        <Wrapper loading={loading}>
+          <h2>Target weight</h2>
+          <p>{data.goalWeight}</p>
+        </Wrapper>
+      </BoxWrapper>
     </StyledBox>
   );
 };
