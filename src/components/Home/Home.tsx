@@ -53,20 +53,21 @@ const Home = () => {
   return (
     <Container>
       <Greeting />
-      <LastMonth />
       {showModal ? <UpdateProfileModal setShowModal={setShowModal} /> : null}
-      <GridContainer>
-        {!showModal && (
-          <>
+
+      {!showModal && (
+        <>
+          <LastMonth />
+          <GridContainer>
             <Measurement />
             <BMI />
             <Goal />
             <CalorieIntake />
             <RemainCalories />
             <DailyNutrients />
-          </>
-        )}
-      </GridContainer>
+          </GridContainer>
+        </>
+      )}
     </Container>
   );
 };
