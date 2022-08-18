@@ -70,7 +70,7 @@ const RemainCalories = () => {
 
   return (
     <StyledBox>
-      <Wrapper>
+      <Wrapper loading={loading}>
         <StyledLink to="/track-calories">
           <StyledSettingsIcon />
         </StyledLink>

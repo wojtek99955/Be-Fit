@@ -53,4 +53,5 @@ export const Wrapper = styled.div<Loading>`
   bottom: 0;
   margin: auto;
   padding: 1rem;
+  background-color: ${({ loading }) => (loading ? "1" : "0")};
 `;
