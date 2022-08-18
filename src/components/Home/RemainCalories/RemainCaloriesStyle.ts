@@ -51,6 +51,6 @@ export const Wrapper = styled.div<Loading>`
   top: 0;
   bottom: 0;
   margin: auto;
-  padding: 1rem;
+  padding: 1.6rem;
   opacity: ${({ loading }) => (loading ? "0" : "1")};
 `;

@@ -47,4 +47,5 @@ export const Wrapper = styled.div<Loading>`
   margin: auto;
   padding: 1rem;
   opacity: ${({ loading }) => (loading ? "0" : "1")};
+  padding: 1.6rem;
 `;
