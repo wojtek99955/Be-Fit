@@ -8,6 +8,7 @@ import {
   Title,
   Tooltip,
   Legend,
+  Filler,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { NutrientsTypes } from "../../../assets/interfaces/ConsumedNutrientsInterface";
@@ -19,7 +20,8 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  Filler
 );
 interface Props {
   chartData: NutrientsTypes[] | null;
@@ -36,6 +38,12 @@ const CaloriesChart = ({ chartData }: Props) => {
         position: "bottom" as const,
       },
     },
+    elements: {
+      line: {
+        tension: 0.3,
+        borderWidth: 4,
+      },
+    },
   };
 
   const calories = chartData?.map((data: NutrientsTypes) => {
@@ -49,7 +57,10 @@ const CaloriesChart = ({ chartData }: Props) => {
         label: "Calories",
         data: calories,
         borderColor: "rgba(255, 99, 132, 1)",
-        backgroundColor: "rgba(255, 99, 132, 1)",
+        backgroundColor: "rgba(255, 99, 132, 0.3)",
+        fill: {
+          target: "origin",
+        },
       },
     ],
   };
