@@ -16,6 +16,7 @@ Fitness app
 - yup
 - react-charts
 - react-charts-2
+- framer-motion
 
 ## Features
 
