@@ -9,7 +9,6 @@ export const Container = styled.div`
   background-color: #00c579;
   height: 15rem;
   border-radius: 8px;
-  margin-bottom: 2rem;
   color: white;
   display: flex;
   justify-content: center;
@@ -17,6 +16,10 @@ export const Container = styled.div`
   flex-direction: column;
   font-size: 2.5rem;
   position: relative;
+  margin: auto;
+  margin-bottom: 2rem;
+
+  max-width: 1100px;
   h1 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
