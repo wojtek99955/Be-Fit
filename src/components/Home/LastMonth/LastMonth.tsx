@@ -81,7 +81,7 @@ const LastMonth = () => {
                   onClick={handleChangeChart}
                   initial={{ y: "30%", opacity: 0, scale: 0.5 }}
                   animate={{ y: "120%", opacity: 1, scale: 1 }}
-                  exit={{ y: "0%", opacity: 0, scale: 0.5 }}
+                  exit={{ y: "50%", opacity: 0, scale: 0.5 }}
                 >
                   {activeChart === "nutrients" ? "Calories" : "Nutrients"}
                 </DropdownItem>
