@@ -3,7 +3,14 @@ import { getDoc, doc } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { AuthContext } from "../../AuthContext";
 import { StyledLink } from "../CardStyles";
-import { Wrapper, Bmi, Data, StyledSettingsIcon, StyledBox } from "./BMIstyle";
+import {
+  Wrapper,
+  Bmi,
+  Data,
+  StyledSettingsIcon,
+  StyledBox,
+  BoxWrapper,
+} from "./BMIstyle";
 
 const BMI = () => {
   const [loading, setLoading] = useState(true);
@@ -30,15 +37,17 @@ const BMI = () => {
   const BMI = weight / Math.pow(height / 100, 2);
   return (
     <StyledBox bmi={BMI}>
-      <StyledLink to="/my-body">
-        <StyledSettingsIcon bmi={BMI} />
-      </StyledLink>
-      <Wrapper bmi={BMI} loading={loading}>
-        <Data>
-          {data && <Bmi>{BMI.toFixed(1)}</Bmi>}
-          <p>BMI</p>
-        </Data>
-      </Wrapper>
+      <BoxWrapper loading={loading}>
+        <StyledLink to="/my-body">
+          <StyledSettingsIcon bmi={BMI} />
+        </StyledLink>
+        <Wrapper bmi={BMI} loading={loading}>
+          <Data>
+            {data && <Bmi>{BMI.toFixed(1)}</Bmi>}
+            <p>BMI</p>
+          </Data>
+        </Wrapper>
+      </BoxWrapper>
     </StyledBox>
   );
 };

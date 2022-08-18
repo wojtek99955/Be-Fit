@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { SettingsIcon, Box } from "../CardStyles";
 
 interface StyleProps {
-  bmi: number;
+  bmi?: number;
   loading: boolean;
 }
 interface BmiProps {
@@ -13,11 +13,11 @@ export const Wrapper = styled.div<StyleProps>`
   border-width: 8px;
   border-style: solid;
   border-color: ${({ bmi }) => {
-    if (bmi >= 25) {
+    if (bmi! >= 25) {
       return "#E1605E";
-    } else if (bmi >= 18.5) {
+    } else if (bmi! >= 18.5) {
       return "#009D51";
-    } else if (bmi < 18.5) {
+    } else if (bmi! < 18.5) {
       return "#E1605E";
     } else {
       return "transparent";
@@ -35,7 +35,7 @@ export const Wrapper = styled.div<StyleProps>`
     color: #bcbcbc;
     text-align: center;
     color: ${({ bmi }) => {
-      if (bmi >= 30 || bmi <= 18.49) {
+      if (bmi! >= 30 || bmi! <= 18.49) {
         return "white";
       }
     }};
@@ -74,4 +74,8 @@ export const LoaderContainer = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+`;
+
+export const BoxWrapper = styled.div<StyleProps>`
+  opacity: ${({ loading }) => (loading ? "0" : "1")};
 `;
