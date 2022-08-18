@@ -54,9 +54,9 @@ const SettingsSideBar = () => {
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to="/settings/email">
+          <StyledNavLink to="/settings/preferences">
             <EmailIcon />
-            Email <br /> preferences
+            Preferences
           </StyledNavLink>
         </li>
       </ul>
