@@ -96,7 +96,11 @@ const RemainCalories = () => {
           <Calories>
             <>
               {consumedKcal ? (
-                <strong>{calorieIntake - consumedKcal}</strong>
+                <strong>
+                  {calorieIntake - consumedKcal > 0
+                    ? calorieIntake - consumedKcal
+                    : 0}
+                </strong>
               ) : (
                 <strong>0</strong>
               )}
