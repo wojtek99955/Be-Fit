@@ -55,7 +55,7 @@ const SideBar = () => {
           </User>
           {location.pathname === "/settings/account" ||
           location.pathname === "/settings/security" ||
-          location.pathname === "/settings/email" ? (
+          location.pathname === "/settings/preferences" ? (
             <SettingsSideBar />
           ) : (
             <nav>
