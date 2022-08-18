@@ -37,6 +37,19 @@ export const StyledLink = styled(Link)`
   z-index: 3;
 `;
 
-export const StyledBox = styled(Box)<Loading>`
-  opacity: ${({ loading }) => (loading ? "1" : "0")};
+export const StyledBox = styled(Box)`
+  position: relative;
+`;
+
+export const Wrapper = styled.div<Loading>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
 `;

@@ -7,6 +7,7 @@ import {
   StyledSettingsIcon,
   StyledLink,
   StyledBox,
+  Wrapper,
 } from "./RemainCaloriesStyle";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, Tooltip, Legend, ArcElement } from "chart.js";
@@ -32,6 +33,8 @@ const RemainCalories = () => {
       setLoading(false);
     } else {
       console.log("No such document");
+      setConsumedKcal(0);
+      setLoading(false);
     }
   }
 
@@ -41,6 +44,7 @@ const RemainCalories = () => {
     );
     if (snap.exists()) {
       setCalorieIntake(snap.data().calorieIntake);
+      setLoading(false);
     } else {
       console.log("No such document");
       setLoading(false);
@@ -62,54 +66,51 @@ const RemainCalories = () => {
     ],
   };
 
-  return (
-    <StyledBox
-      loading={loading}
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <StyledLink to="/track-calories">
-        <StyledSettingsIcon />
-      </StyledLink>
-      <Doughnut
-        style={{ position: "relative", zIndex: 2 }}
-        data={chartData}
-        options={{
-          responsive: true,
-          cutout: "65%",
-          plugins: {
-            legend: {
-              display: false,
-            },
-          },
-          elements: {
-            arc: {
-              borderWidth: 3,
-            },
-          },
-        }}
-      />
-      {consumedKcal ? (
-        <Calories loading={loading}>
-          <>
-            {consumedKcal ? (
-              <strong>{calorieIntake - consumedKcal!}</strong>
-            ) : (
-              <strong>0</strong>
-            )}
+  console.log(loading);
 
+  return (
+    <StyledBox>
+      <Wrapper>
+        <StyledLink to="/track-calories">
+          <StyledSettingsIcon />
+        </StyledLink>
+        <Doughnut
+          style={{ position: "relative", zIndex: 2 }}
+          data={chartData}
+          options={{
+            responsive: true,
+            cutout: "65%",
+            plugins: {
+              legend: {
+                display: false,
+              },
+            },
+            elements: {
+              arc: {
+                borderWidth: 3,
+              },
+            },
+          }}
+        />
+        {consumedKcal ? (
+          <Calories loading={loading}>
+            <>
+              {consumedKcal ? (
+                <strong>{calorieIntake - consumedKcal}</strong>
+              ) : (
+                <strong>0</strong>
+              )}
+
+              <span>calories left</span>
+            </>
+          </Calories>
+        ) : (
+          <Calories>
+            <strong>{calorieIntake}</strong>
             <span>calories left</span>
-          </>
-        </Calories>
-      ) : (
-        <Calories>
-          <strong>{calorieIntake}</strong>
-          <span>calories left</span>
-        </Calories>
-      )}
+          </Calories>
+        )}
+      </Wrapper>
     </StyledBox>
   );
 };
