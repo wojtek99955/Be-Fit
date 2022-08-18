@@ -12,7 +12,7 @@ import Calculators from "./Calculators/Calculators";
 import BodyMeasurements from "./BodyMeasurement/BodyMeasurements";
 import AccountSettings from "./AccountSettings/AccountSettings";
 import YourAccount from "./AccountSettings/YourAccount";
-import Email from "./AccountSettings/Email";
+import Preferences from "./AccountSettings/Preferences";
 import Security from "./AccountSettings/Security/Security";
 import BodyCalculators from "./Calculators/BodyCalculators/BodyCalculators";
 import CalculatorsLayout from "./Calculators/CalculatorsLayout";
@@ -103,7 +103,7 @@ function App() {
           }
         >
           <Route path="account" element={<YourAccount />} />
-          <Route path="email" element={<Email />} />
+          <Route path="preferences" element={<Preferences />} />
           <Route path="security" element={<Security />} />
         </Route>
         <Route
