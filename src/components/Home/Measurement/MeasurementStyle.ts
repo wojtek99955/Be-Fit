@@ -64,7 +64,6 @@ export const BoxWrapper = styled.div<StyleProps>`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  opacity: ${({ loading }) => (!loading ? "1" : "0")};
 `;
 
 export const Header = styled.div`
@@ -98,4 +97,8 @@ export const LoaderContainer = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+`;
+
+export const Wrapper = styled.div<StyleProps>`
+  opacity: ${({ loading }) => (loading ? "0" : "1")};
 `;

@@ -15,6 +15,7 @@ import {
   HeightIcon,
   WeightIcon,
   StyledLink,
+  Wrapper,
 } from "./MeasurementStyle";
 import { SettingsIcon } from "../CardStyles";
 
@@ -44,41 +45,43 @@ const Measurement = () => {
 
   return (
     <Box>
-      <Header>
-        <h2>Currently</h2>
-        <StyledLink to="/my-body">
-          <SettingsIcon />
-        </StyledLink>
-      </Header>
-      <BoxWrapper loading={loading}>
-        <DataContainer>
-          <AgeIconContainer>
-            <CalendarIcon />
-          </AgeIconContainer>
-          <DataWrapper>
-            <strong>Age</strong>
-            <p>{age}</p>
-          </DataWrapper>
-        </DataContainer>
-        <DataContainer>
-          <HeightIconContainer>
-            <HeightIcon />
-          </HeightIconContainer>
-          <DataWrapper>
-            <strong>Height</strong>
-            <p>{height}</p>
-          </DataWrapper>
-        </DataContainer>
-        <DataContainer>
-          <WeightIconContainer>
-            <WeightIcon />
-          </WeightIconContainer>
-          <DataWrapper>
-            <strong>Weight</strong>
-            <p> {weight}</p>
-          </DataWrapper>
-        </DataContainer>
-      </BoxWrapper>
+      <Wrapper loading={loading}>
+        <Header>
+          <h2>Currently</h2>
+          <StyledLink to="/my-body">
+            <SettingsIcon />
+          </StyledLink>
+        </Header>
+        <BoxWrapper loading={loading}>
+          <DataContainer>
+            <AgeIconContainer>
+              <CalendarIcon />
+            </AgeIconContainer>
+            <DataWrapper>
+              <strong>Age</strong>
+              <p>{age}</p>
+            </DataWrapper>
+          </DataContainer>
+          <DataContainer>
+            <HeightIconContainer>
+              <HeightIcon />
+            </HeightIconContainer>
+            <DataWrapper>
+              <strong>Height</strong>
+              <p>{height}</p>
+            </DataWrapper>
+          </DataContainer>
+          <DataContainer>
+            <WeightIconContainer>
+              <WeightIcon />
+            </WeightIconContainer>
+            <DataWrapper>
+              <strong>Weight</strong>
+              <p> {weight}</p>
+            </DataWrapper>
+          </DataContainer>
+        </BoxWrapper>
+      </Wrapper>
     </Box>
   );
 };
