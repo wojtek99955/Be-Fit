@@ -42,7 +42,6 @@ const Home = () => {
     if (snap.exists()) {
       setData(snap.data());
     } else {
-      console.log("No such document");
       setShowModal(true);
     }
   }

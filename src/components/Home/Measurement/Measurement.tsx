@@ -32,7 +32,6 @@ const Measurement = () => {
       setData(snap.data());
       setLoading(false);
     } else {
-      console.log("No such document");
       setLoading(false);
     }
   }

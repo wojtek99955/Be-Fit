@@ -45,7 +45,6 @@ const RemainCalories = () => {
       setCalorieIntake(snap.data().calorieIntake);
       setLoading(false);
     } else {
-      console.log("No such document");
       setLoading(false);
     }
   }
