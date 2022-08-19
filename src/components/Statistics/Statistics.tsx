@@ -88,8 +88,9 @@ const Statistics = () => {
 
   const [activeCharts, setActiveCharts] = useState(true);
 
-  const handleOpenDropdown = () => {
+  const handleOpenDropdown = (e: any) => {
     setOpenDropdown((prev) => !prev);
+    e.stopPropagation();
   };
 
   const handleClickOutside = (e: any) => {
@@ -116,8 +117,8 @@ const Statistics = () => {
           <StatisticsPieChartIcon />
         </PieChartIconContainer>
       </Header>
-      <DropdownContainer ref={dropdownRef}>
-        <DropdownHeader onClick={handleOpenDropdown}>
+      <DropdownContainer onClick={handleOpenDropdown} ref={dropdownRef}>
+        <DropdownHeader>
           <h2>
             {selectedMonth ? monthNames[selectedMonth] : monthNames[month]}
           </h2>
