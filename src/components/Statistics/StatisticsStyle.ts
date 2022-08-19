@@ -113,6 +113,17 @@ export const DropdownContainer = styled.div`
 `;
 export const DropdownListContainer = styled.div`
   position: absolute;
+  margin-top: 0.5rem;
+  height: 12rem;
+  overflow-y: scroll;
+  width: 100%;
+
+  ul {
+    list-style-type: none;
+    li {
+      padding: 0.5rem;
+    }
+  }
 `;
 export const DropdownHeader = styled.div`
   display: flex;
