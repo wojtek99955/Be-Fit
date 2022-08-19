@@ -59,7 +59,7 @@ const Statistics = () => {
       foodz.push(doc.data());
     });
     const filteredFoods = foodz.filter((item: any) => {
-      return item.month === month;
+      return item.month === month + 1;
     });
 
     const consumedFat = filteredFoods.reduce((acc: any, obj: any) => {
