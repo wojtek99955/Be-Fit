@@ -32,7 +32,6 @@ const RemainCalories = () => {
       setConsumedKcal(snap.data().kcal);
       setLoading(false);
     } else {
-      console.log("No such document");
       setConsumedKcal(0);
       setLoading(false);
     }
