@@ -31,7 +31,6 @@ const Goal = () => {
   useEffect(() => {
     getData();
   }, []);
-  console.log(data);
 
   return (
     <StyledBox>
