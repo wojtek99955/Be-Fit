@@ -12,6 +12,11 @@ import {
   Chart,
   Charts,
   ChartsBtns,
+  DownIcon,
+  UpIcon,
+  DropdownContainer,
+  DropdownListContainer,
+  DropdownHeader,
 } from "./StatisticsStyle";
 import DoughNutChart from "./NutrientsCharts/DoughNutChart";
 import VerticalChart from "./NutrientsCharts/VerticalChart";
@@ -37,6 +42,7 @@ const monthNames = [
 const Statistics = () => {
   const [nutrients, setNutrients] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const [openDropdown, setOpenDropdown] = useState(false);
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
 
@@ -80,6 +86,10 @@ const Statistics = () => {
 
   const [activeCharts, setActiveCharts] = useState(true);
 
+  const handleOpenDropdown = () => {
+    setOpenDropdown((prev) => !prev);
+  };
+
   return (
     <Container>
       <Header>
@@ -91,7 +101,21 @@ const Statistics = () => {
           <StatisticsPieChartIcon />
         </PieChartIconContainer>
       </Header>
-      <h2>{monthNames[month]}</h2>
+      <DropdownContainer>
+        <DropdownHeader onClick={handleOpenDropdown}>
+          <h2>{monthNames[month]}</h2>
+          <DownIcon />
+        </DropdownHeader>
+        {openDropdown ? (
+          <DropdownListContainer>
+            <ul>
+              {monthNames.map((month, id) => {
+                return <li key={id}>{month}</li>;
+              })}
+            </ul>
+          </DropdownListContainer>
+        ) : null}
+      </DropdownContainer>
       <ChartsBtns active={activeCharts}>
         <button
           onClick={() => {

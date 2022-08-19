@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { BiChevronDown } from "react-icons/bi";
+import { BiChevronUp } from "react-icons/bi";
 
 interface ActiveCharts {
   active: boolean;
@@ -92,4 +94,29 @@ export const ChartsBtns = styled.div<ActiveCharts>`
       background-color: ${({ active }) => (active ? "#f0f2f2" : "#b2bcbc")};
     }
   }
+`;
+
+export const DownIcon = styled(BiChevronDown)`
+  font-size: 2rem;
+  color: #ffa101;
+`;
+
+export const UpIcon = styled(BiChevronUp)`
+  font-size: 2rem;
+  color: #ffa101;
+`;
+
+export const DropdownContainer = styled.div`
+  position: relative;
+  max-width: 11rem;
+  margin: auto;
+`;
+export const DropdownListContainer = styled.div`
+  position: absolute;
+`;
+export const DropdownHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
 `;
