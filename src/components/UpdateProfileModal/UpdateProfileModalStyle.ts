@@ -24,12 +24,14 @@ export const Wrapper = styled.div`
     border: none;
     display: block;
     background-color: green;
-    padding: 0.8rem 2rem;
+    height: 2.8rem;
+    width: 7rem;
     color: white;
     background-color: #ffa101;
     cursor: pointer;
     border-radius: 12px;
     font-size: 1rem;
+    position: relative;
     &:hover {
       background-color: #cf8300;
     }
