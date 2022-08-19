@@ -104,7 +104,7 @@ const Statistics = () => {
       <DropdownContainer>
         <DropdownHeader onClick={handleOpenDropdown}>
           <h2>{monthNames[month]}</h2>
-          <DownIcon />
+          {openDropdown ? <UpIcon /> : <DownIcon />}
         </DropdownHeader>
         {openDropdown ? (
           <DropdownListContainer>
