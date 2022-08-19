@@ -1,6 +1,6 @@
 import FitnessStats from "../../assets/svg/FitnessStats";
 import StatisticsPieChartIcon from "../../assets/svg/StatisticsPieChartIcon";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import { AuthContext } from "../AuthContext";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
@@ -45,6 +45,7 @@ const Statistics = () => {
   const [openDropdown, setOpenDropdown] = useState(false);
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   async function getNutrients() {
     const date = new Date();
@@ -90,6 +91,19 @@ const Statistics = () => {
     setOpenDropdown((prev) => !prev);
   };
 
+  const handleClickOutside = (e: any) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+      setOpenDropdown(false);
+    }
+  };
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [openDropdown]);
+
   return (
     <Container>
       <Header>
@@ -101,7 +115,7 @@ const Statistics = () => {
           <StatisticsPieChartIcon />
         </PieChartIconContainer>
       </Header>
-      <DropdownContainer>
+      <DropdownContainer ref={dropdownRef}>
         <DropdownHeader onClick={handleOpenDropdown}>
           <h2>{monthNames[month]}</h2>
           {openDropdown ? <UpIcon /> : <DownIcon />}
