@@ -1,5 +1,5 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import * as yup from "yup";
 import { ErrorMsg } from "../../Auth/AuthStyle";
 import { AuthContext } from "../../AuthContext";
@@ -8,6 +8,8 @@ import { db } from "../../../firebase";
 import { Title, Wrapper } from "../UpdateProfileModalStyle";
 import { FormContainer, BtnsContainer } from "../UpdateProfileModalStyle";
 import { Row, InputContainer, InputWrapper } from "./CalorieIntakeSetupStyle";
+import { LoaderContainer } from "../LoaderContainer";
+import Loader from "../../../assets/Loader";
 
 enum Activity {
   zero = "zero physical activity",
@@ -74,6 +76,7 @@ interface Props {
 const CalorieIntakeSetup = ({ setPage }: Props) => {
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
+  const [loading, setLoading] = useState(false);
 
   function getIntake(values: any) {
     function getBMR() {
@@ -124,6 +127,7 @@ const CalorieIntakeSetup = ({ setPage }: Props) => {
           validationSchema={validationSchema}
           onSubmit={async (values) => {
             try {
+              setLoading(true);
               const intake = await getIntake(values);
               await setDoc(
                 doc(db, `users/${uid}/body-details`, "calorie-intake"),
@@ -131,6 +135,7 @@ const CalorieIntakeSetup = ({ setPage }: Props) => {
                   calorieIntake: intake,
                 }
               );
+              setLoading(false);
               setPage(3);
             } catch {
               console.log("error");
@@ -203,7 +208,13 @@ const CalorieIntakeSetup = ({ setPage }: Props) => {
               <BtnsContainer>
                 <button onClick={() => setPage(1)}>Prev</button>
                 <button type="submit" disabled={!(isValid && dirty)}>
-                  Next
+                  {loading ? (
+                    <LoaderContainer>
+                      <Loader />
+                    </LoaderContainer>
+                  ) : (
+                    "Next"
+                  )}
                 </button>
               </BtnsContainer>
             </Form>
