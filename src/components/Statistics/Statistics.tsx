@@ -43,6 +43,7 @@ const Statistics = () => {
   const [nutrients, setNutrients] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [openDropdown, setOpenDropdown] = useState(false);
+  const [selectedMonth, setSelectedMonth] = useState<null | number>(null);
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -117,14 +118,20 @@ const Statistics = () => {
       </Header>
       <DropdownContainer ref={dropdownRef}>
         <DropdownHeader onClick={handleOpenDropdown}>
-          <h2>{monthNames[month]}</h2>
+          <h2>
+            {selectedMonth ? monthNames[selectedMonth] : monthNames[month]}
+          </h2>
           {openDropdown ? <UpIcon /> : <DownIcon />}
         </DropdownHeader>
         {openDropdown ? (
           <DropdownListContainer>
             <ul>
               {monthNames.map((month, id) => {
-                return <li key={id}>{month}</li>;
+                return (
+                  <li key={id} onClick={() => setSelectedMonth(id)}>
+                    {month}
+                  </li>
+                );
               })}
             </ul>
           </DropdownListContainer>
