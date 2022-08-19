@@ -114,16 +114,18 @@ export const DropdownContainer = styled.div`
 export const DropdownListContainer = styled.div`
   position: absolute;
   margin-top: 0.5rem;
-  height: 12rem;
-  overflow-y: scroll;
+  overflow-y: hidden;
   width: 100%;
   border: 1px solid #e1e4e7;
   background-color: white;
+  border-radius: 12px;
 
   ul {
     list-style-type: none;
+    height: 12rem;
+    overflow-y: scroll;
     li {
-      padding: 0.5rem;
+      padding: 0.8rem 0.5rem;
       cursor: pointer;
       transition: background-color 300ms;
       &:hover {
