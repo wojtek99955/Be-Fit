@@ -4,10 +4,12 @@ import * as yup from "yup";
 import { ErrorMsg } from "../../Auth/AuthStyle";
 import { setDoc, doc } from "firebase/firestore";
 import { db } from "../../../firebase";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../AuthContext";
 import { FormContainer } from "../UpdateProfileModalStyle";
 import { Button } from "./BmiSetUpStyles";
+import Loader from "../../../assets/Loader";
+import { LoaderContainer } from "../LoaderContainer";
 
 const initialValues = {
   gender: "",
@@ -43,6 +45,7 @@ interface Props {
 const BmiSetUp = ({ setPage }: Props) => {
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
+  const [loading, setLoading] = useState(false);
   return (
     <Wrapper>
       <Title>Set up your BMI</Title>
@@ -51,12 +54,14 @@ const BmiSetUp = ({ setPage }: Props) => {
           initialValues={initialValues}
           validationSchema={validationSchema}
           onSubmit={async (values) => {
+            setLoading(true);
             await setDoc(doc(db, `users/${uid}/body-details`, "details"), {
               gender: values.gender,
               age: +values.age,
               height: +values.height,
               weight: +values.weight,
             });
+            setLoading(false);
             setPage(2);
           }}
         >
@@ -87,7 +92,13 @@ const BmiSetUp = ({ setPage }: Props) => {
               />
               <ErrorMessage name="weight" component={ErrorMsg} />
               <Button type="submit" disabled={!(isValid && dirty)}>
-                Next
+                {loading ? (
+                  <LoaderContainer>
+                    <Loader />
+                  </LoaderContainer>
+                ) : (
+                  "Next"
+                )}
               </Button>
             </Form>
           )}
