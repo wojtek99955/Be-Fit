@@ -66,8 +66,6 @@ const RemainCalories = () => {
     ],
   };
 
-  console.log(loading);
-
   return (
     <StyledBox>
       <Wrapper loading={loading}>
