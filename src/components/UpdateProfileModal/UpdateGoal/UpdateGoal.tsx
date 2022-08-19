@@ -5,13 +5,15 @@ import {
   FormContainer,
 } from "../UpdateProfileModalStyle";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import * as yup from "yup";
 import { ErrorMsg } from "../../Auth/AuthStyle";
 import { AuthContext } from "../../AuthContext";
 import { setDoc, doc } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { RangeInput } from "./UpdateGoalStyle";
+import { LoaderContainer } from "../LoaderContainer";
+import Loader from "../../../assets/Loader";
 
 interface Props {
   setPage: React.Dispatch<React.SetStateAction<number>>;
@@ -40,6 +42,7 @@ const validationSchema = yup.object().shape({
 const UpdateGoal = ({ setPage, setShowModal }: Props) => {
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
+  const [loading, setLoading] = useState(false);
 
   function getDays(currentWeight: number, goalWeight: number, deficit: number) {
     return ((currentWeight - goalWeight) * 7000) / deficit;
@@ -55,6 +58,7 @@ const UpdateGoal = ({ setPage, setShowModal }: Props) => {
           initialValues={initialValues}
           validationSchema={validationSchema}
           onSubmit={async (values) => {
+            setLoading(true);
             const days = await getDays(
               +values.currentWeight,
               +values.targetWeight,
@@ -71,6 +75,7 @@ const UpdateGoal = ({ setPage, setShowModal }: Props) => {
               toLoose: toLoose,
               days: days,
             });
+            setLoading(false);
             setShowModal(false);
           }}
         >
@@ -104,7 +109,13 @@ const UpdateGoal = ({ setPage, setShowModal }: Props) => {
                   Prev
                 </button>
                 <button type="submit" disabled={!(isValid && dirty)}>
-                  Done
+                  {loading ? (
+                    <LoaderContainer>
+                      <Loader />
+                    </LoaderContainer>
+                  ) : (
+                    "Done"
+                  )}
                 </button>
               </BtnsContainer>
             </Form>
