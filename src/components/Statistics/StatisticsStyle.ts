@@ -117,11 +117,21 @@ export const DropdownListContainer = styled.div`
   height: 12rem;
   overflow-y: scroll;
   width: 100%;
+  border: 1px solid #e1e4e7;
+  background-color: white;
 
   ul {
     list-style-type: none;
     li {
       padding: 0.5rem;
+      cursor: pointer;
+      transition: background-color 300ms;
+      &:hover {
+        background-color: #f3f4f6;
+      }
+      &:active {
+        background-color: #e4e7e8;
+      }
     }
   }
 `;
