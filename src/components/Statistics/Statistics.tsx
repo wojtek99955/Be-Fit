@@ -17,6 +17,23 @@ import DoughNutChart from "./NutrientsCharts/DoughNutChart";
 import VerticalChart from "./NutrientsCharts/VerticalChart";
 import CaloriesVerticalChart from "./CaloriesCharts/CaloriesVerticalChart";
 
+const date = new Date();
+const month = date.getMonth();
+const monthNames = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
 const Statistics = () => {
   const [nutrients, setNutrients] = useState<any>(null);
   const [loading, setLoading] = useState(true);
@@ -74,7 +91,7 @@ const Statistics = () => {
           <StatisticsPieChartIcon />
         </PieChartIconContainer>
       </Header>
-      <h2>This month</h2>
+      <h2>{monthNames[month]}</h2>
       <ChartsBtns active={activeCharts}>
         <button
           onClick={() => {
