@@ -60,7 +60,6 @@ const DailyNutrients = () => {
     ],
     text: "cos",
   };
-  console.log(nutrients);
   return (
     <StyledBox>
       <Wrapper loading={loading}>
