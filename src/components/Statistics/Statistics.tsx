@@ -50,7 +50,7 @@ const Statistics = () => {
 
   async function getNutrients() {
     const date = new Date();
-    const month = date.getMonth() + 1;
+    const month = date.getMonth();
 
     const foodRef = await collection(db, `users/${uid}/food`);
     const docsSnap = await getDocs(foodRef);
@@ -105,6 +105,7 @@ const Statistics = () => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, [openDropdown]);
+  console.log(selectedMonth);
 
   return (
     <Container>
@@ -120,7 +121,9 @@ const Statistics = () => {
       <DropdownContainer onClick={handleOpenDropdown} ref={dropdownRef}>
         <DropdownHeader>
           <h2>
-            {selectedMonth ? monthNames[selectedMonth] : monthNames[month]}
+            {selectedMonth !== null && selectedMonth >= 0
+              ? monthNames[selectedMonth!]
+              : monthNames[month]}
           </h2>
           {openDropdown ? <UpIcon /> : <DownIcon />}
         </DropdownHeader>
