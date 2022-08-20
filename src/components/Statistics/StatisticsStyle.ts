@@ -71,7 +71,7 @@ export const Chart = styled.div<Loading>`
 `;
 
 export const Charts = styled(motion.div)`
-  margin: 4rem auto;
+  margin: 3rem auto;
   display: flex;
   justify-content: center;
   gap: 5rem;
@@ -146,5 +146,5 @@ export const DropdownHeader = styled.div`
 `;
 
 export const CaloriesChartContainer = styled(motion.div)`
-  margin: 4rem auto;
+  margin: 3rem auto;
 `;
