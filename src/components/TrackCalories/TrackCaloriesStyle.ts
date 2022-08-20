@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { Field } from "formik";
+import { MdAddCircleOutline } from "react-icons/md";
+import { IoMdCloseCircleOutline } from "react-icons/io";
 const img = require("../../assets/images/track-calories.jpg");
 
 export const Container = styled.section`
@@ -67,4 +69,32 @@ export const FieldWrapper = styled.div`
     background-color: transparent;
     cursor: pointer;
   }
+`;
+
+export const AddFoodIconContainer = styled.div`
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 4rem;
+  margin: 3rem 0;
+  margin-left: auto;
+`;
+
+export const AddFoodIcon = styled(MdAddCircleOutline)`
+  color: #ffa101;
+  font-size: 3.5rem;
+  cursor: pointer;
+`;
+
+export const CloseSearchContainer = styled.div`
+  margin: 3rem 0;
+  margin-left: auto;
+  max-width: 4rem;
+`;
+
+export const CloseSearchIcon = styled(IoMdCloseCircleOutline)`
+  color: #ffa101;
+  font-size: 3.5rem;
+  cursor: pointer;
 `;
