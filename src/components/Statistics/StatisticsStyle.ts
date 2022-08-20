@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { BiChevronDown } from "react-icons/bi";
 import { BiChevronUp } from "react-icons/bi";
@@ -111,9 +112,9 @@ export const DropdownContainer = styled.div`
   max-width: 11rem;
   margin: auto;
 `;
-export const DropdownListContainer = styled.div`
+export const DropdownListContainer = styled(motion.div)`
   position: absolute;
-  margin-top: 0.5rem;
+  margin-top: 0.2rem;
   overflow-y: hidden;
   width: 100%;
   border: 1px solid #e1e4e7;
