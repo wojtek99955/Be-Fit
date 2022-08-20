@@ -11,12 +11,14 @@ import {
   AddFoodIconContainer,
   CloseSearchContainer,
   CloseSearchIcon,
+  FormContainer,
 } from "./TrackCaloriesStyle";
 import SearchedItem from "./SearchedItem/SearchedItem";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 import { AuthContext } from "../AuthContext";
 import TodayFood from "./TodayFood/TodayFood";
+import { AnimatePresence } from "framer-motion";
 
 const TrackCalories = () => {
   const [query, setQuery] = useState<any>(null);
@@ -65,50 +67,58 @@ const TrackCalories = () => {
       </Header>
       <SearchFood>
         {isSearchOpen ? (
-          <>
-            <CloseSearchContainer onClick={handleToggleSearch}>
-              <CloseSearchIcon />
-            </CloseSearchContainer>
-            <Formik
-              initialValues={{ query: "" }}
-              onSubmit={async (values) => {
-                if (values.query !== "") {
-                  try {
-                    setLoading(true);
-                    setQuery(null);
-                    setShowBox(true);
-                    const res = await fetch(
-                      `https://api.edamam.com/api/food-database/v2/parser?app_id=fb99b9e2&app_key=%206c42b17c647c09805fc4c5365572b9d9&ingr=${values.query}`
-                    );
-                    const data = await res.json();
-                    await setQuery({
-                      details: data.hints[0].food.nutrients,
-                      name: data.text,
-                    });
-                    setLoading(false);
-                    setError(false);
-                  } catch {
-                    console.log("error fetch");
-                    setError(true);
-                  }
-                }
-              }}
-            >
-              <Form>
-                <FieldWrapper>
-                  <StyledField name="query" placeholder="search meal" />
-                  <button type="submit">
-                    <SearchIcon />
-                  </button>
-                </FieldWrapper>
-              </Form>
-            </Formik>
-          </>
+          <CloseSearchContainer onClick={handleToggleSearch}>
+            <CloseSearchIcon />
+          </CloseSearchContainer>
         ) : (
           <AddFoodIconContainer onClick={handleToggleSearch}>
             <AddFoodIcon />
           </AddFoodIconContainer>
         )}
+        <AnimatePresence>
+          {isSearchOpen && (
+            <FormContainer
+              initial={{ y: "-50%", opacity: 0, scale: 0.5 }}
+              animate={{ y: "10%", opacity: 1, scale: 1 }}
+              exit={{ y: "-30%", opacity: 0, scale: 0.5 }}
+            >
+              <Formik
+                initialValues={{ query: "" }}
+                onSubmit={async (values) => {
+                  if (values.query !== "") {
+                    try {
+                      setLoading(true);
+                      setQuery(null);
+                      setShowBox(true);
+                      const res = await fetch(
+                        `https://api.edamam.com/api/food-database/v2/parser?app_id=fb99b9e2&app_key=%206c42b17c647c09805fc4c5365572b9d9&ingr=${values.query}`
+                      );
+                      const data = await res.json();
+                      await setQuery({
+                        details: data.hints[0].food.nutrients,
+                        name: data.text,
+                      });
+                      setLoading(false);
+                      setError(false);
+                    } catch {
+                      console.log("error fetch");
+                      setError(true);
+                    }
+                  }
+                }}
+              >
+                <Form>
+                  <FieldWrapper>
+                    <StyledField name="query" placeholder="search meal" />
+                    <button type="submit">
+                      <SearchIcon />
+                    </button>
+                  </FieldWrapper>
+                </Form>
+              </Formik>
+            </FormContainer>
+          )}
+        </AnimatePresence>
         {showBox ? (
           <>
             <SearchedItem
