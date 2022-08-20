@@ -21,6 +21,7 @@ import {
 import DoughNutChart from "./NutrientsCharts/DoughNutChart";
 import VerticalChart from "./NutrientsCharts/VerticalChart";
 import CaloriesVerticalChart from "./CaloriesCharts/CaloriesVerticalChart";
+import { AnimatePresence } from "framer-motion";
 
 const date = new Date();
 const month = date.getMonth();
@@ -127,19 +128,25 @@ const Statistics = () => {
           </h2>
           {openDropdown ? <UpIcon /> : <DownIcon />}
         </DropdownHeader>
-        {openDropdown ? (
-          <DropdownListContainer>
-            <ul>
-              {monthNames.map((month, id) => {
-                return (
-                  <li key={id} onClick={() => setSelectedMonth(id)}>
-                    {month}
-                  </li>
-                );
-              })}
-            </ul>
-          </DropdownListContainer>
-        ) : null}
+        <AnimatePresence>
+          {openDropdown ? (
+            <DropdownListContainer
+              initial={{ y: "-50%", opacity: 0, scale: 0.5 }}
+              animate={{ y: "10%", opacity: 1, scale: 1 }}
+              exit={{ y: "-30%", opacity: 0, scale: 0.5 }}
+            >
+              <ul>
+                {monthNames.map((month, id) => {
+                  return (
+                    <li key={id} onClick={() => setSelectedMonth(id)}>
+                      {month}
+                    </li>
+                  );
+                })}
+              </ul>
+            </DropdownListContainer>
+          ) : null}
+        </AnimatePresence>
       </DropdownContainer>
       <ChartsBtns active={activeCharts}>
         <button
