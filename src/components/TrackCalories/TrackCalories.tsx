@@ -7,6 +7,10 @@ import {
   SearchFood,
   StyledField,
   FieldWrapper,
+  AddFoodIcon,
+  AddFoodIconContainer,
+  CloseSearchContainer,
+  CloseSearchIcon,
 } from "./TrackCaloriesStyle";
 import SearchedItem from "./SearchedItem/SearchedItem";
 import { collection, getDocs } from "firebase/firestore";
@@ -20,6 +24,7 @@ const TrackCalories = () => {
   const [showBox, setShowBox] = useState(false);
   const [foodWeight, setFoodWeight] = useState<number>(100);
   const [todayFoods, setTodayFoods] = useState<any>(null);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [error, setError] = useState(false);
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
@@ -47,6 +52,10 @@ const TrackCalories = () => {
     getData();
   }, []);
 
+  const handleToggleSearch = () => {
+    setIsSearchOpen((prev) => !prev);
+  };
+
   return (
     <Container>
       <Header>
@@ -55,40 +64,51 @@ const TrackCalories = () => {
         </h2>
       </Header>
       <SearchFood>
-        <Formik
-          initialValues={{ query: "" }}
-          onSubmit={async (values) => {
-            if (values.query !== "") {
-              try {
-                setLoading(true);
-                setQuery(null);
-                setShowBox(true);
-                const res = await fetch(
-                  `https://api.edamam.com/api/food-database/v2/parser?app_id=fb99b9e2&app_key=%206c42b17c647c09805fc4c5365572b9d9&ingr=${values.query}`
-                );
-                const data = await res.json();
-                await setQuery({
-                  details: data.hints[0].food.nutrients,
-                  name: data.text,
-                });
-                setLoading(false);
-                setError(false);
-              } catch {
-                console.log("error fetch");
-                setError(true);
-              }
-            }
-          }}
-        >
-          <Form>
-            <FieldWrapper>
-              <StyledField name="query" placeholder="search meal" />
-              <button type="submit">
-                <SearchIcon />
-              </button>
-            </FieldWrapper>
-          </Form>
-        </Formik>
+        {isSearchOpen ? (
+          <>
+            <CloseSearchContainer onClick={handleToggleSearch}>
+              <CloseSearchIcon />
+            </CloseSearchContainer>
+            <Formik
+              initialValues={{ query: "" }}
+              onSubmit={async (values) => {
+                if (values.query !== "") {
+                  try {
+                    setLoading(true);
+                    setQuery(null);
+                    setShowBox(true);
+                    const res = await fetch(
+                      `https://api.edamam.com/api/food-database/v2/parser?app_id=fb99b9e2&app_key=%206c42b17c647c09805fc4c5365572b9d9&ingr=${values.query}`
+                    );
+                    const data = await res.json();
+                    await setQuery({
+                      details: data.hints[0].food.nutrients,
+                      name: data.text,
+                    });
+                    setLoading(false);
+                    setError(false);
+                  } catch {
+                    console.log("error fetch");
+                    setError(true);
+                  }
+                }
+              }}
+            >
+              <Form>
+                <FieldWrapper>
+                  <StyledField name="query" placeholder="search meal" />
+                  <button type="submit">
+                    <SearchIcon />
+                  </button>
+                </FieldWrapper>
+              </Form>
+            </Formik>
+          </>
+        ) : (
+          <AddFoodIconContainer onClick={handleToggleSearch}>
+            <AddFoodIcon />
+          </AddFoodIconContainer>
+        )}
         {showBox ? (
           <>
             <SearchedItem
