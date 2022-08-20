@@ -17,6 +17,7 @@ import {
   DropdownContainer,
   DropdownListContainer,
   DropdownHeader,
+  CaloriesChartContainer,
 } from "./StatisticsStyle";
 import DoughNutChart from "./NutrientsCharts/DoughNutChart";
 import VerticalChart from "./NutrientsCharts/VerticalChart";
@@ -164,8 +165,13 @@ const Statistics = () => {
           Calories
         </button>
       </ChartsBtns>
+
       {activeCharts ? (
-        <Charts>
+        <Charts
+          initial={{ y: "-50%", opacity: 0, scale: 0.5 }}
+          animate={{ y: "10%", opacity: 1, scale: 1 }}
+          exit={{ y: "-30%", opacity: 0, scale: 0.5 }}
+        >
           <Chart loading={loading}>
             <DoughNutChart nutrients={nutrients} />
           </Chart>
@@ -174,7 +180,9 @@ const Statistics = () => {
           </Chart>
         </Charts>
       ) : (
-        <CaloriesVerticalChart />
+        <CaloriesChartContainer>
+          <CaloriesVerticalChart />
+        </CaloriesChartContainer>
       )}
     </Container>
   );

@@ -70,7 +70,7 @@ export const Chart = styled.div<Loading>`
   opacity: ${({ loading }) => (loading ? "0" : "1")};
 `;
 
-export const Charts = styled.div`
+export const Charts = styled(motion.div)`
   margin: 4rem auto;
   display: flex;
   justify-content: center;
@@ -144,3 +144,5 @@ export const DropdownHeader = styled.div`
   align-items: center;
   cursor: pointer;
 `;
+
+export const CaloriesChartContainer = styled(motion.div)``;
