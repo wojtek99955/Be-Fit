@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { Field } from "formik";
 import { MdAddCircleOutline } from "react-icons/md";
@@ -98,3 +99,5 @@ export const CloseSearchIcon = styled(IoMdCloseCircleOutline)`
   font-size: 3.5rem;
   cursor: pointer;
 `;
+
+export const FormContainer = styled(motion.div)``;
