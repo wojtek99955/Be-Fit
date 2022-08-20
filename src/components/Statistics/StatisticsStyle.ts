@@ -75,6 +75,8 @@ export const Charts = styled(motion.div)`
   display: flex;
   justify-content: center;
   gap: 5rem;
+  position: relative;
+  z-index: 1;
 `;
 
 export const ChartsBtns = styled.div<ActiveCharts>`
@@ -120,6 +122,7 @@ export const DropdownListContainer = styled(motion.div)`
   border: 1px solid #e1e4e7;
   background-color: white;
   border-radius: 12px;
+  z-index: 2;
 
   ul {
     list-style-type: none;
