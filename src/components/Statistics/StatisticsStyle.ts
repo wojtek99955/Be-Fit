@@ -145,4 +145,6 @@ export const DropdownHeader = styled.div`
   cursor: pointer;
 `;
 
-export const CaloriesChartContainer = styled(motion.div)``;
+export const CaloriesChartContainer = styled(motion.div)`
+  margin: 4rem auto;
+`;
