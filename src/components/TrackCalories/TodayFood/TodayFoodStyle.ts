@@ -2,13 +2,14 @@ import styled from "styled-components";
 import { AiOutlineDownCircle } from "react-icons/ai";
 import { AiOutlineUpCircle } from "react-icons/ai";
 import { AiOutlineDelete } from "react-icons/ai";
+import { motion } from "framer-motion";
 
 export const Container = styled.div`
   max-width: 800px;
   margin: auto;
   margin-top: 3rem;
 `;
-export const FoodItem = styled.div`
+export const FoodItem = styled(motion.div)`
   box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.1), 0 2px 4px 0 rgba(0, 0, 0, 0),
     inset 0 0 0 1px rgba(255, 255, 255, 0.5);
   padding: 2.5rem 1.5rem;
