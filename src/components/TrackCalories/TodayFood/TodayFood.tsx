@@ -23,6 +23,7 @@ import RemainCalories from "./RemainCalories/RemainCalories";
 import { nanoid } from "nanoid";
 import HealthyFoodIcon from "../../../assets/svg/HealthyFoodIcon";
 import { AnimatePresence } from "framer-motion";
+import React from "react";
 
 const TodayFood = () => {
   const [todayFoods, setTodayFoods] = useState<any>([]);
@@ -51,7 +52,7 @@ const TodayFood = () => {
       });
     }
     getData();
-  }, [uid]);
+  }, []);
   const date = new Date();
   const month = date.getMonth() + 1;
   const day = date.getDate();
@@ -91,7 +92,7 @@ const TodayFood = () => {
                       initial={{ x: "-40%", opacity: 0, scale: 0.5 }}
                       whileInView={{ x: 0, opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
-                      exit={{ x: "-40%", opacity: 0, scale: 0.5 }}
+                      // exit={{ x: "-40%", opacity: 0, scale: 0.5 }}
                     >
                       <FoodIconContainer>
                         <HealthyFoodIcon />
@@ -138,4 +139,4 @@ const TodayFood = () => {
   );
 };
 
-export default TodayFood;
+export const TodayFoodMemo = React.memo(TodayFood);

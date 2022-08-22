@@ -19,7 +19,7 @@ import SearchedItem from "./SearchedItem/SearchedItem";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 import { AuthContext } from "../AuthContext";
-import TodayFood from "./TodayFood/TodayFood";
+import { TodayFoodMemo } from "./TodayFood/TodayFood";
 import { AnimatePresence } from "framer-motion";
 
 const TrackCalories = () => {
@@ -66,7 +66,8 @@ const TrackCalories = () => {
     if (isSearchOpen) {
       inputRef.current.focus();
     }
-  }, [isSearchOpen]);
+  }, [uid]);
+
   return (
     <Container>
       <Header>
@@ -160,7 +161,7 @@ const TrackCalories = () => {
           ) : null}
         </AnimatePresence>
       </SearchFood>
-      <TodayFood />
+      <TodayFoodMemo />
     </Container>
   );
 };
