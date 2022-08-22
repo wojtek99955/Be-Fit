@@ -13,6 +13,7 @@ import {
   CloseSearchIcon,
   FormContainer,
   FormWrapper,
+  SearchItemContainer,
 } from "./TrackCaloriesStyle";
 import SearchedItem from "./SearchedItem/SearchedItem";
 import { collection, getDocs } from "firebase/firestore";
@@ -80,7 +81,7 @@ const TrackCalories = () => {
           <AnimatePresence>
             {isSearchOpen && (
               <FormContainer
-                initial={{ y: 0, opacity: 0, scale: 0.5, position: "absolute" }}
+                initial={{ y: 0, opacity: 0, scale: 0.5 }}
                 animate={{ y: "10%", opacity: 1, scale: 1 }}
                 exit={{ y: "-30%", opacity: 0, scale: 0.5 }}
               >
@@ -122,17 +123,23 @@ const TrackCalories = () => {
             )}
           </AnimatePresence>
         </FormWrapper>
-        {showBox && isSearchOpen ? (
-          <>
-            <SearchedItem
-              loading={loading}
-              query={query}
-              setFoodWeight={setFoodWeight}
-              foodWeight={foodWeight}
-              error={error}
-            />
-          </>
-        ) : null}
+        <AnimatePresence>
+          {showBox && isSearchOpen ? (
+            <SearchItemContainer
+              initial={{ y: 0, opacity: 0, scale: 0.5 }}
+              animate={{ y: "10%", opacity: 1, scale: 1 }}
+              exit={{ y: "-30%", opacity: 0, scale: 0.5 }}
+            >
+              <SearchedItem
+                loading={loading}
+                query={query}
+                setFoodWeight={setFoodWeight}
+                foodWeight={foodWeight}
+                error={error}
+              />
+            </SearchItemContainer>
+          ) : null}
+        </AnimatePresence>
       </SearchFood>
       <TodayFood />
     </Container>

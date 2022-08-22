@@ -104,3 +104,5 @@ export const FormWrapper = styled.div`
   justify-content: center;
   margin-bottom: 1rem;
 `;
+
+export const SearchItemContainer = styled(motion.div)``;
