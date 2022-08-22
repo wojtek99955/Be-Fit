@@ -111,7 +111,7 @@ export const UpIcon = styled(BiChevronUp)`
 
 export const DropdownContainer = styled.div`
   position: relative;
-  max-width: 11rem;
+  max-width: 12rem;
   margin: auto;
 `;
 export const DropdownListContainer = styled(motion.div)`
