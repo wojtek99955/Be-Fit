@@ -22,6 +22,7 @@ import ConsumedNutrientsData from "./ConsumedNutrients/ConsumedNutrientsData";
 import RemainCalories from "./RemainCalories/RemainCalories";
 import { nanoid } from "nanoid";
 import HealthyFoodIcon from "../../../assets/svg/HealthyFoodIcon";
+import { AnimatePresence } from "framer-motion";
 
 const TodayFood = () => {
   const [todayFoods, setTodayFoods] = useState<any>([]);
@@ -79,56 +80,60 @@ const TodayFood = () => {
         {showFood ? <UpIcon /> : <DownIcon />}
         Show today's meals
       </ShowMealsBtn>
-      {showFood ? (
-        <FoodsContainer>
-          {todayFoods
-            ? todayFoods.map((item: any) => {
-                return (
-                  <FoodItem
-                    key={nanoid()}
-                    initial={{ x: "-40%", opacity: 0, scale: 0.5 }}
-                    whileInView={{ x: 0, opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                  >
-                    <FoodIconContainer>
-                      <HealthyFoodIcon />
-                    </FoodIconContainer>
-                    <Name>
-                      <h3>{item.name}</h3>
-                    </Name>
-                    <Amount>
-                      <span>{item.details.amount.toFixed(1)} g</span>
-                    </Amount>
-                    <Nutrients>
-                      <div>
-                        Fat <span>{item.details.fat.toFixed(1)} g</span>
-                      </div>
-                      <div>
-                        Fiber <span>{item.details.fiber.toFixed(1)} g</span>
-                      </div>
-                      <div>
-                        Protein <span>{item.details.protein.toFixed(1)} g</span>
-                      </div>
-                      <div>
-                        Carbo <span>{item.details.carbo.toFixed(1)} g</span>
-                      </div>
-                    </Nutrients>
-                    <Calories>
-                      <div>
-                        Kcal <strong>{item.details.kcal.toFixed(0)}</strong>
-                      </div>
-                    </Calories>
-                    <DeleteIcon
-                      onClick={() => {
-                        deleteItem(item.id);
-                      }}
-                    />
-                  </FoodItem>
-                );
-              })
-            : null}
-        </FoodsContainer>
-      ) : null}
+      <AnimatePresence>
+        {showFood ? (
+          <FoodsContainer>
+            {todayFoods
+              ? todayFoods.map((item: any) => {
+                  return (
+                    <FoodItem
+                      key={nanoid()}
+                      initial={{ x: "-40%", opacity: 0, scale: 0.5 }}
+                      whileInView={{ x: 0, opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      exit={{ x: "-40%", opacity: 0, scale: 0.5 }}
+                    >
+                      <FoodIconContainer>
+                        <HealthyFoodIcon />
+                      </FoodIconContainer>
+                      <Name>
+                        <h3>{item.name}</h3>
+                      </Name>
+                      <Amount>
+                        <span>{item.details.amount.toFixed(1)} g</span>
+                      </Amount>
+                      <Nutrients>
+                        <div>
+                          Fat <span>{item.details.fat.toFixed(1)} g</span>
+                        </div>
+                        <div>
+                          Fiber <span>{item.details.fiber.toFixed(1)} g</span>
+                        </div>
+                        <div>
+                          Protein{" "}
+                          <span>{item.details.protein.toFixed(1)} g</span>
+                        </div>
+                        <div>
+                          Carbo <span>{item.details.carbo.toFixed(1)} g</span>
+                        </div>
+                      </Nutrients>
+                      <Calories>
+                        <div>
+                          Kcal <strong>{item.details.kcal.toFixed(0)}</strong>
+                        </div>
+                      </Calories>
+                      <DeleteIcon
+                        onClick={() => {
+                          deleteItem(item.id);
+                        }}
+                      />
+                    </FoodItem>
+                  );
+                })
+              : null}
+          </FoodsContainer>
+        ) : null}
+      </AnimatePresence>
     </Container>
   );
 };
