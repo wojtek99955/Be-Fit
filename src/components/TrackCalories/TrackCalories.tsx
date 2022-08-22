@@ -66,7 +66,7 @@ const TrackCalories = () => {
     if (isSearchOpen) {
       inputRef.current.focus();
     }
-  }, [uid]);
+  }, []);
 
   return (
     <Container>
