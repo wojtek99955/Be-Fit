@@ -81,7 +81,7 @@ const CaloriesVerticalChart = () => {
   };
   return (
     <div>
-      <Line style={{ maxHeight: "13rem" }} options={options} data={dataChart} />
+      <Line style={{ maxHeight: "20rem" }} options={options} data={dataChart} />
     </div>
   );
 };
