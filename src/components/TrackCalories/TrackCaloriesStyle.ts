@@ -71,10 +71,13 @@ export const FieldWrapper = styled.div`
   }
 `;
 
-export const AddFoodIconContainer = styled.div`
+export const AddFoodIconContainer = styled(motion.div)`
   margin-top: 2rem;
   margin-left: auto;
   max-width: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const AddFoodIcon = styled(MdAddCircleOutline)`
@@ -83,10 +86,13 @@ export const AddFoodIcon = styled(MdAddCircleOutline)`
   cursor: pointer;
 `;
 
-export const CloseSearchContainer = styled.div`
+export const CloseSearchContainer = styled(motion.div)`
   margin-top: 2rem;
   margin-left: auto;
   max-width: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const CloseSearchIcon = styled(IoMdCloseCircleOutline)`
