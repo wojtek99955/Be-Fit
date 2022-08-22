@@ -151,3 +151,8 @@ export const DropdownHeader = styled.div`
 export const CaloriesChartContainer = styled(motion.div)`
   margin: 3rem auto;
 `;
+
+export const Wrapper = styled.div`
+  max-width: 1100px;
+  margin: auto;
+`;

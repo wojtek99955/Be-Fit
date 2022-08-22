@@ -18,6 +18,7 @@ import {
   DropdownListContainer,
   DropdownHeader,
   CaloriesChartContainer,
+  Wrapper,
 } from "./StatisticsStyle";
 import DoughNutChart from "./NutrientsCharts/DoughNutChart";
 import VerticalChart from "./NutrientsCharts/VerticalChart";
@@ -111,82 +112,84 @@ const Statistics = () => {
 
   return (
     <Container>
-      <Header>
-        <FitnessStatsIconContainer>
-          <FitnessStats />
-        </FitnessStatsIconContainer>
-        <h1>Monthly statistics</h1>
-        <PieChartIconContainer>
-          <StatisticsPieChartIcon />
-        </PieChartIconContainer>
-      </Header>
-      <DropdownContainer onClick={handleOpenDropdown} ref={dropdownRef}>
-        <DropdownHeader>
-          <h2>
-            {selectedMonth !== null && selectedMonth >= 0
-              ? monthNames[selectedMonth!]
-              : monthNames[month]}
-          </h2>
-          {openDropdown ? <UpIcon /> : <DownIcon />}
-        </DropdownHeader>
-        <AnimatePresence>
-          {openDropdown ? (
-            <DropdownListContainer
-              initial={{ y: "-50%", opacity: 0, scale: 0.5 }}
-              animate={{ y: "10%", opacity: 1, scale: 1 }}
-              exit={{ y: "-30%", opacity: 0, scale: 0.5 }}
-            >
-              <ul>
-                {monthNames.map((month, id) => {
-                  return (
-                    <li key={id} onClick={() => setSelectedMonth(id)}>
-                      {month}
-                    </li>
-                  );
-                })}
-              </ul>
-            </DropdownListContainer>
-          ) : null}
-        </AnimatePresence>
-      </DropdownContainer>
-      <ChartsBtns active={activeCharts}>
-        <button
-          onClick={() => {
-            setActiveCharts(true);
-          }}
-        >
-          Nutrients
-        </button>
-        <button
-          onClick={() => {
-            setActiveCharts(false);
-          }}
-        >
-          Calories
-        </button>
-      </ChartsBtns>
+      <Wrapper>
+        <Header>
+          <FitnessStatsIconContainer>
+            <FitnessStats />
+          </FitnessStatsIconContainer>
+          <h1>Monthly statistics</h1>
+          <PieChartIconContainer>
+            <StatisticsPieChartIcon />
+          </PieChartIconContainer>
+        </Header>
+        <DropdownContainer onClick={handleOpenDropdown} ref={dropdownRef}>
+          <DropdownHeader>
+            <h2>
+              {selectedMonth !== null && selectedMonth >= 0
+                ? monthNames[selectedMonth!]
+                : monthNames[month]}
+            </h2>
+            {openDropdown ? <UpIcon /> : <DownIcon />}
+          </DropdownHeader>
+          <AnimatePresence>
+            {openDropdown ? (
+              <DropdownListContainer
+                initial={{ y: "-50%", opacity: 0, scale: 0.5 }}
+                animate={{ y: "10%", opacity: 1, scale: 1 }}
+                exit={{ y: "-30%", opacity: 0, scale: 0.5 }}
+              >
+                <ul>
+                  {monthNames.map((month, id) => {
+                    return (
+                      <li key={id} onClick={() => setSelectedMonth(id)}>
+                        {month}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </DropdownListContainer>
+            ) : null}
+          </AnimatePresence>
+        </DropdownContainer>
+        <ChartsBtns active={activeCharts}>
+          <button
+            onClick={() => {
+              setActiveCharts(true);
+            }}
+          >
+            Nutrients
+          </button>
+          <button
+            onClick={() => {
+              setActiveCharts(false);
+            }}
+          >
+            Calories
+          </button>
+        </ChartsBtns>
 
-      {activeCharts ? (
-        <Charts
-          initial={{ y: "-50%", opacity: 0, scale: 0.5 }}
-          animate={{ y: "20%", opacity: 1, scale: 1 }}
-        >
-          <Chart loading={loading}>
-            <DoughNutChart nutrients={nutrients} />
-          </Chart>
-          <Chart loading={loading}>
-            <VerticalChart nutrients={nutrients} />
-          </Chart>
-        </Charts>
-      ) : (
-        <CaloriesChartContainer
-          initial={{ y: "-50%", opacity: 0, scale: 0.5 }}
-          animate={{ y: "10%", opacity: 1, scale: 1 }}
-          exit={{ y: "-30%", opacity: 0, scale: 0.5 }}
-        >
-          <CaloriesVerticalChart />
-        </CaloriesChartContainer>
-      )}
+        {activeCharts ? (
+          <Charts
+            initial={{ y: "-50%", opacity: 0, scale: 0.5 }}
+            animate={{ y: "20%", opacity: 1, scale: 1 }}
+          >
+            <Chart loading={loading}>
+              <DoughNutChart nutrients={nutrients} />
+            </Chart>
+            <Chart loading={loading}>
+              <VerticalChart nutrients={nutrients} />
+            </Chart>
+          </Charts>
+        ) : (
+          <CaloriesChartContainer
+            initial={{ y: "-50%", opacity: 0, scale: 0.5 }}
+            animate={{ y: "10%", opacity: 1, scale: 1 }}
+            exit={{ y: "-30%", opacity: 0, scale: 0.5 }}
+          >
+            <CaloriesVerticalChart />
+          </CaloriesChartContainer>
+        )}
+      </Wrapper>
     </Container>
   );
 };
