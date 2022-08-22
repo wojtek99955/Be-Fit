@@ -72,6 +72,7 @@ export const FieldWrapper = styled.div`
 `;
 
 export const AddFoodIconContainer = styled.div`
+  margin-top: 2rem;
   margin-left: auto;
   max-width: 4rem;
 `;
@@ -83,6 +84,7 @@ export const AddFoodIcon = styled(MdAddCircleOutline)`
 `;
 
 export const CloseSearchContainer = styled.div`
+  margin-top: 2rem;
   margin-left: auto;
   max-width: 4rem;
 `;
@@ -96,8 +98,9 @@ export const CloseSearchIcon = styled(IoMdCloseCircleOutline)`
 export const FormContainer = styled(motion.div)``;
 
 export const FormWrapper = styled.div`
-  height: 5rem;
+  height: 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 1rem;
 `;
