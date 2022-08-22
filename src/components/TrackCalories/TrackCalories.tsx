@@ -122,7 +122,7 @@ const TrackCalories = () => {
             )}
           </AnimatePresence>
         </FormWrapper>
-        {showBox ? (
+        {showBox && isSearchOpen ? (
           <>
             <SearchedItem
               loading={loading}
