@@ -1,5 +1,5 @@
 import { Formik, Form } from "formik";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import { SearchIcon } from "../CaloriesCalculator/CaloriesCalculatorsStyle";
 import {
   Container,
@@ -32,6 +32,7 @@ const TrackCalories = () => {
   const [error, setError] = useState(false);
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
+  const inputRef = useRef<any>(null);
 
   async function getData() {
     const date = await new Date();
@@ -59,7 +60,13 @@ const TrackCalories = () => {
   const handleToggleSearch = () => {
     setIsSearchOpen((prev) => !prev);
   };
+  console.log(inputRef);
 
+  useEffect(() => {
+    if (isSearchOpen) {
+      inputRef.current.focus();
+    }
+  }, [isSearchOpen]);
   return (
     <Container>
       <Header>
@@ -112,7 +119,11 @@ const TrackCalories = () => {
                 >
                   <Form>
                     <FieldWrapper>
-                      <StyledField name="query" placeholder="search meal" />
+                      <StyledField
+                        innerRef={inputRef}
+                        name="query"
+                        placeholder="search meal"
+                      />
                       <button type="submit">
                         <SearchIcon />
                       </button>
