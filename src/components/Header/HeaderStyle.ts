@@ -174,6 +174,10 @@ export const IconContainer = styled.div`
   &:active {
     background-color: #e4e7e8;
   }
+  display: none;
+  @media ${device.tablet} {
+    display: flex;
+  }
 `;
 
 export const StyledLink = styled(Link)`
