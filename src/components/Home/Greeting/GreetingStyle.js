@@ -45,9 +45,12 @@ export const HealthyStyleIconContainer = styled.div`
   display: none;
   @media ${device.tablet} {
     display: block;
-    width: 12rem;
+    width: 9rem;
     position: absolute;
-    left: 3rem;
+    left: 2rem;
+  }
+  @media ${device.laptop} {
+    width: 11rem;
   }
 `;
 
@@ -56,8 +59,11 @@ export const WorkOutIconContainer = styled.div`
   @media ${device.tablet} {
     display: block;
     position: absolute;
-    width: 8rem;
+    width: 6rem;
     right: 3rem;
+  }
+  @media ${device.laptop} {
+    width: 8rem;
   }
 `;
 
