@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { BiSearch } from "react-icons/bi";
 const img = require("../../assets/images/food-img.jpg");
@@ -82,7 +83,7 @@ export const ContentWrapper = styled.div`
   width: 100%;
 `;
 
-export const Nutrients = styled.div`
+export const Nutrients = styled(motion.div)`
   display: flex;
   max-width: 800px;
   margin: auto;
