@@ -5,27 +5,34 @@ import { GiWeight } from "react-icons/gi";
 import { GoSettings } from "react-icons/go";
 import { Link } from "react-router-dom";
 import { Box } from "../CardStyles";
+import { device } from "../../../assets/mediaQueries/device";
 
 interface StyleProps {
   loading: boolean;
 }
 
 export const IconContainer = styled.div`
-  width: 2.8rem;
-  height: 2.8rem;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
   margin-left: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  @media ${device.tablet} {
+    width: 2.8rem;
+    height: 2.8rem;
+  }
 `;
 
 export const DataContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 0;
   border-radius: 8px;
+  @media ${device.tablet} {
+    padding: 0.5rem 0;
+  }
 
   &:first-of-type {
     background-color: #ffe9c5;
@@ -41,7 +48,10 @@ export const DataContainer = styled.div`
 export const DataWrapper = styled.div`
   strong {
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.2rem;
+    @media ${device.tablet} {
+      margin-bottom: 0.5rem;
+    }
   }
   p {
     color: #bcbcbc;
@@ -50,6 +60,7 @@ export const DataWrapper = styled.div`
 
 export const AgeIconContainer = styled(IconContainer)`
   background-color: #ffa101;
+  font-size: 0.5rem;
 `;
 
 export const HeightIconContainer = styled(IconContainer)`
@@ -63,14 +74,20 @@ export const WeightIconContainer = styled(IconContainer)`
 export const BoxWrapper = styled.div<StyleProps>`
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.3rem;
+  @media ${device.tablet} {
+    gap: 0.5rem;
+  }
 `;
 
 export const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.3rem;
+  @media ${device.tablet} {
+    margin-bottom: 1rem;
+  }
   h2 {
     font-size: 1rem;
   }
