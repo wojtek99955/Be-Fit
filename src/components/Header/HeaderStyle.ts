@@ -4,6 +4,7 @@ import { IoMdAddCircleOutline } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { BiChevronDown } from "react-icons/bi";
+import { device } from "../../assets/mediaQueries/device";
 
 interface StyleProps {
   location: any;
@@ -225,6 +226,10 @@ export const Nav = styled.div`
   justify-content: space-between;
   gap: 1rem;
   margin-right: auto;
+  display: none;
+  @media ${device.laptop} {
+    display: flex;
+  }
 `;
 
 export const LoggedNavItem = styled.div`
@@ -246,6 +251,13 @@ export const LoggedNavItem = styled.div`
     }
     &:active {
       background-color: #e4e7e8;
+    }
+  }
+
+  &:last-of-type {
+    display: none;
+    @media ${device.laptopL} {
+      display: block;
     }
   }
 `;
