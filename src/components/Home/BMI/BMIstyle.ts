@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { SettingsIcon, Box } from "../CardStyles";
+import { device } from "../../../assets/mediaQueries/device";
 
 interface StyleProps {
   bmi?: number;
@@ -23,8 +24,12 @@ export const Wrapper = styled.div<StyleProps>`
       return "transparent";
     }
   }};
-  width: 10rem;
-  height: 10rem;
+  width: 7.5rem;
+  height: 7.5rem;
+  @media ${device.tablet} {
+    width: 10rem;
+    height: 10rem;
+  }
   border-radius: 50%;
   display: flex;
   justify-content: center;
