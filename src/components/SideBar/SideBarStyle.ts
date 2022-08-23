@@ -5,6 +5,7 @@ import { BiCalculator } from "react-icons/bi";
 import { MdOutlineFastfood } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import { MdOutlineMonitorWeight } from "react-icons/md";
+import { device } from "../../assets/mediaQueries/device";
 
 interface ImgProps {
   url: string;
@@ -18,12 +19,16 @@ export const Container = styled.aside`
   height: calc(100vh - 3.5rem);
   padding: 0.8rem;
   width: 13rem;
+  display: none;
   ul {
     list-style-type: none;
   }
   li {
     cursor: pointer;
     font-weight: 300;
+  }
+  @media ${device.laptop} {
+    display: block;
   }
 `;
 export const StyledNavLink = styled(NavLink)`
