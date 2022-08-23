@@ -15,13 +15,16 @@ import LastMonth from "./LastMonth/LastMonth";
 import { device } from "../../assets/mediaQueries/device";
 
 const Container = styled.section`
-  padding: 1rem;
+  padding: 0.2rem;
   width: 100%;
   background-color: #f5f2f6;
   height: calc(100vh - 3.5rem);
   position: relative;
   top: 3.5rem;
   overflow-y: scroll;
+  @media ${device.tablet} {
+    padding: 1rem;
+  }
 `;
 const GridContainer = styled.div`
   margin: auto;
