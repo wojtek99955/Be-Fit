@@ -34,8 +34,15 @@ export const StyledHeader = styled.header<StyleProps>`
   width: 100%;
   padding: 0rem 0;
   height: 3.5rem;
-  z-index: 5;
+  z-index: 50;
   align-items: center;
+  background-color: ${({ location }) =>
+    location.pathname === "/" ||
+    location.pathname === "/signup" ||
+    location.pathname === "/forgot-password" ||
+    location.pathname === "/signin"
+      ? "transparent"
+      : "white"};
   box-shadow: ${({ location }) =>
     location.pathname === "/" ||
     location.pathname === "/signup" ||
