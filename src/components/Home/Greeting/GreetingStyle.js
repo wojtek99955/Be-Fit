@@ -4,6 +4,7 @@ import { BiCalculator } from "react-icons/bi";
 import { RiMedalLine } from "react-icons/ri";
 import { MdOutlineFastfood } from "react-icons/md";
 import { MdOutlineMonitorWeight } from "react-icons/md";
+import { device } from "../../../assets/mediaQueries/device";
 
 export const Container = styled.div`
   background-color: #00c579;
@@ -21,10 +22,13 @@ export const Container = styled.div`
 
   max-width: 1100px;
   h1 {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     margin-bottom: 2rem;
     position: relative;
     z-index: 2;
+    @media ${device.tablet} {
+      font-size: 2.5rem;
+    }
   }
 `;
 export const SearchInput = styled.input`
@@ -38,12 +42,16 @@ export const SearchInput = styled.input`
 `;
 
 export const HealthyStyleIconContainer = styled.div`
-  width: 12rem;
-  position: absolute;
-  left: 3rem;
+  display: none;
+  @media ${device.laptop} {
+    width: 12rem;
+    position: absolute;
+    left: 3rem;
+  }
 `;
 
 export const WorkOutIconContainer = styled.div`
+  display: none;
   width: 8rem;
   position: absolute;
   right: 3rem;
@@ -58,9 +66,12 @@ export const InputContainer = styled.div`
 `;
 
 export const LinkIcons = styled.div`
-  display: flex;
-  gap: 2.5rem;
-  margin-top: 2rem;
+  display: none;
+  @media ${device.tablet} {
+    display: flex;
+    gap: 2.5rem;
+    margin-top: 2rem;
+  }
 `;
 
 export const StyledLink = styled(Link)`
