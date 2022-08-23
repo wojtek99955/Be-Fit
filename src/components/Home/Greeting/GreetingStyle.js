@@ -8,7 +8,7 @@ import { device } from "../../../assets/mediaQueries/device";
 
 export const Container = styled.div`
   background-color: #00c579;
-  height: 15rem;
+  height: 12rem;
   border-radius: 8px;
   color: white;
   display: flex;
@@ -18,8 +18,7 @@ export const Container = styled.div`
   font-size: 2.5rem;
   position: relative;
   margin: auto;
-  margin-bottom: 2rem;
-
+  margin-bottom: 1rem;
   max-width: 1100px;
   h1 {
     font-size: 1.8rem;
@@ -29,6 +28,10 @@ export const Container = styled.div`
     @media ${device.tablet} {
       font-size: 2.5rem;
     }
+  }
+  @media ${device.tablet} {
+    height: 15rem;
+    margin-bottom: 2rem;
   }
 `;
 export const SearchInput = styled.input`
