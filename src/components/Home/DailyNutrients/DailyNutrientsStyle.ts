@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { SettingsIcon } from "../CardStyles";
 import { Box } from "../CardStyles";
+import { device } from "../../../assets/mediaQueries/device";
 
 interface Loading {
   loading: boolean;
@@ -32,6 +33,7 @@ export const StyledBox = styled(Box)`
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 20rem;
 `;
 
 export const Wrapper = styled.div<Loading>`
@@ -45,7 +47,12 @@ export const Wrapper = styled.div<Loading>`
   top: 0;
   bottom: 0;
   margin: auto;
-  padding: 1rem;
   opacity: ${({ loading }) => (loading ? "0" : "1")};
   padding: 1.6rem;
+  @media ${device.tablet} {
+    padding: 4rem;
+  }
+  @media ${device.laptop} {
+    padding: 1rem;
+  }
 `;
