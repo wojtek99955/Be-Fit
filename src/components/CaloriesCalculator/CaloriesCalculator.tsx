@@ -81,7 +81,10 @@ const CaloriesCalculator = () => {
       )}
 
       {showBoxes ? (
-        <Nutrients>
+        <Nutrients
+          initial={{ y: "-50%", opacity: 0, scale: 0.5 }}
+          animate={{ y: "20%", opacity: 1, scale: 1 }}
+        >
           <Box>
             <BoxHeader loading={loading}>
               {!loading ? <h3>Nutrients in 100 g</h3> : null}
