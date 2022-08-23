@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { SettingsIcon } from "../CardStyles";
 import { Box } from "../CardStyles";
+import { device } from "../../../assets/mediaQueries/device";
 
 interface Loading {
   loading?: boolean;
@@ -38,6 +39,7 @@ export const StyledLink = styled(Link)`
 
 export const StyledBox = styled(Box)`
   position: relative;
+  height: 20rem;
 `;
 
 export const Wrapper = styled.div<Loading>`
@@ -53,4 +55,10 @@ export const Wrapper = styled.div<Loading>`
   margin: auto;
   padding: 1.6rem;
   opacity: ${({ loading }) => (loading ? "0" : "1")};
+  @media ${device.tablet} {
+    padding: 4rem;
+  }
+  @media ${device.laptop} {
+    padding: 1rem;
+  }
 `;
