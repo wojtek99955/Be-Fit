@@ -39,7 +39,10 @@ export const StyledLink = styled(Link)`
 
 export const StyledBox = styled(Box)`
   position: relative;
-  height: 20rem;
+  height: 13rem;
+  @media ${device.laptop} {
+    height: 20rem;
+  }
 `;
 
 export const Wrapper = styled.div<Loading>`
