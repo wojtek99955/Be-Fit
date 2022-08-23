@@ -43,7 +43,8 @@ export const SearchInput = styled.input`
 
 export const HealthyStyleIconContainer = styled.div`
   display: none;
-  @media ${device.laptop} {
+  @media ${device.tablet} {
+    display: block;
     width: 12rem;
     position: absolute;
     left: 3rem;
@@ -52,9 +53,12 @@ export const HealthyStyleIconContainer = styled.div`
 
 export const WorkOutIconContainer = styled.div`
   display: none;
-  width: 8rem;
-  position: absolute;
-  right: 3rem;
+  @media ${device.tablet} {
+    display: block;
+    position: absolute;
+    width: 8rem;
+    right: 3rem;
+  }
 `;
 
 export const InputContainer = styled.div`
