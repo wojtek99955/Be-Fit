@@ -24,6 +24,7 @@ const Container = styled.section`
   overflow-y: scroll;
 `;
 const GridContainer = styled.div`
+  margin: auto;
   gap: 1rem;
   max-width: 1100px;
   display: grid;
