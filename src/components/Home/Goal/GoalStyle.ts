@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Box, SettingsIcon } from "../CardStyles";
+import { device } from "../../../assets/mediaQueries/device";
 
 interface WrapperProps {
   loading: boolean;
@@ -42,6 +43,10 @@ export const StyledBox = styled(Box)`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 13rem;
+  @media ${device.laptop} {
+    height: auto;
+  }
 `;
 export const StyledSettingsIcon = styled(SettingsIcon)`
   position: absolute;

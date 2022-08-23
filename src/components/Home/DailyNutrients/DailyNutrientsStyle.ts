@@ -33,7 +33,10 @@ export const StyledBox = styled(Box)`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 20rem;
+  height: 13rem;
+  @media ${device.tablet} {
+    height: auto;
+  }
 `;
 
 export const Wrapper = styled.div<Loading>`
