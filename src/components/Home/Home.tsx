@@ -12,6 +12,7 @@ import CalorieIntake from "./CalorieIntake";
 import RemainCalories from "./RemainCalories/RemainCalories";
 import DailyNutrients from "./DailyNutrients/DailyNutrients";
 import LastMonth from "./LastMonth/LastMonth";
+import { device } from "../../assets/mediaQueries/device";
 
 const Container = styled.section`
   padding: 1rem;
@@ -23,12 +24,20 @@ const Container = styled.section`
   overflow-y: scroll;
 `;
 const GridContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  grid-template-rows: repeat(2, minmax(0, 1fr));
   gap: 1rem;
   max-width: 1100px;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  @media ${device.tablet} {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+  }
+  @media ${device.laptop} {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+  }
 `;
 
 const Home = () => {
