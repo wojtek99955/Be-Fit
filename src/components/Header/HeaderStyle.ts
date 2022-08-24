@@ -81,8 +81,11 @@ export const StyledHeader = styled.header<StyleProps>`
 `;
 export const Logo = styled.img`
   cursor: pointer;
-  width: 7rem;
+  width: 5rem;
   margin-right: 2rem;
+  @media ${device.tablet} {
+    width: 7rem;
+  }
 `;
 
 export const UserIcon = styled.div<ImageProps>`
@@ -305,10 +308,13 @@ export const HamburgerContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 2rem;
+  margin-right: 1rem;
   border-radius: 5px;
   padding: 0.2rem;
   transition: background-color 300ms;
+  @media ${device.tablet} {
+    margin-right: 2rem;
+  }
 
   &:hover {
     background-color: #f0f2f2;
