@@ -38,10 +38,12 @@ export const StyledLink = styled(Link)`
 `;
 
 export const StyledBox = styled(Box)`
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 13rem;
-  @media ${device.laptop} {
-    height: 20rem;
+  @media ${device.tablet} {
+    height: auto;
   }
 `;
 
@@ -56,11 +58,19 @@ export const Wrapper = styled.div<Loading>`
   top: 0;
   bottom: 0;
   margin: auto;
-  padding: 1.6rem;
   opacity: ${({ loading }) => (loading ? "0" : "1")};
-  @media ${device.tablet} {
-    padding: 4rem;
+  padding: 0.5rem;
+  @media ${device.mobileM} {
+    padding: 0.8rem;
   }
+
+  @media ${device.mobileL} {
+    padding: 1.5rem;
+  }
+  @media (min-width: 615px) {
+    padding: 3.8rem;
+  }
+
   @media ${device.laptop} {
     padding: 1rem;
   }
