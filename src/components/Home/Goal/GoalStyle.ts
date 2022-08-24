@@ -44,7 +44,7 @@ export const StyledBox = styled(Box)`
   flex-direction: column;
   justify-content: space-between;
   height: 13rem;
-  @media ${device.laptop} {
+  @media ${device.tablet} {
     height: auto;
   }
 `;
