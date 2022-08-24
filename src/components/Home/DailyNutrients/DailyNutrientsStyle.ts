@@ -51,10 +51,18 @@ export const Wrapper = styled.div<Loading>`
   bottom: 0;
   margin: auto;
   opacity: ${({ loading }) => (loading ? "0" : "1")};
-  padding: 1.6rem;
-  @media ${device.tablet} {
-    padding: 4rem;
+  padding: 0.5rem;
+  @media ${device.mobileM} {
+    padding: 0.8rem;
   }
+
+  @media ${device.mobileL} {
+    padding: 1.5rem;
+  }
+  @media (min-width: 615px) {
+    padding: 3.8rem;
+  }
+
   @media ${device.laptop} {
     padding: 1rem;
   }
