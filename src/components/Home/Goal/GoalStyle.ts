@@ -7,9 +7,13 @@ interface WrapperProps {
 }
 
 export const Wrapper = styled.div<WrapperProps>`
-  padding: 1rem;
+  padding: 0.5rem;
+  @media ${device.tablet} {
+    padding: 1rem;
+    margin-top: 2rem;
+  }
   border-radius: 12px;
-  margin-top: 2rem;
+  margin-top: 1rem;
   opacity: ${({ loading }) => (loading ? "0" : "1")};
   &:first-of-type {
     background-color: #faf2ef;
@@ -26,7 +30,7 @@ export const Wrapper = styled.div<WrapperProps>`
   h2 {
     font-size: 1rem;
     color: #a29e9e;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     font-weight: 600;
   }
   p {
