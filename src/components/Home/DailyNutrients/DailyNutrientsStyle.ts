@@ -22,10 +22,14 @@ export const Kcal = styled.div`
   left: 50%;
   transform: translateX(-50%);
   strong {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
+    @media ${device.tablet} {
+      font-size: 2.5rem;
+    }
   }
   span {
     color: #a29e9e;
+    font-size: 1rem;
   }
 `;
 

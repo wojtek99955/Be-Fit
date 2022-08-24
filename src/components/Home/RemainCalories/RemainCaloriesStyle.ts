@@ -19,10 +19,15 @@ export const Calories = styled.div<Loading>`
   z-index: 0;
 
   strong {
+    font-size: 1.5rem;
+  }
+  @media ${device.tablet} {
     font-size: 2.5rem;
   }
   span {
     color: #a29e9e;
+    font-size: 1rem;
+    text-align: center;
   }
 `;
 
