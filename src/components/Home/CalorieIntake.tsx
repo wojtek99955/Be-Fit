@@ -16,8 +16,11 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   strong {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     color: black;
+    @media ${device.tablet} {
+      font-size: 2.5rem;
+    }
   }
 `;
 
@@ -50,7 +53,7 @@ const Data = styled.div`
   align-items: center;
 
   div {
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #a29e9e;
   }
 `;
