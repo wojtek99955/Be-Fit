@@ -4,6 +4,7 @@ import { getDoc, doc } from "firebase/firestore";
 import { db } from "../../firebase";
 import { AuthContext } from "../AuthContext";
 import { Box, SettingsIcon, StyledLink } from "./CardStyles";
+import { device } from "../../assets/mediaQueries/device";
 
 interface StyleProps {
   loading: boolean;
@@ -39,8 +40,12 @@ const Data = styled.div`
   justify-content: center;
   background-color: #c7e1c7;
   border-radius: 50%;
-  width: 10rem;
-  height: 10rem;
+  height: 7rem;
+  width: 7rem;
+  @media ${device.tablet} {
+    width: 10rem;
+    height: 10rem;
+  }
   display: flex;
   align-items: center;
 
