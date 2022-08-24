@@ -39,6 +39,7 @@ export const Wrapper = styled.div<StyleProps>`
   p {
     color: #bcbcbc;
     text-align: center;
+    font-size: 1rem;
     color: ${({ bmi }) => {
       if (bmi! >= 30 || bmi! <= 18.49) {
         return "white";
@@ -47,8 +48,11 @@ export const Wrapper = styled.div<StyleProps>`
   }
 `;
 export const Bmi = styled.strong`
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   display: block;
+  @media ${device.tablet} {
+    font-size: 2.5rem;
+  }
 `;
 export const Data = styled.div``;
 
