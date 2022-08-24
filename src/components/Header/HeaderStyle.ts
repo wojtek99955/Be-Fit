@@ -270,7 +270,7 @@ export const LoggedNavItem = styled.div`
 
   &:last-of-type {
     display: none;
-    @media ${device.laptopL} {
+    @media ${device.laptop} {
       display: block;
     }
   }
