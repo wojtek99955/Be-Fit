@@ -98,6 +98,7 @@ export const Nutrients = styled(motion.div)`
   display: flex;
   flex-direction: column;
   margin: auto;
+  padding-bottom: 1rem;
   gap: 2rem;
   @media ${device.tablet} {
     justify-content: space-between;
@@ -163,7 +164,6 @@ export const FoodName = styled.div<StylesProps>`
   margin: auto;
   width: 8rem;
   border-radius: 12px;
-  margin-bottom: 1rem;
   @media ${device.tablet} {
     margin-bottom: 2rem;
   }
