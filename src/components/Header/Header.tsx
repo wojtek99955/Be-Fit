@@ -88,6 +88,10 @@ const Header = ({ setShowSideBar }: Props) => {
     setShowSideBar((prev) => !prev);
   };
 
+  const toggleOpenDropdown = () => {
+    setOpenProfileMenu((prev) => !prev);
+  };
+
   return (
     <StyledHeader location={location}>
       <HeaderContainer>
@@ -187,7 +191,10 @@ const Header = ({ setShowSideBar }: Props) => {
                       : data?.name?.toUpperCase().slice(0, 1)}
                   </UserIcon>
                   {openProfileMenu ? (
-                    <ProfileSettingsDropdown ref={profileMenuRef}>
+                    <ProfileSettingsDropdown
+                      ref={profileMenuRef}
+                      onClick={toggleOpenDropdown}
+                    >
                       <UserDataContainer>
                         <DropdownUserIcon url={data?.avatarImg}>
                           {data?.avatarImg
