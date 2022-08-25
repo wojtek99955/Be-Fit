@@ -48,6 +48,10 @@ export const DataContainer = styled.div`
 export const DataWrapper = styled.div`
   strong {
     display: block;
+    font-size: 0.9rem;
+    @media ${device.tablet} {
+      font-size: 1rem;
+    }
     margin-bottom: 0.2rem;
     @media ${device.tablet} {
       margin-bottom: 0.5rem;
