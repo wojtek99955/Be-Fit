@@ -123,7 +123,7 @@ const CaloriesCalculator = () => {
             <BoxHeader loading={loading}>
               {!loading ? (
                 <>
-                  <h3>Nutrients in </h3>
+                  <h3>In </h3>
                   &nbsp;
                   <Formik
                     initialValues={{ weight: "" }}
