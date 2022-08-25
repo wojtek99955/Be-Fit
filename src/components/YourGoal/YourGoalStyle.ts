@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Field } from "formik";
+import { device } from "../../assets/mediaQueries/device";
 
 export const Container = styled.section`
   padding: 1rem;
@@ -95,10 +96,15 @@ export const RangeValue = styled.div`
 `;
 
 export const Wrapper = styled.div`
+  margin: auto;
   display: flex;
+  flex-direction: column-reverse;
   justify-content: center;
   gap: 2rem;
   margin-top: 2rem;
+  @media ${device.tablet} {
+    flex-direction: row;
+  }
 `;
 
 export const Result = styled.div`
