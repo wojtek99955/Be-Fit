@@ -87,7 +87,8 @@ export const Chart = styled.div<Loading>`
 export const Charts = styled(motion.div)`
   margin: 3rem auto;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   gap: 5rem;
   position: relative;
   z-index: 1;
