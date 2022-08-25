@@ -171,7 +171,7 @@ const Statistics = () => {
         {activeCharts ? (
           <Charts
             initial={{ y: "-50%", opacity: 0, scale: 0.5 }}
-            animate={{ y: "20%", opacity: 1, scale: 1 }}
+            animate={{ y: "10%", opacity: 1, scale: 1 }}
           >
             <Chart loading={loading}>
               <DoughNutChart nutrients={nutrients} />
