@@ -51,20 +51,21 @@ export const MainImg = styled.div`
 
 export const SearchBar = styled.div`
   display: flex;
+  justify-content: space-between;
   margin: auto;
+  padding: 0 1rem;
   gap: 0.5rem;
   width: 100%;
+  @media ${device.tablet} {
+    width: 30rem;
+  }
   input {
     outline: none;
     border: none;
     padding: 0.2rem 0;
     width: 100%;
     height: 2.5rem;
-    display: block;
     border-radius: 8px;
-    @media ${device.tablet} {
-      width: 25rem;
-    }
     &:-webkit-autofill,
     &:-webkit-autofill:hover,
     &:-webkit-autofill:focus,
@@ -239,6 +240,7 @@ export const InputContainer = styled.div`
   border-radius: 8px;
   background: white;
   align-items: center;
+  width: 100%;
   label {
     display: block;
     height: 100%;

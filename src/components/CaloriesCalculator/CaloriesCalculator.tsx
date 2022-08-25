@@ -58,7 +58,7 @@ const CaloriesCalculator = () => {
               }
             }}
           >
-            <Form>
+            <Form style={{ width: "100%" }}>
               <SearchBar>
                 <InputContainer>
                   <label htmlFor="query">
