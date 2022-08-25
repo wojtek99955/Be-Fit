@@ -12,12 +12,15 @@ interface Loading {
 }
 
 export const Container = styled.section`
-  padding: 1rem;
+  padding: 0.2rem;
   width: 100%;
   background-color: white;
   position: relative;
   top: 3.5rem;
   overflow-y: scroll;
+  @media ${device.tablet} {
+    padding: 1rem;
+  }
 
   h2 {
     font-size: 2rem;
@@ -100,6 +103,7 @@ export const ChartsBtns = styled.div<ActiveCharts>`
   display: flex;
   gap: 1rem;
   padding: 1.5rem 0;
+  margin-top: 2rem;
 
   button {
     border-radius: 8px;
