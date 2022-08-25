@@ -3,6 +3,7 @@ import { FaRunning } from "react-icons/fa";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { BiSwim } from "react-icons/bi";
+import { device } from "../../../assets/mediaQueries/device";
 
 const JumpingRopeIcon = styled(GiJumpingRope)`
   font-size: 2.5rem;
@@ -19,13 +20,21 @@ const SwimmingIcon = styled(BiSwim)`
 
 const Container = styled.div`
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
 `;
 
 const CalculatorsContainer = styled.div`
   background-color: #f3f4f6;
-  width: 15rem;
-  height: 15rem;
+  width: 6rem;
+  height: 6rem;
+  @media ${device.tablet} {
+    width: 12rem;
+    height: 12rem;
+  }
+  @media ${device.laptop} {
+    width: 13rem;
+    height: 13rem;
+  }
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -46,6 +55,7 @@ const CalculatorsContainer = styled.div`
   }
   h1 {
     font-weight: 500;
+    text-align: center;
   }
   div {
     display: flex;
