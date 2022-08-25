@@ -97,10 +97,12 @@ export const Nutrients = styled(motion.div)`
   max-width: 800px;
   display: flex;
   flex-direction: column;
+  margin: auto;
   gap: 2rem;
   @media ${device.tablet} {
     justify-content: space-between;
     align-items: center;
+    flex-direction: row;
   }
 `;
 
@@ -161,7 +163,10 @@ export const FoodName = styled.div<StylesProps>`
   margin: auto;
   width: 8rem;
   border-radius: 12px;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
+  @media ${device.tablet} {
+    margin-bottom: 2rem;
+  }
 `;
 
 export const BoxHeader = styled.div<StylesProps>`
