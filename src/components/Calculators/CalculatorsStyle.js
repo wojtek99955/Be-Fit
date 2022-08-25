@@ -85,9 +85,12 @@ export const Text = styled.div`
 `;
 
 export const FormWrapper = styled.div`
-  min-width: 25rem;
+  width: 100%;
   padding: 1rem;
   background-color: #f3f4f6;
+  @media ${device.tablet} {
+    min-width: 25rem;
+  }
 `;
 
 export const Result = styled.div`
