@@ -63,7 +63,9 @@ export const SearchBar = styled.div`
     height: 2.5rem;
     display: block;
     border-radius: 8px;
-    /* width: 25rem; */
+    @media ${device.tablet} {
+      width: 25rem;
+    }
     &:-webkit-autofill,
     &:-webkit-autofill:hover,
     &:-webkit-autofill:focus,
@@ -93,17 +95,21 @@ export const ContentWrapper = styled.div`
 `;
 
 export const Nutrients = styled(motion.div)`
-  display: flex;
   max-width: 800px;
-  margin: auto;
-  justify-content: space-between;
+  @media ${device.tablet} {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 `;
 
 export const BoxContainer = styled.div`
+  max-width: 18rem;
   background-color: #f3f4f6;
   border-radius: 12px;
   display: grid;
   grid-template-columns: 7rem 7rem;
+  justify-content: center;
   gap: 1rem;
   padding: 1rem;
   height: 15rem;
@@ -206,7 +212,15 @@ export const BoxHeader = styled.div<StylesProps>`
   }
 `;
 
-export const Box = styled.div``;
+export const Box = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  @media ${device.tablet} {
+    display: block;
+  }
+`;
 
 export const SearchIcon = styled(BiSearch)`
   font-size: 1.5rem;
