@@ -10,7 +10,6 @@ export const Container = styled.section`
   gap: 3rem;
   width: 900px;
   justify-content: center;
-
   @media ${device.tablet} {
     gap: 5rem;
   }
