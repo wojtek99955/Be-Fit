@@ -1,5 +1,6 @@
 import { Field } from "formik";
 import styled from "styled-components";
+import { device } from "../../assets/mediaQueries/device";
 
 interface StyleProps {
   save?: boolean;
@@ -11,7 +12,10 @@ interface ImageProps {
 
 export const Container = styled.section`
   margin-top: 2rem;
-  width: 40rem;
+  width: 90%;
+  @media ${device.tablet} {
+    width: 40rem;
+  }
   margin-left: 1rem;
   margin-right: 1rem;
   h2 {
