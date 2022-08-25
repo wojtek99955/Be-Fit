@@ -58,8 +58,12 @@ export const Data = styled.div``;
 
 export const StyledSettingsIcon = styled(SettingsIcon)<BmiProps>`
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 0.7rem;
+  right: 0.7rem;
+  @media ${device.tablet} {
+    top: 1rem;
+    right: 1rem;
+  }
   color: ${({ bmi }) => {
     if (bmi >= 30 || bmi <= 18.49) {
       return "white";
