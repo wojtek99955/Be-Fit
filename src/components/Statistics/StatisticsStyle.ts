@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 import { BiChevronDown } from "react-icons/bi";
 import { BiChevronUp } from "react-icons/bi";
+import { device } from "../../assets/mediaQueries/device";
 
 interface ActiveCharts {
   active: boolean;
@@ -27,7 +28,7 @@ export const Container = styled.section`
 
 export const Header = styled.div`
   background-color: #00c579;
-  height: 15rem;
+  height: 10rem;
   border-radius: 8px;
   margin-bottom: 2rem;
   color: white;
@@ -37,25 +38,38 @@ export const Header = styled.div`
   flex-direction: column;
   font-size: 2.5rem;
   position: relative;
+  @media ${device.tablet} {
+    height: 15rem;
+  }
   h1 {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     position: relative;
     z-index: 2;
+    @media ${device.tablet} {
+      font-size: 2.5rem;
+    }
   }
 `;
 
 export const FitnessStatsIconContainer = styled.div`
-  width: 11rem;
+  width: 5rem;
   position: absolute;
   top: 20%;
-  left: 10%;
+  left: 5%;
+  @media ${device.tablet} {
+    width: 11rem;
+  }
 `;
 
 export const PieChartIconContainer = styled.div`
-  width: 11rem;
+  width: 6rem;
   position: absolute;
   right: 10%;
-  top: 18%;
+  top: 38%;
+  @media ${device.tablet} {
+    width: 11rem;
+    top: 18%;
+  }
 `;
 
 export const Chart = styled.div<Loading>`
