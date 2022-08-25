@@ -3,6 +3,7 @@ import { MdOutlineMonitorWeight } from "react-icons/md";
 import { GiWeightLiftingUp } from "react-icons/gi";
 import { useNavigate } from "react-router-dom";
 import { MdOutlineFastfood } from "react-icons/md";
+import { device } from "../../../assets/mediaQueries/device";
 
 const WeightIcon = styled(MdOutlineMonitorWeight)`
   font-size: 2.5rem;
@@ -21,8 +22,16 @@ const FoodIcon = styled(MdOutlineFastfood)`
 
 const CalculatorsContainer = styled.div`
   background-color: #f3f4f6;
-  width: 15rem;
-  height: 15rem;
+  width: 6rem;
+  height: 6rem;
+  @media ${device.tablet} {
+    width: 12rem;
+    height: 12rem;
+  }
+  @media ${device.laptop} {
+    width: 13rem;
+    height: 13rem;
+  }
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -43,6 +52,11 @@ const CalculatorsContainer = styled.div`
   }
   h1 {
     font-weight: 500;
+    text-align: center;
+    font-size: 0.9rem;
+    @media ${device.tablet} {
+      font-size: 1rem;
+    }
   }
   div {
     display: flex;

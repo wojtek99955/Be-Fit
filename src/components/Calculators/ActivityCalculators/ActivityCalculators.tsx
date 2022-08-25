@@ -56,6 +56,10 @@ const CalculatorsContainer = styled.div`
   h1 {
     font-weight: 500;
     text-align: center;
+    font-size: 0.9rem;
+    @media ${device.tablet} {
+      font-size: 1rem;
+    }
   }
   div {
     display: flex;
