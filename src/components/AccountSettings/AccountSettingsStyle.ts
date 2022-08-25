@@ -40,8 +40,12 @@ export const ImageContainer = styled.div`
 `;
 
 export const Image = styled.div<ImageProps>`
-  width: 6rem;
-  height: 6rem;
+  width: 4rem;
+  height: 4rem;
+  @media ${device.tablet} {
+    width: 6rem;
+    height: 6rem;
+  }
   border-radius: 50%;
   background-color: #ffa101;
   display: flex;
