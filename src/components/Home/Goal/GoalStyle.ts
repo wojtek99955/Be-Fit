@@ -60,8 +60,8 @@ export const StyledBox = styled(Box)`
 `;
 export const StyledSettingsIcon = styled(SettingsIcon)`
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 0.7rem;
+  right: 0.7rem;
 `;
 
 export const BoxWrapper = styled.div<WrapperProps>`
