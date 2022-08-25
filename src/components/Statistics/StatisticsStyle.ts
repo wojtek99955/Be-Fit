@@ -14,7 +14,6 @@ interface Loading {
 export const Container = styled.section`
   padding: 1rem;
   width: 100%;
-  height: calc(100vh - 3.5rem);
   background-color: white;
   position: relative;
   top: 3.5rem;
@@ -85,13 +84,16 @@ export const Chart = styled.div<Loading>`
 `;
 
 export const Charts = styled(motion.div)`
-  margin: 3rem auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5rem;
+  gap: 3rem;
   position: relative;
   z-index: 1;
+  @media ${device.tablet} {
+    flex-direction: row;
+    justify-content: center;
+  }
 `;
 
 export const ChartsBtns = styled.div<ActiveCharts>`
