@@ -54,7 +54,6 @@ export const SearchBar = styled.div`
   margin: auto;
   gap: 0.5rem;
   width: 100%;
-  border: 1px solid red;
   input {
     outline: none;
     border: none;
@@ -96,8 +95,10 @@ export const ContentWrapper = styled.div`
 
 export const Nutrients = styled(motion.div)`
   max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   @media ${device.tablet} {
-    display: flex;
     justify-content: space-between;
     align-items: center;
   }
@@ -171,7 +172,7 @@ export const BoxHeader = styled.div<StylesProps>`
   height: 2rem;
   background-color: ${({ loading }) => (loading ? "#f3f4f6" : "white")};
   border-radius: 12px;
-
+  width: 15rem;
   h3 {
     color: #55595b;
     display: inline;
