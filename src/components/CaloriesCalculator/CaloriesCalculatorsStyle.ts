@@ -1,13 +1,17 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 import { BiSearch } from "react-icons/bi";
+import { device } from "../../assets/mediaQueries/device";
 const img = require("../../assets/images/food-img.jpg");
 
 interface StylesProps {
   loading: boolean | null;
 }
 export const Container = styled.div`
-  padding: 1rem;
+  padding: 1rem 0.2rem;
+  @media ${device.tablet} {
+    padding: 1rem;
+  }
   width: 100%;
   height: calc(100vh - 3.5rem);
   position: relative;
@@ -22,7 +26,10 @@ export const Container = styled.div`
 
 export const MainImg = styled.div`
   width: 100%;
-  height: 20rem;
+  height: 15rem;
+  @media ${device.tablet} {
+    height: 20rem;
+  }
   background: rgba(0, 0, 0, 0.3) url(${img});
   background-blend-mode: darken;
   background-size: cover;
@@ -46,6 +53,8 @@ export const SearchBar = styled.div`
   display: flex;
   margin: auto;
   gap: 0.5rem;
+  width: 100%;
+  border: 1px solid red;
   input {
     outline: none;
     border: none;
@@ -54,7 +63,7 @@ export const SearchBar = styled.div`
     height: 2.5rem;
     display: block;
     border-radius: 8px;
-    width: 25rem;
+    /* width: 25rem; */
     &:-webkit-autofill,
     &:-webkit-autofill:hover,
     &:-webkit-autofill:focus,
