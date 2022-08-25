@@ -13,7 +13,6 @@ export const Container = styled.div`
     padding: 1rem;
   }
   width: 100%;
-  height: calc(100vh - 3.5rem);
   position: relative;
   top: 3.5rem;
   overflow-y: scroll;
@@ -88,9 +87,6 @@ export const SearchBar = styled.div`
 `;
 
 export const ContentWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
 `;
 
