@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../../assets/mediaQueries/device";
 
 export const Container = styled.section`
   margin: 0 1rem;
@@ -44,9 +45,12 @@ export const Container = styled.section`
 `;
 export const Wrapper = styled.div`
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: column;
   gap: 3rem;
   align-items: flex-start;
+  @media ${device.tablet} {
+    flex-direction: row-reverse;
+  }
 
   button {
     display: block;
