@@ -2,17 +2,23 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { BiBody } from "react-icons/bi";
 import { GiWeightLiftingUp } from "react-icons/gi";
+import { device } from "../../assets/mediaQueries/device";
 
 export const Container = styled.section`
-  max-width: 900px;
   display: flex;
-  gap: 5rem;
+  padding: 1rem;
+  justify-content: space-between;
+  width: 900px;
+  @media ${device.tablet} {
+    gap: 5rem;
+    justify-content: center;
+  }
 `;
 
 const CalculatorsContainer = styled.div`
   background-color: #f3f4f6;
-  width: 15rem;
-  height: 15rem;
+  width: 8rem;
+  height: 8rem;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -21,6 +27,10 @@ const CalculatorsContainer = styled.div`
   transition: transform 100ms;
   &:hover {
     transform: scale(1.05);
+  }
+  @media ${device.tablet} {
+    width: 15rem;
+    height: 15rem;
   }
   h1 {
     font-weight: 500;
