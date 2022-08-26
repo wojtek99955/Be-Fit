@@ -18,18 +18,11 @@ import { useLocation } from "react-router-dom";
 import SettingsSideBar from "../AccountSettings/SettingsSideBar";
 
 interface Props {
-  setShowSideBar: React.Dispatch<React.SetStateAction<boolean>>;
-  setShowSideBarMobile: React.Dispatch<React.SetStateAction<boolean>>;
   showSideBar: boolean;
   showSideBarMobile: boolean;
 }
 
-const SideBarMobile = ({
-  setShowSideBarMobile,
-  setShowSideBar,
-  showSideBar,
-  showSideBarMobile,
-}: Props) => {
+const SideBarMobile = ({ showSideBar, showSideBarMobile }: Props) => {
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
   const [data, setData] = useState<any>({});
