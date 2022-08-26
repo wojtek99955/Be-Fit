@@ -2,7 +2,7 @@ import SignUp from "./Auth/SignUp";
 import { Routes, Navigate, Route } from "react-router-dom";
 import Home from "./Home/Home";
 import SignIn from "./Auth/SignIn";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "./AuthContext";
 import StartPage from "./StartPage";
 import Header from "./Header/Header";
@@ -29,6 +29,7 @@ import ActivityCalculatorsLayout from "./Calculators/ActivityCalculators/Activit
 import ActivityCalculators from "./Calculators/ActivityCalculators/ActivityCalculators";
 import JumpingRope from "./Calculators/ActivityCalculators/JumpingRope";
 import RunningCalculator from "./Calculators/ActivityCalculators/RunningCalculator";
+import SideBarMobile from "./SideBarMobile/SideBarMobile";
 
 interface AuthProps {
   children: JSX.Element;
@@ -38,14 +39,29 @@ function App() {
   const ctx = useContext(AuthContext);
   const islogged = ctx?.currentUser;
   const [showSideBar, setShowSideBar] = useState(true);
+  const [showSideBarMobile, setShowSideBarMobile] = useState(false);
+  const [currentWidth, setCurrentWidth] = useState<number>(window.innerWidth);
 
+  useEffect(() => {
+    const setWidth = () => {
+      setCurrentWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", setWidth);
+  });
+
+  console.log(currentWidth);
   const RequireAuth = ({ children }: AuthProps) => {
     return islogged ? children : <Navigate to="/signup" />;
   };
   return (
     <div className="App" style={{ display: "flex" }}>
-      <Header setShowSideBar={setShowSideBar} />
-      {islogged && showSideBar ? <SideBar /> : null}
+      <Header
+        setShowSideBar={setShowSideBar}
+        setShowSideBarMobile={setShowSideBarMobile}
+      />
+
+      {islogged && showSideBar && currentWidth >= 1024 ? <SideBar /> : null}
+
       <Routes>
         <Route path="/" element={<Start />}>
           <Route index element={<StartPage />} />
