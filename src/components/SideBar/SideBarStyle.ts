@@ -14,12 +14,13 @@ interface ImgProps {
 export const Container = styled.aside`
   height: 100vh;
   border-right: 1px solid #e1e4e7;
-  position: relative;
+  position: absolute;
   top: 3.5rem;
   height: calc(100vh - 3.5rem);
   padding: 0.8rem;
+  z-index: 40;
   width: 13rem;
-  display: none;
+  background-color: white;
   ul {
     list-style-type: none;
   }
@@ -29,6 +30,8 @@ export const Container = styled.aside`
   }
   @media ${device.laptop} {
     display: block;
+    position: relative;
+    top: 3.5rem;
   }
 `;
 export const StyledNavLink = styled(NavLink)`
