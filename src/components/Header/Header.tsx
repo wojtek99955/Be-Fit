@@ -36,9 +36,10 @@ const img = require("../../assets/images/logo.png");
 
 interface Props {
   setShowSideBar: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowSideBarMobile: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Header = ({ setShowSideBar }: Props) => {
+const Header = ({ setShowSideBar, setShowSideBarMobile }: Props) => {
   let navigate = useNavigate();
   const ctx = useContext(AuthContext);
   const [openProfileMenu, setOpenProfileMenu] = useState(false);
@@ -85,7 +86,11 @@ const Header = ({ setShowSideBar }: Props) => {
     setOpenCalculatorsDropdown((prev) => !prev);
   };
   const toggleSideBar = () => {
-    setShowSideBar((prev) => !prev);
+    if (document.documentElement.clientWidth >= 1024) {
+      setShowSideBar((prev) => !prev);
+    } else {
+      setShowSideBarMobile((prev) => !prev);
+    }
   };
 
   const toggleOpenDropdown = () => {
