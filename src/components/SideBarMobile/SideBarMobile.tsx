@@ -22,7 +22,7 @@ interface Props {
   setShowSideBarMobile: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const SideBarMobile = ({ setShowSideBar }: Props) => {
+const SideBarMobile = ({ setShowSideBarMobile, setShowSideBar }: Props) => {
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
   const [data, setData] = useState<any>({});
