@@ -49,7 +49,6 @@ function App() {
     window.addEventListener("resize", setWidth);
   });
 
-  console.log(currentWidth);
   const RequireAuth = ({ children }: AuthProps) => {
     return islogged ? children : <Navigate to="/signup" />;
   };
