@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { BiHomeAlt } from "react-icons/bi";
 import { RiMedalLine } from "react-icons/ri";
@@ -11,7 +12,11 @@ interface ImgProps {
   url: string;
 }
 
-export const Container = styled.aside`
+interface AnimationProps {
+  showSideBarMobile: boolean;
+}
+
+export const Container = styled(motion.aside)`
   height: 100vh;
   border-right: 1px solid #e1e4e7;
   position: absolute;
