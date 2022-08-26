@@ -20,9 +20,16 @@ import SettingsSideBar from "../AccountSettings/SettingsSideBar";
 interface Props {
   setShowSideBar: React.Dispatch<React.SetStateAction<boolean>>;
   setShowSideBarMobile: React.Dispatch<React.SetStateAction<boolean>>;
+  showSideBar: boolean;
+  showSideBarMobile: boolean;
 }
 
-const SideBarMobile = ({ setShowSideBarMobile, setShowSideBar }: Props) => {
+const SideBarMobile = ({
+  setShowSideBarMobile,
+  setShowSideBar,
+  showSideBar,
+  showSideBarMobile,
+}: Props) => {
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
   const [data, setData] = useState<any>({});
@@ -39,8 +46,13 @@ const SideBarMobile = ({ setShowSideBarMobile, setShowSideBar }: Props) => {
     <>
       {location.pathname === "/signin" ||
       location.pathname === "/" ||
-      location.pathname === "/signup" ? null : (
-        <Container>
+      location.pathname === "/signup" ||
+      !showSideBarMobile ? null : (
+        <Container
+          initial={{ left: "-100%" }}
+          animate={{ left: 0 }}
+          exit={{ left: "-100%" }}
+        >
           <User>
             <StyledUserIcon url={data?.avatarImg}>
               {data?.avatarImg ? null : data?.name?.toUpperCase().slice(0, 1)}
