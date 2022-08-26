@@ -60,10 +60,12 @@ function App() {
       />
 
       {islogged && showSideBar && currentWidth >= 1024 ? <SideBar /> : null}
-      {islogged && showSideBarMobile && currentWidth < 1024 ? (
+      {islogged && currentWidth < 1024 ? (
         <SideBarMobile
           setShowSideBarMobile={setShowSideBarMobile}
           setShowSideBar={setShowSideBar}
+          showSideBar={showSideBar}
+          showSideBarMobile={showSideBarMobile}
         />
       ) : null}
 
