@@ -12,6 +12,7 @@ import {
   UpIcon,
   DownIcon,
   Wrapper,
+  ChartsContainer,
 } from "./LastMonthStyle";
 import { NutrientsTypes } from "../../../assets/interfaces/ConsumedNutrientsInterface";
 import { AnimatePresence } from "framer-motion";
@@ -89,11 +90,13 @@ const LastMonth = () => {
             </AnimatePresence>
           </ChangeChartDropdown>
         </Header>
-        {activeChart === "nutrients" ? (
-          <NutrientsChart chartData={data} />
-        ) : (
-          <CaloriesChart chartData={data} />
-        )}
+        <ChartsContainer>
+          {activeChart === "nutrients" ? (
+            <NutrientsChart chartData={data} />
+          ) : (
+            <CaloriesChart chartData={data} />
+          )}
+        </ChartsContainer>
       </Wrapper>
     </StyledBox>
   );
