@@ -10,6 +10,11 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { NutrientsTypes } from "../../../assets/interfaces/ConsumedNutrientsInterface";
+import styled from "styled-components";
+
+const ChartWrapper = styled.div`
+  width: 30rem;
+`;
 
 ChartJS.register(
   CategoryScale,
@@ -87,9 +92,9 @@ const NutrientsChart = ({ chartData }: Props) => {
     ],
   };
   return (
-    <div>
+    <ChartWrapper>
       <Line style={{ maxHeight: "13rem" }} options={options} data={dataChart} />
-    </div>
+    </ChartWrapper>
   );
 };
 
