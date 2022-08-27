@@ -20,9 +20,9 @@ export const Calories = styled.div<Loading>`
 
   strong {
     font-size: 1.5rem;
-  }
-  @media ${device.tablet} {
-    font-size: 2.5rem;
+    @media ${device.tablet} {
+      font-size: 2.5rem;
+    }
   }
   span {
     color: #a29e9e;
