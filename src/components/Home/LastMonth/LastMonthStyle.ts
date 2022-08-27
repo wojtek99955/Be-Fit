@@ -62,3 +62,7 @@ interface Loading {
 export const Wrapper = styled.div<Loading>`
   opacity: ${({ loading }) => (loading ? "0" : "1")};
 `;
+
+export const ChartsContainer = styled.div`
+  overflow-x: scroll;
+`;
