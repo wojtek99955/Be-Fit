@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 export const StyledBox = styled(Box)`
   max-width: 1100px;
   margin: 1rem auto;
+  height: auto;
 
   h2 {
     font-size: 1rem;
