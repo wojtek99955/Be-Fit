@@ -12,6 +12,7 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { NutrientsTypes } from "../../../assets/interfaces/ConsumedNutrientsInterface";
+import { ChartWrapper } from "./LastMonthStyle";
 
 ChartJS.register(
   CategoryScale,
@@ -66,9 +67,9 @@ const CaloriesChart = ({ chartData }: Props) => {
   };
 
   return (
-    <div>
+    <ChartWrapper>
       <Line style={{ maxHeight: "13rem" }} options={options} data={dataChart} />
-    </div>
+    </ChartWrapper>
   );
 };
 
