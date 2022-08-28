@@ -2,12 +2,10 @@ import SignUp from "./Auth/SignUp";
 import { Routes, Navigate, Route } from "react-router-dom";
 import Home from "./Home/Home";
 import SignIn from "./Auth/SignIn";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "./AuthContext";
 import StartPage from "./StartPage";
-import Header from "./Header/Header";
 import Start from "./Start";
-import SideBar from "./SideBar/SideBar";
 import Calculators from "./Calculators/Calculators";
 import BodyMeasurements from "./BodyMeasurement/BodyMeasurements";
 import AccountSettings from "./AccountSettings/AccountSettings";
@@ -29,8 +27,6 @@ import ActivityCalculatorsLayout from "./Calculators/ActivityCalculators/Activit
 import ActivityCalculators from "./Calculators/ActivityCalculators/ActivityCalculators";
 import JumpingRope from "./Calculators/ActivityCalculators/JumpingRope";
 import RunningCalculator from "./Calculators/ActivityCalculators/RunningCalculator";
-import SideBarMobile from "./SideBarMobile/SideBarMobile";
-import { AnimatePresence } from "framer-motion";
 import React from "react";
 
 interface AuthProps {
