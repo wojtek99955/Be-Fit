@@ -113,3 +113,13 @@ export const UserData = styled.div``;
 export const WeightIcon = styled(MdOutlineMonitorWeight)`
   font-size: 1.3rem;
 `;
+
+export const Background = styled(motion.div)`
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  z-index: 1;
+  width: calc(100vw - 13rem);
+  height: 100%;
+  top: 0;
+  left: 13rem;
+`;

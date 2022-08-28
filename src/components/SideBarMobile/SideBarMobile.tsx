@@ -1,4 +1,4 @@
-import { useEffect, useContext, useState } from "react";
+import { useEffect, useContext, useState, useRef } from "react";
 import {
   Container,
   StyledNavLink,
@@ -10,6 +10,7 @@ import {
   User,
   UserData,
   WeightIcon,
+  Background,
 } from "./SideBarMobileStyle";
 import { db } from "../../firebase";
 import { doc, onSnapshot } from "firebase/firestore";
@@ -44,6 +45,19 @@ const SideBarMobile = ({
   const closeSideBar = () => {
     setShowSideBarMobile(false);
   };
+  const sideBarRef = useRef<HTMLDivElement>(null);
+  const clickOutsideToClose = (e: any) => {
+    if (sideBarRef.current && !sideBarRef.current.contains(e.target)) {
+      setShowSideBarMobile(false);
+    }
+  };
+  // useEffect(() => {
+  //   document.addEventListener("click", clickOutsideToClose);
+
+  //   return () => {
+  //     document.removeEventListener("click", clickOutsideToClose);
+  //   };
+  // }, []);
 
   return (
     <AnimatePresence>
@@ -52,11 +66,17 @@ const SideBarMobile = ({
       location.pathname === "/signup" ||
       !showSideBarMobile ? null : (
         <Container
+          ref={sideBarRef}
           initial={{ left: "-100%" }}
           animate={{ left: 0 }}
           exit={{ left: "-100%" }}
-          transition={{ type: "spring", bounce: 0.3 }}
+          transition={{ type: "ease-in-out" }}
         >
+          <Background
+            onClick={closeSideBar}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          />
           <User>
             <StyledUserIcon url={data?.avatarImg}>
               {data?.avatarImg ? null : data?.name?.toUpperCase().slice(0, 1)}
