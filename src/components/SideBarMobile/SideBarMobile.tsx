@@ -16,6 +16,7 @@ import { doc, onSnapshot } from "firebase/firestore";
 import { AuthContext } from "../AuthContext";
 import { useLocation } from "react-router-dom";
 import SettingsSideBar from "../AccountSettings/SettingsSideBar";
+import { AnimatePresence } from "framer-motion";
 
 interface Props {
   showSideBar: boolean;
@@ -36,7 +37,7 @@ const SideBarMobile = ({ showSideBar, showSideBarMobile }: Props) => {
   let location = useLocation();
 
   return (
-    <>
+    <AnimatePresence>
       {location.pathname === "/signin" ||
       location.pathname === "/" ||
       location.pathname === "/signup" ||
@@ -45,6 +46,7 @@ const SideBarMobile = ({ showSideBar, showSideBarMobile }: Props) => {
           initial={{ left: "-100%" }}
           animate={{ left: 0 }}
           exit={{ left: "-100%" }}
+          transition={{ type: "spring", bounce: 0.3 }}
         >
           <User>
             <StyledUserIcon url={data?.avatarImg}>
@@ -105,7 +107,7 @@ const SideBarMobile = ({ showSideBar, showSideBarMobile }: Props) => {
           )}
         </Container>
       )}
-    </>
+    </AnimatePresence>
   );
 };
 
