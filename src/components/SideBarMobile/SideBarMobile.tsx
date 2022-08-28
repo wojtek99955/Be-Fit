@@ -1,4 +1,4 @@
-import { useEffect, useContext, useState, useRef } from "react";
+import { useEffect, useContext, useState } from "react";
 import {
   Container,
   StyledNavLink,
@@ -45,19 +45,6 @@ const SideBarMobile = ({
   const closeSideBar = () => {
     setShowSideBarMobile(false);
   };
-  const sideBarRef = useRef<HTMLDivElement>(null);
-  const clickOutsideToClose = (e: any) => {
-    if (sideBarRef.current && !sideBarRef.current.contains(e.target)) {
-      setShowSideBarMobile(false);
-    }
-  };
-  // useEffect(() => {
-  //   document.addEventListener("click", clickOutsideToClose);
-
-  //   return () => {
-  //     document.removeEventListener("click", clickOutsideToClose);
-  //   };
-  // }, []);
 
   return (
     <AnimatePresence>
@@ -66,7 +53,6 @@ const SideBarMobile = ({
       location.pathname === "/signup" ||
       !showSideBarMobile ? null : (
         <Container
-          ref={sideBarRef}
           initial={{ left: "-100%" }}
           animate={{ left: 0 }}
           exit={{ left: "-100%" }}
