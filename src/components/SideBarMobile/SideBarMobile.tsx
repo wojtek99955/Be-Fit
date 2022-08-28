@@ -41,6 +41,10 @@ const SideBarMobile = ({
 
   let location = useLocation();
 
+  const closeSideBar = () => {
+    setShowSideBarMobile(false);
+  };
+
   return (
     <AnimatePresence>
       {location.pathname === "/signin" ||
@@ -76,7 +80,7 @@ const SideBarMobile = ({
             <SettingsSideBar />
           ) : (
             <nav>
-              <ul>
+              <ul onClick={closeSideBar}>
                 <li>
                   <StyledNavLink to="/home">
                     <HomeIcon />
