@@ -30,6 +30,7 @@ import ActivityCalculators from "./Calculators/ActivityCalculators/ActivityCalcu
 import JumpingRope from "./Calculators/ActivityCalculators/JumpingRope";
 import RunningCalculator from "./Calculators/ActivityCalculators/RunningCalculator";
 import SideBarMobile from "./SideBarMobile/SideBarMobile";
+import { AnimatePresence } from "framer-motion";
 
 interface AuthProps {
   children: JSX.Element;
@@ -60,12 +61,14 @@ function App() {
       />
 
       {islogged && showSideBar && currentWidth >= 1024 ? <SideBar /> : null}
-      {islogged && currentWidth < 1024 ? (
-        <SideBarMobile
-          showSideBar={showSideBar}
-          showSideBarMobile={showSideBarMobile}
-        />
-      ) : null}
+      <AnimatePresence>
+        {islogged && currentWidth < 1024 ? (
+          <SideBarMobile
+            showSideBar={showSideBar}
+            showSideBarMobile={showSideBarMobile}
+          />
+        ) : null}
+      </AnimatePresence>
 
       <Routes>
         <Route path="/" element={<Start />}>
