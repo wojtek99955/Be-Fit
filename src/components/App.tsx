@@ -66,6 +66,7 @@ function App() {
           <SideBarMobile
             showSideBar={showSideBar}
             showSideBarMobile={showSideBarMobile}
+            setShowSideBarMobile={setShowSideBarMobile}
           />
         ) : null}
       </AnimatePresence>

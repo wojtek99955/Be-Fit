@@ -21,9 +21,14 @@ import { AnimatePresence } from "framer-motion";
 interface Props {
   showSideBar: boolean;
   showSideBarMobile: boolean;
+  setShowSideBarMobile: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const SideBarMobile = ({ showSideBar, showSideBarMobile }: Props) => {
+const SideBarMobile = ({
+  showSideBar,
+  showSideBarMobile,
+  setShowSideBarMobile,
+}: Props) => {
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
   const [data, setData] = useState<any>({});
