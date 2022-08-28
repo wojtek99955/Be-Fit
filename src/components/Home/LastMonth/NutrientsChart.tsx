@@ -12,14 +12,7 @@ import { Line } from "react-chartjs-2";
 import { NutrientsTypes } from "../../../assets/interfaces/ConsumedNutrientsInterface";
 import styled from "styled-components";
 import { device } from "../../../assets/mediaQueries/device";
-
-const ChartWrapper = styled.div`
-  width: 30rem;
-  margin: auto;
-  @media ${device.tablet} {
-    width: 100%;
-  }
-`;
+import { ChartWrapper } from "./LastMonthStyle";
 
 ChartJS.register(
   CategoryScale,

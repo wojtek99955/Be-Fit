@@ -3,6 +3,7 @@ import { Box } from "../CardStyles";
 import { BiChevronDown } from "react-icons/bi";
 import { BiChevronUp } from "react-icons/bi";
 import { motion } from "framer-motion";
+import { device } from "../../../assets/mediaQueries/device";
 
 export const StyledBox = styled(Box)`
   max-width: 1100px;
@@ -65,4 +66,12 @@ export const Wrapper = styled.div<Loading>`
 
 export const ChartsContainer = styled.div`
   overflow-x: scroll;
+`;
+
+export const ChartWrapper = styled.div`
+  width: 30rem;
+  margin: auto;
+  @media ${device.tablet} {
+    width: 100%;
+  }
 `;
