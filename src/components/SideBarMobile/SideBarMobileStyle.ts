@@ -17,9 +17,10 @@ interface AnimationProps {
 }
 
 export const Container = styled(motion.aside)`
-  height: 100vh;
+  width: calc(100vw - 13rem);
+  height: calc(100% - 3.5rem);
   border-right: 1px solid #e1e4e7;
-  position: absolute;
+  position: fixed;
   top: 3.5rem;
   height: calc(100vh - 3.5rem);
   padding: 0.8rem;
@@ -118,8 +119,8 @@ export const Background = styled(motion.div)`
   background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   z-index: 1;
-  width: calc(100vw - 13rem);
-  height: 100%;
   top: 0;
   left: 13rem;
+  width: calc(100vw - 13rem);
+  height: calc(100% - 3.5rem);
 `;
