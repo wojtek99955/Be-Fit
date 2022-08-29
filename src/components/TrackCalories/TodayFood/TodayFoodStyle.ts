@@ -16,12 +16,15 @@ export const FoodItem = styled(motion.div)`
   padding: 2.5rem 1.5rem;
   display: grid;
   position: relative;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr;
   justify-content: space-around;
   align-items: center;
   border-radius: 12px;
   margin-bottom: 2rem;
   background-color: #edf5f1;
+  @media ${device.tablet} {
+    grid-template-columns: repeat(4, 1fr);
+  }
   div {
     padding: 0.5rem;
     color: #555555;
@@ -73,8 +76,8 @@ export const DailyNutrition = styled.div`
   width: 100%;
   padding-top: 2rem;
   display: grid;
-  grid-template-columns: 1fr;
   gap: 1rem;
+  grid-template-columns: 1fr;
   @media ${device.tablet} {
     grid-template-columns: 1fr 1fr;
   }
@@ -145,3 +148,5 @@ export const FoodIconContainer = styled.div`
   top: 1rem;
   left: 1rem;
 `;
+
+export const Column = styled.div``;
