@@ -15,6 +15,9 @@ export const Consumed = styled.div<LoadingProps>`
 
 export const ConsumedNutrients = styled.div<LoadingProps>`
   opacity: ${({ loading }) => (loading ? "0" : "1")};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   div {
     color: #555555;
   }
