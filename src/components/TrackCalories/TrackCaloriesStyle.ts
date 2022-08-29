@@ -3,21 +3,25 @@ import styled from "styled-components";
 import { Field } from "formik";
 import { MdAddCircleOutline } from "react-icons/md";
 import { IoMdCloseCircleOutline } from "react-icons/io";
+import { device } from "../../assets/mediaQueries/device";
 const img = require("../../assets/images/track-calories.jpg");
 
 export const Container = styled.section`
-  padding: 1rem;
+  padding: 0.2rem;
   width: 100%;
   height: calc(100vh - 3.5rem);
   background-color: white;
   position: relative;
   top: 3.5rem;
   overflow-y: scroll;
+  @media ${device.tablet} {
+    padding: 1rem;
+  }
 `;
 export const Header = styled.div`
   width: 100%;
   background: rgba(0, 0, 0, 0.3) url(${img});
-  height: 20rem;
+  height: 13rem;
   background-position: bottom;
   background-size: cover;
   background-blend-mode: darken;
@@ -25,7 +29,9 @@ export const Header = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
+  @media ${device.tablet} {
+    height: 20rem;
+  }
   h2 {
     color: white;
     font-size: 2.6rem;
