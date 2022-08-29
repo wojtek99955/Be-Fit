@@ -114,7 +114,6 @@ export const FormWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
 `;
 
 export const SearchItemContainer = styled(motion.div)``;
