@@ -3,6 +3,7 @@ import { AiOutlineDownCircle } from "react-icons/ai";
 import { AiOutlineUpCircle } from "react-icons/ai";
 import { AiOutlineDelete } from "react-icons/ai";
 import { motion } from "framer-motion";
+import { device } from "../../../assets/mediaQueries/device";
 
 export const Container = styled.div`
   max-width: 800px;
@@ -71,9 +72,11 @@ export const Name = styled.div`
 export const DailyNutrition = styled.div`
   width: 100%;
   padding-top: 2rem;
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: 1fr 1fr;
+  @media ${device.tablet} {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 
 interface Loading {
