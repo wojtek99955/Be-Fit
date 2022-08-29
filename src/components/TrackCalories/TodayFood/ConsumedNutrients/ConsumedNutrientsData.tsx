@@ -69,7 +69,7 @@ const ConsumedNutrientsData = ({ consumed, loading }: Props) => {
     <Consumed loading={loading}>
       <ConsumedCalories loading={loading}>
         <span>{consumedNutrients?.kcal}</span>
-        <div>Kcal:</div>
+        <div>Kcal</div>
       </ConsumedCalories>
       <ConsumedNutrients loading={loading}>
         <Row>
