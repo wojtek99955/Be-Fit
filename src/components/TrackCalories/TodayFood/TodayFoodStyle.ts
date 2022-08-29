@@ -134,8 +134,6 @@ export const FoodIconContainer = styled.div`
   left: 1rem;
 `;
 
-export const Column = styled.div``;
-
 export const FoodWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr;

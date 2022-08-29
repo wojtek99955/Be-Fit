@@ -17,7 +17,6 @@ import {
   CurrentDate,
   DeleteIcon,
   FoodIconContainer,
-  Column,
   FoodWrapper,
 } from "./TodayFoodStyle";
 import ConsumedNutrientsData from "./ConsumedNutrients/ConsumedNutrientsData";
