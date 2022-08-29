@@ -66,6 +66,9 @@ export const Wrapper = styled.div<Loading>`
 
 export const ChartsContainer = styled.div`
   overflow-x: scroll;
+  @media ${device.tablet} {
+    overflow-x: auto;
+  }
 `;
 
 export const ChartWrapper = styled.div`
