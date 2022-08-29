@@ -3,6 +3,7 @@ import { device } from "../../assets/mediaQueries/device";
 
 export const Container = styled.section`
   margin: 0 1rem;
+  padding-bottom: 2rem;
   label {
     display: block;
     font-size: 1.2rem;
