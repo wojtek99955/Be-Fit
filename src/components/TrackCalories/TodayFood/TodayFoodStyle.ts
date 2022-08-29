@@ -13,28 +13,13 @@ export const Container = styled.div`
 export const FoodItem = styled(motion.div)`
   box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.1), 0 2px 4px 0 rgba(0, 0, 0, 0),
     inset 0 0 0 1px rgba(255, 255, 255, 0.5);
-  padding: 2.5rem 1.5rem;
-  display: grid;
+  padding: 0.5rem;
   position: relative;
-  grid-template-columns: 1fr;
-  justify-content: space-around;
-  align-items: center;
   border-radius: 12px;
   margin-bottom: 2rem;
   background-color: #edf5f1;
   @media ${device.tablet} {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  div {
-    padding: 0.5rem;
-    color: #555555;
-  }
-  span {
-    color: black;
-  }
-  h3 {
-    font-size: 1.6rem;
-    text-transform: capitalize;
+    padding: 1.5rem;
   }
 `;
 
@@ -150,3 +135,29 @@ export const FoodIconContainer = styled.div`
 `;
 
 export const Column = styled.div``;
+
+export const FoodWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 300px;
+  margin: auto;
+  border-radius: 12px;
+  background-color: #edf5f1;
+  @media ${device.tablet} {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 100%;
+  }
+  div {
+    padding: 0.5rem;
+    color: #555555;
+  }
+  span {
+    color: black;
+  }
+  h3 {
+    font-size: 1.6rem;
+    text-transform: capitalize;
+  }
+`;
