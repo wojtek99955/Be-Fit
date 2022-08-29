@@ -72,9 +72,10 @@ export const Name = styled.div`
 export const DailyNutrition = styled.div`
   width: 100%;
   padding-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
   @media ${device.tablet} {
-    display: grid;
-    gap: 1rem;
     grid-template-columns: 1fr 1fr;
   }
 `;
