@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Field } from "formik";
+import { device } from "../../assets/mediaQueries/device";
 
 export const Label = styled.label`
   display: block;
@@ -13,9 +14,12 @@ export const FormContainer = styled.div`
   background-color: white;
   padding: 1rem;
   width: 25rem;
-  margin: auto;
+  margin: 1rem;
   display: block;
   position: relative;
+  @media ${device.tablet} {
+    margin: auto;
+  }
 
   h2 {
     font-size: 2rem;
