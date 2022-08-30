@@ -32,6 +32,13 @@ const MailIcon = styled(GoMailRead)`
   margin-bottom: 2rem;
 `;
 
+const Label = styled.label`
+  display: block;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+`;
+
 const ForgotPassword = () => {
   const auth = getAuth();
   const [success, setSuccess] = useState(false);
@@ -54,6 +61,7 @@ const ForgotPassword = () => {
             }}
           >
             <Form>
+              <Label htmlFor="email">Type your email</Label>
               <StyledField name="email" type="email" />
               <button type="submit">Send email</button>
             </Form>
