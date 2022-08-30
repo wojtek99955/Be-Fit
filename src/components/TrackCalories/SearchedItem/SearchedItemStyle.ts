@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Field } from "formik";
+import { device } from "../../../assets/mediaQueries/device";
 
 interface SearchItemProps {
   loading: boolean;
@@ -14,12 +15,15 @@ export const SearchedItemContainer = styled.div`
 export const SearchItemWrapper = styled.div<SearchItemProps>`
   opacity: ${({ loading }) => (loading ? "0" : "1")};
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 3rem;
   justify-content: space-between;
   align-items: center;
   padding: 3rem 0;
   position: relative;
+  @media ${device.tablet} {
+    grid-template-columns: repeat(4, 1fr);
+  }
   h2 {
     text-transform: capitalize;
   }
