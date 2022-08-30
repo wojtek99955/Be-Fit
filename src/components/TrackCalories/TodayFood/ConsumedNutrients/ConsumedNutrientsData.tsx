@@ -4,6 +4,7 @@ import {
   ConsumedCalories,
   Row,
   ConsumedNutrients,
+  Wrapper,
 } from "./ConsumedNutrientsStyle";
 import { setDoc, doc, serverTimestamp } from "firebase/firestore";
 import { AuthContext } from "../../../AuthContext";
@@ -67,28 +68,30 @@ const ConsumedNutrientsData = ({ consumed, loading }: Props) => {
 
   return (
     <Consumed loading={loading}>
-      <ConsumedCalories loading={loading}>
-        <span>{consumedNutrients?.kcal}</span>
-        <div>Kcal</div>
-      </ConsumedCalories>
-      <ConsumedNutrients loading={loading}>
-        <Row>
-          <div>
-            Fat <span>{consumedNutrients?.fat} g </span>
-          </div>
-          <div>
-            Protein <span>{consumedNutrients?.protein} g</span>
-          </div>
-        </Row>
-        <Row>
-          <div>
-            Carbo <span>{consumedNutrients?.carbo} g</span>
-          </div>
-          <div>
-            Fiber <span>{consumedNutrients?.fiber} g</span>
-          </div>
-        </Row>
-      </ConsumedNutrients>
+      <Wrapper>
+        <ConsumedCalories loading={loading}>
+          <span>{consumedNutrients?.kcal}</span>
+          <div>Kcal</div>
+        </ConsumedCalories>
+        <ConsumedNutrients loading={loading}>
+          <Row>
+            <div>
+              Fat <span>{consumedNutrients?.fat} g </span>
+            </div>
+            <div>
+              Protein <span>{consumedNutrients?.protein} g</span>
+            </div>
+          </Row>
+          <Row>
+            <div>
+              Carbo <span>{consumedNutrients?.carbo} g</span>
+            </div>
+            <div>
+              Fiber <span>{consumedNutrients?.fiber} g</span>
+            </div>
+          </Row>
+        </ConsumedNutrients>
+      </Wrapper>
     </Consumed>
   );
 };
