@@ -19,7 +19,7 @@ export const RemainedCalories = styled.div<LoadingProps>`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  height: 12rem;
+  height: 15rem;
   div {
     font-size: 2.5rem;
   }
