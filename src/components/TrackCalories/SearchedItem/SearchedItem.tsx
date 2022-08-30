@@ -134,6 +134,12 @@ const SearchedItem = ({
                 )}
               </Formik>
             </Amount>
+            <Calories>
+              kcal
+              <strong>
+                {((query?.details?.ENERC_KCAL * foodWeight) / 100).toFixed(1)}
+              </strong>
+            </Calories>
             <Nutrients>
               <NutrientsWrapper>
                 <div>
@@ -162,12 +168,6 @@ const SearchedItem = ({
                 </div>
               </NutrientsWrapper>
             </Nutrients>
-            <Calories>
-              kcal
-              <strong>
-                {((query?.details?.ENERC_KCAL * foodWeight) / 100).toFixed(1)}
-              </strong>
-            </Calories>
           </SearchItemWrapper>
         </SearchedItemContainer>
       ) : (
