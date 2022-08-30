@@ -63,11 +63,15 @@ export const StyledHeader = styled.header<StyleProps>`
 
   button {
     border: 2px solid #ffa101;
-    height: 2.5rem;
+    height: 2.2rem;
     width: 5.5rem;
     border-radius: 5px;
     cursor: pointer;
     color: white;
+    @media ${device.tablet} {
+      width: 6rem;
+      height: 2.5rem;
+    }
 
     &:first-of-type {
       border: 2px solid #ffa101;
