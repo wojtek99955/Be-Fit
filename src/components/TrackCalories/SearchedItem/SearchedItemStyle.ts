@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { Field } from "formik";
 import { device } from "../../../assets/mediaQueries/device";
@@ -100,7 +101,7 @@ export const FoodName = styled.div`
   align-items: center;
 `;
 
-export const AddButton = styled.button`
+export const AddButton = styled(motion.button)`
   position: absolute;
   right: 0;
   bottom: 0;

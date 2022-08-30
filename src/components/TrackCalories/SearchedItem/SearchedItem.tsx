@@ -19,6 +19,7 @@ import { db } from "../../../firebase";
 import { AuthContext } from "../../AuthContext";
 import { nanoid } from "nanoid";
 import { AddButton } from "./SearchedItemStyle";
+import { motion } from "framer-motion";
 
 interface Props {
   loading: boolean;
@@ -88,7 +89,19 @@ const SearchedItem = ({
       },
     });
   }, [query?.name, query?.details, foodWeight]);
+  const variants = {
+    move: {
+      rotate: [0, -30, 0],
+      transition: { duration: 0.3 },
+      y: 200,
+      x: [0, 20, 0],
+      opacity: 0,
+      scale: [1, 1.1, 0.8],
+    },
+    stop: { y: [0, -10, 0], transition: { repeat: Infinity, repeatDelay: 3 } },
+  };
 
+  const [saveAnimation, setSaveAnimation] = useState(false);
   return (
     <>
       {!error ? (
@@ -124,8 +137,14 @@ const SearchedItem = ({
                     <ErrorMessage name="amount" component={ErrorMsg} />
                     <AddButton
                       type="submit"
+                      variants={variants}
+                      animate={saveAnimation ? "move" : "stop"}
                       onClick={() => {
                         addMeal(queryAmount);
+                        setSaveAnimation(true);
+                        setTimeout(() => {
+                          setSaveAnimation(false);
+                        }, 1000);
                       }}
                     >
                       Add Meal
