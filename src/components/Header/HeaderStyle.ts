@@ -24,9 +24,12 @@ export const HeaderContainer = styled.div`
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
     width: 100%;
     height: 100%;
+    @media ${device.tablet} {
+      gap: 1.5rem;
+    }
   }
 `;
 export const StyledHeader = styled.header<StyleProps>`
@@ -61,7 +64,7 @@ export const StyledHeader = styled.header<StyleProps>`
   button {
     border: 2px solid #ffa101;
     height: 2.5rem;
-    width: 6rem;
+    width: 5.5rem;
     border-radius: 5px;
     cursor: pointer;
     color: white;
