@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import { device } from "../assets/mediaQueries/device";
 
 const Main = styled.main`
   h1 {
@@ -11,7 +12,7 @@ const Main = styled.main`
     background-color: #ffa101;
     border: none;
     color: white;
-    padding: 1rem 2.3rem;
+    padding: 0.7rem 2rem;
     display: block;
     margin: auto;
     border-radius: 12px;
@@ -20,6 +21,9 @@ const Main = styled.main`
     cursor: pointer;
     &:hover {
       background-color: #cf8300;
+    }
+    @media ${device.tablet} {
+      padding: 1rem 2.3rem;
     }
   }
 `;
