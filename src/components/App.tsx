@@ -5,6 +5,7 @@ import SideBar from "./SideBar/SideBar";
 import SideBarMobile from "./SideBarMobile/SideBarMobile";
 import { AnimatePresence } from "framer-motion";
 import { MemoizedRoutes } from "./AppRoutes";
+import Background from "./SideBarMobile/Background";
 
 function App() {
   const ctx = useContext(AuthContext);
@@ -29,11 +30,17 @@ function App() {
       {islogged && showSideBar && currentWidth >= 1024 ? <SideBar /> : null}
       <AnimatePresence>
         {islogged && currentWidth < 1024 ? (
-          <SideBarMobile
-            showSideBar={showSideBar}
-            showSideBarMobile={showSideBarMobile}
-            setShowSideBarMobile={setShowSideBarMobile}
-          />
+          <>
+            <SideBarMobile
+              showSideBar={showSideBar}
+              showSideBarMobile={showSideBarMobile}
+              setShowSideBarMobile={setShowSideBarMobile}
+            />
+            <Background
+              showSideBarMobile={showSideBarMobile}
+              setShowSideBarMobile={setShowSideBarMobile}
+            />
+          </>
         ) : null}
       </AnimatePresence>
 
