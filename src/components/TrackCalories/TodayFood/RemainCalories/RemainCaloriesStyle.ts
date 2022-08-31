@@ -7,8 +7,10 @@ interface LoadingProps {
 export const Container = styled.div<LoadingProps>`
   border-radius: 12px;
   display: flex;
+  padding: 2;
   align-items: center;
   justify-content: center;
+  height: 15rem;
   background-color: ${({ loading }) => (loading ? "#f3f4f6" : "white")};
   border: ${({ loading }) =>
     loading ? "4px solid #f3f4f6" : "4px solid #ffa101"};
@@ -19,7 +21,6 @@ export const RemainedCalories = styled.div<LoadingProps>`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  height: 15rem;
   div {
     font-size: 2.5rem;
   }
