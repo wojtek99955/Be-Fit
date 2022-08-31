@@ -21,10 +21,10 @@ export const Container = styled(motion.aside)`
   height: calc(100% - 3.5rem);
   border-right: 1px solid #e1e4e7;
   position: fixed;
-  top: 3.5rem;
-  height: calc(100vh - 3.5rem);
+  top: 0;
+  height: 100vh;
   padding: 0.8rem;
-  z-index: 20;
+  z-index: 25;
   width: 13rem;
   background-color: white;
   ul {
@@ -122,5 +122,5 @@ export const Background = styled(motion.div)`
   top: 0;
   left: 13rem;
   width: calc(100vw - 13rem);
-  height: calc(100% - 3.5rem);
+  height: 100vh;
 `;
