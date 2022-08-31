@@ -16,6 +16,7 @@ export const Wrapper = styled.div`
   background-color: white;
   border-radius: 12px;
   width: 30rem;
+  margin: 0.5rem;
   padding: 1rem;
   h1 {
     text-align: center;
