@@ -37,7 +37,7 @@ export const StyledHeader = styled.header<StyleProps>`
   width: 100%;
   padding: 0rem 0;
   height: 3.5rem;
-  z-index: 50;
+  z-index: 20;
   align-items: center;
   background-color: ${({ location }) =>
     location.pathname === "/" ||
