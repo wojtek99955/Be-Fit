@@ -58,11 +58,6 @@ const SideBarMobile = ({
           exit={{ left: "-100%" }}
           transition={{ type: "ease-in-out" }}
         >
-          <Background
-            onClick={closeSideBar}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-          />
           <User>
             <StyledUserIcon url={data?.avatarImg}>
               {data?.avatarImg ? null : data?.name?.toUpperCase().slice(0, 1)}
