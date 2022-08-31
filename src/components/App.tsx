@@ -1,4 +1,3 @@
-import { Navigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "./AuthContext";
 import Header from "./Header/Header";
