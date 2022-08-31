@@ -9,7 +9,6 @@ export const Consumed = styled.div<LoadingProps>`
   border: ${({ loading }) =>
     loading ? "4px solid #f3f4f6" : "4px solid #019d51"};
   padding: 2rem;
-  padding: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
