@@ -41,7 +41,7 @@ const UpdateProfileModal = ({ setShowModal }: Props) => {
         <UpdateGoal setPage={setPage} setShowModal={setShowModal} />
       )}
     </Container>,
-    document.getElementById("portal")!
+    document.getElementById("updateProfile")!
   );
 };
 
