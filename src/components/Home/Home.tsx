@@ -8,7 +8,7 @@ import { getDoc, doc } from "firebase/firestore";
 import { db } from "../../firebase";
 import { AuthContext } from "../AuthContext";
 import UpdateProfileModal from "../UpdateProfileModal/UpdateProfileModal";
-import CalorieIntake from "./CalorieIntake";
+import CalorieIntake from "./CalorieIntake/CalorieIntake";
 import RemainCalories from "./RemainCalories/RemainCalories";
 import DailyNutrients from "./DailyNutrients/DailyNutrients";
 import LastMonth from "./LastMonth/LastMonth";
