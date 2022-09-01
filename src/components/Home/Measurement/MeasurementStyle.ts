@@ -2,11 +2,8 @@ import styled from "styled-components";
 import { BsCalendar3 } from "react-icons/bs";
 import { GiBodyHeight } from "react-icons/gi";
 import { GiWeight } from "react-icons/gi";
-import { GoSettings } from "react-icons/go";
 import { Link } from "react-router-dom";
-import { Box } from "../CardStyles";
 import { device } from "../../../assets/mediaQueries/device";
-import { SettingsIcon } from "../CardStyles";
 
 interface StyleProps {
   loading: boolean;
@@ -116,5 +113,3 @@ export const LoaderContainer = styled.div`
 export const Wrapper = styled.div<StyleProps>`
   opacity: ${({ loading }) => (loading ? "0" : "1")};
 `;
-
-export const StyledBox = styled(Box)``;

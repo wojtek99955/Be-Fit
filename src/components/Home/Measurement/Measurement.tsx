@@ -14,9 +14,9 @@ import {
   WeightIcon,
   StyledLink,
   Wrapper,
-  StyledBox,
 } from "./MeasurementStyle";
 import { SettingsIcon } from "../CardStyles";
+import { Box } from "../CardStyles";
 
 const Measurement = () => {
   const [loading, setLoading] = useState(true);
@@ -42,7 +42,7 @@ const Measurement = () => {
   const { height, age, weight } = data;
 
   return (
-    <StyledBox>
+    <Box>
       <Wrapper loading={loading}>
         <StyledLink to="/my-body">
           <SettingsIcon />
@@ -77,7 +77,7 @@ const Measurement = () => {
           </DataContainer>
         </BoxWrapper>
       </Wrapper>
-    </StyledBox>
+    </Box>
   );
 };
 
