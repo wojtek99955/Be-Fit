@@ -3,7 +3,7 @@ import { getDoc, doc } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { AuthContext } from "../../AuthContext";
 import { Box, SettingsIcon, StyledLink } from "../CardStyles";
-import { Wrapper, Header, Data, BoxWrapper } from "./CalorieIntakeStyle";
+import { Wrapper, Data, BoxWrapper } from "./CalorieIntakeStyle";
 
 const CalorieIntake = () => {
   const ctx = useContext(AuthContext);
@@ -32,12 +32,9 @@ const CalorieIntake = () => {
     <>
       <Box>
         <BoxWrapper loading={loading}>
-          <Header>
-            <h2>Calorie Intake </h2>
-            <StyledLink to="/calculators/body-calculators/calorie-intake">
-              <SettingsIcon />
-            </StyledLink>
-          </Header>
+          <StyledLink to="/calculators/body-calculators/calorie-intake">
+            <SettingsIcon />
+          </StyledLink>
           {data ? (
             <Data>
               <Wrapper>
