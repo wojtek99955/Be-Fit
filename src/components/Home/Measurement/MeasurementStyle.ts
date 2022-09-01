@@ -92,9 +92,6 @@ export const Header = styled.div`
   @media ${device.tablet} {
     margin-bottom: 1rem;
   }
-  h2 {
-    font-size: 1rem;
-  }
 `;
 
 export const CalendarIcon = styled(BsCalendar3)`
