@@ -9,7 +9,7 @@ interface Props {
 
 export const BackgroundWrapper = styled(motion.div)`
   background-color: rgba(0, 0, 0, 0.5);
-  position: absolute;
+  position: fixed;
   z-index: 24;
   top: 0;
   left: 0;
