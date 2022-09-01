@@ -6,6 +6,7 @@ import { GoSettings } from "react-icons/go";
 import { Link } from "react-router-dom";
 import { Box } from "../CardStyles";
 import { device } from "../../../assets/mediaQueries/device";
+import { SettingsIcon } from "../CardStyles";
 
 interface StyleProps {
   loading: boolean;
@@ -76,21 +77,16 @@ export const WeightIconContainer = styled(IconContainer)`
 `;
 
 export const BoxWrapper = styled.div<StyleProps>`
+  position: absolute;
   display: flex;
   flex-direction: column;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
   gap: 0.3rem;
   @media ${device.tablet} {
     gap: 0.5rem;
-  }
-`;
-
-export const Header = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.3rem;
-  @media ${device.tablet} {
-    margin-bottom: 1rem;
   }
 `;
 
@@ -120,3 +116,5 @@ export const LoaderContainer = styled.div`
 export const Wrapper = styled.div<StyleProps>`
   opacity: ${({ loading }) => (loading ? "0" : "1")};
 `;
+
+export const StyledBox = styled(Box)``;
