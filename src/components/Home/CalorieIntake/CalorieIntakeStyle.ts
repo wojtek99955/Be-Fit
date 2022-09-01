@@ -19,15 +19,6 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const Header = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  h2 {
-    font-size: 1rem;
-  }
-`;
-
 export const Data = styled.div`
   position: absolute;
   top: 50%;
