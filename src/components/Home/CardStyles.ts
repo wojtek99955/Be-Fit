@@ -15,6 +15,9 @@ export const Box = styled.div`
 `;
 
 export const SettingsIcon = styled(GoSettings)`
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
   font-size: 1.5rem;
   color: #bcbcbc;
   cursor: pointer;
