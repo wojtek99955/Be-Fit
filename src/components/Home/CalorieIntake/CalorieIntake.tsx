@@ -1,10 +1,8 @@
 import { useState, useEffect, useContext } from "react";
-import styled from "styled-components";
 import { getDoc, doc } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { AuthContext } from "../../AuthContext";
 import { Box, SettingsIcon, StyledLink } from "../CardStyles";
-import { device } from "../../../assets/mediaQueries/device";
 import { Wrapper, Header, Data, BoxWrapper } from "./CalorieIntakeStyle";
 
 const CalorieIntake = () => {
