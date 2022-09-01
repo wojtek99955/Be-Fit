@@ -46,7 +46,6 @@ const Measurement = () => {
     <Box>
       <Wrapper loading={loading}>
         <Header>
-          <h2>Currently</h2>
           <StyledLink to="/my-body">
             <SettingsIcon />
           </StyledLink>
