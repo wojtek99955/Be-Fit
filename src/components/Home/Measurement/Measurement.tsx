@@ -2,7 +2,6 @@ import { useEffect, useState, useContext } from "react";
 import { getDoc, doc } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { AuthContext } from "../../AuthContext";
-import { Box } from "../CardStyles";
 import {
   DataContainer,
   DataWrapper,
@@ -10,12 +9,12 @@ import {
   HeightIconContainer,
   WeightIconContainer,
   BoxWrapper,
-  Header,
   CalendarIcon,
   HeightIcon,
   WeightIcon,
   StyledLink,
   Wrapper,
+  StyledBox,
 } from "./MeasurementStyle";
 import { SettingsIcon } from "../CardStyles";
 
@@ -43,13 +42,11 @@ const Measurement = () => {
   const { height, age, weight } = data;
 
   return (
-    <Box>
+    <StyledBox>
       <Wrapper loading={loading}>
-        <Header>
-          <StyledLink to="/my-body">
-            <SettingsIcon />
-          </StyledLink>
-        </Header>
+        <StyledLink to="/my-body">
+          <SettingsIcon />
+        </StyledLink>
         <BoxWrapper loading={loading}>
           <DataContainer>
             <AgeIconContainer>
@@ -80,7 +77,7 @@ const Measurement = () => {
           </DataContainer>
         </BoxWrapper>
       </Wrapper>
-    </Box>
+    </StyledBox>
   );
 };
 
