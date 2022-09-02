@@ -7,11 +7,12 @@ import { device } from "../../assets/mediaQueries/device";
 export const Container = styled.section`
   display: flex;
   padding: 1rem;
-  gap: 3rem;
+  gap: 1rem;
   width: 900px;
   justify-content: center;
   @media ${device.tablet} {
     gap: 5rem;
+    gap: 3rem;
   }
 `;
 
