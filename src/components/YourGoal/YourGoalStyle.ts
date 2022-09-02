@@ -36,6 +36,9 @@ export const StyledField = styled(Field)`
 
 export const FormContainer = styled.div`
   max-width: 25rem;
+  @media ${device.tablet} {
+    min-width: 20rem;
+  }
   button {
     background-color: #ffa101;
     border: none;
