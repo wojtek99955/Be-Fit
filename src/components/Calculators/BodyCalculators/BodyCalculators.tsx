@@ -21,17 +21,10 @@ const FoodIcon = styled(MdOutlineFastfood)`
 `;
 
 const CalculatorsContainer = styled.div`
+  aspect-ratio: 1/1;
   background-color: #f3f4f6;
-  width: 6rem;
-  height: 6rem;
-  @media ${device.tablet} {
-    width: 12rem;
-    height: 12rem;
-  }
-  @media ${device.laptop} {
-    width: 13rem;
-    height: 13rem;
-  }
+  width: 100%;
+  height: 100%;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -67,8 +60,16 @@ const CalculatorsContainer = styled.div`
 `;
 
 const Container = styled.div`
-  display: flex;
-  gap: 2rem;
+  display: grid;
+  max-width: 800px;
+  grid-template-columns: repeat(auto-fill, minmax(40px, 150px));
+  @media ${device.tablet} {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 250px));
+  }
+  gap: 1rem;
+  width: 90%;
+  margin: auto;
+  justify-content: center;
 `;
 
 const BodyCalculators = () => {

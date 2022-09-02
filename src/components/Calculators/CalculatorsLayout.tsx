@@ -12,8 +12,8 @@ const Container = styled.section`
 const Wrapper = styled.section`
   position: relative;
   z-index: 2;
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
 `;
 
 const CalculatorsLayout = () => {
