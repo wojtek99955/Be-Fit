@@ -124,6 +124,31 @@ const CalorieIntake = () => {
   return (
     <Container>
       <Wrapper>
+        <Text>
+          <h2>Calorie intake calculator</h2>
+          <p>
+            This calculator will help you to calculate how much energy your body
+            needs to maintain / gain / loose weight.
+          </p>
+          <p>
+            As the recommended calorie intake guidelines suggest, the number of
+            calories you need per day can vary based on various factors. Among
+            them are:
+          </p>
+          <ul>
+            <li>Gender</li>
+            <li>Height</li>
+            <li>Weight</li>
+            <li>Age</li>
+            <li>Activity level</li>
+          </ul>
+          <p>
+            Additional factors that can affect how many calories your body uses
+            for energy, thus also impacting how many you should consume, include
+            your hormones,5 some medications (such as steroids and some diabetes
+            medicines),6 and your overall health.
+          </p>
+        </Text>
         <FormWrapper>
           <FormContainer>
             <p>
@@ -219,31 +244,6 @@ const CalorieIntake = () => {
             ) : null}
           </FormContainer>
         </FormWrapper>
-        <Text>
-          <h2>Calorie intake calculator</h2>
-          <p>
-            This calculator will help you to calculate how much energy your body
-            needs to maintain / gain / loose weight.
-          </p>
-          <p>
-            As the recommended calorie intake guidelines suggest, the number of
-            calories you need per day can vary based on various factors. Among
-            them are:
-          </p>
-          <ul>
-            <li>Gender</li>
-            <li>Height</li>
-            <li>Weight</li>
-            <li>Age</li>
-            <li>Activity level</li>
-          </ul>
-          <p>
-            Additional factors that can affect how many calories your body uses
-            for energy, thus also impacting how many you should consume, include
-            your hormones,5 some medications (such as steroids and some diabetes
-            medicines),6 and your overall health.
-          </p>
-        </Text>
       </Wrapper>
     </Container>
   );
