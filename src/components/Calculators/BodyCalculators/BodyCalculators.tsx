@@ -22,6 +22,8 @@ const FoodIcon = styled(MdOutlineFastfood)`
 
 const CalculatorsContainer = styled.div`
   aspect-ratio: 1/1;
+  overflow: auto;
+
   background-color: #f3f4f6;
   width: 100%;
   height: 100%;
@@ -61,13 +63,13 @@ const CalculatorsContainer = styled.div`
 
 const Container = styled.div`
   display: grid;
-  max-width: 800px;
   grid-template-columns: repeat(auto-fill, minmax(40px, 150px));
+  max-width: 600px;
   @media ${device.tablet} {
-    grid-template-columns: repeat(auto-fill, minmax(80px, 250px));
+    grid-template-columns: repeat(auto-fill, minmax(100px, 250px));
+    max-width: 800px;
   }
   gap: 1rem;
-  width: 90%;
   margin: auto;
   justify-content: center;
 `;
