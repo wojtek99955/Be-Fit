@@ -19,22 +19,22 @@ const SwimmingIcon = styled(BiSwim)`
 `;
 
 const Container = styled.div`
-  display: flex;
-  gap: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(40px, 150px));
+  max-width: 600px;
+  @media ${device.tablet} {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 250px));
+    max-width: 800px;
+  }
+  gap: 1rem;
+  margin: auto;
+  justify-content: center;
 `;
 
 const CalculatorsContainer = styled.div`
   background-color: #f3f4f6;
-  width: 6rem;
-  height: 6rem;
-  @media ${device.tablet} {
-    width: 12rem;
-    height: 12rem;
-  }
-  @media ${device.laptop} {
-    width: 13rem;
-    height: 13rem;
-  }
+  aspect-ratio: 1/1;
+
   border-radius: 8px;
   display: flex;
   align-items: center;
