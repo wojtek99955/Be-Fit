@@ -14,7 +14,11 @@ export const Container = styled.section`
 
 export const Row = styled.div`
   display: flex;
+  flex-direction: column;
   gap: 2rem;
+  @media ${device.tablet} {
+    flex-direction: row;
+  }
 `;
 
 export const initialValues = {
