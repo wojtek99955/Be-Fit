@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../../../../assets/mediaQueries/device";
 
 export const Container = styled.section`
   margin: 0 1rem;
@@ -56,6 +57,10 @@ export const Container = styled.section`
 
 export const Wrapper = styled.div`
   display: flex;
+  flex-direction: column;
+  @media ${device.tablet} {
+    flex-direction: row-reverse;
+  }
   gap: 3rem;
   p {
     margin-bottom: 1rem;
@@ -131,10 +136,12 @@ export const Text = styled.div`
   }
 `;
 export const FormContainer = styled.div`
-  width: 500px;
-  padding: 2rem;
+  width: 100%;
+  padding: 1rem;
   background-color: #f3f4f6;
-  border-radius: 12px;
+  @media ${device.tablet} {
+    min-width: 25rem;
+  }
 `;
 
 export const FormWrapper = styled.div`
