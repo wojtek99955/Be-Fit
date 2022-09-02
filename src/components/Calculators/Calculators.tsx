@@ -8,7 +8,6 @@ export const Container = styled.section`
   display: flex;
   padding: 1rem;
   gap: 1rem;
-  width: 900px;
   justify-content: center;
   @media ${device.tablet} {
     gap: 5rem;
