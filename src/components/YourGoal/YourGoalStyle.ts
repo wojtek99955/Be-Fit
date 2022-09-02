@@ -36,6 +36,7 @@ export const StyledField = styled(Field)`
 
 export const FormContainer = styled.div`
   max-width: 25rem;
+  margin: auto;
   @media ${device.tablet} {
     min-width: 20rem;
   }
@@ -143,6 +144,7 @@ export const RangeTitle = styled.div`
 
 export const Text = styled.div`
   max-width: 25rem;
+  margin: auto;
   h2 {
     margin-bottom: 2rem;
     font-size: 3rem;
