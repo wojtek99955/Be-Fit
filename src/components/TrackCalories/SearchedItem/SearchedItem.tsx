@@ -96,7 +96,7 @@ const SearchedItem = ({
       y: 200,
       x: [0, 20, 0],
       opacity: 0,
-      scale: [1, 1.1, 0.8],
+      scale: [1, 1.1, 0.7],
     },
     stop: { y: [0, -10, 0], transition: { repeat: Infinity, repeatDelay: 3 } },
   };
