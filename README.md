@@ -30,6 +30,7 @@ Fitness app
 - weight calculators
 - realtime database
 - monthly statistics
+- upload avatar images with cloud storage
 
 ## Installation
 
