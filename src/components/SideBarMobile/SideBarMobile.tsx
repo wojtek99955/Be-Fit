@@ -25,7 +25,7 @@ interface Props {
 
 const SideBarMobile = ({ showSideBarMobile, setShowSideBarMobile }: Props) => {
   const ctx = useContext(AuthContext);
-  const uid = ctx?.currentUser.uid;
+  const uid = ctx?.currentUser?.uid;
   const [data, setData] = useState<any>({});
 
   useEffect(() => {
