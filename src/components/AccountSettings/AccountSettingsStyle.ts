@@ -167,3 +167,9 @@ export const ConfirmPassword = styled.div`
 export const EmailInput = styled.div`
   display: flex;
 `;
+export const UploadAvatarText = styled.div`
+  display: none;
+  @media ${device.tablet} {
+    display: block;
+  }
+`;

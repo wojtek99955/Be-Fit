@@ -15,6 +15,7 @@ import {
   StyledField,
   FileInput,
   ConfirmPassword,
+  UploadAvatarText,
 } from "./AccountSettingsStyle";
 import * as yup from "yup";
 import { ErrorMsg } from "../Auth/AuthStyle";
@@ -106,10 +107,10 @@ const YourAccount = () => {
             {data?.avatarImg ? null : data?.name?.toUpperCase().slice(0, 1)}
           </Image>
           {data?.avatarImg ? null : (
-            <div>
+            <UploadAvatarText>
               <h3>Upload your profile image</h3>
               <p>This helps your teammates recognise you </p>
-            </div>
+            </UploadAvatarText>
           )}
           {loading ? (
             <LoaderContainer>
