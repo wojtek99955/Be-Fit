@@ -52,7 +52,7 @@ const Statistics = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   async function getNutrients() {
-    const foodRef = await collection(db, `users/${uid}/food`);
+    const foodRef = collection(db, `users/${uid}/food`);
     const q = query(foodRef, where("month", "==", selectedMonth + 1));
     const docsSnap = await getDocs(q);
     const foodz: any = [];
