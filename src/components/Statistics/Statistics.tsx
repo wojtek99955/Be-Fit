@@ -56,7 +56,7 @@ const Statistics = () => {
     const q = query(foodRef, where("month", "==", selectedMonth + 1));
     const docsSnap = await getDocs(q);
     const foodz: any = [];
-    await docsSnap.forEach((doc) => {
+    docsSnap.forEach((doc) => {
       foodz.push(doc.data());
     });
 
@@ -79,7 +79,6 @@ const Statistics = () => {
       carbo: consumedCarbo.toFixed(1),
     });
     setLoading(false);
-    console.log(foodz);
   }
   useEffect(() => {
     getNutrients();
