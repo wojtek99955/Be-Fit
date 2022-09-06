@@ -20,6 +20,7 @@ import {
   CaloriesChartContainer,
   Wrapper,
   StyledLi,
+  NoData,
 } from "./StatisticsStyle";
 import DoughNutChart from "./NutrientsCharts/DoughNutChart";
 import VerticalChart from "./NutrientsCharts/VerticalChart";
@@ -73,12 +74,17 @@ const Statistics = () => {
     const consumedCarbo = foodz.reduce((acc: any, obj: any) => {
       return acc + obj.details.carbo;
     }, 0);
-    setNutrients({
-      fat: consumedFat.toFixed(1),
-      fiber: consumedFiber.toFixed(1),
-      protein: consumedProtein.toFixed(1),
-      carbo: consumedCarbo.toFixed(1),
-    });
+    console.log(foodz);
+    if (foodz.length >= 1) {
+      setNutrients({
+        fat: consumedFat.toFixed(1),
+        fiber: consumedFiber.toFixed(1),
+        protein: consumedProtein.toFixed(1),
+        carbo: consumedCarbo.toFixed(1),
+      });
+    } else {
+      setNutrients(null);
+    }
     setLoading(false);
   }
   useEffect(() => {
@@ -104,7 +110,6 @@ const Statistics = () => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, [openDropdown]);
-
   return (
     <Container>
       <Wrapper>
@@ -169,27 +174,38 @@ const Statistics = () => {
             Calories
           </button>
         </ChartsBtns>
-
-        {activeCharts ? (
-          <Charts
-            initial={{ y: "-50%", opacity: 0, scale: 0.5 }}
-            animate={{ y: "10%", opacity: 1, scale: 1 }}
-          >
-            <Chart loading={loading}>
-              <DoughNutChart nutrients={nutrients} />
-            </Chart>
-            <Chart loading={loading}>
-              <VerticalChart nutrients={nutrients} />
-            </Chart>
-          </Charts>
-        ) : (
-          <CaloriesChartContainer
-            initial={{ y: "-50%", opacity: 0, scale: 0.5 }}
-            animate={{ y: "10%", opacity: 1, scale: 1 }}
-            exit={{ y: "-30%", opacity: 0, scale: 0.5 }}
-          >
-            <CaloriesVerticalChart selectedMonth={selectedMonth} />
-          </CaloriesChartContainer>
+        {loading ? null : (
+          <>
+            {!nutrients ? (
+              <>
+                <NoData>No data</NoData>{" "}
+              </>
+            ) : (
+              <>
+                {activeCharts ? (
+                  <Charts
+                    initial={{ y: "-50%", opacity: 0, scale: 0.5 }}
+                    animate={{ y: "10%", opacity: 1, scale: 1 }}
+                  >
+                    <Chart loading={loading}>
+                      <DoughNutChart nutrients={nutrients} />
+                    </Chart>
+                    <Chart loading={loading}>
+                      <VerticalChart nutrients={nutrients} />
+                    </Chart>
+                  </Charts>
+                ) : (
+                  <CaloriesChartContainer
+                    initial={{ y: "-50%", opacity: 0, scale: 0.5 }}
+                    animate={{ y: "10%", opacity: 1, scale: 1 }}
+                    exit={{ y: "-30%", opacity: 0, scale: 0.5 }}
+                  >
+                    <CaloriesVerticalChart selectedMonth={selectedMonth} />
+                  </CaloriesChartContainer>
+                )}
+              </>
+            )}
+          </>
         )}
       </Wrapper>
     </Container>

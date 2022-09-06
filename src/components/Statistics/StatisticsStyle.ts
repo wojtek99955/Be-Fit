@@ -184,3 +184,8 @@ export const Wrapper = styled.div`
   max-width: 1100px;
   margin: auto;
 `;
+
+export const NoData = styled.div`
+  font-size: 1.5rem;
+  text-align: center;
+`;
