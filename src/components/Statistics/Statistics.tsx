@@ -52,8 +52,6 @@ const Statistics = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   async function getNutrients() {
-    const date = new Date();
-    const month = date.getMonth();
     const foodRef = await collection(db, `users/${uid}/food`);
     const q = query(foodRef, where("month", "==", selectedMonth + 1));
     const docsSnap = await getDocs(q);
@@ -61,20 +59,17 @@ const Statistics = () => {
     await docsSnap.forEach((doc) => {
       foodz.push(doc.data());
     });
-    const filteredFoods = foodz.filter((item: any) => {
-      return item.month === month + 1;
-    });
 
-    const consumedFat = filteredFoods.reduce((acc: any, obj: any) => {
+    const consumedFat = foodz.reduce((acc: any, obj: any) => {
       return acc + obj.details.fat;
     }, 0);
-    const consumedFiber = filteredFoods.reduce((acc: any, obj: any) => {
+    const consumedFiber = foodz.reduce((acc: any, obj: any) => {
       return acc + obj.details.fiber;
     }, 0);
-    const consumedProtein = filteredFoods.reduce((acc: any, obj: any) => {
+    const consumedProtein = foodz.reduce((acc: any, obj: any) => {
       return acc + obj.details.protein;
     }, 0);
-    const consumedCarbo = filteredFoods.reduce((acc: any, obj: any) => {
+    const consumedCarbo = foodz.reduce((acc: any, obj: any) => {
       return acc + obj.details.carbo;
     }, 0);
     setNutrients({
