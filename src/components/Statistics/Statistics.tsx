@@ -54,43 +54,39 @@ const Statistics = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   async function getNutrients() {
-    try {
-      const date = new Date();
-      const month = date.getMonth();
-      const foodRef = await collection(db, `users/${uid}/food`);
-      const q = query(foodRef, where("month", "==", selectedMonth + 1));
-      const docsSnap = await getDocs(q);
-      const foodz: any = [];
-      await docsSnap.forEach((doc) => {
-        foodz.push(doc.data());
-      });
-      const filteredFoods = foodz.filter((item: any) => {
-        return item.month === month + 1;
-      });
+    const date = new Date();
+    const month = date.getMonth();
+    const foodRef = await collection(db, `users/${uid}/food`);
+    const q = query(foodRef, where("month", "==", selectedMonth + 1));
+    const docsSnap = await getDocs(q);
+    const foodz: any = [];
+    await docsSnap.forEach((doc) => {
+      foodz.push(doc.data());
+    });
+    const filteredFoods = foodz.filter((item: any) => {
+      return item.month === month + 1;
+    });
 
-      const consumedFat = filteredFoods.reduce((acc: any, obj: any) => {
-        return acc + obj.details.fat;
-      }, 0);
-      const consumedFiber = filteredFoods.reduce((acc: any, obj: any) => {
-        return acc + obj.details.fiber;
-      }, 0);
-      const consumedProtein = filteredFoods.reduce((acc: any, obj: any) => {
-        return acc + obj.details.protein;
-      }, 0);
-      const consumedCarbo = filteredFoods.reduce((acc: any, obj: any) => {
-        return acc + obj.details.carbo;
-      }, 0);
-      setNutrients({
-        fat: consumedFat.toFixed(1),
-        fiber: consumedFiber.toFixed(1),
-        protein: consumedProtein.toFixed(1),
-        carbo: consumedCarbo.toFixed(1),
-      });
-      setLoading(false);
-      console.log(foodz);
-    } catch {
-      console.log("niema");
-    }
+    const consumedFat = filteredFoods.reduce((acc: any, obj: any) => {
+      return acc + obj.details.fat;
+    }, 0);
+    const consumedFiber = filteredFoods.reduce((acc: any, obj: any) => {
+      return acc + obj.details.fiber;
+    }, 0);
+    const consumedProtein = filteredFoods.reduce((acc: any, obj: any) => {
+      return acc + obj.details.protein;
+    }, 0);
+    const consumedCarbo = filteredFoods.reduce((acc: any, obj: any) => {
+      return acc + obj.details.carbo;
+    }, 0);
+    setNutrients({
+      fat: consumedFat.toFixed(1),
+      fiber: consumedFiber.toFixed(1),
+      protein: consumedProtein.toFixed(1),
+      carbo: consumedCarbo.toFixed(1),
+    });
+    setLoading(false);
+    console.log(foodz);
   }
   useEffect(() => {
     getNutrients();
@@ -115,7 +111,6 @@ const Statistics = () => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, [openDropdown]);
-  console.log(selectedMonth);
 
   return (
     <Container>
