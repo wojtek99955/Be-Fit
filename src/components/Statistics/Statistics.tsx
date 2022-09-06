@@ -147,7 +147,6 @@ const Statistics = () => {
                         key={id}
                         onClick={() => {
                           setSelectedMonth(id);
-                          getNutrients();
                         }}
                       >
                         {month}
