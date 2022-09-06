@@ -74,10 +74,6 @@ export const PreviewImage = styled.div<ImageProps>`
   background-image: ${({ file }) => file && `url(${file})`};
 `;
 
-interface BtnProps {
-  loading?: boolean;
-}
-
 export const Button = styled.button<StyleProps>`
   padding: 0 1rem;
   border: none;
