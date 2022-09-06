@@ -14,6 +14,7 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { NutrientsTypes } from "../../../assets/interfaces/ConsumedNutrientsInterface";
+import { number } from "yup/lib/locale";
 
 ChartJS.register(
   CategoryScale,
@@ -25,7 +26,11 @@ ChartJS.register(
   Legend
 );
 
-const CaloriesVerticalChart = () => {
+interface Props {
+  selectedMonth: number;
+}
+
+const CaloriesVerticalChart = ({ selectedMonth }: Props) => {
   const [data, setData] = useState<null | NutrientsTypes[]>(null);
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
@@ -33,12 +38,11 @@ const CaloriesVerticalChart = () => {
   useEffect(() => {
     async function getData() {
       const date = new Date();
-      const month = date.getMonth() + 1;
       const year = date.getFullYear();
 
       const q = await query(
         collection(db, `users/${uid}/consumedNutrients`),
-        where("month", "==", month),
+        where("month", "==", selectedMonth + 1),
         where("year", "==", year)
       );
       const foodz: any = [];
@@ -50,7 +54,7 @@ const CaloriesVerticalChart = () => {
       console.log(foodz + "foodz");
     }
     getData();
-  }, []);
+  }, [selectedMonth]);
 
   const labels = data?.map((data: NutrientsTypes) => {
     return data.dayMonth;

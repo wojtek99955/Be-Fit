@@ -185,7 +185,7 @@ const Statistics = () => {
             animate={{ y: "10%", opacity: 1, scale: 1 }}
             exit={{ y: "-30%", opacity: 0, scale: 0.5 }}
           >
-            <CaloriesVerticalChart />
+            <CaloriesVerticalChart selectedMonth={selectedMonth} />
           </CaloriesChartContainer>
         )}
       </Wrapper>
