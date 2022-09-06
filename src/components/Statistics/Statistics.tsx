@@ -21,6 +21,7 @@ import {
   Wrapper,
   StyledLi,
   NoData,
+  SadIcon,
 } from "./StatisticsStyle";
 import DoughNutChart from "./NutrientsCharts/DoughNutChart";
 import VerticalChart from "./NutrientsCharts/VerticalChart";
@@ -177,7 +178,9 @@ const Statistics = () => {
         {loading ? null : (
           <>
             {!nutrients ? (
-              <NoData>No data</NoData>
+              <NoData>
+                No data <SadIcon />
+              </NoData>
             ) : (
               <>
                 {activeCharts ? (

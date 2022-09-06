@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { BiChevronDown } from "react-icons/bi";
 import { BiChevronUp } from "react-icons/bi";
 import { device } from "../../assets/mediaQueries/device";
+import { ImSad } from "react-icons/im";
 
 interface ActiveCharts {
   active: boolean;
@@ -188,4 +189,13 @@ export const Wrapper = styled.div`
 export const NoData = styled.div`
   font-size: 1.5rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+`;
+
+export const SadIcon = styled(ImSad)`
+  color: #ffa101;
+  font-size: 2.5rem;
 `;
