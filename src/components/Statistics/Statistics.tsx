@@ -43,8 +43,6 @@ const monthNames = [
 ];
 
 const Statistics = () => {
-  const month = date.getMonth();
-
   const [nutrients, setNutrients] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [openDropdown, setOpenDropdown] = useState(false);
