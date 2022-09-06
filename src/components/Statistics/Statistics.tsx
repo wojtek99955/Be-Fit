@@ -19,6 +19,7 @@ import {
   DropdownHeader,
   CaloriesChartContainer,
   Wrapper,
+  StyledLi,
 } from "./StatisticsStyle";
 import DoughNutChart from "./NutrientsCharts/DoughNutChart";
 import VerticalChart from "./NutrientsCharts/VerticalChart";
@@ -135,14 +136,16 @@ const Statistics = () => {
                 <ul>
                   {monthNames.map((month, id) => {
                     return (
-                      <li
+                      <StyledLi
+                        selectedMonth={selectedMonth}
+                        monthId={id}
                         key={id}
                         onClick={() => {
                           setSelectedMonth(id);
                         }}
                       >
                         {month}
-                      </li>
+                      </StyledLi>
                     );
                   })}
                 </ul>

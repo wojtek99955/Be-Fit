@@ -135,6 +135,7 @@ export const DropdownContainer = styled.div`
   max-width: 12rem;
   margin: auto;
 `;
+
 export const DropdownListContainer = styled(motion.div)`
   position: absolute;
   margin-top: 0.2rem;
@@ -149,17 +150,23 @@ export const DropdownListContainer = styled(motion.div)`
     list-style-type: none;
     height: 12rem;
     overflow-y: scroll;
-    li {
-      padding: 0.8rem 0.5rem;
-      cursor: pointer;
-      transition: background-color 300ms;
-      &:hover {
-        background-color: #f3f4f6;
-      }
-      &:active {
-        background-color: #e4e7e8;
-      }
-    }
+  }
+`;
+interface ActiveMonth {
+  selectedMonth: number;
+  monthId: number;
+}
+export const StyledLi = styled.li<ActiveMonth>`
+  padding: 0.8rem 0.5rem;
+  cursor: pointer;
+  background-color: ${({ selectedMonth, monthId }) =>
+    selectedMonth === monthId ? "#e4e7e8" : "transparent"};
+  transition: background-color 300ms;
+  &:hover {
+    background-color: #f3f4f6;
+  }
+  &:active {
+    background-color: #e4e7e8;
   }
 `;
 export const DropdownHeader = styled.div`
