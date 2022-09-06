@@ -236,6 +236,11 @@ const Header = ({ setShowSideBar, setShowSideBarMobile }: Props) => {
                         <li>
                           <StyledLink to="/my-goal">My goal</StyledLink>
                         </li>
+                        <li>
+                          <StyledLink to="/settings/account">
+                            Settings
+                          </StyledLink>
+                        </li>
                       </ul>
                       <Divider />
                       <LogoutContainer onClick={logOut}>
