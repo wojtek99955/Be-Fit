@@ -177,9 +177,7 @@ const Statistics = () => {
         {loading ? null : (
           <>
             {!nutrients ? (
-              <>
-                <NoData>No data</NoData>{" "}
-              </>
+              <NoData>No data</NoData>
             ) : (
               <>
                 {activeCharts ? (
