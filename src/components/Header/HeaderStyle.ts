@@ -60,7 +60,15 @@ export const StyledHeader = styled.header<StyleProps>`
     location.pathname === "/signin"
       ? "transparent"
       : "1px solid #e1e4e7"};
-
+  display: ${({ location }) =>
+    location.pathname === "/signup" ||
+    location.pathname === "/forgot-password" ||
+    location.pathname === "/signin"
+      ? "none"
+      : "block"};
+  @media ${device.tablet} {
+    display: block;
+  }
   button {
     border: 2px solid #ffa101;
     height: 2.2rem;
