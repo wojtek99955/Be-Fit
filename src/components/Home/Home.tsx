@@ -13,11 +13,15 @@ import RemainCalories from "./RemainCalories/RemainCalories";
 import DailyNutrients from "./DailyNutrients/DailyNutrients";
 import LastMonth from "./LastMonth/LastMonth";
 import { device } from "../../assets/mediaQueries/device";
+import { darkModeContext } from "../../context/DarkModeContextProvider";
 
-const Container = styled.section`
+interface DarkMode {
+  darkMode: boolean;
+}
+const Container = styled.section<DarkMode>`
   padding: 0.2rem;
   width: 100%;
-  background-color: #f5f2f6;
+  background-color: ${({ darkMode }) => (darkMode ? "#18191A" : "#f5f2f6")};
   height: calc(100vh - 3.5rem);
   position: relative;
   top: 3.5rem;
@@ -58,8 +62,10 @@ const Home = () => {
   useEffect(() => {
     getData();
   }, []);
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
   return (
-    <Container>
+    <Container darkMode={darkMode!}>
       <Greeting />
       {showModal ? <UpdateProfileModal setShowModal={setShowModal} /> : null}
 
