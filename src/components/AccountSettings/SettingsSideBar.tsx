@@ -10,7 +10,7 @@ interface DarkMode {
   darkMode: boolean;
 }
 interface Props {
-  setShowSideBarMobile: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowSideBarMobile?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const UserIcon = styled(BiUserCircle)`
@@ -51,7 +51,7 @@ const SettingsSideBar = ({ setShowSideBarMobile }: Props) => {
   const darkMode = darkModeCtx?.darkMode;
 
   const closeSideBar = () => {
-    setShowSideBarMobile(false);
+    setShowSideBarMobile!(false);
   };
 
   return (
