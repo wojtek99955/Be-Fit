@@ -4,6 +4,7 @@ import { db } from "../../../firebase";
 import { AuthContext } from "../../AuthContext";
 import { Box, SettingsIcon, StyledLink } from "../CardStyles";
 import { Wrapper, Data, BoxWrapper } from "./CalorieIntakeStyle";
+import { darkModeContext } from "../../../context/DarkModeContextProvider";
 
 const CalorieIntake = () => {
   const ctx = useContext(AuthContext);
@@ -27,10 +28,12 @@ const CalorieIntake = () => {
   useEffect(() => {
     getData();
   }, []);
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
 
   return (
     <>
-      <Box>
+      <Box darkMode={darkMode!}>
         <BoxWrapper loading={loading}>
           <StyledLink to="/calculators/body-calculators/calorie-intake">
             <SettingsIcon />
