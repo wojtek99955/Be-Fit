@@ -42,18 +42,20 @@ export const Container = styled.aside<DarkMode>`
     top: 3.5rem;
   }
 `;
-export const StyledNavLink = styled(NavLink)`
+export const StyledNavLink = styled(NavLink)<DarkMode>`
   transition: background-color 300ms;
   &:hover {
-    background-color: #f0f2f2;
+    background-color: "ffa101";
   }
   &:active {
     background-color: #e4e7e8;
   }
   &.active {
-    background-color: #e4e7e8;
+    background-color: ${({ darkMode }) => (darkMode ? "#424243" : "#e4e7e8")};
     font-weight: 600;
   }
+
+  color: green;
   text-decoration: none;
   font-size: 0.9rem;
   display: flex;

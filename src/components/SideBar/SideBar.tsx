@@ -64,31 +64,31 @@ const SideBar = () => {
             <nav>
               <ul>
                 <li>
-                  <StyledNavLink to="/home">
+                  <StyledNavLink to="/home" darkMode={darkMode!}>
                     <HomeIcon />
                     Home page
                   </StyledNavLink>
                 </li>
                 <li>
-                  <StyledNavLink to="/my-goal">
+                  <StyledNavLink to="/my-goal" darkMode={darkMode!}>
                     <GoalIcon />
                     My goal
                   </StyledNavLink>
                 </li>
                 <li>
-                  <StyledNavLink to="/calculators">
+                  <StyledNavLink to="/calculators" darkMode={darkMode!}>
                     <CalculatorIcon />
                     Calculators
                   </StyledNavLink>
                 </li>
                 <li>
-                  <StyledNavLink to="/calories-calculator">
+                  <StyledNavLink to="/calories-calculator" darkMode={darkMode!}>
                     <FoodCalories />
                     Check calories
                   </StyledNavLink>
                 </li>
                 <li>
-                  <StyledNavLink to="/track-calories">
+                  <StyledNavLink to="/track-calories" darkMode={darkMode!}>
                     <WeightIcon />
                     Track Calories
                   </StyledNavLink>
