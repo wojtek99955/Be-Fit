@@ -3,8 +3,13 @@ import { GoSettings } from "react-icons/go";
 import { Link } from "react-router-dom";
 import { device } from "../../assets/mediaQueries/device";
 
-export const Box = styled.div`
-  background-color: white;
+interface DarkMode {
+  darkMode: boolean;
+}
+
+export const Box = styled.div<DarkMode>`
+  background-color: ${({ theme, darkMode }) =>
+    darkMode ? theme.darkMode.light : "white"};
   padding: 1rem;
   border-radius: 12px;
   position: relative;

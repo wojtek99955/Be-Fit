@@ -9,6 +9,7 @@ import { useEffect, useState, useContext } from "react";
 import { getDoc, doc } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { AuthContext } from "../../AuthContext";
+import { darkModeContext } from "../../../context/DarkModeContextProvider";
 
 const Goal = () => {
   const [loading, setLoading] = useState(true);
@@ -30,9 +31,11 @@ const Goal = () => {
   useEffect(() => {
     getData();
   }, []);
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
 
   return (
-    <StyledBox>
+    <StyledBox darkMode={darkMode!}>
       <BoxWrapper loading={loading}>
         <StyledLink to="/my-goal">
           <StyledSettingsIcon />
