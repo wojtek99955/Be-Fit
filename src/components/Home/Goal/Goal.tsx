@@ -39,11 +39,11 @@ const Goal = () => {
         </StyledLink>
         <Wrapper loading={loading}>
           <h2>Current weight</h2>
-          <p>{data.currentWeight}</p>
+          <p>{data.currentWeight} kg</p>
         </Wrapper>
         <Wrapper loading={loading}>
           <h2>Target weight</h2>
-          <p>{data.goalWeight}</p>
+          <p>{data.goalWeight} kg</p>
         </Wrapper>
       </BoxWrapper>
     </StyledBox>
