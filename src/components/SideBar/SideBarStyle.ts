@@ -32,9 +32,6 @@ export const Container = styled.aside<DarkMode>`
   li {
     cursor: pointer;
     font-weight: 300;
-    a {
-      color: ${({ darkMode }) => (darkMode ? "white" : "black")};
-    }
   }
   @media ${device.laptop} {
     display: block;
@@ -54,8 +51,7 @@ export const StyledNavLink = styled(NavLink)<DarkMode>`
     background-color: ${({ darkMode }) => (darkMode ? "#424243" : "#e4e7e8")};
     font-weight: 600;
   }
-
-  color: green;
+  color: ${({ darkMode }) => (darkMode ? "white" : "black")};
   text-decoration: none;
   font-size: 0.9rem;
   display: flex;
