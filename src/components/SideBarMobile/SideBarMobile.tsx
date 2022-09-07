@@ -17,6 +17,7 @@ import { AuthContext } from "../AuthContext";
 import { useLocation } from "react-router-dom";
 import SettingsSideBar from "../AccountSettings/SettingsSideBar";
 import { AnimatePresence } from "framer-motion";
+import { darkModeContext } from "../../context/DarkModeContextProvider";
 
 interface Props {
   showSideBarMobile: boolean;
@@ -40,6 +41,10 @@ const SideBarMobile = ({ showSideBarMobile, setShowSideBarMobile }: Props) => {
     setShowSideBarMobile(false);
   };
 
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
+  console.log(darkMode);
+
   return (
     <AnimatePresence>
       {location.pathname === "/signin" ||
@@ -51,8 +56,9 @@ const SideBarMobile = ({ showSideBarMobile, setShowSideBarMobile }: Props) => {
           animate={{ left: 0 }}
           exit={{ left: "-100%" }}
           transition={{ type: "ease-in-out" }}
+          darkMode={darkMode!}
         >
-          <User>
+          <User darkMode={darkMode!}>
             <StyledUserIcon url={data?.avatarImg}>
               {data?.avatarImg ? null : data?.name?.toUpperCase().slice(0, 1)}
             </StyledUserIcon>
@@ -77,31 +83,31 @@ const SideBarMobile = ({ showSideBarMobile, setShowSideBarMobile }: Props) => {
             <nav>
               <ul onClick={closeSideBar}>
                 <li>
-                  <StyledNavLink to="/home">
+                  <StyledNavLink to="/home" darkMode={darkMode!}>
                     <HomeIcon />
                     Home page
                   </StyledNavLink>
                 </li>
                 <li>
-                  <StyledNavLink to="/my-goal">
+                  <StyledNavLink to="/my-goal" darkMode={darkMode!}>
                     <GoalIcon />
                     My goal
                   </StyledNavLink>
                 </li>
                 <li>
-                  <StyledNavLink to="/calculators">
+                  <StyledNavLink to="/calculators" darkMode={darkMode!}>
                     <CalculatorIcon />
                     Calculators
                   </StyledNavLink>
                 </li>
                 <li>
-                  <StyledNavLink to="/calories-calculator">
+                  <StyledNavLink to="/calories-calculator" darkMode={darkMode!}>
                     <FoodCalories />
                     Check calories
                   </StyledNavLink>
                 </li>
                 <li>
-                  <StyledNavLink to="/track-calories">
+                  <StyledNavLink to="/track-calories" darkMode={darkMode!}>
                     <WeightIcon />
                     Track Calories
                   </StyledNavLink>

@@ -16,17 +16,23 @@ interface AnimationProps {
   showSideBarMobile: boolean;
 }
 
-export const Container = styled(motion.aside)`
+interface DarkMode {
+  darkMode: boolean;
+}
+
+export const Container = styled(motion.aside)<DarkMode>`
   width: calc(100vw - 13rem);
   height: calc(100% - 3.5rem);
-  border-right: 1px solid #e1e4e7;
+  border-right: ${({ darkMode }) => (darkMode ? "none" : "1px solid #e1e4e7")};
+  background-color: ${({ darkMode, theme }) =>
+    darkMode ? theme.darkMode.main : "white"};
+
   position: fixed;
   top: 0;
   height: 100vh;
   padding: 0.8rem;
   z-index: 25;
   width: 13rem;
-  background-color: white;
   ul {
     list-style-type: none;
   }
@@ -40,20 +46,19 @@ export const Container = styled(motion.aside)`
     top: 3.5rem;
   }
 `;
-export const StyledNavLink = styled(NavLink)`
+export const StyledNavLink = styled(NavLink)<DarkMode>`
   transition: background-color 300ms;
   &:hover {
-    background-color: #f0f2f2;
+    background-color: "ffa101";
   }
   &:active {
     background-color: #e4e7e8;
   }
   &.active {
-    background-color: #e4e7e8;
+    background-color: ${({ darkMode }) => (darkMode ? "#424243" : "#e4e7e8")};
     font-weight: 600;
   }
   text-decoration: none;
-  color: black;
   font-size: 0.9rem;
   display: flex;
   align-items: center;
@@ -61,6 +66,7 @@ export const StyledNavLink = styled(NavLink)`
   padding: 0.8rem 0.5rem;
   margin-bottom: 0.5rem;
   border-radius: 5px;
+  color: ${({ darkMode }) => (darkMode ? "white" : "black")};
 `;
 export const HomeIcon = styled(BiHomeAlt)`
   font-size: 1.3rem;
@@ -91,7 +97,7 @@ export const StyledUserIcon = styled.div<ImgProps>`
   background-repeat: no-repeat;
 `;
 
-export const User = styled.div`
+export const User = styled.div<DarkMode>`
   display: flex;
   gap: 0.5rem;
   margin-bottom: 1rem;
@@ -100,12 +106,14 @@ export const User = styled.div`
   strong {
     display: block;
     margin-bottom: 0.5rem;
+    color: ${({ darkMode }) => (darkMode ? "white" : "black")};
   }
 
   span {
     font-size: 0.9rem;
     display: block;
     color: #55595b;
+    color: ${({ darkMode }) => (darkMode ? "white" : "black")};
   }
 `;
 
