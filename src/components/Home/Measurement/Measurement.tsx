@@ -17,6 +17,7 @@ import {
 } from "./MeasurementStyle";
 import { SettingsIcon } from "../CardStyles";
 import { Box } from "../CardStyles";
+import { darkModeContext } from "../../../context/DarkModeContextProvider";
 
 const Measurement = () => {
   const [loading, setLoading] = useState(true);
@@ -40,9 +41,11 @@ const Measurement = () => {
   }, []);
 
   const { height, age, weight } = data;
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
 
   return (
-    <Box>
+    <Box darkMode={darkMode!}>
       <Wrapper loading={loading}>
         <StyledLink to="/my-body">
           <SettingsIcon />
