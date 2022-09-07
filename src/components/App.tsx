@@ -7,6 +7,8 @@ import { AnimatePresence } from "framer-motion";
 import { MemoizedRoutes } from "./AppRoutes";
 import Background from "./SideBarMobile/Background";
 import { DarkModeContextProvider } from "../context/DarkModeContextProvider";
+import { ThemeProvider } from "styled-components";
+import { theme } from "../assets/styleTheme";
 
 function App() {
   const ctx = useContext(AuthContext);
@@ -23,30 +25,32 @@ function App() {
 
   return (
     <DarkModeContextProvider>
-      <div className="App" style={{ display: "flex" }}>
-        <Header
-          setShowSideBar={setShowSideBar}
-          setShowSideBarMobile={setShowSideBarMobile}
-        />
+      <ThemeProvider theme={theme}>
+        <div className="App" style={{ display: "flex" }}>
+          <Header
+            setShowSideBar={setShowSideBar}
+            setShowSideBarMobile={setShowSideBarMobile}
+          />
 
-        {islogged && showSideBar && currentWidth >= 1024 ? <SideBar /> : null}
-        <AnimatePresence>
-          {islogged && currentWidth < 1024 ? (
-            <>
-              <SideBarMobile
-                showSideBarMobile={showSideBarMobile}
-                setShowSideBarMobile={setShowSideBarMobile}
-              />
-              <Background
-                showSideBarMobile={showSideBarMobile}
-                setShowSideBarMobile={setShowSideBarMobile}
-              />
-            </>
-          ) : null}
-        </AnimatePresence>
+          {islogged && showSideBar && currentWidth >= 1024 ? <SideBar /> : null}
+          <AnimatePresence>
+            {islogged && currentWidth < 1024 ? (
+              <>
+                <SideBarMobile
+                  showSideBarMobile={showSideBarMobile}
+                  setShowSideBarMobile={setShowSideBarMobile}
+                />
+                <Background
+                  showSideBarMobile={showSideBarMobile}
+                  setShowSideBarMobile={setShowSideBarMobile}
+                />
+              </>
+            ) : null}
+          </AnimatePresence>
 
-        <MemoizedRoutes />
-      </div>
+          <MemoizedRoutes />
+        </div>
+      </ThemeProvider>
     </DarkModeContextProvider>
   );
 }
