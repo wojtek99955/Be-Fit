@@ -40,7 +40,7 @@ export const Wrapper = styled.div<WrapperProps>`
     font-weight: 400;
     font-size: 1rem;
     @media ${device.tablet} {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
     display: inline-block;
     color: white;
