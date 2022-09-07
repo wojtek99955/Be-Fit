@@ -43,7 +43,6 @@ const SideBarMobile = ({ showSideBarMobile, setShowSideBarMobile }: Props) => {
 
   const darkModeCtx = useContext(darkModeContext);
   const darkMode = darkModeCtx?.darkMode;
-  console.log(darkMode);
 
   return (
     <AnimatePresence>
