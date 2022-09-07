@@ -7,13 +7,17 @@ interface Loading {
   loading: boolean;
 }
 
+interface DarkMode {
+  darkMode: boolean;
+}
+
 export const StyledSettingsIcon = styled(SettingsIcon)`
   position: absolute;
   top: 1rem;
   right: 1rem;
 `;
 
-export const Kcal = styled.div`
+export const Kcal = styled.div<DarkMode>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,6 +27,7 @@ export const Kcal = styled.div`
   transform: translateX(-50%);
   strong {
     font-size: 1.5rem;
+    color: ${({ darkMode }) => (darkMode ? "white" : "black")};
     @media ${device.tablet} {
       font-size: 2.5rem;
     }
@@ -38,6 +43,8 @@ export const StyledBox = styled(Box)`
   justify-content: center;
   align-items: center;
   height: 13rem;
+  background-color: ${({ theme, darkMode }) =>
+    darkMode ? theme.darkMode.light : "white"};
   @media ${device.tablet} {
     height: auto;
   }

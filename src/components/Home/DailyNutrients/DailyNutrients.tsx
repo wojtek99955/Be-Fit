@@ -11,6 +11,7 @@ import {
 } from "./DailyNutrientsStyle";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, Tooltip, Legend, ArcElement } from "chart.js";
+import { darkModeContext } from "../../../context/DarkModeContextProvider";
 ChartJS.register(Tooltip, Legend, ArcElement);
 
 const DailyNutrients = () => {
@@ -38,6 +39,9 @@ const DailyNutrients = () => {
     getNutrients();
   }, []);
 
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
+
   const data = {
     labels: ["Fats", "Carbohydrates", "Proteins", "Fiber"],
     datasets: [
@@ -60,7 +64,7 @@ const DailyNutrients = () => {
     text: "cos",
   };
   return (
-    <StyledBox>
+    <StyledBox darkMode={darkMode!}>
       <Wrapper loading={loading}>
         <StyledLink to="/track-calories">
           <StyledSettingsIcon />
@@ -82,7 +86,7 @@ const DailyNutrients = () => {
             },
           }}
         />
-        <Kcal>
+        <Kcal darkMode={darkMode!}>
           <strong>{nutrients ? nutrients?.kcal : 0}</strong>
           <span>kcal</span>
         </Kcal>
