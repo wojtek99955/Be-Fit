@@ -41,13 +41,10 @@ export const Wrapper = styled.div<StyleProps>`
   opacity: ${({ loading }) => (!loading ? "1" : "0")};
 
   p {
+    color: #bcbcbc;
     text-align: center;
     font-size: 1rem;
-    color: ${({ bmi }) => {
-      if (bmi! >= 30 || bmi! <= 18.49) {
-        return "white";
-      }
-    }};
+    color: #bcbcbc;
   }
 `;
 export const Bmi = styled.strong`
@@ -58,7 +55,7 @@ export const Bmi = styled.strong`
   }
 `;
 export const Data = styled.div<DarkMode>`
-  color: ${({ darkMode }) => (darkMode ? "white" : "#bcbcbc")};
+  color: ${({ darkMode }) => (darkMode ? "white" : "black")};
 `;
 
 export const StyledSettingsIcon = styled(SettingsIcon)<BmiProps>`
