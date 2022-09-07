@@ -17,7 +17,7 @@ interface DarkMode {
 
 export const Container = styled.aside<DarkMode>`
   height: 100vh;
-  border-right: 1px solid #e1e4e7;
+  border-right: ${({ darkMode }) => (darkMode ? "none" : "1px solid #e1e4e7")};
   position: absolute;
   top: 3.5rem;
   height: calc(100vh - 3.5rem);
