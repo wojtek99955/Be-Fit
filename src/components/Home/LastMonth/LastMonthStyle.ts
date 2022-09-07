@@ -44,7 +44,6 @@ export const DropdownItem = styled(motion.div)`
   padding: 0.4rem 0.8rem;
   left: 0;
   width: 100%;
-  /* bottom: -2.2rem; */
   &:hover {
     background: #e4e7e8;
   }
