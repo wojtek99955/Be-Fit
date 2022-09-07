@@ -54,6 +54,8 @@ export const StyledBox = styled(Box)`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: ${({ theme, darkMode }) =>
+    darkMode ? theme.darkMode.light : "white"};
   @media ${device.tablet} {
     height: auto;
   }
