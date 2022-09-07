@@ -9,6 +9,9 @@ import { darkModeContext } from "../../context/DarkModeContextProvider";
 interface DarkMode {
   darkMode: boolean;
 }
+interface Props {
+  setShowSideBarMobile: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
 const UserIcon = styled(BiUserCircle)`
   font-size: 1.3rem;
@@ -43,12 +46,17 @@ const StyledNavLink = styled(NavLink)<DarkMode>`
   border-radius: 5px;
 `;
 
-const SettingsSideBar = () => {
+const SettingsSideBar = ({ setShowSideBarMobile }: Props) => {
   const darkModeCtx = useContext(darkModeContext);
   const darkMode = darkModeCtx?.darkMode;
+
+  const closeSideBar = () => {
+    setShowSideBarMobile(false);
+  };
+
   return (
     <nav>
-      <ul>
+      <ul onClick={closeSideBar}>
         <li>
           <StyledNavLink to="/settings/account" darkMode={darkMode!}>
             <UserIcon />

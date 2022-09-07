@@ -77,7 +77,7 @@ const SideBarMobile = ({ showSideBarMobile, setShowSideBarMobile }: Props) => {
           {location.pathname === "/settings/account" ||
           location.pathname === "/settings/security" ||
           location.pathname === "/settings/preferences" ? (
-            <SettingsSideBar />
+            <SettingsSideBar setShowSideBarMobile={setShowSideBarMobile} />
           ) : (
             <nav>
               <ul onClick={closeSideBar}>
