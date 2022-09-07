@@ -1,3 +1,6 @@
 export const theme = {
-  darkMode: "#18191A",
+  darkMode: {
+    main: "#18191A",
+    light: "#27282a",
+  },
 };
