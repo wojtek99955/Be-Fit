@@ -25,7 +25,7 @@ export const Container = styled.aside<DarkMode>`
   z-index: 20;
   width: 13rem;
   background-color: ${({ theme, darkMode }) =>
-    darkMode ? theme.darkMode : "white"};
+    darkMode ? theme.darkMode.main : "white"};
   ul {
     list-style-type: none;
   }
