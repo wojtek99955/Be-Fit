@@ -3,6 +3,7 @@ import { getDoc, doc } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { AuthContext } from "../../AuthContext";
 import { StyledLink } from "../CardStyles";
+import { darkModeContext } from "../../../context/DarkModeContextProvider";
 import {
   Wrapper,
   Bmi,
@@ -32,16 +33,18 @@ const BMI = () => {
   useEffect(() => {
     getData();
   }, []);
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
   const { height, weight } = data;
   const BMI = weight / Math.pow(height / 100, 2);
   return (
-    <StyledBox bmi={BMI}>
+    <StyledBox bmi={BMI} darkMode={darkMode!}>
       <BoxWrapper loading={loading}>
         <StyledLink to="/my-body">
           <StyledSettingsIcon bmi={BMI} />
         </StyledLink>
         <Wrapper bmi={BMI} loading={loading}>
-          <Data>
+          <Data darkMode={darkMode!}>
             {data && <Bmi>{BMI.toFixed(1)}</Bmi>}
             <p>BMI</p>
           </Data>

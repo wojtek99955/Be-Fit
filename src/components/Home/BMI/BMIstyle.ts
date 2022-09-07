@@ -10,6 +10,10 @@ interface BmiProps {
   bmi: number;
 }
 
+interface DarkMode {
+  darkMode: boolean;
+}
+
 export const Wrapper = styled.div<StyleProps>`
   border-width: 8px;
   border-style: solid;
@@ -37,7 +41,6 @@ export const Wrapper = styled.div<StyleProps>`
   opacity: ${({ loading }) => (!loading ? "1" : "0")};
 
   p {
-    color: #bcbcbc;
     text-align: center;
     font-size: 1rem;
     color: ${({ bmi }) => {
@@ -54,7 +57,9 @@ export const Bmi = styled.strong`
     font-size: 2.5rem;
   }
 `;
-export const Data = styled.div``;
+export const Data = styled.div<DarkMode>`
+  color: ${({ darkMode }) => (darkMode ? "white" : "#bcbcbc")};
+`;
 
 export const StyledSettingsIcon = styled(SettingsIcon)<BmiProps>`
   position: absolute;
@@ -72,6 +77,8 @@ export const StyledBox = styled(Box)<BmiProps>`
   justify-content: center;
   align-items: center;
   position: relative;
+  background-color: ${({ theme, darkMode }) =>
+    darkMode ? theme.darkMode.light : "white"};
   background-color: ${({ bmi }) => {
     if (bmi >= 30 || bmi <= 18.49) {
       return "rgb(225, 96, 94,0.6)";
