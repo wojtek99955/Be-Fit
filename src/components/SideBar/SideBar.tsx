@@ -16,6 +16,7 @@ import { doc, onSnapshot } from "firebase/firestore";
 import { AuthContext } from "../AuthContext";
 import { useLocation } from "react-router-dom";
 import SettingsSideBar from "../AccountSettings/SettingsSideBar";
+import { darkModeContext } from "../../context/DarkModeContextProvider";
 
 const SideBar = () => {
   const ctx = useContext(AuthContext);
@@ -29,14 +30,16 @@ const SideBar = () => {
   }, [uid]);
 
   let location = useLocation();
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
 
   return (
     <>
       {location.pathname === "/signin" ||
       location.pathname === "/" ||
       location.pathname === "/signup" ? null : (
-        <Container>
-          <User>
+        <Container darkMode={darkMode!}>
+          <User darkMode={darkMode!}>
             <StyledUserIcon url={data?.avatarImg}>
               {data?.avatarImg ? null : data?.name?.toUpperCase().slice(0, 1)}
             </StyledUserIcon>

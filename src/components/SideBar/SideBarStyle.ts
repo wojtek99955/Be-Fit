@@ -11,7 +11,11 @@ interface ImgProps {
   url: string;
 }
 
-export const Container = styled.aside`
+interface DarkMode {
+  darkMode: boolean;
+}
+
+export const Container = styled.aside<DarkMode>`
   height: 100vh;
   border-right: 1px solid #e1e4e7;
   position: absolute;
@@ -20,13 +24,17 @@ export const Container = styled.aside`
   padding: 0.8rem;
   z-index: 20;
   width: 13rem;
-  background-color: white;
+  background-color: ${({ theme, darkMode }) =>
+    darkMode ? theme.darkMode : "white"};
   ul {
     list-style-type: none;
   }
   li {
     cursor: pointer;
     font-weight: 300;
+    a {
+      color: ${({ darkMode }) => (darkMode ? "white" : "black")};
+    }
   }
   @media ${device.laptop} {
     display: block;
@@ -47,7 +55,6 @@ export const StyledNavLink = styled(NavLink)`
     font-weight: 600;
   }
   text-decoration: none;
-  color: black;
   font-size: 0.9rem;
   display: flex;
   align-items: center;
@@ -85,7 +92,7 @@ export const StyledUserIcon = styled.div<ImgProps>`
   background-repeat: no-repeat;
 `;
 
-export const User = styled.div`
+export const User = styled.div<DarkMode>`
   display: flex;
   gap: 0.5rem;
   margin-bottom: 1rem;
@@ -94,12 +101,13 @@ export const User = styled.div`
   strong {
     display: block;
     margin-bottom: 0.5rem;
+    color: ${({ darkMode }) => (darkMode ? "white" : "black")};
   }
 
   span {
     font-size: 0.9rem;
     display: block;
-    color: #55595b;
+    color: ${({ darkMode }) => (darkMode ? "white" : "#55595b")};
   }
 `;
 
