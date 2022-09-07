@@ -5,13 +5,17 @@ import { BiChevronUp } from "react-icons/bi";
 import { motion } from "framer-motion";
 import { device } from "../../../assets/mediaQueries/device";
 
-export const StyledBox = styled(Box)`
+interface DarkMode {
+  darkMode: boolean;
+}
+export const StyledBox = styled(Box)<DarkMode>`
   max-width: 1100px;
   margin: 1rem auto;
   height: auto;
 
   h2 {
     font-size: 1rem;
+    color: ${({ darkMode }) => (darkMode ? "white" : "black")};
   }
 `;
 

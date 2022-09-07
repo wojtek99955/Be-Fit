@@ -16,6 +16,7 @@ import {
 } from "./LastMonthStyle";
 import { NutrientsTypes } from "../../../assets/interfaces/ConsumedNutrientsInterface";
 import { AnimatePresence } from "framer-motion";
+import { darkModeContext } from "../../../context/DarkModeContextProvider";
 
 const LastMonth = () => {
   const [activeChart, setActiveChart] = useState("nutrients");
@@ -68,8 +69,11 @@ const LastMonth = () => {
     };
   }, [showDropdown]);
 
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
+
   return (
-    <StyledBox>
+    <StyledBox darkMode={darkMode!}>
       <Wrapper loading={loading}>
         <Header>
           <h2>Last 30 days</h2>
