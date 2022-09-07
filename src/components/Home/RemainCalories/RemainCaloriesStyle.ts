@@ -4,11 +4,12 @@ import { SettingsIcon } from "../CardStyles";
 import { Box } from "../CardStyles";
 import { device } from "../../../assets/mediaQueries/device";
 
-interface Loading {
+interface StyleProps {
   loading?: boolean;
+  darkMode?: boolean;
 }
 
-export const Calories = styled.div<Loading>`
+export const Calories = styled.div<StyleProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,6 +24,7 @@ export const Calories = styled.div<Loading>`
     @media ${device.tablet} {
       font-size: 2.5rem;
     }
+    color: ${({ darkMode }) => (darkMode ? "white" : "black")};
   }
   span {
     color: #a29e9e;
@@ -52,7 +54,7 @@ export const StyledBox = styled(Box)`
   }
 `;
 
-export const Wrapper = styled.div<Loading>`
+export const Wrapper = styled.div<StyleProps>`
   display: flex;
   justify-content: center;
   align-items: center;

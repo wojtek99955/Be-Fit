@@ -11,6 +11,7 @@ import {
 } from "./RemainCaloriesStyle";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, Tooltip, Legend, ArcElement } from "chart.js";
+import { darkModeContext } from "../../../context/DarkModeContextProvider";
 ChartJS.register(Tooltip, Legend, ArcElement);
 
 const RemainCalories = () => {
@@ -54,6 +55,9 @@ const RemainCalories = () => {
     getCalorieIntake();
   }, []);
 
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
+
   const chartData = {
     labels: ["Consumed calories", "Daily intake"],
     datasets: [
@@ -65,7 +69,7 @@ const RemainCalories = () => {
   };
 
   return (
-    <StyledBox>
+    <StyledBox darkMode={darkMode!}>
       <Wrapper loading={loading}>
         <StyledLink to="/track-calories">
           <StyledSettingsIcon />
@@ -89,7 +93,7 @@ const RemainCalories = () => {
           }}
         />
         {consumedKcal ? (
-          <Calories>
+          <Calories darkMode={darkMode!}>
             <>
               {consumedKcal ? (
                 <strong>
