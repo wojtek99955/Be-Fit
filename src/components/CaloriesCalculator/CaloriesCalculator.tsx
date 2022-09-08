@@ -77,8 +77,10 @@ const CaloriesCalculator = () => {
         </ContentWrapper>
       </MainImg>
       {!error ? (
-        <FoodName loading={loading}>
-          <StyledH2>{query ? capitalize(query?.name) : null}</StyledH2>
+        <FoodName loading={loading} darkMode={darkMode!}>
+          <StyledH2 darkMode={darkMode!}>
+            {query ? capitalize(query?.name) : null}
+          </StyledH2>
         </FoodName>
       ) : (
         <NoMealsFound>No meals found</NoMealsFound>
@@ -90,7 +92,7 @@ const CaloriesCalculator = () => {
           animate={{ y: "20%", opacity: 1, scale: 1 }}
         >
           <Box>
-            <BoxHeader loading={loading}>
+            <BoxHeader loading={loading} darkMode={darkMode!}>
               {!loading ? <h3>Nutrients in 100 g</h3> : null}
             </BoxHeader>
             <BoxContainer>
@@ -124,7 +126,7 @@ const CaloriesCalculator = () => {
             </BoxContainer>
           </Box>
           <Box>
-            <BoxHeader loading={loading}>
+            <BoxHeader loading={loading} darkMode={darkMode!}>
               {!loading ? (
                 <>
                   <h3>In </h3>

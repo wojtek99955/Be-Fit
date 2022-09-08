@@ -6,6 +6,7 @@ const img = require("../../assets/images/food-img.jpg");
 
 interface StylesProps {
   loading: boolean | null;
+  darkMode: boolean;
 }
 
 interface DarkMode {
@@ -162,11 +163,12 @@ export const StyledH2 = styled.h2`
 `;
 
 export const FoodName = styled.div<StylesProps>`
-  background-color: ${({ loading }) => (loading ? "#f3f4f6" : "white")};
+  background-color: ${({ loading }) => (loading ? "#f3f4f6" : "transparent")};
   height: 3rem;
   margin: auto;
   width: 8rem;
   border-radius: 12px;
+  color: ${({ darkMode }) => (darkMode ? "white" : "black")};
   @media ${device.tablet} {
     margin-bottom: 2rem;
   }
@@ -178,11 +180,11 @@ export const BoxHeader = styled.div<StylesProps>`
   display: flex;
   align-items: center;
   height: 2rem;
-  background-color: ${({ loading }) => (loading ? "#f3f4f6" : "white")};
+  background-color: ${({ loading }) => (loading ? "#f3f4f6" : "transparent")};
   border-radius: 12px;
   width: 15rem;
   h3 {
-    color: #55595b;
+    color: ${({ darkMode }) => (darkMode ? "white" : "#55595b")};
     display: inline;
     font-size: 1.2rem;
     font-weight: 600;
