@@ -132,7 +132,7 @@ const YourGoal = () => {
             <div>{result ? result.days : 0} days</div>
           </Result>
         </FormContainer>
-        <Text>
+        <Text darkMode={darkMode!}>
           <h2>Your goal </h2>
           <p>Set your weight goal!</p>
           <p>

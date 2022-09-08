@@ -152,18 +152,18 @@ export const RangeTitle = styled.div`
   margin-bottom: 1rem;
 `;
 
-export const Text = styled.div`
+export const Text = styled.div<DarkMode>`
   max-width: 25rem;
   margin: auto;
   h2 {
     margin-bottom: 2rem;
     font-size: 3rem;
-    color: #555555;
+    color: ${({ darkMode }) => (darkMode ? "white" : "#555555")};
   }
   p {
     line-height: 1.8rem;
     font-size: 1.1rem;
-    color: #555555;
+    color: ${({ darkMode }) => (darkMode ? "white" : "#555555")};
     margin-bottom: 2rem;
   }
 `;
