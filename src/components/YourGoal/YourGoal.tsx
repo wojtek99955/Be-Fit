@@ -109,7 +109,9 @@ const YourGoal = () => {
                     <ErrorMessage name="goalWeight" component={ErrorMsg} />
                   </FieldContainer>
                 </Row>
-                <RangeValue>{values.calorieDeficit} kcal</RangeValue>
+                <RangeValue darkMode={darkMode!}>
+                  {values.calorieDeficit} kcal
+                </RangeValue>
                 <RangeTitle>Calorie deficit</RangeTitle>
                 <RangeInput>
                   <Field
@@ -125,7 +127,7 @@ const YourGoal = () => {
               </Form>
             )}
           </Formik>
-          <Result>
+          <Result darkMode={darkMode!}>
             <h2>You want to loose:</h2>
             <div>{result ? result.toLoose : 0} kg</div>
             <h2>You'll achevie your goal in:</h2>

@@ -103,14 +103,14 @@ export const RangeInput = styled.div`
   }
 `;
 
-export const RangeValue = styled.div`
+export const RangeValue = styled.div<DarkMode>`
   height: 3rem;
   margin: 2rem 0;
   display: flex;
   align-items: center;
   font-size: 2rem;
   justify-content: center;
-  color: #555555;
+  color: ${({ darkMode }) => (darkMode ? "#ffa101" : "#555555")};
 `;
 
 export const Wrapper = styled.div`
@@ -125,15 +125,18 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const Result = styled.div`
+export const Result = styled.div<DarkMode>`
   padding-top: 2rem;
   h2 {
     font-size: 1.2rem;
     margin-bottom: 2rem;
+    color: ${({ darkMode }) => (darkMode ? "white" : "#555555")};
   }
   div {
     margin-bottom: 3rem;
     color: #555555;
+    font-size: 1.5rem;
+    color: ${({ darkMode }) => (darkMode ? "#ffa101" : "#555555")};
   }
 `;
 
