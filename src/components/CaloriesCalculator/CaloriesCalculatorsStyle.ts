@@ -155,10 +155,10 @@ export const BoxContainer = styled.div`
   }
 `;
 
-export const StyledH2 = styled.h2`
+export const StyledH2 = styled.h2<DarkMode>`
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: black;
+  color: ${({ darkMode }) => (darkMode ? "white" : "black")};
   text-align: center;
 `;
 
