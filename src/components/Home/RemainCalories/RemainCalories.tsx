@@ -109,7 +109,7 @@ const RemainCalories = () => {
             </>
           </Calories>
         ) : (
-          <Calories>
+          <Calories darkMode={darkMode!}>
             <strong>{calorieIntake}</strong>
             <span>calories left</span>
           </Calories>
