@@ -27,6 +27,7 @@ import DoughNutChart from "./NutrientsCharts/DoughNutChart";
 import VerticalChart from "./NutrientsCharts/VerticalChart";
 import CaloriesVerticalChart from "./CaloriesCharts/CaloriesVerticalChart";
 import { AnimatePresence } from "framer-motion";
+import { darkModeContext } from "../../context/DarkModeContextProvider";
 
 const date = new Date();
 const month = date.getMonth();
@@ -111,8 +112,12 @@ const Statistics = () => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, [openDropdown]);
+
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
+
   return (
-    <Container>
+    <Container darkMode={darkMode!}>
       <Wrapper>
         <Header>
           <FitnessStatsIconContainer>

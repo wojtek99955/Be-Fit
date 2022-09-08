@@ -12,10 +12,15 @@ interface Loading {
   loading: boolean;
 }
 
-export const Container = styled.section`
+interface DarkMode {
+  darkMode: boolean;
+}
+
+export const Container = styled.section<DarkMode>`
   padding: 0.2rem;
   width: 100%;
-  background-color: white;
+  background-color: ${({ darkMode, theme }) =>
+    darkMode ? theme.darkMode.main : "white"};
   position: relative;
   top: 3.5rem;
   overflow-y: scroll;
