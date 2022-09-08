@@ -193,10 +193,10 @@ const Statistics = () => {
                     initial={{ y: "-50%", opacity: 0, scale: 0.5 }}
                     animate={{ y: "10%", opacity: 1, scale: 1 }}
                   >
-                    <Chart loading={loading}>
+                    <Chart loading={loading} darkMode={darkMode!}>
                       <DoughNutChart nutrients={nutrients} />
                     </Chart>
-                    <Chart loading={loading}>
+                    <Chart loading={loading} darkMode={darkMode!}>
                       <VerticalChart nutrients={nutrients} />
                     </Chart>
                   </Charts>

@@ -10,6 +10,7 @@ interface ActiveCharts {
 }
 interface Loading {
   loading: boolean;
+  darkMode: boolean;
 }
 
 interface DarkMode {
@@ -86,7 +87,8 @@ export const Chart = styled.div<Loading>`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f3f4f6;
+  background-color: ${({ darkMode, theme }) =>
+    darkMode ? theme.darkMode.light : "#f3f4f6"};
   padding: 1rem;
   border-radius: 12px;
   opacity: ${({ loading }) => (loading ? "0" : "1")};
