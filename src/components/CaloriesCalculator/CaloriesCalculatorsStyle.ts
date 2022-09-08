@@ -7,13 +7,19 @@ const img = require("../../assets/images/food-img.jpg");
 interface StylesProps {
   loading: boolean | null;
 }
-export const Container = styled.div`
+
+interface DarkMode {
+  darkMode: boolean;
+}
+export const Container = styled.div<DarkMode>`
   padding: 1rem 0.2rem;
   @media ${device.tablet} {
     padding: 1rem;
   }
   width: 100%;
   position: relative;
+  background-color: ${({ darkMode, theme }) =>
+    darkMode ? theme.darkMode.main : "white"};
   top: 3.5rem;
   overflow-y: scroll;
   h2 {

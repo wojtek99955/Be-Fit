@@ -1,5 +1,5 @@
 import { Formik, Field, Form } from "formik";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import {
   Container,
   MainImg,
@@ -15,6 +15,7 @@ import {
   InputContainer,
   NoMealsFound,
 } from "./CaloriesCalculatorsStyle";
+import { darkModeContext } from "../../context/DarkModeContextProvider";
 
 const CaloriesCalculator = () => {
   const [query, setQuery] = useState<any>(null);
@@ -27,8 +28,11 @@ const CaloriesCalculator = () => {
     return s.charAt(0).toUpperCase() + s.slice(1);
   };
 
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
+
   return (
-    <Container>
+    <Container darkMode={darkMode!}>
       <MainImg>
         <h1>Find your meal</h1>
         <ContentWrapper>
