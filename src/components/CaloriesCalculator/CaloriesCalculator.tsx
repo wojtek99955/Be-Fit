@@ -95,7 +95,7 @@ const CaloriesCalculator = () => {
             <BoxHeader loading={loading} darkMode={darkMode!}>
               {!loading ? <h3>Nutrients in 100 g</h3> : null}
             </BoxHeader>
-            <BoxContainer>
+            <BoxContainer darkMode={darkMode!}>
               {!loading ? (
                 <>
                   <div>
@@ -145,7 +145,7 @@ const CaloriesCalculator = () => {
                 </>
               ) : null}
             </BoxHeader>
-            <BoxContainer>
+            <BoxContainer darkMode={darkMode!}>
               {!loading ? (
                 <>
                   <div>

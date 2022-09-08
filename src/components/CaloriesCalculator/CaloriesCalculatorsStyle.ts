@@ -111,9 +111,10 @@ export const Nutrients = styled(motion.div)`
   }
 `;
 
-export const BoxContainer = styled.div`
+export const BoxContainer = styled.div<DarkMode>`
   max-width: 18rem;
-  background-color: #f3f4f6;
+  background-color: ${({ darkMode, theme }) =>
+    darkMode ? theme.darkMode.light : "#f3f4f6"};
   border-radius: 12px;
   display: grid;
   grid-template-columns: 7rem 7rem;
