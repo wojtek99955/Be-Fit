@@ -19,6 +19,7 @@ import {
   RangeTitle,
   Text,
 } from "./YourGoalStyle";
+import { darkModeContext } from "../../context/DarkModeContextProvider";
 
 const initialValues = {
   currentWeight: "",
@@ -58,10 +59,13 @@ const YourGoal = () => {
     return currentWeight - goalWeight;
   }
 
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
+
   return (
-    <Container>
+    <Container darkMode={darkMode!}>
       <Wrapper>
-        <FormContainer>
+        <FormContainer darkMode={darkMode!}>
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}

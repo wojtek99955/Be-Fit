@@ -2,7 +2,11 @@ import styled from "styled-components";
 import { Field } from "formik";
 import { device } from "../../assets/mediaQueries/device";
 
-export const Container = styled.section`
+interface DarkMode {
+  darkMode: boolean;
+}
+
+export const Container = styled.section<DarkMode>`
   padding: 1rem;
   width: 100%;
   height: calc(100vh - 3.5rem);
@@ -10,6 +14,8 @@ export const Container = styled.section`
   top: 3.5rem;
   overflow-y: scroll;
   margin: auto;
+  background-color: ${({ darkMode, theme }) =>
+    darkMode ? theme.darkMode.main : "white"};
 `;
 
 export const Row = styled.div`
@@ -34,9 +40,13 @@ export const StyledField = styled(Field)`
   padding: 0.2rem;
 `;
 
-export const FormContainer = styled.div`
+export const FormContainer = styled.div<DarkMode>`
   max-width: 25rem;
   margin: auto;
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: ${({ darkMode, theme }) =>
+    darkMode ? theme.darkMode.light : "white"};
   @media ${device.tablet} {
     min-width: 20rem;
   }
