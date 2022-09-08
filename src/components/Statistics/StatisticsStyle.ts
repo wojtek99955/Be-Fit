@@ -177,11 +177,12 @@ export const StyledLi = styled.li<ActiveMonth>`
     background-color: #e4e7e8;
   }
 `;
-export const DropdownHeader = styled.div`
+export const DropdownHeader = styled.div<DarkMode>`
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  color: ${({ darkMode }) => (darkMode ? "white" : "black")};
 `;
 
 export const CaloriesChartContainer = styled(motion.div)`

@@ -129,7 +129,7 @@ const Statistics = () => {
           </PieChartIconContainer>
         </Header>
         <DropdownContainer onClick={handleOpenDropdown} ref={dropdownRef}>
-          <DropdownHeader>
+          <DropdownHeader darkMode={darkMode!}>
             <h2>
               {selectedMonth !== null && selectedMonth >= 0
                 ? monthNames[selectedMonth!]
