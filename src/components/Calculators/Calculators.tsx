@@ -23,8 +23,10 @@ export const Container = styled.section<DarkMode>`
   }
 `;
 
-const CalculatorsContainer = styled.div`
+const CalculatorsContainer = styled.div<DarkMode>`
   background-color: #f3f4f6;
+  background-color: ${({ darkMode, theme }) =>
+    darkMode ? theme.darkMode.light : "#f3f4f6"};
   width: 8rem;
   height: 8rem;
   border-radius: 8px;
@@ -84,7 +86,7 @@ const Calculators = () => {
           navigation("/calculators/body-calculators");
         }}
       >
-        <CalculatorsContainer>
+        <CalculatorsContainer darkMode={darkMode!}>
           <div>
             <BodyIcon />
             <h1>Body</h1>
@@ -96,7 +98,7 @@ const Calculators = () => {
           navigation("/calculators/activity-calculators");
         }}
       >
-        <CalculatorsContainer>
+        <CalculatorsContainer darkMode={darkMode!}>
           <div>
             <ActivityIcon />
             <h1>Activity</h1>

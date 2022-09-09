@@ -20,8 +20,6 @@ const Container = styled.section<DarkMode>`
 const Wrapper = styled.section`
   position: relative;
   z-index: 2;
-  /* display: flex;
-  justify-content: center; */
 `;
 
 const CalculatorsLayout = () => {
