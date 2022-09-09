@@ -13,7 +13,7 @@ const Container = styled.section<DarkMode>`
   position: relative;
   top: 3.5rem;
   overflow-y: scroll;
-  transition: background-color 200ms;
+  transition: background-color 400ms;
   background-color: ${({ darkMode, theme }) =>
     darkMode ? theme.darkMode.main : " white"};
 `;
