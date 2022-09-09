@@ -103,6 +103,7 @@ export const Charts = styled(motion.div)`
   gap: 3rem;
   position: relative;
   z-index: 1;
+  margin-bottom: 4rem;
   @media ${device.tablet} {
     flex-direction: row;
     justify-content: center;
