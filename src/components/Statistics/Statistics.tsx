@@ -183,7 +183,7 @@ const Statistics = () => {
         {loading ? null : (
           <>
             {!nutrients ? (
-              <NoData>
+              <NoData darkMode={darkMode!}>
                 No data <SadIcon />
               </NoData>
             ) : (

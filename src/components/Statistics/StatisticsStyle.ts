@@ -194,13 +194,14 @@ export const Wrapper = styled.div`
   margin: auto;
 `;
 
-export const NoData = styled.div`
+export const NoData = styled.div<DarkMode>`
   font-size: 1.5rem;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
+  color: ${({ darkMode }) => (darkMode ? "white" : "black")};
 `;
 
 export const SadIcon = styled(ImSad)`
