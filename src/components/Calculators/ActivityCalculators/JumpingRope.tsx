@@ -42,7 +42,7 @@ const JumpingRope = () => {
   return (
     <Container>
       <Wrapper>
-        <Text>
+        <Text darkMode={darkMode!}>
           <h2>Jumping rope</h2>
           <p>
             Skipping is a full body exercise that incorporates all the
