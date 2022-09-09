@@ -43,7 +43,7 @@ const RunningCalculator = () => {
   return (
     <Container>
       <Wrapper>
-        <Text>
+        <Text darkMode={darkMode!}>
           <h2>Running</h2>
           <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas illo
