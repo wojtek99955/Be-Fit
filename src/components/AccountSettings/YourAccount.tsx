@@ -9,7 +9,6 @@ import {
   Button,
   Wrapper,
   NameContainer,
-  Divider,
   Image,
   EmailContainer,
   StyledField,
@@ -139,7 +138,7 @@ const YourAccount = () => {
             ) : null}
           </FileInput>
         </Wrapper>
-        <Divider />
+        <hr />
       </ImageContainer>
       <NameContainer>
         <h3>Name</h3>
@@ -177,7 +176,7 @@ const YourAccount = () => {
           </Form>
         </Formik>
 
-        <Divider />
+        <hr />
       </NameContainer>
       <EmailContainer>
         <h3>Email</h3>
@@ -267,7 +266,7 @@ const YourAccount = () => {
             ) : null}
           </Form>
         </Formik>
-        <Divider />
+        <hr />
       </EmailContainer>
     </Container>
   );

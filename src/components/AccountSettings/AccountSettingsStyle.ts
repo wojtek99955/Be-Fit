@@ -46,6 +46,10 @@ export const Container = styled.section<DarkMode>`
   span {
     color: ${({ darkMode }) => (darkMode ? "white" : "black")};
   }
+  hr {
+    border-bottom: ${({ darkMode }) =>
+      darkMode ? "1px solid hsla(0, 0%, 100%, 0.1)" : "#e1e4e7"};
+  }
 `;
 export const ImageContainer = styled.div`
   position: relative;
@@ -115,10 +119,6 @@ export const EmailContainer = styled.div`
   p {
     margin-bottom: 1rem;
   }
-`;
-
-export const Divider = styled.div`
-  border-bottom: 1px solid #e1e4e7; ;
 `;
 
 export const StyledField = styled(Field)`
