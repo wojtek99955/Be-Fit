@@ -12,12 +12,15 @@ const ToggleModeBtn = styled.button`
 
 const Preferences = () => {
   const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
+
   console.log(darkModeCtx?.darkMode);
   const handleToggleDarkMode = () => {
     darkModeCtx?.setDarkMode((prev) => !prev);
   };
+
   return (
-    <Container>
+    <Container darkMode={darkMode!}>
       <h2>Preferences</h2>
 
       <h3>Dark mode</h3>
