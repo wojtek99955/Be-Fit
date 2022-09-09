@@ -117,24 +117,24 @@ export const Result = styled.div`
   }
 `;
 
-export const Text = styled.div`
+export const Text = styled.div<DarkMode>`
   max-width: 25rem;
   h2 {
     margin-bottom: 2rem;
     font-size: 3rem;
-    color: #555555;
+    color: ${({ darkMode }) => (darkMode ? "white" : "#555555")};
   }
   p {
     color: #555555;
     line-height: 1.8rem;
-    font-size: 1.1rem;
+    color: ${({ darkMode }) => (darkMode ? "white" : "#555555")};
   }
 
   ul {
     margin-left: 2rem;
     li {
       font-size: 1.1rem;
-      color: #555555;
+      color: ${({ darkMode }) => (darkMode ? "white" : "#555555")};
       margin-bottom: 0.7rem;
     }
   }
