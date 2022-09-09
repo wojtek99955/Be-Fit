@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 import { ErrorMsg } from "../../../Auth/AuthStyle";
@@ -9,6 +9,7 @@ import {
   Result,
   Text,
 } from "../../CalculatorsStyle";
+import { darkModeContext } from "../../../../context/DarkModeContextProvider";
 
 const initialValues = {
   gender: "",
@@ -40,6 +41,9 @@ const validationSchema = yup.object().shape({
 const BMICalc = () => {
   const [bmi, setBmi] = useState<any | object>(null);
 
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
+
   return (
     <Container>
       <Wrapper>
@@ -52,7 +56,7 @@ const BMICalc = () => {
             resulting from mass in kilograms and height in metres.
           </p>
         </Text>
-        <FormWrapper>
+        <FormWrapper darkMode={darkMode!}>
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
