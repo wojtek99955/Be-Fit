@@ -6,9 +6,10 @@ import {
   Result,
 } from "../CalculatorsStyle";
 import { Formik, Form, ErrorMessage, Field } from "formik";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import * as yup from "yup";
 import { ErrorMsg } from "../../Auth/AuthStyle";
+import { darkModeContext } from "../../../context/DarkModeContextProvider";
 
 const JumpingRope = () => {
   const initialValues = {
@@ -34,6 +35,10 @@ const JumpingRope = () => {
     return ((3.5 * level * weight) / 200) * duration;
   };
   const [result, setResult] = useState<null | number>(null);
+
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
+
   return (
     <Container>
       <Wrapper>
@@ -49,7 +54,7 @@ const JumpingRope = () => {
           </p>
         </Text>
 
-        <FormWrapper>
+        <FormWrapper darkMode={darkMode!}>
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
