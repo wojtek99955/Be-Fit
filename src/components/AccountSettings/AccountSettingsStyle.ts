@@ -40,6 +40,9 @@ export const Container = styled.section<DarkMode>`
     display: block;
     outline-color: #ffa101;
   }
+  p {
+    color: ${({ darkMode }) => (darkMode ? "white" : "black")};
+  }
   span {
     color: ${({ darkMode }) => (darkMode ? "white" : "black")};
   }
