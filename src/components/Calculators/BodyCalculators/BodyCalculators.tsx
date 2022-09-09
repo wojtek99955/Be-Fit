@@ -4,6 +4,12 @@ import { GiWeightLiftingUp } from "react-icons/gi";
 import { useNavigate } from "react-router-dom";
 import { MdOutlineFastfood } from "react-icons/md";
 import { device } from "../../../assets/mediaQueries/device";
+import { darkModeContext } from "../../../context/DarkModeContextProvider";
+import { useContext } from "react";
+
+interface DarkMode {
+  darkMode: boolean;
+}
 
 const WeightIcon = styled(MdOutlineMonitorWeight)`
   font-size: 2.5rem;
@@ -20,11 +26,11 @@ const FoodIcon = styled(MdOutlineFastfood)`
   color: #bcbcbc;
 `;
 
-const CalculatorsContainer = styled.div`
+const CalculatorsContainer = styled.div<DarkMode>`
   aspect-ratio: 1/1;
   overflow: auto;
-
-  background-color: #f3f4f6;
+  background-color: ${({ darkMode, theme }) =>
+    darkMode ? theme.darkMode.light : "#f3f4f6"};
   width: 100%;
   height: 100%;
   border-radius: 8px;
@@ -49,6 +55,8 @@ const CalculatorsContainer = styled.div`
     font-weight: 500;
     text-align: center;
     font-size: 0.9rem;
+    color: ${({ darkMode }) => (darkMode ? "white" : "black")};
+
     @media ${device.tablet} {
       font-size: 1rem;
     }
@@ -76,9 +84,13 @@ const Container = styled.div`
 
 const BodyCalculators = () => {
   let navigation = useNavigate();
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
+
   return (
     <Container>
       <CalculatorsContainer
+        darkMode={darkMode!}
         onClick={() => {
           navigation("/calculators/body-calculators/bmi");
         }}
@@ -90,6 +102,7 @@ const BodyCalculators = () => {
         </div>
       </CalculatorsContainer>
       <CalculatorsContainer
+        darkMode={darkMode!}
         onClick={() => {
           navigation("/calculators/body-calculators/ideal-weight");
         }}
@@ -100,6 +113,7 @@ const BodyCalculators = () => {
         </div>
       </CalculatorsContainer>
       <CalculatorsContainer
+        darkMode={darkMode!}
         onClick={() => {
           navigation("/calculators/body-calculators/calorie-intake");
         }}
