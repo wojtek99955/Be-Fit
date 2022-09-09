@@ -44,6 +44,7 @@ const CalculatorsContainer = styled.div<DarkMode>`
   }
   h1 {
     font-weight: 500;
+    color: ${({ darkMode }) => (darkMode ? "white" : "black")};
   }
   div {
     display: flex;
