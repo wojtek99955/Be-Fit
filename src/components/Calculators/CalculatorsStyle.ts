@@ -93,6 +93,7 @@ export const Text = styled.div`
 export const FormWrapper = styled.div<DarkMode>`
   width: 100%;
   padding: 1rem;
+  border-radius: 12px;
   background-color: ${({ theme, darkMode }) =>
     darkMode ? theme.darkMode.light : "#f3f4f6"};
   @media ${device.tablet} {
