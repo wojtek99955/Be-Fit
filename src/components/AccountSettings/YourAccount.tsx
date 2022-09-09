@@ -29,6 +29,7 @@ import {
 } from "firebase/auth";
 import { CorrectIcon } from "./Security/SecurityStyle";
 import styled from "styled-components";
+import { darkModeContext } from "../../context/DarkModeContextProvider";
 
 const LoaderContainer = styled.div``;
 
@@ -98,8 +99,10 @@ const YourAccount = () => {
     }
   };
   console.log(data);
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
   return (
-    <Container>
+    <Container darkMode={darkMode!}>
       <h2>Your account</h2>
       <ImageContainer>
         <Wrapper>

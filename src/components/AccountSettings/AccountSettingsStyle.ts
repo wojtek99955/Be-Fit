@@ -10,7 +10,11 @@ interface ImageProps {
   file?: string;
 }
 
-export const Container = styled.section`
+interface DarkMode {
+  darkMode: boolean;
+}
+
+export const Container = styled.section<DarkMode>`
   margin-top: 2rem;
   width: 90%;
   @media ${device.tablet} {
@@ -20,9 +24,11 @@ export const Container = styled.section`
   margin-right: 1rem;
   h2 {
     margin-bottom: 3rem;
+    color: ${({ darkMode }) => (darkMode ? "white" : "black")};
   }
   h3 {
     margin: 1.3rem 0;
+    color: ${({ darkMode }) => (darkMode ? "white" : "black")};
   }
   :not(first-of-type)input {
     width: 90%;
@@ -33,6 +39,9 @@ export const Container = styled.section`
     height: 2.5rem;
     display: block;
     outline-color: #ffa101;
+  }
+  span {
+    color: ${({ darkMode }) => (darkMode ? "white" : "black")};
   }
 `;
 export const ImageContainer = styled.div`
