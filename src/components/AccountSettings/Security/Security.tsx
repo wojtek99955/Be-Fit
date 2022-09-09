@@ -20,6 +20,7 @@ import {
   Title,
   EditPasswordBtn,
 } from "./SecurityStyle";
+import { darkModeContext } from "../../../context/DarkModeContextProvider";
 
 const validationCurrentPassword = yup.object().shape({
   currentPassword: yup
@@ -58,8 +59,11 @@ const Security = () => {
       setPasswordSuccess(false);
     }
   };
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
+
   return (
-    <Container>
+    <Container darkMode={darkMode!}>
       <h2>Account security</h2>
       {setIsChanging ? (
         <Password>
