@@ -47,6 +47,9 @@ export const Container = styled.section<DarkMode>`
     color: ${({ darkMode }) => (darkMode ? "white" : "black")};
   }
   hr {
+    border: none;
+    margin: 0;
+    height: 1px;
     border-bottom: ${({ darkMode }) =>
       darkMode ? "1px solid hsla(0, 0%, 100%, 0.1)" : "#e1e4e7"};
   }
