@@ -128,7 +128,7 @@ const CalorieIntake = () => {
   return (
     <Container>
       <Wrapper>
-        <Text>
+        <Text darkMode={darkMode!}>
           <h2>Calorie intake calculator</h2>
           <p>
             This calculator will help you to calculate how much energy your body
