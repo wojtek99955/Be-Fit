@@ -1,4 +1,4 @@
-import { Container, Button, Divider } from "../AccountSettingsStyle";
+import { Container, Button } from "../AccountSettingsStyle";
 import { AuthContext } from "../../AuthContext";
 import { useContext, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
@@ -162,7 +162,7 @@ const Security = () => {
         </Password>
       ) : null}
       {passwordChanged ? <h1>Password changed!</h1> : null}
-      <Divider />
+      <hr />
       <Delete>
         {openDeleteModal ? (
           <DeleteModal setOpenDeleteModal={setOpenDeleteModal} />
@@ -179,7 +179,7 @@ const Security = () => {
         >
           Delete
         </DeleteButton>
-        <Divider />
+        <hr />
       </Delete>
     </Container>
   );
