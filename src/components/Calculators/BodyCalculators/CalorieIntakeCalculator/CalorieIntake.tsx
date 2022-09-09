@@ -9,12 +9,13 @@ import {
   OptionFieldName,
   Result,
   Text,
-  FormContainer,
   FormWrapper,
+  FormContainer,
 } from "./CalorieIntakeCalculatorStyle";
 import { AuthContext } from "../../../AuthContext";
 import { setDoc, doc } from "firebase/firestore";
 import { db } from "../../../../firebase";
+import { darkModeContext } from "../../../../context/DarkModeContextProvider";
 
 enum Activity {
   zero = "zero physical activity",
@@ -121,6 +122,9 @@ const CalorieIntake = () => {
     return (getBMR() * getPAL()! + weightGoal()!).toFixed(0);
   }
 
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
+
   return (
     <Container>
       <Wrapper>
@@ -150,7 +154,7 @@ const CalorieIntake = () => {
           </p>
         </Text>
         <FormWrapper>
-          <FormContainer>
+          <FormContainer darkMode={darkMode!}>
             <p>
               This calculator will help you to calculate how much energy your
               body needs to maintain / gain / loose weight.

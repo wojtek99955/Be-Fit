@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import { device } from "../../../../assets/mediaQueries/device";
 
+interface DarkMode {
+  darkMode: boolean;
+}
+
 export const Container = styled.section`
   margin: 0 1rem;
   label {
@@ -135,10 +139,11 @@ export const Text = styled.div`
     }
   }
 `;
-export const FormContainer = styled.div`
+export const FormContainer = styled.div<DarkMode>`
   width: 100%;
   padding: 1rem;
-  background-color: #f3f4f6;
+  background-color: ${({ theme, darkMode }) =>
+    darkMode ? theme.darkMode.light : "#f3f4f6"};
   @media ${device.tablet} {
     min-width: 25rem;
   }
