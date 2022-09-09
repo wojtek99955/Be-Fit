@@ -24,6 +24,7 @@ export const Container = styled(motion.aside)<DarkMode>`
   width: calc(100vw - 13rem);
   height: calc(100% - 3.5rem);
   border-right: ${({ darkMode }) => (darkMode ? "none" : "1px solid #e1e4e7")};
+  transition: background-color 400ms;
   background-color: ${({ darkMode, theme }) =>
     darkMode ? theme.darkMode.main : "white"};
 

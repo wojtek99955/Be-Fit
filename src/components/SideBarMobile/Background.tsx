@@ -8,6 +8,7 @@ interface Props {
 }
 
 export const BackgroundWrapper = styled(motion.div)`
+  transition: background-color 400ms;
   background-color: rgba(0, 0, 0, 0.6);
   position: fixed;
   z-index: 24;
