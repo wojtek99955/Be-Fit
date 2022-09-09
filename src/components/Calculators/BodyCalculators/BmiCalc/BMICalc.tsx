@@ -47,7 +47,7 @@ const BMICalc = () => {
   return (
     <Container>
       <Wrapper>
-        <Text>
+        <Text darkMode={darkMode!}>
           <h2>BMI Calculator</h2>
           <p>
             Body mass index (BMI) is a value derived from the mass (weight) and
