@@ -34,7 +34,7 @@ const IdealWeight = () => {
   return (
     <Container>
       <Wrapper>
-        <Text>
+        <Text darkMode={darkMode!}>
           <h2>Ideal weight calculator</h2>
           <p>
             The Ideal Weight Calculator computes ideal body weight (IBW) ranges
