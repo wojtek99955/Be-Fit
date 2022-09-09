@@ -3,12 +3,20 @@ import { useNavigate } from "react-router-dom";
 import { BiBody } from "react-icons/bi";
 import { GiWeightLiftingUp } from "react-icons/gi";
 import { device } from "../../assets/mediaQueries/device";
+import { darkModeContext } from "../../context/DarkModeContextProvider";
+import { useContext } from "react";
 
-export const Container = styled.section`
+interface DarkMode {
+  darkMode: boolean;
+}
+
+export const Container = styled.section<DarkMode>`
   display: flex;
   padding: 1rem;
   gap: 1rem;
   justify-content: center;
+  background-color: ${({ theme, darkMode }) =>
+    darkMode ? theme.darkMode.main : "white"};
   @media ${device.tablet} {
     gap: 5rem;
     gap: 3rem;
@@ -67,8 +75,10 @@ const ActivityCalculators = styled.div`
 
 const Calculators = () => {
   let navigation = useNavigate();
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
   return (
-    <Container>
+    <Container darkMode={darkMode!}>
       <BodyCalculators
         onClick={() => {
           navigation("/calculators/body-calculators");

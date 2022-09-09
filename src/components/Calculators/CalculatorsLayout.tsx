@@ -1,12 +1,20 @@
 import { Outlet } from "react-router-dom";
 import styled from "styled-components";
+import { darkModeContext } from "../../context/DarkModeContextProvider";
+import { useContext } from "react";
 
-const Container = styled.section`
+interface DarkMode {
+  darkMode: boolean;
+}
+
+const Container = styled.section<DarkMode>`
   width: 100%;
   height: calc(100vh - 3.5rem);
   position: relative;
   top: 3.5rem;
   overflow-y: scroll;
+  background-color: ${({ theme, darkMode }) =>
+    darkMode ? theme.darkMode.main : "white"};
 `;
 
 const Wrapper = styled.section`
@@ -17,9 +25,12 @@ const Wrapper = styled.section`
 `;
 
 const CalculatorsLayout = () => {
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
+
   return (
     <>
-      <Container>
+      <Container darkMode={darkMode!}>
         <svg
           id="wave"
           viewBox="0 0 1440 430"
