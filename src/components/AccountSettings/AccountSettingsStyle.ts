@@ -51,7 +51,7 @@ export const Container = styled.section<DarkMode>`
     margin: 0;
     height: 1px;
     border-bottom: ${({ darkMode }) =>
-      darkMode ? "1px solid hsla(0, 0%, 100%, 0.1)" : "#e1e4e7"};
+      darkMode ? "1px solid hsla(0, 0%, 100%, 0.1)" : "1px solid #e1e4e7"};
   }
 `;
 export const ImageContainer = styled.div`
