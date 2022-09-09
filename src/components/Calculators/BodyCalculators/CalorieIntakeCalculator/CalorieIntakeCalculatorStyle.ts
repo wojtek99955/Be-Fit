@@ -148,6 +148,9 @@ export const FormContainer = styled.div<DarkMode>`
   @media ${device.tablet} {
     min-width: 25rem;
   }
+  p {
+    color: ${({ darkMode }) => (darkMode ? "white" : "#555555")};
+  }
 `;
 
 export const FormWrapper = styled.div`
