@@ -11,6 +11,8 @@ import {
 import { Line } from "react-chartjs-2";
 import { NutrientsTypes } from "../../../assets/interfaces/ConsumedNutrientsInterface";
 import { ChartWrapper } from "./LastMonthStyle";
+import { darkModeContext } from "../../../context/DarkModeContextProvider";
+import { useContext } from "react";
 
 ChartJS.register(
   CategoryScale,
@@ -26,7 +28,7 @@ interface Props {
 }
 
 const NutrientsChart = ({ chartData }: Props) => {
-  const options = {
+  const lightOptions = {
     responsive: true,
     plugins: {
       legend: {
@@ -58,6 +60,9 @@ const NutrientsChart = ({ chartData }: Props) => {
     return data.fiber;
   });
 
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
+
   const dataChart = {
     labels,
     datasets: [
@@ -87,9 +92,31 @@ const NutrientsChart = ({ chartData }: Props) => {
       },
     ],
   };
+
+  const darkOptions = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "bottom" as const,
+        labels: {
+          color: "white",
+        },
+      },
+    },
+    elements: {
+      line: {
+        tension: 0.3,
+        borderDashOffset: 30,
+      },
+    },
+  };
   return (
     <ChartWrapper>
-      <Line style={{ maxHeight: "13rem" }} options={options} data={dataChart} />
+      <Line
+        style={{ maxHeight: "13rem" }}
+        options={darkMode ? darkOptions : lightOptions}
+        data={dataChart}
+      />
     </ChartWrapper>
   );
 };
