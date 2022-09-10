@@ -10,8 +10,6 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { NutrientsTypes } from "../../../assets/interfaces/ConsumedNutrientsInterface";
-import styled from "styled-components";
-import { device } from "../../../assets/mediaQueries/device";
 import { ChartWrapper } from "./LastMonthStyle";
 
 ChartJS.register(
