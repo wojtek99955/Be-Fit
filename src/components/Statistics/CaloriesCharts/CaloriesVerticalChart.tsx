@@ -14,6 +14,7 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { NutrientsTypes } from "../../../assets/interfaces/ConsumedNutrientsInterface";
+import { darkModeContext } from "../../../context/DarkModeContextProvider";
 
 ChartJS.register(
   CategoryScale,
@@ -55,14 +56,43 @@ const CaloriesVerticalChart = ({ selectedMonth }: Props) => {
     getData();
   }, [selectedMonth]);
 
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
+
   const labels = data?.map((data: NutrientsTypes) => {
     return data.dayMonth;
   });
-  const options = {
+  const darkOptions = {
+    responsive: true,
+    scales: {
+      y: {
+        ticks: {
+          color: "white",
+        },
+      },
+      x: {
+        ticks: {
+          color: "white",
+        },
+      },
+    },
+    plugins: {
+      legend: {
+        position: "bottom" as const,
+        title: {
+          color: "orange",
+        },
+      },
+    },
+  };
+  const lightOptions = {
     responsive: true,
     plugins: {
       legend: {
         position: "bottom" as const,
+        title: {
+          color: "orange",
+        },
       },
     },
   };
@@ -70,7 +100,6 @@ const CaloriesVerticalChart = ({ selectedMonth }: Props) => {
     return data.kcal;
   });
   console.log(data);
-
   const dataChart = {
     labels,
     datasets: [
@@ -82,9 +111,14 @@ const CaloriesVerticalChart = ({ selectedMonth }: Props) => {
       },
     ],
   };
+
   return (
     <div>
-      <Line style={{ maxHeight: "20rem" }} options={options} data={dataChart} />
+      <Line
+        style={{ maxHeight: "20rem" }}
+        options={darkMode ? darkOptions : lightOptions}
+        data={dataChart}
+      />
     </div>
   );
 };
