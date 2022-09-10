@@ -49,7 +49,7 @@ const VerticalChart = ({ nutrients }: Props) => {
   const darkOptions = {
     responsive: true,
     scales: {
-      x: {
+      y: {
         ticks: {
           color: "white",
         },
@@ -58,6 +58,9 @@ const VerticalChart = ({ nutrients }: Props) => {
     plugins: {
       legend: {
         position: "bottom" as const,
+        labels: {
+          color: "white",
+        },
       },
     },
   };
