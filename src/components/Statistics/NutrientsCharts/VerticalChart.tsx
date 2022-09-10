@@ -7,6 +7,8 @@ import {
   LinearScale,
   BarElement,
 } from "chart.js";
+import { darkModeContext } from "../../../context/DarkModeContextProvider";
+import { useContext } from "react";
 
 ChartJS.register(Tooltip, Legend, CategoryScale, LinearScale, BarElement);
 
@@ -15,6 +17,9 @@ interface Props {
 }
 
 const VerticalChart = ({ nutrients }: Props) => {
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
+
   const horizontalData = {
     labels: [""],
 
@@ -41,18 +46,39 @@ const VerticalChart = ({ nutrients }: Props) => {
       },
     ],
   };
+  const darkOptions = {
+    responsive: true,
+    scales: {
+      y: {
+        ticks: {
+          color: "white",
+        },
+      },
+      x: {
+        ticks: {
+          color: "white",
+        },
+      },
+    },
+    plugins: {
+      legend: {
+        position: "bottom" as const,
+      },
+    },
+  };
+  const lightOptions = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "bottom" as const,
+      },
+    },
+  };
   return (
     <>
       <Bar
         data={horizontalData}
-        options={{
-          responsive: true,
-          plugins: {
-            legend: {
-              position: "bottom",
-            },
-          },
-        }}
+        options={darkMode ? darkOptions : lightOptions}
       />
     </>
   );
