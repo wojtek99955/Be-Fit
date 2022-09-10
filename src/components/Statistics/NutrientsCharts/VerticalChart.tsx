@@ -49,11 +49,6 @@ const VerticalChart = ({ nutrients }: Props) => {
   const darkOptions = {
     responsive: true,
     scales: {
-      y: {
-        ticks: {
-          color: "white",
-        },
-      },
       x: {
         ticks: {
           color: "white",
