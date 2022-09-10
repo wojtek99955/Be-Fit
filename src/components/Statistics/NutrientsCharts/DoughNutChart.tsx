@@ -35,18 +35,6 @@ const DoughNutChart = ({ nutrients }: Props) => {
   };
   const darkOptions = {
     responsive: true,
-    scales: {
-      y: {
-        ticks: {
-          color: "white",
-        },
-      },
-      x: {
-        ticks: {
-          color: "white",
-        },
-      },
-    },
     plugins: {
       legend: {
         position: "bottom" as const,
