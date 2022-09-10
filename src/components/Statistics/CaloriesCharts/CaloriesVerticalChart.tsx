@@ -96,7 +96,6 @@ const CaloriesVerticalChart = ({ selectedMonth }: Props) => {
   const calories = data?.map((data: NutrientsTypes) => {
     return data.kcal;
   });
-  console.log(data);
   const dataChart = {
     labels,
     datasets: [
