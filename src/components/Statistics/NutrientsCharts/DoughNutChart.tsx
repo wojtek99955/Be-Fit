@@ -1,5 +1,7 @@
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, Tooltip, Legend, ArcElement } from "chart.js";
+import { darkModeContext } from "../../../context/DarkModeContextProvider";
+import { useContext } from "react";
 
 interface Props {
   nutrients: any;
@@ -7,6 +9,9 @@ interface Props {
 
 const DoughNutChart = ({ nutrients }: Props) => {
   ChartJS.register(Tooltip, Legend, ArcElement);
+
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
 
   const data = {
     labels: ["Fats", "Carbohydrates", "Proteins", "Fiber"],
@@ -28,19 +33,37 @@ const DoughNutChart = ({ nutrients }: Props) => {
       },
     ],
   };
+  const darkOptions = {
+    responsive: true,
+    scales: {
+      y: {
+        ticks: {
+          color: "white",
+        },
+      },
+      x: {
+        ticks: {
+          color: "white",
+        },
+      },
+    },
+    plugins: {
+      legend: {
+        position: "bottom" as const,
+      },
+    },
+  };
+  const lightOptions = {
+    plugins: {
+      legend: {
+        display: true,
+        position: "bottom" as const,
+      },
+    },
+  };
   return (
     <>
-      <Doughnut
-        data={data}
-        options={{
-          plugins: {
-            legend: {
-              display: true,
-              position: "bottom",
-            },
-          },
-        }}
-      />
+      <Doughnut data={data} options={darkMode ? darkOptions : lightOptions} />
     </>
   );
 };
