@@ -79,9 +79,6 @@ const CaloriesVerticalChart = ({ selectedMonth }: Props) => {
     plugins: {
       legend: {
         position: "bottom" as const,
-        title: {
-          color: "orange",
-        },
       },
     },
   };
