@@ -38,6 +38,9 @@ const DoughNutChart = ({ nutrients }: Props) => {
     plugins: {
       legend: {
         position: "bottom" as const,
+        labels: {
+          color: "white",
+        },
       },
     },
   };
