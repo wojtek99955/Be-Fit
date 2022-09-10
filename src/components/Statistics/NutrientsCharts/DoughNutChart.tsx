@@ -17,7 +17,7 @@ const DoughNutChart = ({ nutrients }: Props) => {
     labels: ["Fats", "Carbohydrates", "Proteins", "Fiber"],
     datasets: [
       {
-        label: "# of Votes",
+        label: "",
         data: [
           nutrients?.fat,
           nutrients?.carbo,
