@@ -31,6 +31,7 @@ Fitness app
 - realtime database
 - monthly statistics
 - upload avatar images with cloud storage
+- dark mode
 
 ## Installation
 
