@@ -64,6 +64,7 @@ const CalculatorsContainer = styled.div<DarkMode>`
     font-weight: 500;
     text-align: center;
     font-size: 0.9rem;
+    color: ${({ darkMode }) => (darkMode ? "white" : "black")};
     @media ${device.tablet} {
       font-size: 1rem;
     }
