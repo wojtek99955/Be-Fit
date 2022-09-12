@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthContext";
-import { useContext, useState, useRef, useEffect } from "react";
-import { auth } from "../../firebase";
+import { useContext, useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import {
   HeaderContainer,
@@ -9,16 +8,9 @@ import {
   Logo,
   UserIcon,
   SettingsIcon,
-  ProfileSettingsDropdown,
   ProfileSettings,
-  LogoutContainer,
-  Divider,
   AddIcon,
   StyledLink,
-  UserData,
-  UserDataContainer,
-  DropdownUserIcon,
-  Email,
   Icons,
   Nav,
   LoggedNavItem,
@@ -45,30 +37,12 @@ const Header = ({ setShowSideBar, setShowSideBarMobile }: Props) => {
   const ctx = useContext(AuthContext);
   const [openProfileMenu, setOpenProfileMenu] = useState(false);
   const [openCalculatorsDropdown, setOpenCalculatorsDropdown] = useState(false);
-  const profileMenuRef = useRef<HTMLDivElement>(null);
 
   const handleProfileMenuOpen = (e: any) => {
     e.stopPropagation();
     setOpenProfileMenu((prev) => !prev);
   };
-  const handleClickOutside = (e: any) => {
-    if (profileMenuRef.current && !profileMenuRef.current.contains(e.target)) {
-      setOpenProfileMenu(false);
-    }
-  };
-  useEffect(() => {
-    document.addEventListener("click", handleClickOutside);
 
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, [openProfileMenu]);
-
-  const logOut = async () => {
-    await auth.signOut();
-    setOpenProfileMenu(false);
-    navigate("/signin");
-  };
   const [userData, setUserData] = useState<any>("");
   const uid: string = ctx?.currentUser?.uid;
 
@@ -82,7 +56,6 @@ const Header = ({ setShowSideBar, setShowSideBarMobile }: Props) => {
   const goHome = () => {
     ctx?.currentUser ? navigate("/home") : navigate("/");
   };
-
   const toggleCalcDropdown = () => {
     setOpenCalculatorsDropdown((prev) => !prev);
   };
@@ -92,10 +65,6 @@ const Header = ({ setShowSideBar, setShowSideBarMobile }: Props) => {
     } else {
       setShowSideBarMobile((prev) => !prev);
     }
-  };
-
-  const toggleOpenDropdown = () => {
-    setOpenProfileMenu((prev) => !prev);
   };
 
   return (
