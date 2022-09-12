@@ -1,13 +1,5 @@
 import styled from "styled-components";
 
-interface LoadingProps {
-  loading: boolean;
-}
-
-interface DarkMode {
-  darkMode: boolean;
-}
-
 interface ContainerProps {
   loading: boolean;
   darkMode: boolean;
