@@ -31,6 +31,7 @@ import {
 } from "./HeaderStyle";
 import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
+import ProfileDropdown from "./ProfileDropdown";
 
 const img = require("../../assets/images/logo.png");
 
@@ -68,12 +69,12 @@ const Header = ({ setShowSideBar, setShowSideBarMobile }: Props) => {
     setOpenProfileMenu(false);
     navigate("/signin");
   };
-  const [data, setData] = useState<any>("");
+  const [userData, setUserData] = useState<any>("");
   const uid: string = ctx?.currentUser?.uid;
 
   useEffect(() => {
     onSnapshot(doc(db, `users/${uid}`), (doc) => {
-      setData(doc.data());
+      setUserData(doc.data());
     });
   }, [uid]);
 
@@ -188,65 +189,19 @@ const Header = ({ setShowSideBar, setShowSideBarMobile }: Props) => {
                 </IconContainer>
                 <ProfileSettings>
                   <UserIcon
-                    url={data?.avatarImg}
+                    url={userData?.avatarImg}
                     onClick={handleProfileMenuOpen}
                   >
-                    {data?.avatarImg
+                    {userData?.avatarImg
                       ? null
-                      : data?.name?.toUpperCase().slice(0, 1)}
+                      : userData?.name?.toUpperCase().slice(0, 1)}
                   </UserIcon>
                   {openProfileMenu ? (
-                    <ProfileSettingsDropdown
-                      ref={profileMenuRef}
-                      onClick={toggleOpenDropdown}
-                    >
-                      <UserDataContainer>
-                        <DropdownUserIcon url={data?.avatarImg}>
-                          {data?.avatarImg
-                            ? null
-                            : data?.name?.toUpperCase().slice(0, 1)}
-                        </DropdownUserIcon>
-                        <UserData>
-                          <strong>
-                            {data?.name?.length > 16
-                              ? `${data?.name?.slice(0, 17)}...`
-                              : data?.name}
-                          </strong>
-                          <Email>
-                            {data?.email?.length > 16
-                              ? `${data?.email.slice(0, 17)}...`
-                              : data?.email}
-                          </Email>
-                        </UserData>
-                      </UserDataContainer>
-
-                      <Divider />
-                      <ul>
-                        <li>
-                          <StyledLink to="/settings/account">
-                            Profile
-                          </StyledLink>
-                        </li>
-                        <li>
-                          <StyledLink to="/my-body">My body</StyledLink>
-                        </li>
-                        <li>
-                          <StyledLink to="/statistics">Statistics</StyledLink>
-                        </li>
-                        <li>
-                          <StyledLink to="/my-goal">My goal</StyledLink>
-                        </li>
-                        <li>
-                          <StyledLink to="/settings/account">
-                            Settings
-                          </StyledLink>
-                        </li>
-                      </ul>
-                      <Divider />
-                      <LogoutContainer onClick={logOut}>
-                        <div>Log out</div>
-                      </LogoutContainer>
-                    </ProfileSettingsDropdown>
+                    <ProfileDropdown
+                      openProfileMenu={openProfileMenu}
+                      setOpenProfileMenu={setOpenProfileMenu}
+                      userData={userData}
+                    />
                   ) : null}
                 </ProfileSettings>
               </Icons>
