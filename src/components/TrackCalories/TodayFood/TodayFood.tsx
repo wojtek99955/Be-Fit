@@ -25,6 +25,7 @@ import { nanoid } from "nanoid";
 import HealthyFoodIcon from "../../../assets/svg/HealthyFoodIcon";
 import { AnimatePresence } from "framer-motion";
 import React from "react";
+import { darkModeContext } from "../../../context/DarkModeContextProvider";
 
 const TodayFood = () => {
   const [todayFoods, setTodayFoods] = useState<any>([]);
@@ -63,9 +64,11 @@ const TodayFood = () => {
     const docRef = doc(db, `users/${uid}/food`, `${id}`);
     deleteDoc(docRef);
   };
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
   return (
     <Container>
-      <CurrentDate>
+      <CurrentDate darkMode={darkMode!}>
         <h2>Today</h2>
         <div>{`${day}/${month}/${year}`}</div>
       </CurrentDate>

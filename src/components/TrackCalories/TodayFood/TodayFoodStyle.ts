@@ -5,6 +5,10 @@ import { AiOutlineDelete } from "react-icons/ai";
 import { motion } from "framer-motion";
 import { device } from "../../../assets/mediaQueries/device";
 
+interface DarkMode {
+  darkMode: boolean;
+}
+
 export const Container = styled.div`
   max-width: 800px;
   margin: auto;
@@ -94,16 +98,17 @@ export const UpIcon = styled(AiOutlineUpCircle)`
   font-size: 1.3rem;
 `;
 
-export const CurrentDate = styled.div`
+export const CurrentDate = styled.div<DarkMode>`
   h2 {
     font-size: 2rem;
     text-align: center;
+    color: ${({ darkMode }) => (darkMode ? "white" : "black")};
   }
   div {
     text-align: center;
-    color: #555555;
     margin-top: 1rem;
     font-size: 1.2rem;
+    color: ${({ darkMode }) => (darkMode ? "white" : "#555555")};
   }
 `;
 
