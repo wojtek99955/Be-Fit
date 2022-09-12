@@ -21,6 +21,7 @@ import { db } from "../../firebase";
 import { AuthContext } from "../AuthContext";
 import { TodayFoodMemo } from "./TodayFood/TodayFood";
 import { AnimatePresence } from "framer-motion";
+import { darkModeContext } from "../../context/DarkModeContextProvider";
 
 const TrackCalories = () => {
   const [query, setQuery] = useState<any>(null);
@@ -67,9 +68,11 @@ const TrackCalories = () => {
       inputRef.current.focus();
     }
   }, []);
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
 
   return (
-    <Container>
+    <Container darkMode={darkMode!}>
       <Header>
         <h2>
           Track your daily <br /> calorie intake

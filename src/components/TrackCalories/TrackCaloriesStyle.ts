@@ -6,11 +6,15 @@ import { IoMdCloseCircleOutline } from "react-icons/io";
 import { device } from "../../assets/mediaQueries/device";
 const img = require("../../assets/images/track-calories.jpg");
 
-export const Container = styled.section`
+interface DarkMode {
+  darkMode: boolean;
+}
+export const Container = styled.section<DarkMode>`
   padding: 0.2rem;
   width: 100%;
   height: calc(100vh - 3.5rem);
-  background-color: white;
+  background-color: ${({ darkMode, theme }) =>
+    darkMode ? theme.darkMode.main : "white"};
   position: relative;
   top: 3.5rem;
   overflow-y: scroll;
