@@ -7,9 +7,14 @@ interface SearchItemProps {
   loading: boolean;
 }
 
-export const SearchedItemContainer = styled.div`
+interface DarkMode {
+  darkMode: boolean;
+}
+
+export const SearchedItemContainer = styled.div<DarkMode>`
   border-radius: 12px;
-  background-color: #f3f4f6;
+  background-color: ${({ theme, darkMode }) =>
+    darkMode ? theme.darkMode.light : "#f3f4f6"};
   padding: 1rem;
 `;
 
@@ -47,15 +52,17 @@ export const Nutrients = styled.div`
   }
 `;
 
-export const NutrientsWrapper = styled.div`
+export const NutrientsWrapper = styled.div<DarkMode>`
   div {
     display: flex;
     justify-content: space-between;
     position: relative;
+    color: ${({ darkMode }) => (darkMode ? "white" : "black")};
 
     span {
       position: absolute;
       right: 0;
+      color: ${({ darkMode }) => (darkMode ? "white" : "black")};
     }
   }
 `;
@@ -65,17 +72,22 @@ export const Amount = styled.div`
   justify-content: center;
 `;
 
-export const AmountWrapper = styled.div`
+export const AmountWrapper = styled.div<DarkMode>`
   display: flex;
   gap: 1rem;
   position: relative;
   div {
     font-size: 1.1rem;
+    color: ${({ darkMode }) => (darkMode ? "white" : "black")};
+  }
+  input {
+    color: ${({ darkMode }) => (darkMode ? "white" : "black")};
   }
 `;
 
-export const Calories = styled.div`
+export const Calories = styled.div<DarkMode>`
   margin: auto;
+  color: ${({ darkMode }) => (darkMode ? "white" : "black")};
 `;
 
 export const AmountField = styled(Field)`
@@ -95,10 +107,11 @@ export const AmountField = styled(Field)`
   }
 `;
 
-export const FoodName = styled.div`
+export const FoodName = styled.div<DarkMode>`
   display: flex;
   justify-content: center;
   align-items: center;
+  color: ${({ darkMode }) => (darkMode ? "white" : "black")};
 `;
 
 export const AddButton = styled(motion.button)`

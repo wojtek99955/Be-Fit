@@ -20,6 +20,7 @@ import { AuthContext } from "../../AuthContext";
 import { nanoid } from "nanoid";
 import { AddButton } from "./SearchedItemStyle";
 import { motion } from "framer-motion";
+import { darkModeContext } from "../../../context/DarkModeContextProvider";
 
 interface Props {
   loading: boolean;
@@ -49,6 +50,9 @@ const SearchedItem = ({
 
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
+
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
 
   const addMeal = async (queryAmount: any) => {
     try {
@@ -105,9 +109,9 @@ const SearchedItem = ({
   return (
     <>
       {!error ? (
-        <SearchedItemContainer>
+        <SearchedItemContainer darkMode={darkMode!}>
           <SearchItemWrapper loading={loading}>
-            <FoodName>
+            <FoodName darkMode={darkMode!}>
               <h2>{query?.name}</h2>
             </FoodName>
             <Amount>
@@ -121,7 +125,7 @@ const SearchedItem = ({
               >
                 {({ handleChange, submitForm }) => (
                   <Form>
-                    <AmountWrapper>
+                    <AmountWrapper darkMode={darkMode!}>
                       <div>amount</div>
 
                       <AmountField
@@ -153,14 +157,14 @@ const SearchedItem = ({
                 )}
               </Formik>
             </Amount>
-            <Calories>
+            <Calories darkMode={darkMode!}>
               kcal
               <strong>
                 {((query?.details?.ENERC_KCAL * foodWeight) / 100).toFixed(1)}
               </strong>
             </Calories>
             <Nutrients>
-              <NutrientsWrapper>
+              <NutrientsWrapper darkMode={darkMode!}>
                 <div>
                   fat
                   <span>
