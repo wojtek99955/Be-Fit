@@ -23,7 +23,7 @@ import {
 } from "./HeaderStyle";
 import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
-import ProfileDropdown from "./ProfileDropdown";
+import ProfileDropdown from "./ProfileDropdown/ProfileDropdown";
 
 const img = require("../../assets/images/logo.png");
 
