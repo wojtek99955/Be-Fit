@@ -3,6 +3,7 @@ import { getDoc, doc } from "firebase/firestore";
 import { db } from "../../../../firebase";
 import { AuthContext } from "../../../AuthContext";
 import { Container, RemainedCalories } from "./RemainCaloriesStyle";
+import { darkModeContext } from "../../../../context/DarkModeContextProvider";
 
 interface Props {
   consumed: any;
@@ -39,9 +40,13 @@ const RemainCalories = ({ consumed }: Props) => {
   const remainCalories = Number(
     (data?.calorieIntake - consumedKcal!).toFixed(1)
   );
+
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
+
   return (
-    <Container loading={loading}>
-      <RemainedCalories loading={loading}>
+    <Container loading={loading} darkMode={darkMode!}>
+      <RemainedCalories loading={loading} darkMode={darkMode!}>
         <div>{remainCalories <= 0 ? "0" : remainCalories}</div>
         <span>Calories left</span>
       </RemainedCalories>

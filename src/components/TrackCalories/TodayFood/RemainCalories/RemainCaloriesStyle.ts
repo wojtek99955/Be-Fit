@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 interface LoadingProps {
   loading: boolean;
+  darkMode: boolean;
 }
 
 export const Container = styled.div<LoadingProps>`
@@ -11,7 +12,7 @@ export const Container = styled.div<LoadingProps>`
   align-items: center;
   justify-content: center;
   height: 15rem;
-  background-color: ${({ loading }) => (loading ? "#f3f4f6" : "white")};
+  background-color: ${({ darkMode }) => (darkMode ? "#ffa101" : "white")};
   border: ${({ loading }) =>
     loading ? "4px solid #f3f4f6" : "4px solid #ffa101"};
 `;
@@ -23,6 +24,7 @@ export const RemainedCalories = styled.div<LoadingProps>`
   align-items: center;
   div {
     font-size: 2.5rem;
+    color: ${({ darkMode }) => (darkMode ? "white" : "black")};
   }
   span {
     font-size: 1.4rem;
