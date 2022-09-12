@@ -9,6 +9,7 @@ import {
 import { setDoc, doc, serverTimestamp } from "firebase/firestore";
 import { AuthContext } from "../../../AuthContext";
 import { db } from "../../../../firebase";
+import { darkModeContext } from "../../../../context/DarkModeContextProvider";
 
 interface Props {
   consumed: any;
@@ -66,14 +67,17 @@ const ConsumedNutrientsData = ({ consumed, loading }: Props) => {
     }
   }, [consumed]);
 
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
+
   return (
-    <Consumed loading={loading}>
+    <Consumed loading={loading} darkMode={darkMode!}>
       <Wrapper>
-        <ConsumedCalories loading={loading}>
+        <ConsumedCalories loading={loading} darkMode={darkMode!}>
           <span>{consumedNutrients?.kcal}</span>
           <div>Kcal</div>
         </ConsumedCalories>
-        <ConsumedNutrients loading={loading}>
+        <ConsumedNutrients loading={loading} darkMode={darkMode!}>
           <Row>
             <div>
               Fat <span>{consumedNutrients?.fat} g </span>

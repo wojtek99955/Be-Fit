@@ -4,7 +4,16 @@ interface LoadingProps {
   loading: boolean;
 }
 
-export const Consumed = styled.div<LoadingProps>`
+interface DarkMode {
+  darkMode: boolean;
+}
+
+interface ContainerProps {
+  loading: boolean;
+  darkMode: boolean;
+}
+
+export const Consumed = styled.div<ContainerProps>`
   border-radius: 12px;
   border: ${({ loading }) =>
     loading ? "4px solid #f3f4f6" : "4px solid #019d51"};
@@ -13,10 +22,10 @@ export const Consumed = styled.div<LoadingProps>`
   align-items: center;
   justify-content: center;
   height: 15rem;
-  background-color: ${({ loading }) => (loading ? " #f3f4f6" : "white")};
+  background-color: ${({ darkMode }) => (darkMode ? "#019d51" : "white")};
 `;
 
-export const ConsumedNutrients = styled.div<LoadingProps>`
+export const ConsumedNutrients = styled.div<ContainerProps>`
   opacity: ${({ loading }) => (loading ? "0" : "1")};
   display: flex;
   flex-direction: column;
@@ -25,8 +34,8 @@ export const ConsumedNutrients = styled.div<LoadingProps>`
     color: #555555;
   }
   span {
-    color: black;
     font-size: 1.3rem;
+    color: ${({ darkMode }) => (darkMode ? "white" : "black")};
   }
 `;
 
@@ -48,7 +57,7 @@ export const Row = styled.div`
   }
 `;
 
-export const ConsumedCalories = styled.div<LoadingProps>`
+export const ConsumedCalories = styled.div<ContainerProps>`
   opacity: ${({ loading }) => (loading ? "0" : "1")};
   font-size: 2.5rem;
   display: flex;
@@ -58,6 +67,9 @@ export const ConsumedCalories = styled.div<LoadingProps>`
   div {
     font-size: 1.2rem;
     color: #555555;
+  }
+  span {
+    color: ${({ darkMode }) => (darkMode ? "white" : "black")};
   }
 `;
 
