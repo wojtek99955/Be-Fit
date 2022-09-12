@@ -4,6 +4,12 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { BiSwim } from "react-icons/bi";
 import { device } from "../../../assets/mediaQueries/device";
+import { darkModeContext } from "../../../context/DarkModeContextProvider";
+import { useContext } from "react";
+
+interface DarkMode {
+  darkMode: boolean;
+}
 
 const JumpingRopeIcon = styled(GiJumpingRope)`
   font-size: 2.5rem;
@@ -31,8 +37,9 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const CalculatorsContainer = styled.div`
-  background-color: #f3f4f6;
+const CalculatorsContainer = styled.div<DarkMode>`
+  background-color: ${({ theme, darkMode }) =>
+    darkMode ? theme.darkMode.light : "#f3f4f6"};
   aspect-ratio: 1/1;
 
   border-radius: 8px;
@@ -71,9 +78,12 @@ const CalculatorsContainer = styled.div`
 
 const ActivityCalculators = () => {
   let navigate = useNavigate();
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
   return (
     <Container>
       <CalculatorsContainer
+        darkMode={darkMode!}
         onClick={() => {
           navigate("/calculators/activity-calculators/jumping-rope");
         }}
@@ -85,6 +95,7 @@ const ActivityCalculators = () => {
         </div>
       </CalculatorsContainer>
       <CalculatorsContainer
+        darkMode={darkMode!}
         onClick={() => {
           navigate("/calculators/activity-calculators/running");
         }}
@@ -95,7 +106,7 @@ const ActivityCalculators = () => {
           <h1>Running</h1>
         </div>
       </CalculatorsContainer>
-      <CalculatorsContainer>
+      <CalculatorsContainer darkMode={darkMode!}>
         <div>
           <SwimmingIcon />
 
