@@ -51,11 +51,15 @@ export const Divider = styled.div`
   height: 1px;
 `;
 
-export const LogoutContainer = styled.div`
+export const LogoutContainer = styled.div<DarkMode>`
   padding: 1rem;
   cursor: pointer;
   &:hover {
-    background-color: #fae6b1;
+    background-color: ${({ theme, darkMode }) =>
+      darkMode ? theme.darkMode.light : "#fae6b1"};
+  }
+  div {
+    color: ${({ darkMode }) => (darkMode ? "white" : "black")};
   }
 `;
 

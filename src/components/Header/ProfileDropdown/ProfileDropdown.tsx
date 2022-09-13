@@ -99,7 +99,7 @@ const ProfileDropdown = ({
         </li>
       </ul>
       <Divider />
-      <LogoutContainer onClick={logOut}>
+      <LogoutContainer onClick={logOut} darkMode={darkMode!}>
         <div>Log out</div>
       </LogoutContainer>
     </ProfileSettingsDropdown>
