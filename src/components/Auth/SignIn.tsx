@@ -11,6 +11,8 @@ import {
   StyledLink,
   ErrorMsg,
   LoadingContainer,
+  ResetPassword,
+  LockIcon,
 } from "./AuthStyle";
 import ValidationError from "./ValidationError";
 import * as yup from "yup";
@@ -56,7 +58,11 @@ const SignIn = () => {
           <Label htmlFor="password">password</Label>
           <StyledField type="password" name="password" id="password" />
           <ErrorMessage name="password" component={ValidationError} />
-          <StyledLink to="/forgot-password">Forgot password?</StyledLink>
+          <StyledLink to="/forgot-password">
+            <ResetPassword>
+              <LockIcon /> Forgot password?
+            </ResetPassword>
+          </StyledLink>
 
           <button type="submit">
             {loading && !error ? (

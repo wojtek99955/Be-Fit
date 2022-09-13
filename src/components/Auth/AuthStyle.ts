@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Field } from "formik";
 import { device } from "../../assets/mediaQueries/device";
 import { HiCheckCircle } from "react-icons/hi";
+import { BiLock } from "react-icons/bi";
 
 export const Label = styled.label`
   display: block;
@@ -88,4 +89,16 @@ export const SuccessMsg = styled.div`
 export const SuccessIcon = styled(HiCheckCircle)`
   font-size: 1.6rem;
   color: green;
+`;
+
+export const ResetPassword = styled.div`
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
+
+export const LockIcon = styled(BiLock)`
+  font-size: 1.5rem;
+  color: #e1605e;
 `;
