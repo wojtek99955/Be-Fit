@@ -80,7 +80,7 @@ const ProfileDropdown = ({
         </UserData>
       </UserDataContainer>
 
-      <Divider />
+      <Divider darkMode={darkMode!} />
       <ul>
         <li>
           <StyledLink to="/settings/account">Profile</StyledLink>
@@ -98,7 +98,7 @@ const ProfileDropdown = ({
           <StyledLink to="/settings/account">Settings</StyledLink>
         </li>
       </ul>
-      <Divider />
+      <Divider darkMode={darkMode!} />
       <LogoutContainer onClick={logOut} darkMode={darkMode!}>
         <div>Log out</div>
       </LogoutContainer>

@@ -9,7 +9,10 @@ export const ProfileSettingsDropdown = styled.div<DarkMode>`
   box-sizing: content-box;
   padding-right: 0;
   margin-top: 0.5rem;
-  border: 1px solid #e1e4e7;
+  /* border: 1px solid #e1e4e7; */
+  border: ${({ darkMode }) =>
+    darkMode ? "2px solid hsla(0, 0%, 100%, 0.1)" : "1px solid #e1e4e7"};
+
   position: absolute;
   top: 100%;
   right: 0;
@@ -46,9 +49,10 @@ export const ProfileSettings = styled.div`
   display: flex;
 `;
 
-export const Divider = styled.div`
-  background-color: #e1e4e7;
-  height: 1px;
+export const Divider = styled.div<DarkMode>`
+  background-color: ${({ darkMode }) =>
+    darkMode ? "hsla(0, 0%, 100%, 0.1)" : "1px solid #e1e4e7"};
+  height: 2px;
 `;
 
 export const LogoutContainer = styled.div<DarkMode>`
