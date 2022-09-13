@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Field } from "formik";
 import { device } from "../../assets/mediaQueries/device";
+import { HiCheckCircle } from "react-icons/hi";
 
 export const Label = styled.label`
   display: block;
@@ -60,6 +61,7 @@ export const StyledLink = styled(Link)`
   color: grey;
   text-decoration: none;
   display: block;
+  font-size: 1rem;
 `;
 
 export const ErrorMsg = styled.div`
@@ -73,4 +75,17 @@ export const LoadingContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+export const SuccessMsg = styled.div`
+  color: grey;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
+
+export const SuccessIcon = styled(HiCheckCircle)`
+  font-size: 1.6rem;
+  color: green;
 `;

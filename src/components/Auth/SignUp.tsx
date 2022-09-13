@@ -8,6 +8,8 @@ import {
   StyledLink,
   ErrorMsg,
   LoadingContainer,
+  SuccessMsg,
+  SuccessIcon,
 } from "./AuthStyle";
 import { Form, Formik, ErrorMessage } from "formik";
 import ValidationError from "./ValidationError";
@@ -96,7 +98,10 @@ const SignUp = () => {
       {error && <ErrorMsg>User with this email already exists</ErrorMsg>}
       {success ? (
         <StyledLink to="/signin">
-          You've just registered! Click to log in
+          <SuccessMsg>
+            <SuccessIcon />
+            You've just registered! Click to log in
+          </SuccessMsg>
         </StyledLink>
       ) : (
         <StyledLink to="/signin">Already have an account? Sign in!</StyledLink>
