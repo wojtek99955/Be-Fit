@@ -356,6 +356,7 @@ export const Calculators = styled.div`
 `;
 
 export const CalculatorsDropdown = styled.div<DarkMode>`
+  border-radius: 4px;
   position: absolute;
   top: 95%;
   border: ${({ darkMode }) =>
