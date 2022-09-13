@@ -14,6 +14,10 @@ interface ImageProps {
   url: string;
 }
 
+interface DarkMode {
+  darkMode: boolean;
+}
+
 export const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
@@ -351,16 +355,17 @@ export const Calculators = styled.div`
   align-items: center;
 `;
 
-export const CalculatorsDropdown = styled.div`
+export const CalculatorsDropdown = styled.div<DarkMode>`
   position: absolute;
   top: 95%;
-  border: 1px solid #e1e4e7;
+  border: ${({ darkMode }) =>
+    darkMode ? "2px solid hsla(0, 0%, 100%, 0.1)" : "1px solid #e1e4e7"};
   left: 0;
-  -webkit-box-shadow: -3px 0px 48px -1px rgba(225, 228, 231, 1);
-  -moz-box-shadow: -3px 0px 48px -1px rgba(225, 228, 231, 1);
-  box-shadow: -3px 0px 48px -1px rgba(225, 228, 231, 1);
+  box-shadow: ${({ darkMode }) =>
+    darkMode ? "none" : "-3px 0px 48px -1px rgba(225, 228, 231, 1)"};
   z-index: 10;
-  background-color: white;
+  background-color: ${({ darkMode, theme }) =>
+    darkMode ? theme.darkMode.middle : "white"};
   width: 13rem;
   ul {
     list-style: none;

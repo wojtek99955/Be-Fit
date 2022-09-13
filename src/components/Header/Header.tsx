@@ -24,6 +24,7 @@ import {
 import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
 import ProfileDropdown from "./ProfileDropdown/ProfileDropdown";
+import { darkModeContext } from "../../context/DarkModeContextProvider";
 
 const img = require("../../assets/images/logo.png");
 
@@ -66,6 +67,9 @@ const Header = ({ setShowSideBar, setShowSideBarMobile }: Props) => {
       setShowSideBarMobile((prev) => !prev);
     }
   };
+
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
 
   return (
     <StyledHeader location={location}>
@@ -112,7 +116,7 @@ const Header = ({ setShowSideBar, setShowSideBarMobile }: Props) => {
                       Calculators <DownIcon />
                     </StyledLink>
                     {openCalculatorsDropdown ? (
-                      <CalculatorsDropdown>
+                      <CalculatorsDropdown darkMode={darkMode!}>
                         <ul>
                           <li>
                             <StyledLink to="/calculators/body-calculators">
