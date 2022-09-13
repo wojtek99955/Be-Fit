@@ -14,6 +14,7 @@ export const Label = styled.label`
 
 export const FormContainer = styled.div`
   background-color: white;
+  border-radius: 12px;
   padding: 1rem;
   width: 25rem;
   margin: 1rem;
