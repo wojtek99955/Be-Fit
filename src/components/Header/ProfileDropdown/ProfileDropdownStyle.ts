@@ -50,8 +50,8 @@ export const ProfileSettings = styled.div`
 
 export const Divider = styled.div<DarkMode>`
   background-color: ${({ darkMode }) =>
-    darkMode ? "hsla(0, 0%, 100%, 0.1)" : "1px solid #e1e4e7"};
-  height: 2px;
+    darkMode ? "hsla(0, 0%, 100%, 0.1)" : "#e1e4e7"};
+  height: ${({ darkMode }) => (darkMode ? "2px" : "1px")};
 `;
 
 export const LogoutContainer = styled.div<DarkMode>`
