@@ -9,7 +9,6 @@ export const ProfileSettingsDropdown = styled.div<DarkMode>`
   box-sizing: content-box;
   padding-right: 0;
   margin-top: 0.5rem;
-  /* border: 1px solid #e1e4e7; */
   border: ${({ darkMode }) =>
     darkMode ? "2px solid hsla(0, 0%, 100%, 0.1)" : "1px solid #e1e4e7"};
 
