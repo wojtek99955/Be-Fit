@@ -377,5 +377,11 @@ export const CalculatorsDropdown = styled.div<DarkMode>`
   a {
     border-radius: 0;
     padding: 1rem;
+    color: ${({ darkMode }) => (darkMode ? "white" : "black")};
+
+    &:hover {
+      background-color: ${({ darkMode, theme }) =>
+        darkMode ? theme.darkMode.light : "#fae6b1"};
+    }
   }
 `;
