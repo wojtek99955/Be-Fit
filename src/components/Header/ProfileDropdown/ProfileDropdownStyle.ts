@@ -1,7 +1,11 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export const ProfileSettingsDropdown = styled.div`
+interface DarkMode {
+  darkMode: boolean;
+}
+
+export const ProfileSettingsDropdown = styled.div<DarkMode>`
   box-sizing: content-box;
   padding-right: 0;
   margin-top: 0.5rem;
@@ -9,11 +13,11 @@ export const ProfileSettingsDropdown = styled.div`
   position: absolute;
   top: 100%;
   right: 0;
-  -webkit-box-shadow: -3px 0px 48px -1px rgba(225, 228, 231, 1);
-  -moz-box-shadow: -3px 0px 48px -1px rgba(225, 228, 231, 1);
-  box-shadow: -3px 0px 48px -1px rgba(225, 228, 231, 1);
+  box-shadow: ${({ darkMode }) =>
+    darkMode ? "none" : "-3px 0px 48px -1px rgba(225, 228, 231, 1)"};
   z-index: 10;
-  background-color: white;
+  background-color: ${({ darkMode, theme }) =>
+    darkMode ? theme.darkMode.middle : "white"};
   width: 15.5rem;
 
   ul {
@@ -23,6 +27,9 @@ export const ProfileSettingsDropdown = styled.div`
     cursor: pointer;
     &:hover {
       background-color: #fae6b1;
+    }
+    a {
+      color: ${({ darkMode }) => (darkMode ? "white" : "black")};
     }
   }
 
@@ -60,7 +67,11 @@ export const StyledLink = styled(Link)`
   align-items: center;
 `;
 
-export const UserData = styled.div``;
+export const UserData = styled.div<DarkMode>`
+  strong {
+    color: ${({ darkMode }) => (darkMode ? "white" : "black")};
+  }
+`;
 
 interface ImageProps {
   url: string;

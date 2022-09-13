@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../../firebase";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useContext } from "react";
 import {
   ProfileSettingsDropdown,
   Divider,
@@ -12,6 +12,7 @@ import {
   DropdownUserIcon,
   UserData,
 } from "./ProfileDropdownStyle";
+import { darkModeContext } from "../../../context/DarkModeContextProvider";
 
 interface Props {
   openProfileMenu: boolean;
@@ -49,15 +50,23 @@ const ProfileDropdown = ({
   const toggleOpenDropdown = () => {
     setOpenProfileMenu((prev) => !prev);
   };
+
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
+
   return (
-    <ProfileSettingsDropdown ref={profileMenuRef} onClick={toggleOpenDropdown}>
+    <ProfileSettingsDropdown
+      ref={profileMenuRef}
+      onClick={toggleOpenDropdown}
+      darkMode={darkMode!}
+    >
       <UserDataContainer>
         <DropdownUserIcon url={userData?.avatarImg}>
           {userData?.avatarImg
             ? null
             : userData?.name?.toUpperCase().slice(0, 1)}
         </DropdownUserIcon>
-        <UserData>
+        <UserData darkMode={darkMode!}>
           <strong>
             {userData?.name?.length > 16
               ? `${userData?.name?.slice(0, 17)}...`
