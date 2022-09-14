@@ -1,6 +1,5 @@
 import { Formik, Form } from "formik";
 import { useState, useEffect, useContext, useRef } from "react";
-import { SearchIcon } from "../CaloriesCalculator/CaloriesCalculatorsStyle";
 import {
   Container,
   Header,
@@ -14,6 +13,7 @@ import {
   FormContainer,
   FormWrapper,
   SearchItemContainer,
+  SearchIcon,
 } from "./TrackCaloriesStyle";
 import SearchedItem from "./SearchedItem/SearchedItem";
 import { collection, getDocs } from "firebase/firestore";
@@ -138,7 +138,7 @@ const TrackCalories = () => {
                         placeholder="search meal"
                       />
                       <button type="submit">
-                        <SearchIcon />
+                        <SearchIcon darkMode={darkMode!} />
                       </button>
                     </FieldWrapper>
                   </Form>
