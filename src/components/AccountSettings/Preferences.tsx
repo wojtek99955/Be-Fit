@@ -14,6 +14,7 @@ const ToggleModeBtn = styled.button`
 const PreviewContainer = styled.div`
   display: flex;
   gap: 1rem;
+  margin-top: 2rem;
 `;
 
 const Preferences = () => {
