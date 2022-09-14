@@ -124,7 +124,7 @@ const TodayFood = () => {
                             Carbo <span>{item.details.carbo.toFixed(1)} g</span>
                           </div>
                         </Nutrients>
-                        <Calories>
+                        <Calories darkMode={darkMode!}>
                           <div>
                             Kcal <strong>{item.details.kcal.toFixed(0)}</strong>
                           </div>

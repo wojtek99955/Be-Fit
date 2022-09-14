@@ -42,13 +42,13 @@ export const Nutrients = styled.div`
   }
 `;
 
-export const Calories = styled.div`
+export const Calories = styled.div<DarkMode>`
   display: flex;
   justify-content: center;
   align-items: center;
   strong {
     font-size: 1.2rem;
-    color: black;
+    color: ${({ darkMode }) => (darkMode ? "white" : "black")};
   }
 `;
 
@@ -158,10 +158,10 @@ export const FoodWrapper = styled.div<DarkMode>`
   }
   div {
     padding: 0.5rem;
-    color: #555555;
+    color: ${({ darkMode }) => (darkMode ? "white" : "#555555")};
   }
   span {
-    color: black;
+    color: ${({ darkMode }) => (darkMode ? "white" : "black")};
   }
   h3 {
     font-size: 1.6rem;
