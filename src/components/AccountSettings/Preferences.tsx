@@ -42,9 +42,11 @@ const Preferences = () => {
       <PreviewContainer>
         <div onClick={darkModeOn}>
           <ThemePreview />
+          Light
         </div>
         <div onClick={darkModeOff}>
           <ThemePreview dark />
+          Dark
         </div>
       </PreviewContainer>
     </Container>
