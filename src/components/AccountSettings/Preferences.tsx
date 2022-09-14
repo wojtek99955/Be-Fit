@@ -8,6 +8,12 @@ const PreviewContainer = styled.div`
   display: flex;
   gap: 1rem;
   margin-top: 2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  span {
+    margin-top: 1rem;
+    display: block;
+  }
 `;
 
 const Preferences = () => {
@@ -31,11 +37,11 @@ const Preferences = () => {
       <PreviewContainer>
         <div onClick={darkModeOn}>
           <ThemePreview />
-          Light
+          <span>Light</span>
         </div>
         <div onClick={darkModeOff}>
           <ThemePreview dark />
-          Dark
+          <span>Dark</span>
         </div>
       </PreviewContainer>
     </Container>
