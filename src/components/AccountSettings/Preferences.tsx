@@ -11,6 +11,11 @@ const ToggleModeBtn = styled.button`
   color: white;
 `;
 
+const PreviewContainer = styled.div`
+  display: flex;
+  gap: 1rem;
+`;
+
 const Preferences = () => {
   const darkModeCtx = useContext(darkModeContext);
   const darkMode = darkModeCtx?.darkMode;
@@ -29,8 +34,10 @@ const Preferences = () => {
       <ToggleModeBtn onClick={handleToggleDarkMode}>
         {darkModeCtx?.darkMode ? "On" : "Off"}
       </ToggleModeBtn>
-      <ThemePreview />
-      <ThemePreview dark />
+      <PreviewContainer>
+        <ThemePreview />
+        <ThemePreview dark />
+      </PreviewContainer>
     </Container>
   );
 };
