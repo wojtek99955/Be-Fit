@@ -14,14 +14,17 @@ export const Container = styled.div`
   margin: auto;
   margin-top: 3rem;
 `;
-export const FoodItem = styled(motion.div)`
-  box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.1), 0 2px 4px 0 rgba(0, 0, 0, 0),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+export const FoodItem = styled(motion.div)<DarkMode>`
+  box-shadow: ${({ darkMode }) =>
+    darkMode
+      ? "none "
+      : "0 12px 28px 0 rgba(0, 0, 0, 0.1), 0 2px 4px 0 rgba(0, 0, 0, 0), inset 0 0 0 1px rgba(255, 255, 255, 0.5)"};
   padding: 0.5rem;
   position: relative;
   border-radius: 12px;
   margin-bottom: 2rem;
-  background-color: #edf5f1;
+  background-color: ${({ darkMode, theme }) =>
+    darkMode ? theme.darkMode.light : "#edf5f1"};
   @media ${device.tablet} {
     padding: 1.5rem;
   }
@@ -139,7 +142,7 @@ export const FoodIconContainer = styled.div`
   left: 1rem;
 `;
 
-export const FoodWrapper = styled.div`
+export const FoodWrapper = styled.div<DarkMode>`
   display: grid;
   grid-template-columns: 1fr;
   justify-content: space-around;
@@ -147,7 +150,8 @@ export const FoodWrapper = styled.div`
   max-width: 300px;
   margin: auto;
   border-radius: 12px;
-  background-color: #edf5f1;
+  background-color: ${({ darkMode, theme }) =>
+    darkMode ? theme.darkMode.light : "#edf5f1"};
   @media ${device.tablet} {
     grid-template-columns: repeat(4, 1fr);
     max-width: 100%;
