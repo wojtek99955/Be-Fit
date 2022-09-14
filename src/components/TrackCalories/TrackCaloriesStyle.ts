@@ -48,12 +48,13 @@ export const SearchFood = styled.div`
   max-width: 800px;
   margin: auto;
 `;
-export const StyledField = styled(Field)`
+export const StyledField = styled(Field)<DarkMode>`
   border: none;
   border-bottom: 3px solid #ffa101;
   outline: none;
   font-size: 1.3rem;
   background-color: transparent;
+  color: ${({ darkMode }) => (darkMode ? "white" : "black")};
   width: 100%;
   &:-webkit-autofill,
   &:-webkit-autofill:hover,

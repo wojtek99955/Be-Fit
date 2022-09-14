@@ -132,6 +132,7 @@ const TrackCalories = () => {
                   <Form>
                     <FieldWrapper>
                       <StyledField
+                        darkMode={darkMode!}
                         innerRef={inputRef}
                         name="query"
                         placeholder="search meal"
