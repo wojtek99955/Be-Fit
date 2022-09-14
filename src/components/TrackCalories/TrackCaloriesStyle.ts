@@ -1,3 +1,4 @@
+import { BiSearch } from "react-icons/bi";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 import { Field } from "formik";
@@ -122,3 +123,9 @@ export const FormWrapper = styled.div`
 `;
 
 export const SearchItemContainer = styled(motion.div)``;
+
+export const SearchIcon = styled(BiSearch)<DarkMode>`
+  font-size: 1.5rem;
+  margin: 0 0.5rem;
+  color: ${({ darkMode }) => (darkMode ? "white" : "black")};
+`;
