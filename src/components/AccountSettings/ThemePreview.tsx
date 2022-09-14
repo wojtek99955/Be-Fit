@@ -11,6 +11,7 @@ const Container = styled.div<DarkStyle>`
   border-radius: 8px;
   background-color: ${({ dark, theme }) =>
     dark ? theme.darkMode.main : "white"};
+  cursor: pointer;
 `;
 
 const Header = styled.div<DarkStyle>`
