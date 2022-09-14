@@ -22,8 +22,12 @@ const Preferences = () => {
   const darkMode = darkModeCtx?.darkMode;
 
   console.log(darkModeCtx?.darkMode);
-  const handleToggleDarkMode = () => {
-    darkModeCtx?.setDarkMode((prev) => !prev);
+  const darkModeOff = () => {
+    darkModeCtx?.setDarkMode(true);
+  };
+
+  const darkModeOn = () => {
+    darkModeCtx?.setDarkMode(false);
   };
 
   return (
@@ -32,12 +36,16 @@ const Preferences = () => {
       <h3>Theme</h3>
       <p>Choose how you’d like BeFit to appear. Select a theme</p>
 
-      <ToggleModeBtn onClick={handleToggleDarkMode}>
+      {/* <ToggleModeBtn onClick={handleToggleDarkMode}>
         {darkModeCtx?.darkMode ? "On" : "Off"}
-      </ToggleModeBtn>
+      </ToggleModeBtn> */}
       <PreviewContainer>
-        <ThemePreview />
-        <ThemePreview dark />
+        <div onClick={darkModeOn}>
+          <ThemePreview />
+        </div>
+        <div onClick={darkModeOff}>
+          <ThemePreview dark />
+        </div>
       </PreviewContainer>
     </Container>
   );
