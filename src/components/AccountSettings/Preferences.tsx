@@ -22,8 +22,9 @@ const Preferences = () => {
   return (
     <Container darkMode={darkMode!}>
       <h2>Preferences</h2>
+      <h3>Theme</h3>
+      <p>Choose how you’d like BeFit to appear. Select a theme</p>
 
-      <h3>Dark mode</h3>
       <ToggleModeBtn onClick={handleToggleDarkMode}>
         {darkModeCtx?.darkMode ? "On" : "Off"}
       </ToggleModeBtn>
