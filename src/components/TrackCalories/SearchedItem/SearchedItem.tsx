@@ -19,7 +19,6 @@ import { db } from "../../../firebase";
 import { AuthContext } from "../../AuthContext";
 import { nanoid } from "nanoid";
 import { AddButton } from "./SearchedItemStyle";
-import { motion } from "framer-motion";
 import { darkModeContext } from "../../../context/DarkModeContextProvider";
 
 interface Props {
