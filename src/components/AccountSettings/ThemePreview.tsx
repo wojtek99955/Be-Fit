@@ -12,6 +12,9 @@ const Container = styled.div<DarkStyle>`
   background-color: ${({ dark, theme }) =>
     dark ? theme.darkMode.main : "white"};
   cursor: pointer;
+  &:hover {
+    outline: ${({ theme }) => `2px solid ${theme.darkMode.light}`};
+  }
 `;
 
 const Header = styled.div<DarkStyle>`
