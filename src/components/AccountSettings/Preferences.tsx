@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useContext } from "react";
 import { darkModeContext } from "../../context/DarkModeContextProvider";
 import { Container } from "./AccountSettingsStyle";
+import ThemePreview from "./ThemePreview";
 
 const ToggleModeBtn = styled.button`
   padding: 0.7rem 2.8rem;
@@ -28,6 +29,8 @@ const Preferences = () => {
       <ToggleModeBtn onClick={handleToggleDarkMode}>
         {darkModeCtx?.darkMode ? "On" : "Off"}
       </ToggleModeBtn>
+      <ThemePreview />
+      <ThemePreview dark />
     </Container>
   );
 };
