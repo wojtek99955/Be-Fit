@@ -9,6 +9,8 @@ import Background from "./SideBarMobile/Background";
 import { DarkModeContextProvider } from "../context/DarkModeContextProvider";
 import { ThemeProvider } from "styled-components";
 import { theme } from "../assets/styleTheme";
+import { useLocation } from "react-router-dom";
+import StartHeader from "./Header/StartHeader";
 
 function App() {
   const ctx = useContext(AuthContext);
@@ -23,14 +25,23 @@ function App() {
     window.addEventListener("resize", setWidth);
   });
 
+  let location = useLocation();
+
   return (
     <DarkModeContextProvider>
       <ThemeProvider theme={theme}>
         <div className="App" style={{ display: "flex" }}>
-          <Header
-            setShowSideBar={setShowSideBar}
-            setShowSideBarMobile={setShowSideBarMobile}
-          />
+          {location.pathname === "/" ||
+          location.pathname === "/signup" ||
+          location.pathname === "/signin" ||
+          location.pathname === "/forgot-password" ? (
+            <StartHeader />
+          ) : (
+            <Header
+              setShowSideBar={setShowSideBar}
+              setShowSideBarMobile={setShowSideBarMobile}
+            />
+          )}
 
           {islogged && showSideBar && currentWidth >= 1024 ? <SideBar /> : null}
           <AnimatePresence>
