@@ -121,6 +121,7 @@ const Header = ({ setShowSideBar, setShowSideBarMobile }: Props) => {
                 onClick={() => {
                   navigate("/settings/account");
                 }}
+                darkMode={darkMode!}
               />
             </IconContainer>
             <IconContainer>
