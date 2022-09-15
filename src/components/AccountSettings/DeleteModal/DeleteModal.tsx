@@ -96,7 +96,7 @@ const DeleteModal = ({ setOpenDeleteModal }: Props) => {
         ) : (
           <>
             <h1>Are you sure?</h1>
-            <DeleteBtns>
+            <DeleteBtns darkMode={darkMode!}>
               <button
                 onClick={() => {
                   deleteUser(ctx?.currentUser).then(() =>

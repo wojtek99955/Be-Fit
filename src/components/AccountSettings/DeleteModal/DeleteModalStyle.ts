@@ -51,7 +51,7 @@ export const PasswordField = styled(StyledField)`
   margin-top: 3rem;
 `;
 
-export const DeleteBtns = styled.div`
+export const DeleteBtns = styled.div<DarkMode>`
   display: flex;
   gap: 1rem;
 
@@ -60,7 +60,7 @@ export const DeleteBtns = styled.div`
 
     &:first-child {
       background-color: transparent;
-      color: black;
+      color: ${({ darkMode }) => (darkMode ? "white" : "black")};
       border: 2px solid #e1605e;
     }
   }
