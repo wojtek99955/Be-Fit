@@ -14,6 +14,10 @@ interface DarkMode {
   darkMode: boolean;
 }
 
+interface DarkMode {
+  darkMode: boolean;
+}
+
 export const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
@@ -32,14 +36,14 @@ export const HeaderContainer = styled.div`
     }
   }
 `;
-export const StyledHeader = styled.header`
+export const StyledHeader = styled.header<DarkMode>`
   position: fixed;
   width: 100%;
   padding: 0rem 0;
   height: 3.5rem;
   z-index: 20;
   align-items: center;
-  background-color: white;
+  background-color: ${({ darkMode }) => (darkMode ? "#252627" : "white")};
   box-shadow: 0 2px 4px -1px rgba(57, 76, 96, 0.15);
   border-bottom: 1px solid #e1e4e7;
   display: block;
