@@ -70,7 +70,7 @@ const Header = ({ setShowSideBar, setShowSideBarMobile }: Props) => {
   const darkMode = darkModeCtx?.darkMode;
 
   return (
-    <StyledHeader>
+    <StyledHeader darkMode={darkMode!}>
       <HeaderContainer>
         <HamburgerContainer onClick={toggleSideBar}>
           <HamburgerIcon />
