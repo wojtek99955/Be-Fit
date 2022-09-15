@@ -18,6 +18,7 @@ import {
   FieldContainer,
   CloseIcon,
 } from "./DeleteModalStyle";
+import { darkModeContext } from "../../../context/DarkModeContextProvider";
 
 interface Props {
   setOpenDeleteModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -38,9 +39,12 @@ const DeleteModal = ({ setOpenDeleteModal }: Props) => {
     setOpenDeleteModal(false);
   };
 
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
+
   return ReactDOM.createPortal(
     <Container>
-      <Wrapper>
+      <Wrapper darkMode={darkMode!}>
         <CloseIcon onClick={handleCloseModal} />
         {!showDeleteBtn ? (
           <>
