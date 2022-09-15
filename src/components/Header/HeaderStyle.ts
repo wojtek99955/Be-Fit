@@ -82,9 +82,9 @@ export const UserIcon = styled.div<ImageProps>`
   margin-left: 1.5rem;
 `;
 
-export const SettingsIcon = styled(FiSettings)`
+export const SettingsIcon = styled(FiSettings)<DarkMode>`
   font-size: 1.6rem;
-  color: black;
+  color: ${({ darkMode }) => (darkMode ? "white" : "black")};
   cursor: pointer;
 `;
 
