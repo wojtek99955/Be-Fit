@@ -73,7 +73,7 @@ const Header = ({ setShowSideBar, setShowSideBarMobile }: Props) => {
     <StyledHeader darkMode={darkMode!}>
       <HeaderContainer>
         <HamburgerContainer onClick={toggleSideBar}>
-          <HamburgerIcon />
+          <HamburgerIcon darkMode={darkMode!} />
         </HamburgerContainer>
 
         <Logo src={img} onClick={goHome}></Logo>
