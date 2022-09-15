@@ -79,7 +79,7 @@ const Header = ({ setShowSideBar, setShowSideBarMobile }: Props) => {
         <Logo src={img} onClick={goHome}></Logo>
         <nav>
           <Nav>
-            <LoggedNavItem>
+            <LoggedNavItem darkMode={darkMode!}>
               <Calculators
                 onMouseEnter={toggleCalcDropdown}
                 onMouseLeave={toggleCalcDropdown}
@@ -105,13 +105,13 @@ const Header = ({ setShowSideBar, setShowSideBarMobile }: Props) => {
                 ) : null}
               </Calculators>
             </LoggedNavItem>
-            <LoggedNavItem>
+            <LoggedNavItem darkMode={darkMode!}>
               <StyledLink to="/track-calories">Track calories</StyledLink>
             </LoggedNavItem>
-            <LoggedNavItem>
+            <LoggedNavItem darkMode={darkMode!}>
               <StyledLink to="/calories-calculator">Check calories</StyledLink>
             </LoggedNavItem>
-            <LoggedNavItem>
+            <LoggedNavItem darkMode={darkMode!}>
               <StyledLink to="/statistics">Statistics</StyledLink>
             </LoggedNavItem>
           </Nav>
