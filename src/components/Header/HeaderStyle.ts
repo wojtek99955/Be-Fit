@@ -221,7 +221,7 @@ export const Nav = styled.div`
   }
 `;
 
-export const LoggedNavItem = styled.div`
+export const LoggedNavItem = styled.div<DarkMode>`
   border: none;
   background-color: transparent;
   height: 100%;
@@ -236,10 +236,10 @@ export const LoggedNavItem = styled.div`
     transition: background-color 300ms;
 
     &:hover {
-      background-color: #f0f2f2;
+      background-color: ${({ darkMode }) => (darkMode ? "#343536" : "#e4e7e8")};
     }
     &:active {
-      background-color: #e4e7e8;
+      background-color: #3a3b3d;
     }
   }
 
