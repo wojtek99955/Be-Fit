@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthContext";
 import { useContext, useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import {
   HeaderContainer,
   StyledHeader,
@@ -53,7 +52,6 @@ const Header = ({ setShowSideBar, setShowSideBarMobile }: Props) => {
     });
   }, [uid]);
 
-  const location = useLocation();
   const goHome = () => {
     ctx?.currentUser ? navigate("/home") : navigate("/");
   };
