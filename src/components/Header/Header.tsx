@@ -85,7 +85,7 @@ const Header = ({ setShowSideBar, setShowSideBarMobile }: Props) => {
                 onMouseLeave={toggleCalcDropdown}
               >
                 <StyledLink to="/calculators">
-                  Calculators <DownIcon />
+                  Calculators <DownIcon darkMode={darkMode!} />
                 </StyledLink>
                 {openCalculatorsDropdown ? (
                   <CalculatorsDropdown darkMode={darkMode!}>

@@ -50,6 +50,9 @@ export const StyledHeader = styled.header<DarkMode>`
   @media ${device.tablet} {
     display: block;
   }
+  a {
+    color: ${({ darkMode }) => (darkMode ? "white" : "black")};
+  }
 `;
 export const Logo = styled.img`
   cursor: pointer;
@@ -164,7 +167,6 @@ export const IconContainer = styled.div`
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
-  color: black;
   padding: 1rem;
   display: block;
   display: flex;
@@ -296,9 +298,10 @@ export const HamburgerContainer = styled.div`
   }
 `;
 
-export const DownIcon = styled(BiChevronDown)`
+export const DownIcon = styled(BiChevronDown)<DarkMode>`
   font-size: 1.3rem;
   margin-left: 0.3rem;
+  color: ${({ darkMode }) => (darkMode ? "white" : "black")};
 `;
 
 export const Calculators = styled.div`
