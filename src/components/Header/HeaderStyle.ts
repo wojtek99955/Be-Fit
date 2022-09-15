@@ -73,30 +73,6 @@ export const StyledHeader = styled.header<StyleProps>`
   @media ${device.tablet} {
     display: block;
   }
-  button {
-    border: 2px solid #ffa101;
-    height: 2.2rem;
-    width: 5.5rem;
-    border-radius: 5px;
-    cursor: pointer;
-    color: white;
-    @media ${device.tablet} {
-      width: 6rem;
-      height: 2.5rem;
-    }
-
-    &:first-of-type {
-      border: 2px solid #ffa101;
-      background: transparent;
-    }
-    &:nth-of-type(2) {
-      background-color: #ffa101;
-      &:hover {
-        background-color: #cf8300;
-        border-color: #cf8300;
-      }
-    }
-  }
 `;
 export const Logo = styled.img`
   cursor: pointer;
