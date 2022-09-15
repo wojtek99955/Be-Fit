@@ -74,112 +74,86 @@ const Header = ({ setShowSideBar, setShowSideBarMobile }: Props) => {
   return (
     <StyledHeader location={location}>
       <HeaderContainer>
-        {location.pathname === "/" ||
-        location.pathname === "/signup" ||
-        location.pathname === "/signin" ||
-        location.pathname === "/forgot-password" ? null : (
-          <HamburgerContainer onClick={toggleSideBar}>
-            <HamburgerIcon />
-          </HamburgerContainer>
-        )}
+        <HamburgerContainer onClick={toggleSideBar}>
+          <HamburgerIcon />
+        </HamburgerContainer>
+
         <Logo src={img} onClick={goHome}></Logo>
         <nav>
-          {location.pathname === "/" ||
-          location.pathname === "/signup" ||
-          location.pathname === "/signin" ||
-          location.pathname === "/forgot-password" ? (
-            <>
-              <button
-                onClick={() => {
-                  navigate("/signin");
-                }}
-              >
-                Sign in
-              </button>
-              <button
-                onClick={() => {
-                  navigate("/signup");
-                }}
-              >
-                Sign up
-              </button>
-            </>
-          ) : (
-            <>
-              <Nav>
-                <LoggedNavItem>
-                  <Calculators
-                    onMouseEnter={toggleCalcDropdown}
-                    onMouseLeave={toggleCalcDropdown}
-                  >
-                    <StyledLink to="/calculators">
-                      Calculators <DownIcon />
-                    </StyledLink>
-                    {openCalculatorsDropdown ? (
-                      <CalculatorsDropdown darkMode={darkMode!}>
-                        <ul>
-                          <li>
-                            <StyledLink to="/calculators/body-calculators">
-                              Body calculators
-                            </StyledLink>
-                          </li>
-                          <li>
-                            <StyledLink to="/calculators/activity-calculators">
-                              Activity calculators
-                            </StyledLink>
-                          </li>
-                        </ul>
-                      </CalculatorsDropdown>
-                    ) : null}
-                  </Calculators>
-                </LoggedNavItem>
-                <LoggedNavItem>
-                  <StyledLink to="/track-calories">Track calories</StyledLink>
-                </LoggedNavItem>
-                <LoggedNavItem>
-                  <StyledLink to="/calories-calculator">
-                    Check calories
+          <>
+            <Nav>
+              <LoggedNavItem>
+                <Calculators
+                  onMouseEnter={toggleCalcDropdown}
+                  onMouseLeave={toggleCalcDropdown}
+                >
+                  <StyledLink to="/calculators">
+                    Calculators <DownIcon />
                   </StyledLink>
-                </LoggedNavItem>
-                <LoggedNavItem>
-                  <StyledLink to="/statistics">Statistics</StyledLink>
-                </LoggedNavItem>
-              </Nav>
-              <Icons>
-                <IconContainer>
-                  <SettingsIcon
-                    onClick={() => {
-                      navigate("/settings/account");
-                    }}
-                  />
-                </IconContainer>
-                <IconContainer>
-                  <AddIcon
-                    onClick={() => {
-                      navigate("/track-calories");
-                    }}
-                  />
-                </IconContainer>
-                <ProfileSettings>
-                  <UserIcon
-                    url={userData?.avatarImg}
-                    onClick={handleProfileMenuOpen}
-                  >
-                    {userData?.avatarImg
-                      ? null
-                      : userData?.name?.toUpperCase().slice(0, 1)}
-                  </UserIcon>
-                  {openProfileMenu ? (
-                    <ProfileDropdown
-                      openProfileMenu={openProfileMenu}
-                      setOpenProfileMenu={setOpenProfileMenu}
-                      userData={userData}
-                    />
+                  {openCalculatorsDropdown ? (
+                    <CalculatorsDropdown darkMode={darkMode!}>
+                      <ul>
+                        <li>
+                          <StyledLink to="/calculators/body-calculators">
+                            Body calculators
+                          </StyledLink>
+                        </li>
+                        <li>
+                          <StyledLink to="/calculators/activity-calculators">
+                            Activity calculators
+                          </StyledLink>
+                        </li>
+                      </ul>
+                    </CalculatorsDropdown>
                   ) : null}
-                </ProfileSettings>
-              </Icons>
-            </>
-          )}
+                </Calculators>
+              </LoggedNavItem>
+              <LoggedNavItem>
+                <StyledLink to="/track-calories">Track calories</StyledLink>
+              </LoggedNavItem>
+              <LoggedNavItem>
+                <StyledLink to="/calories-calculator">
+                  Check calories
+                </StyledLink>
+              </LoggedNavItem>
+              <LoggedNavItem>
+                <StyledLink to="/statistics">Statistics</StyledLink>
+              </LoggedNavItem>
+            </Nav>
+            <Icons>
+              <IconContainer>
+                <SettingsIcon
+                  onClick={() => {
+                    navigate("/settings/account");
+                  }}
+                />
+              </IconContainer>
+              <IconContainer>
+                <AddIcon
+                  onClick={() => {
+                    navigate("/track-calories");
+                  }}
+                />
+              </IconContainer>
+              <ProfileSettings>
+                <UserIcon
+                  url={userData?.avatarImg}
+                  onClick={handleProfileMenuOpen}
+                >
+                  {userData?.avatarImg
+                    ? null
+                    : userData?.name?.toUpperCase().slice(0, 1)}
+                </UserIcon>
+                {openProfileMenu ? (
+                  <ProfileDropdown
+                    openProfileMenu={openProfileMenu}
+                    setOpenProfileMenu={setOpenProfileMenu}
+                    userData={userData}
+                  />
+                ) : null}
+              </ProfileSettings>
+            </Icons>
+          </>
         </nav>
       </HeaderContainer>
     </StyledHeader>
