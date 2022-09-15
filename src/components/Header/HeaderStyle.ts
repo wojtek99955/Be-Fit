@@ -258,9 +258,9 @@ export const LoggedHeaderContainer = styled.div`
   width: 100%;
 `;
 
-export const HamburgerIcon = styled(GiHamburgerMenu)`
+export const HamburgerIcon = styled(GiHamburgerMenu)<DarkMode>`
   font-size: 1.6rem;
-  color: #555555;
+  color: ${({ darkMode }) => (darkMode ? "white" : "#555555")};
   cursor: pointer;
 `;
 
