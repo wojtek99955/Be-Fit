@@ -158,7 +158,7 @@ export const IconContainer = styled.div`
     background-color: #f0f2f2;
   }
   &:active {
-    background-color: #e4e7e8;
+    background-color: #454647;
   }
   display: none;
   @media ${device.tablet} {
