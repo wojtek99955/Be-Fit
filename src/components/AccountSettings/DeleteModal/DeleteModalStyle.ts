@@ -75,7 +75,7 @@ export const FieldContainer = styled.div`
   }
 `;
 
-export const CloseIcon = styled(CgCloseO)`
+export const CloseIcon = styled(CgCloseO)<DarkMode>`
   font-size: 1.2rem;
   position: absolute;
   top: 0.5rem;
@@ -83,4 +83,5 @@ export const CloseIcon = styled(CgCloseO)`
   cursor: pointer;
   padding: 0.5rem;
   box-sizing: content-box;
+  color: ${({ darkMode }) => (darkMode ? "white" : "#555555")};
 `;

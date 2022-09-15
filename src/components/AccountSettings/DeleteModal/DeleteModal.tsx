@@ -45,7 +45,7 @@ const DeleteModal = ({ setOpenDeleteModal }: Props) => {
   return ReactDOM.createPortal(
     <Container>
       <Wrapper darkMode={darkMode!}>
-        <CloseIcon onClick={handleCloseModal} />
+        <CloseIcon onClick={handleCloseModal} darkMode={darkMode!} />
         {!showDeleteBtn ? (
           <>
             <h1>Type your password to delete account</h1>
