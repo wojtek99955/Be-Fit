@@ -6,10 +6,6 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { BiChevronDown } from "react-icons/bi";
 import { device } from "../../assets/mediaQueries/device";
 
-interface StyleProps {
-  location: any;
-}
-
 interface ImageProps {
   url: string;
 }
@@ -36,40 +32,17 @@ export const HeaderContainer = styled.div`
     }
   }
 `;
-export const StyledHeader = styled.header<StyleProps>`
+export const StyledHeader = styled.header`
   position: fixed;
   width: 100%;
   padding: 0rem 0;
   height: 3.5rem;
   z-index: 20;
   align-items: center;
-  background-color: ${({ location }) =>
-    location.pathname === "/" ||
-    location.pathname === "/signup" ||
-    location.pathname === "/forgot-password" ||
-    location.pathname === "/signin"
-      ? "transparent"
-      : "white"};
-  box-shadow: ${({ location }) =>
-    location.pathname === "/" ||
-    location.pathname === "/signup" ||
-    location.pathname === "/forgot-password" ||
-    location.pathname === "/signin"
-      ? "transparent"
-      : "0 2px 4px -1px rgba(57, 76, 96, 0.15)"};
-  border-bottom: ${({ location }) =>
-    location.pathname === "/" ||
-    location.pathname === "/signup" ||
-    location.pathname === "/forgot-password" ||
-    location.pathname === "/signin"
-      ? "transparent"
-      : "1px solid #e1e4e7"};
-  display: ${({ location }) =>
-    location.pathname === "/signup" ||
-    location.pathname === "/forgot-password" ||
-    location.pathname === "/signin"
-      ? "none"
-      : "block"};
+  background-color: white;
+  box-shadow: 0 2px 4px -1px rgba(57, 76, 96, 0.15);
+  border-bottom: 1px solid #e1e4e7;
+  display: block;
   @media ${device.tablet} {
     display: block;
   }
