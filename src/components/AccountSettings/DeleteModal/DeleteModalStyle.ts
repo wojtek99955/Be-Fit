@@ -62,6 +62,10 @@ export const DeleteBtns = styled.div<DarkMode>`
       background-color: transparent;
       color: ${({ darkMode }) => (darkMode ? "white" : "black")};
       border: 2px solid #e1605e;
+      &:hover {
+        background-color: #e1605e;
+        color: white;
+      }
     }
   }
 `;
