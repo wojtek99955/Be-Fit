@@ -2,6 +2,10 @@ import styled from "styled-components";
 import { StyledField } from "../AccountSettingsStyle";
 import { CgCloseO } from "react-icons/cg";
 
+interface DarkMode {
+  darkMode: boolean;
+}
+
 export const Container = styled.div`
   position: absolute;
   width: 100%;
@@ -14,8 +18,9 @@ export const Container = styled.div`
   align-items: center;
 `;
 
-export const Wrapper = styled.div`
-  background-color: white;
+export const Wrapper = styled.div<DarkMode>`
+  background-color: ${({ theme, darkMode }) =>
+    darkMode ? theme.darkMode.light : "white"};
   padding: 1.5rem;
   border-radius: 8px;
   position: relative;
@@ -23,6 +28,7 @@ export const Wrapper = styled.div`
     max-width: 20rem;
     text-align: center;
     margin-top: 1rem;
+    color: ${({ darkMode }) => (darkMode ? "white" : "black")};
   }
   button {
     border: none;
