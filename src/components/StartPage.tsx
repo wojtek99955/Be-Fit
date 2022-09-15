@@ -32,7 +32,7 @@ const StartPage = () => {
   let navigation = useNavigate();
   return (
     <Main>
-      <h1>Track your calorie intake with us!</h1>
+      <h1>Stay in shape with us!</h1>
       <button
         onClick={() => {
           navigation("signin");
