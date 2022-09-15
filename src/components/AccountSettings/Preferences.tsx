@@ -3,13 +3,18 @@ import { useContext } from "react";
 import { darkModeContext } from "../../context/DarkModeContextProvider";
 import { Container } from "./AccountSettingsStyle";
 import ThemePreview from "./ThemePreview";
+import { device } from "../../assets/mediaQueries/device";
 
 const PreviewContainer = styled.div`
   display: flex;
+  flex-direction: column;
   gap: 1rem;
   margin-top: 2rem;
   font-size: 1.2rem;
   font-weight: 600;
+  @media ${device.tablet} {
+    flex-direction: row;
+  }
   span {
     margin-top: 1rem;
     display: block;
