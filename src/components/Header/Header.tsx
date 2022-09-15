@@ -72,7 +72,7 @@ const Header = ({ setShowSideBar, setShowSideBarMobile }: Props) => {
   return (
     <StyledHeader darkMode={darkMode!}>
       <HeaderContainer>
-        <HamburgerContainer onClick={toggleSideBar}>
+        <HamburgerContainer onClick={toggleSideBar} darkMode={darkMode!}>
           <HamburgerIcon darkMode={darkMode!} />
         </HamburgerContainer>
 
@@ -116,7 +116,7 @@ const Header = ({ setShowSideBar, setShowSideBarMobile }: Props) => {
             </LoggedNavItem>
           </Nav>
           <Icons>
-            <IconContainer>
+            <IconContainer darkMode={darkMode!}>
               <SettingsIcon
                 onClick={() => {
                   navigate("/settings/account");
@@ -124,7 +124,7 @@ const Header = ({ setShowSideBar, setShowSideBarMobile }: Props) => {
                 darkMode={darkMode!}
               />
             </IconContainer>
-            <IconContainer>
+            <IconContainer darkMode={darkMode!}>
               <AddIcon
                 onClick={() => {
                   navigate("/track-calories");

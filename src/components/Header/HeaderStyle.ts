@@ -144,7 +144,7 @@ export const AddIcon = styled(IoMdAddCircleOutline)`
   cursor: pointer;
   position: absolute;
 `;
-export const IconContainer = styled.div`
+export const IconContainer = styled.div<DarkMode>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -155,7 +155,7 @@ export const IconContainer = styled.div`
   transition: background-color 300ms;
 
   &:hover {
-    background-color: #f0f2f2;
+    background-color: ${({ darkMode }) => (darkMode ? "#343536" : "#e4e7e8")};
   }
   &:active {
     background-color: #454647;
@@ -279,7 +279,7 @@ export const SettingsContainer = styled.div`
   }
 `;
 
-export const HamburgerContainer = styled.div`
+export const HamburgerContainer = styled.div<DarkMode>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -292,10 +292,10 @@ export const HamburgerContainer = styled.div`
   }
 
   &:hover {
-    background-color: #f0f2f2;
+    background-color: ${({ darkMode }) => (darkMode ? "#343536" : "#e4e7e8")};
   }
   &:active {
-    background-color: #e4e7e8;
+    background-color: ${({ darkMode }) => (darkMode ? "#454647" : "#e4e7e8")};
   }
 `;
 
