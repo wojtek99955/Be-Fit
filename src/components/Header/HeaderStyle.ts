@@ -239,7 +239,6 @@ export const LoggedNavItem = styled.div<DarkMode>`
       background-color: ${({ darkMode }) => (darkMode ? "#343536" : "#f2f3f5")};
     }
     &:active {
-      background-color: #3a3b3d;
       background-color: ${({ darkMode }) => (darkMode ? "#3a3b3d" : "#e2e4e7")};
     }
   }
