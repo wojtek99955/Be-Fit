@@ -236,10 +236,11 @@ export const LoggedNavItem = styled.div<DarkMode>`
     transition: background-color 300ms;
 
     &:hover {
-      background-color: ${({ darkMode }) => (darkMode ? "#343536" : "#e4e7e8")};
+      background-color: ${({ darkMode }) => (darkMode ? "#343536" : "#f2f3f5")};
     }
     &:active {
       background-color: #3a3b3d;
+      background-color: ${({ darkMode }) => (darkMode ? "#3a3b3d" : "#e2e4e7")};
     }
   }
 
