@@ -49,7 +49,7 @@ export const StyledNavLink = styled(NavLink)<DarkMode>`
     background-color: ${({ darkMode }) => (darkMode ? "#3a3b3d" : "#e2e4e7")};
   }
   &.active {
-    background-color: ${({ darkMode }) => (darkMode ? "#e2e4e7" : "#e4e7e8")};
+    background-color: ${({ darkMode }) => (darkMode ? "#3a3b3d" : "#e4e7e8")};
     font-weight: 600;
   }
   color: ${({ darkMode }) => (darkMode ? "white" : "black")};
