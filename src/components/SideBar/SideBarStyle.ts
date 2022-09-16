@@ -43,7 +43,7 @@ export const Container = styled.aside<DarkMode>`
 export const StyledNavLink = styled(NavLink)<DarkMode>`
   transition: background-color 300ms;
   &:hover {
-    background-color: ${({ darkMode }) => (darkMode ? "#343536" : "#f2f3f5")};
+    background-color: ${({ darkMode }) => (darkMode ? "#28292B" : "#f2f3f5")};
   }
   &:active {
     background-color: ${({ darkMode }) => (darkMode ? "#3a3b3d" : "#e2e4e7")};
