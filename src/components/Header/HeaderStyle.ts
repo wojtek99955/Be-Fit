@@ -88,38 +88,6 @@ export const SettingsIcon = styled(FiSettings)<DarkMode>`
   cursor: pointer;
 `;
 
-export const ProfileSettingsDropdown = styled.div`
-  box-sizing: content-box;
-  padding-right: 0;
-  margin-top: 0.5rem;
-  border: 1px solid #e1e4e7;
-  position: absolute;
-  top: 100%;
-  right: 0;
-  -webkit-box-shadow: -3px 0px 48px -1px rgba(225, 228, 231, 1);
-  -moz-box-shadow: -3px 0px 48px -1px rgba(225, 228, 231, 1);
-  box-shadow: -3px 0px 48px -1px rgba(225, 228, 231, 1);
-  z-index: 10;
-  background-color: white;
-  width: 15.5rem;
-
-  ul {
-    list-style: none;
-  }
-  li {
-    cursor: pointer;
-    &:hover {
-      background-color: #fae6b1;
-    }
-  }
-
-  strong {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
-  }
-`;
-
 export const ProfileSettings = styled.div`
   position: relative;
   display: flex;
