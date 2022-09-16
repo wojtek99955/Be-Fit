@@ -155,10 +155,10 @@ export const IconContainer = styled.div<DarkMode>`
   transition: background-color 300ms;
 
   &:hover {
-    background-color: ${({ darkMode }) => (darkMode ? "#343536" : "#e4e7e8")};
+    background-color: ${({ darkMode }) => (darkMode ? "#343536" : "#f2f3f5")};
   }
   &:active {
-    background-color: #454647;
+    background-color: ${({ darkMode }) => (darkMode ? "#454647" : "#e2e4e7")};
   }
   display: none;
   @media ${device.tablet} {
@@ -292,10 +292,10 @@ export const HamburgerContainer = styled.div<DarkMode>`
   }
 
   &:hover {
-    background-color: ${({ darkMode }) => (darkMode ? "#343536" : "#e4e7e8")};
+    background-color: ${({ darkMode }) => (darkMode ? "#343536" : "#F2F3F5")};
   }
   &:active {
-    background-color: ${({ darkMode }) => (darkMode ? "#454647" : "#e4e7e8")};
+    background-color: ${({ darkMode }) => (darkMode ? "#454647" : "#F2F3F5")};
   }
 `;
 
