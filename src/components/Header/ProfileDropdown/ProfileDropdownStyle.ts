@@ -28,8 +28,10 @@ export const ProfileSettingsDropdown = styled.div<DarkMode>`
   li {
     cursor: pointer;
     &:hover {
-      background-color: ${({ theme, darkMode }) =>
-        darkMode ? theme.darkMode.light : "#fae6b1"};
+      background-color: ${({ darkMode }) => (darkMode ? "#3A3B3D" : "#fae6b1")};
+    }
+    &:active {
+      background-color: ${({ darkMode }) => (darkMode ? "#454647" : "#F2F3F5")};
     }
     a {
       color: ${({ darkMode }) => (darkMode ? "white" : "black")};
