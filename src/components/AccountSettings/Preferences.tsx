@@ -38,7 +38,7 @@ const Preferences = () => {
     <Container darkMode={darkMode!}>
       <h2>Preferences</h2>
       <h3>Theme</h3>
-      <p>Choose how you’d like BeFit to appear. Select a theme</p>
+      <p>Choose how you’d like BeFit to appear. Select a theme.</p>
       <PreviewContainer>
         <div onClick={darkModeOn}>
           <ThemePreview />
