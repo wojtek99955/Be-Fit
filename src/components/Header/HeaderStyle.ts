@@ -239,7 +239,7 @@ export const LoggedNavItem = styled.div<DarkMode>`
       background-color: ${({ darkMode }) => (darkMode ? "#343536" : "#f2f3f5")};
     }
     &:active {
-      background-color: ${({ darkMode }) => (darkMode ? "#3a3b3d" : "#e2e4e7")};
+      background-color: ${({ darkMode }) => (darkMode ? "#454647" : "#e2e4e7")};
     }
   }
 
@@ -292,7 +292,7 @@ export const HamburgerContainer = styled.div<DarkMode>`
   }
 
   &:hover {
-    background-color: ${({ darkMode }) => (darkMode ? "#343536" : "#F2F3F5")};
+    background-color: ${({ darkMode }) => (darkMode ? "#3A3B3D" : "#F2F3F5")};
   }
   &:active {
     background-color: ${({ darkMode }) => (darkMode ? "#454647" : "#F2F3F5")};
