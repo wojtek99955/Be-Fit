@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { Container, Wrapper, StyledField } from "./BodyMeasurementStyle";
 import * as yup from "yup";
 import { ErrorMsg } from "../Auth/AuthStyle";
+import { darkModeContext } from "../../context/DarkModeContextProvider";
 
 const initialValues = {
   gender: "",
@@ -38,6 +39,9 @@ const validationSchema = yup.object().shape({
 const BodyMeasurements = () => {
   const ctx = useContext(AuthContext);
   const uid = ctx?.currentUser.uid;
+
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
   return (
     <Container>
       <Wrapper>
