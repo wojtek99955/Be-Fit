@@ -65,8 +65,8 @@ export const Logo = styled.img`
 `;
 
 export const UserIcon = styled.div<ImageProps>`
-  width: 2rem;
-  height: 2rem;
+  width: 2.8rem;
+  height: 2.8rem;
   background-color: #ffa101;
   border-radius: 50%;
   cursor: pointer;
