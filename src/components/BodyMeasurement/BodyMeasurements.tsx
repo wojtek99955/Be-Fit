@@ -42,8 +42,9 @@ const BodyMeasurements = () => {
 
   const darkModeCtx = useContext(darkModeContext);
   const darkMode = darkModeCtx?.darkMode;
+
   return (
-    <Container>
+    <Container darkMode={darkMode!}>
       <Wrapper>
         <h2>My Body</h2>
         <Formik

@@ -1,9 +1,14 @@
 import styled from "styled-components";
 import { Field } from "formik";
 
-export const Container = styled.section`
+interface DarkMode {
+  darkMode: boolean;
+}
+export const Container = styled.section<DarkMode>`
   padding-top: 8rem;
   width: 100%;
+  background-color: ${({ darkMode, theme }) =>
+    darkMode ? theme.darkMode.main : "white"};
 `;
 export const Wrapper = styled.div`
   max-width: 350px;
