@@ -29,6 +29,20 @@ import JumpingRope from "./Calculators/ActivityCalculators/JumpingRope";
 import RunningCalculator from "./Calculators/ActivityCalculators/RunningCalculator";
 import React from "react";
 import NoMatch from "./NoMatch/NoMatch";
+import styled from "styled-components";
+import { darkModeContext } from "../context/DarkModeContextProvider";
+
+interface DarkMode {
+  darkMode: boolean;
+}
+
+const Container = styled.div<DarkMode>`
+  background-color: ${({ theme, darkMode }) =>
+    darkMode ? theme.darkMode.main : "white"};
+  width: 100%;
+  height: 100vh;
+  position: relative;
+`;
 
 interface AuthProps {
   children: JSX.Element;
@@ -39,101 +53,105 @@ const AppRoutes = () => {
   const RequireAuth = ({ children }: AuthProps) => {
     return islogged ? children : <Navigate to="/signup" />;
   };
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
   return (
-    <Routes>
-      <Route path="*" element={<NoMatch />} />
-      <Route path="/" element={<Start />}>
-        <Route index element={<StartPage />} />
-        <Route path="signup" element={<SignUp />} />
-        <Route path="signin" element={<SignIn />} />
-        <Route path="forgot-password" element={<ForgotPassword />} />
-      </Route>
-      <Route
-        path="/home"
-        element={
-          <RequireAuth>
-            <Home />
-          </RequireAuth>
-        }
-      />
-      <Route
-        path="calculators"
-        element={
-          <RequireAuth>
-            <CalculatorsLayout />
-          </RequireAuth>
-        }
-      >
-        <Route index element={<Calculators />} />
-        <Route path="body-calculators" element={<BodyCalculatorsLayout />}>
-          <Route index element={<BodyCalculators />} />
-          <Route path="bmi" element={<BMICalc />} />
-          <Route path="ideal-weight" element={<IdealWeight />} />
-          <Route path="calorie-intake" element={<CalorieIntake />} />
+    <Container darkMode={darkMode!}>
+      <Routes>
+        <Route path="*" element={<NoMatch />} />
+        <Route path="/" element={<Start />}>
+          <Route index element={<StartPage />} />
+          <Route path="signup" element={<SignUp />} />
+          <Route path="signin" element={<SignIn />} />
+          <Route path="forgot-password" element={<ForgotPassword />} />
         </Route>
         <Route
-          path="activity-calculators"
-          element={<ActivityCalculatorsLayout />}
+          path="/home"
+          element={
+            <RequireAuth>
+              <Home />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="calculators"
+          element={
+            <RequireAuth>
+              <CalculatorsLayout />
+            </RequireAuth>
+          }
         >
-          <Route index element={<ActivityCalculators />} />
-          <Route path="jumping-rope" element={<JumpingRope />} />
-          <Route path="running" element={<RunningCalculator />} />
+          <Route index element={<Calculators />} />
+          <Route path="body-calculators" element={<BodyCalculatorsLayout />}>
+            <Route index element={<BodyCalculators />} />
+            <Route path="bmi" element={<BMICalc />} />
+            <Route path="ideal-weight" element={<IdealWeight />} />
+            <Route path="calorie-intake" element={<CalorieIntake />} />
+          </Route>
+          <Route
+            path="activity-calculators"
+            element={<ActivityCalculatorsLayout />}
+          >
+            <Route index element={<ActivityCalculators />} />
+            <Route path="jumping-rope" element={<JumpingRope />} />
+            <Route path="running" element={<RunningCalculator />} />
+          </Route>
         </Route>
-      </Route>
 
-      <Route
-        path="/my-body"
-        element={
-          <RequireAuth>
-            <BodyMeasurements />
-          </RequireAuth>
-        }
-      />
-      <Route
-        path="settings"
-        element={
-          <RequireAuth>
-            <AccountSettings />
-          </RequireAuth>
-        }
-      >
-        <Route path="account" element={<YourAccount />} />
-        <Route path="preferences" element={<Preferences />} />
-        <Route path="security" element={<Security />} />
-      </Route>
-      <Route
-        path="/calories-calculator"
-        element={
-          <RequireAuth>
-            <CaloriesCalculator />
-          </RequireAuth>
-        }
-      />
-      <Route
-        path="track-calories"
-        element={
-          <RequireAuth>
-            <TrackCalories />
-          </RequireAuth>
-        }
-      />
-      <Route
-        path="my-goal"
-        element={
-          <RequireAuth>
-            <YourGoal />
-          </RequireAuth>
-        }
-      />
-      <Route
-        path="statistics"
-        element={
-          <RequireAuth>
-            <Statistics />
-          </RequireAuth>
-        }
-      />
-    </Routes>
+        <Route
+          path="/my-body"
+          element={
+            <RequireAuth>
+              <BodyMeasurements />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="settings"
+          element={
+            <RequireAuth>
+              <AccountSettings />
+            </RequireAuth>
+          }
+        >
+          <Route path="account" element={<YourAccount />} />
+          <Route path="preferences" element={<Preferences />} />
+          <Route path="security" element={<Security />} />
+        </Route>
+        <Route
+          path="/calories-calculator"
+          element={
+            <RequireAuth>
+              <CaloriesCalculator />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="track-calories"
+          element={
+            <RequireAuth>
+              <TrackCalories />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="my-goal"
+          element={
+            <RequireAuth>
+              <YourGoal />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="statistics"
+          element={
+            <RequireAuth>
+              <Statistics />
+            </RequireAuth>
+          }
+        />
+      </Routes>
+    </Container>
   );
 };
 
