@@ -10,12 +10,17 @@ export const Container = styled.section<DarkMode>`
   background-color: ${({ darkMode, theme }) =>
     darkMode ? theme.darkMode.main : "white"};
 `;
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<DarkMode>`
   max-width: 350px;
   margin: auto;
+  padding: 1rem;
+  background-color: ${({ darkMode, theme }) =>
+    darkMode ? theme.darkMode.middle : "white"};
   h2 {
     text-align: center;
+    color: ${({ darkMode }) => (darkMode ? "white" : "black")};
     margin-bottom: 3rem;
+    font-size: 1.6rem;
   }
   button {
     display: block;

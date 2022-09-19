@@ -45,7 +45,7 @@ const BodyMeasurements = () => {
 
   return (
     <Container darkMode={darkMode!}>
-      <Wrapper>
+      <Wrapper darkMode={darkMode!}>
         <h2>My Body</h2>
         <Formik
           initialValues={initialValues}
