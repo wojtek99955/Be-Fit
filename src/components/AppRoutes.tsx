@@ -28,6 +28,7 @@ import ActivityCalculators from "./Calculators/ActivityCalculators/ActivityCalcu
 import JumpingRope from "./Calculators/ActivityCalculators/JumpingRope";
 import RunningCalculator from "./Calculators/ActivityCalculators/RunningCalculator";
 import React from "react";
+import NoMatch from "./NoMatch/NoMatch";
 
 interface AuthProps {
   children: JSX.Element;
@@ -40,6 +41,7 @@ const AppRoutes = () => {
   };
   return (
     <Routes>
+      <Route path="*" element={<NoMatch />} />
       <Route path="/" element={<Start />}>
         <Route index element={<StartPage />} />
         <Route path="signup" element={<SignUp />} />
