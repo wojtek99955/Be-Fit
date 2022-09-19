@@ -20,13 +20,14 @@ const SadIcon = styled(ImSad)`
   color: #ffa101;
 `;
 const Wrapper = styled.div<DarkMode>`
-  max-width: 12rem;
+  max-width: 15rem;
   h2 {
     text-align: center;
     color: ${({ darkMode }) => (darkMode ? "white" : "black")};
   }
   display: flex;
   flex-direction: column;
+  gap: 2rem;
   align-items: center;
 `;
 
