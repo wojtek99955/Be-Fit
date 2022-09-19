@@ -33,7 +33,7 @@ Fitness app
 - upload avatar images with cloud storage
 - switch dark / light mode/
 
-### ScreenShots
+## ScreenShots
 
 ![befit](https://user-images.githubusercontent.com/76216609/190354202-22bf97be-785e-4752-b3f4-77dfb37405d2.png)
 
