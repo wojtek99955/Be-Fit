@@ -7,6 +7,8 @@ interface DarkMode {
 
 export const Container = styled.section`
   margin: 0 1rem;
+  max-width: 1100px;
+
   label {
     display: block;
     font-size: 1.2rem;
