@@ -4,6 +4,7 @@ import { device } from "../../assets/mediaQueries/device";
 
 interface StyleProps {
   save?: boolean;
+  darkMode?: boolean;
 }
 interface ImageProps {
   url?: any;
@@ -98,18 +99,30 @@ export const Button = styled.button<StyleProps>`
   border: none;
   border-radius: 5px;
   font-size: 1rem;
-  background-color: ${({ save }) => (save ? "#ffa101" : "#F3F4F6")};
-  color: ${({ save }) => (save ? "white" : "black")};
+  background-color: ${({ darkMode }) => (darkMode ? "#2C2D2E" : "#F3F4F6")};
   cursor: pointer;
   height: 3rem;
   margin-left: 1rem;
+  color: ${({ darkMode }) => (darkMode ? "white" : "black")};
   &:hover {
-    background-color: ${({ save }) => (save ? "#cf8300" : "#dde0e5")};
+    background-color: ${({ darkMode }) => (darkMode ? "#424243" : "#f2f3f5")};
   }
   &:active {
-    background-color: ${({ save }) => (save ? "#a46700" : "#bec3ce")};
+    background-color: ${({ darkMode }) => (darkMode ? "#4E5051" : "#bec3ce")};
   }
 `;
+
+export const SaveBtn = styled(Button)<StyleProps>`
+  background-color: #ffa101;
+  color: white;
+  &:hover {
+    background-color: #cf8300;
+  }
+  &:active {
+    background-color: #a46700;
+  }
+`;
+
 export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -135,7 +148,7 @@ export const StyledField = styled(Field)`
   outline-color: #ffa101;
 `;
 
-export const FileInput = styled.div`
+export const FileInput = styled.div<DarkMode>`
   input {
     width: 0.1px;
     height: 0.1px;
@@ -143,15 +156,16 @@ export const FileInput = styled.div`
   label {
     border-radius: 5px;
     padding: 0.5rem 0.7rem;
-    background-color: #f3f4f6;
+    background-color: ${({ darkMode }) => (darkMode ? "#2C2D2E" : "#F3F4F6")};
     height: 2.5rem;
     display: inline-block;
     cursor: pointer;
+    color: ${({ darkMode }) => (darkMode ? "white" : "black")};
     &:hover {
-      background-color: #dde0e5;
+      background-color: ${({ darkMode }) => (darkMode ? "#424243" : "#f2f3f5")};
     }
     &:active {
-      background-color: #bec3ce;
+      background-color: ${({ darkMode }) => (darkMode ? "#4E5051" : "#bec3ce")};
     }
   }
 `;
