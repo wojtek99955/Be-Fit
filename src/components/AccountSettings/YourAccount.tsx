@@ -1,8 +1,10 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext, useRef } from "react";
 import { AuthContext } from "../AuthContext";
 import { doc, updateDoc, onSnapshot } from "firebase/firestore";
 import { db, storage } from "../../firebase";
 import { Formik, Form, ErrorMessage } from "formik";
+import { forwardRef } from "react";
+
 import {
   Container,
   ImageContainer,
@@ -98,9 +100,17 @@ const YourAccount = () => {
       console.log(err);
     }
   };
-  console.log(data);
   const darkModeCtx = useContext(darkModeContext);
   const darkMode = darkModeCtx?.darkMode;
+  const nameInputRef = useRef() as React.MutableRefObject<HTMLInputElement>;
+  useEffect(() => {
+    if (editName && nameInputRef.current) {
+      nameInputRef.current.focus();
+      console.log(nameInputRef.current + "cos");
+      console.log("cooos");
+    }
+  }, [editName]);
+
   return (
     <Container darkMode={darkMode!}>
       <h2>Your account</h2>
@@ -162,6 +172,7 @@ const YourAccount = () => {
                   type="text"
                   name="name"
                   id="name"
+                  innerRef={nameInputRef}
                 />
               ) : (
                 <span>{data?.name}</span>
