@@ -33,6 +33,7 @@ export const StyledField = styled(Field)<DarkMode>`
   font-size: 1.3rem;
   padding: 0.2rem;
   outline: none;
+  margin-bottom: 0.5rem;
   border-radius: 5px;
   border: ${({ darkMode }) =>
     darkMode
