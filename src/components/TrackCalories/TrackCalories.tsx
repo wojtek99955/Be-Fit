@@ -82,16 +82,16 @@ const TrackCalories = () => {
         {isSearchOpen ? (
           <CloseSearchContainer
             onClick={handleToggleSearch}
-            whileHover={{ scale: 1.1, rotate: "360deg" }}
-            transition={{ type: "spring", stiffness: 80 }}
+            whileHover={{ scale: 1.1, rotate: "180deg" }}
+            transition={{ type: "spring", stiffness: 50 }}
           >
             <CloseSearchIcon />
           </CloseSearchContainer>
         ) : (
           <AddFoodIconContainer
             onClick={handleToggleSearch}
-            whileHover={{ scale: 1.1, rotate: "360deg" }}
-            transition={{ type: "spring", stiffness: 80 }}
+            whileHover={{ scale: 1.1, rotate: "180deg" }}
+            transition={{ type: "spring", stiffness: 50 }}
           >
             <AddFoodIcon />
           </AddFoodIconContainer>
