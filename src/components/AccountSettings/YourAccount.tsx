@@ -102,7 +102,7 @@ const YourAccount = () => {
   };
   const darkModeCtx = useContext(darkModeContext);
   const darkMode = darkModeCtx?.darkMode;
-  const nameInputRef = useRef() as React.MutableRefObject<HTMLInputElement>;
+  const nameInputRef = useRef<HTMLInputElement>();
   useEffect(() => {
     if (editName && nameInputRef.current) {
       nameInputRef.current.focus();
