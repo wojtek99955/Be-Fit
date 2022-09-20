@@ -88,7 +88,6 @@ const YourAccount = () => {
       setFile(null);
       await uploadBytes(storageRef, file);
       const photoURL = await getDownloadURL(storageRef);
-      console.log(photoURL);
       const userRef = doc(db, `users/${uid}`);
       await updateDoc(userRef, { avatarImg: photoURL });
       await updateProfile(ctx?.currentUser, {
@@ -106,8 +105,6 @@ const YourAccount = () => {
   useEffect(() => {
     if (editName && nameInputRef.current) {
       nameInputRef.current.focus();
-      console.log(nameInputRef.current + "cos");
-      console.log("cooos");
     }
   }, [editName]);
 
