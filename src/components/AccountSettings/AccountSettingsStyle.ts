@@ -137,15 +137,20 @@ export const EmailContainer = styled.div`
   }
 `;
 
-export const StyledField = styled(Field)`
+export const StyledField = styled(Field)<DarkMode>`
   width: 90%;
   font-size: 1rem;
   padding: 0.3rem;
-  border: 1px solid #55595b;
+  border: ${({ darkMode }) =>
+    darkMode
+      ? "1px solid hsla(0,0%,100%,0.2)"
+      : "1px solid rgba(43, 59, 74, 0.3)"};
   border-radius: 5px;
   height: 3rem;
   display: block;
   outline-color: #ffa101;
+  background-color: transparent;
+  color: ${({ darkMode }) => (darkMode ? "white" : "black")};
 `;
 
 export const FileInput = styled.div<DarkMode>`

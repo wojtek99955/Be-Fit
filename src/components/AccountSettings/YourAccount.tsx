@@ -157,7 +157,12 @@ const YourAccount = () => {
           <Form>
             <Wrapper>
               {editName ? (
-                <StyledField type="text" name="name" id="name" />
+                <StyledField
+                  darkMode={darkMode!}
+                  type="text"
+                  name="name"
+                  id="name"
+                />
               ) : (
                 <span>{data?.name}</span>
               )}
@@ -216,6 +221,7 @@ const YourAccount = () => {
                 <p>Before changing email you must confirm your password.</p>
                 <ConfirmPassword>
                   <StyledField
+                    darkMode={darkMode!}
                     type="password"
                     name="password"
                     placeholder="confirm password"
@@ -260,7 +266,11 @@ const YourAccount = () => {
             {confirmPassword ? (
               <>
                 <Wrapper>
-                  <StyledField name="email" placeholder="type new email" />
+                  <StyledField
+                    darkMode={darkMode!}
+                    name="email"
+                    placeholder="type new email"
+                  />
                   <Button type="submit" darkMode={darkMode!}>
                     Change
                   </Button>
