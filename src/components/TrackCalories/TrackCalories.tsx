@@ -67,7 +67,7 @@ const TrackCalories = () => {
     if (isSearchOpen) {
       inputRef.current.focus();
     }
-  }, []);
+  }, [isSearchOpen]);
   const darkModeCtx = useContext(darkModeContext);
   const darkMode = darkModeCtx?.darkMode;
 
