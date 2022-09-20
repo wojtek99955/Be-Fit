@@ -39,7 +39,6 @@ export const Container = styled.section<DarkMode>`
     border-radius: 5px;
     height: 2.5rem;
     display: block;
-    outline-color: #ffa101;
   }
   p {
     color: ${({ darkMode }) => (darkMode ? "white" : "black")};
@@ -148,9 +147,13 @@ export const StyledField = styled(Field)<DarkMode>`
   border-radius: 5px;
   height: 3rem;
   display: block;
-  outline-color: #ffa101;
   background-color: transparent;
   color: ${({ darkMode }) => (darkMode ? "white" : "black")};
+  &:focus {
+    border: 2px solid #ffa101;
+    outline: none;
+  }
+  outline: none;
 `;
 
 export const FileInput = styled.div<DarkMode>`
