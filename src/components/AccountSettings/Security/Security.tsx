@@ -107,6 +107,7 @@ const Security = () => {
               <Form>
                 <Row>
                   <PasswordField
+                    darkMode={darkMode!}
                     type="password"
                     placeholder="Current password"
                     name="currentPassword"
