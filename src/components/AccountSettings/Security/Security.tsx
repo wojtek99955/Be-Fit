@@ -1,6 +1,6 @@
 import { Container, Button } from "../AccountSettingsStyle";
 import { AuthContext } from "../../AuthContext";
-import { useContext, useState } from "react";
+import { useContext, useState, useRef, useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { getAuth, reauthenticateWithCredential } from "firebase/auth";
 import { EmailAuthProvider, updatePassword } from "firebase/auth";
@@ -61,6 +61,13 @@ const Security = () => {
   };
   const darkModeCtx = useContext(darkModeContext);
   const darkMode = darkModeCtx?.darkMode;
+  const passwordInputRef = useRef<HTMLElement>();
+
+  useEffect(() => {
+    if (isChanging && passwordInputRef.current) {
+      passwordInputRef.current.focus();
+    }
+  }, [isChanging]);
 
   return (
     <Container darkMode={darkMode!}>
@@ -107,6 +114,7 @@ const Security = () => {
               <Form>
                 <Row>
                   <PasswordField
+                    innerRef={passwordInputRef}
                     darkMode={darkMode!}
                     type="password"
                     placeholder="Current password"
