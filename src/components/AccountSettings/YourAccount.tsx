@@ -15,6 +15,7 @@ import {
   FileInput,
   ConfirmPassword,
   UploadAvatarText,
+  SaveBtn,
 } from "./AccountSettingsStyle";
 import * as yup from "yup";
 import { ErrorMsg } from "../Auth/AuthStyle";
@@ -119,11 +120,11 @@ const YourAccount = () => {
               <Loader />
             </LoaderContainer>
           ) : null}
-          <FileInput>
+          <FileInput darkMode={darkMode!}>
             {file !== null ? (
-              <Button onClick={uploadFile} save>
+              <SaveBtn onClick={uploadFile} darkMode={darkMode!}>
                 UPLOAD
-              </Button>
+              </SaveBtn>
             ) : null}
             {!file && !loading ? (
               <>
@@ -163,12 +164,14 @@ const YourAccount = () => {
 
               <div>
                 {editName ? (
-                  <Button type="submit" save>
+                  <SaveBtn type="submit" darkMode={darkMode!}>
                     Save
-                  </Button>
+                  </SaveBtn>
                 ) : null}
                 {!editName ? (
-                  <Button onClick={handleEditName}>Edit</Button>
+                  <Button onClick={handleEditName} darkMode={darkMode!}>
+                    Edit
+                  </Button>
                 ) : null}
               </div>
             </Wrapper>
@@ -182,7 +185,9 @@ const YourAccount = () => {
         <h3>Email</h3>
         <Wrapper>
           <span>{data?.email}</span>
-          <Button onClick={handleEditEmail}>Edit</Button>
+          <Button onClick={handleEditEmail} darkMode={darkMode!}>
+            Edit
+          </Button>
         </Wrapper>
         <Formik
           initialValues={{ password: "" }}
@@ -218,9 +223,9 @@ const YourAccount = () => {
                     disabled={confirmPassword}
                   />
                   {!confirmPassword && !passwordLoading ? (
-                    <Button save type="submit">
+                    <SaveBtn type="submit" darkMode={darkMode!}>
                       Confirm
-                    </Button>
+                    </SaveBtn>
                   ) : null}
                   {confirmPassword ? <CorrectIcon /> : null}
                   {passwordLoading ? (
@@ -256,7 +261,9 @@ const YourAccount = () => {
               <>
                 <Wrapper>
                   <StyledField name="email" placeholder="type new email" />
-                  <Button type="submit"> Change</Button>
+                  <Button type="submit" darkMode={darkMode!}>
+                    Change
+                  </Button>
                 </Wrapper>
                 <ErrorMessage name="email" component={ErrorMsg} />
                 {emailInUse ? (
