@@ -102,11 +102,14 @@ const YourAccount = () => {
   const darkModeCtx = useContext(darkModeContext);
   const darkMode = darkModeCtx?.darkMode;
   const nameInputRef = useRef<HTMLInputElement>();
+  const emailInputRef = useRef<HTMLInputElement>();
   useEffect(() => {
     if (editName && nameInputRef.current) {
       nameInputRef.current.focus();
+    } else if (editEmail && emailInputRef.current) {
+      emailInputRef.current.focus();
     }
-  }, [editName]);
+  }, [editName, editEmail]);
 
   return (
     <Container darkMode={darkMode!}>
@@ -229,6 +232,7 @@ const YourAccount = () => {
                 <p>Before changing email you must confirm your password.</p>
                 <ConfirmPassword>
                   <StyledField
+                    innerRef={emailInputRef}
                     darkMode={darkMode!}
                     type="password"
                     name="password"
