@@ -27,11 +27,20 @@ export const Row = styled.div`
   }
 `;
 
-export const StyledField = styled(Field)`
+export const StyledField = styled(Field)<DarkMode>`
   width: 100%;
   display: block;
   font-size: 1.3rem;
   padding: 0.2rem;
+  outline: none;
+  border-radius: 5px;
+  border: ${({ darkMode }) =>
+    darkMode
+      ? "2px solid hsla(0,0%,100%,0.2)"
+      : "2px solid rgba(43, 59, 74, 0.3)"};
+  &:focus {
+    border: 2px solid #ffa101;
+  }
 `;
 
 export const FormContainer = styled.div<DarkMode>`
@@ -63,7 +72,6 @@ export const FormContainer = styled.div<DarkMode>`
 export const RangeInput = styled.div`
   width: 100%;
   position: relative;
-
   input {
     -webkit-appearance: none;
     width: 100%;

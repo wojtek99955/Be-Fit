@@ -98,6 +98,7 @@ const YourGoal = () => {
                       Current weight
                     </StyledLabel>
                     <StyledField
+                      darkMode={darkMode!}
                       name="currentWeight"
                       placeholder="current weight"
                     />
@@ -108,9 +109,9 @@ const YourGoal = () => {
                       Goal weight
                     </StyledLabel>
                     <StyledField
+                      darkMode={darkMode!}
                       name="goalWeight"
                       placeholder="goal weight"
-                      darkMode={darkMode!}
                     />
                     <ErrorMessage name="goalWeight" component={ErrorMsg} />
                   </FieldContainer>
