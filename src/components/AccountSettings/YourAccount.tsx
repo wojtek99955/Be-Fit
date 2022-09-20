@@ -109,7 +109,7 @@ const YourAccount = () => {
     } else if (editEmail && emailInputRef.current) {
       emailInputRef.current.focus();
     }
-  }, [editName, editEmail]);
+  }, [editName]);
 
   return (
     <Container darkMode={darkMode!}>
