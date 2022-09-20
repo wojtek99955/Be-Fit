@@ -94,7 +94,7 @@ const YourGoal = () => {
               <Form>
                 <Row>
                   <FieldContainer>
-                    <StyledLabel htmlFor="currentWeight">
+                    <StyledLabel htmlFor="currentWeight" darkMode={darkMode!}>
                       Current weight
                     </StyledLabel>
                     <StyledField
@@ -104,8 +104,14 @@ const YourGoal = () => {
                     <ErrorMessage name="currentWeight" component={ErrorMsg} />
                   </FieldContainer>
                   <FieldContainer>
-                    <StyledLabel htmlFor="goalWeight">Goal weight</StyledLabel>
-                    <StyledField name="goalWeight" placeholder="goal weight" />
+                    <StyledLabel htmlFor="goalWeight" darkMode={darkMode!}>
+                      Goal weight
+                    </StyledLabel>
+                    <StyledField
+                      name="goalWeight"
+                      placeholder="goal weight"
+                      darkMode={darkMode!}
+                    />
                     <ErrorMessage name="goalWeight" component={ErrorMsg} />
                   </FieldContainer>
                 </Row>

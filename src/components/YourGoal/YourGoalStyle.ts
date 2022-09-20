@@ -142,11 +142,11 @@ export const Result = styled.div<DarkMode>`
 
 export const FieldContainer = styled.div``;
 
-export const StyledLabel = styled.label`
+export const StyledLabel = styled.label<DarkMode>`
   font-size: 1.2rem;
   margin-bottom: 0.8rem;
   display: block;
-  color: #555555;
+  color: ${({ darkMode }) => (darkMode ? "white" : "#555555")};
 `;
 
 export const RangeTitle = styled.div`
