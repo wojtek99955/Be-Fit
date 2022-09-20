@@ -143,8 +143,8 @@ export const StyledField = styled(Field)<DarkMode>`
   padding: 0.3rem;
   border: ${({ darkMode }) =>
     darkMode
-      ? "1px solid hsla(0,0%,100%,0.2)"
-      : "1px solid rgba(43, 59, 74, 0.3)"};
+      ? "2px solid hsla(0,0%,100%,0.2)"
+      : "2px solid rgba(43, 59, 74, 0.3)"};
   border-radius: 5px;
   height: 3rem;
   display: block;

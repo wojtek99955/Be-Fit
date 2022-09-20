@@ -2,6 +2,10 @@ import styled from "styled-components";
 import { ImCheckmark } from "react-icons/im";
 import { Button, StyledField } from "../AccountSettingsStyle";
 
+interface DarkMode {
+  darkMode: boolean;
+}
+
 export const DeleteButton = styled(Button)`
   background-color: #e1605e;
   color: white;
@@ -65,8 +69,21 @@ export const Title = styled.div`
   align-items: center;
 `;
 
-export const EditPasswordBtn = styled(Button)`
-  padding: 0;
-  height: 2rem;
+export const EditPasswordBtn = styled.button<DarkMode>`
   padding: 0 1rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: ${({ darkMode }) => (darkMode ? "#2C2D2E" : "#F3F4F6")};
+  cursor: pointer;
+  height: 3rem;
+  display: block;
+  margin-left: 1rem;
+  color: ${({ darkMode }) => (darkMode ? "white" : "black")};
+  &:hover {
+    background-color: ${({ darkMode }) => (darkMode ? "#424243" : "#f2f3f5")};
+  }
+  &:active {
+    background-color: ${({ darkMode }) => (darkMode ? "#4E5051" : "#bec3ce")};
+  }
 `;

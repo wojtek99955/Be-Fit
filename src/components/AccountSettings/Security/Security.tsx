@@ -69,7 +69,9 @@ const Security = () => {
         <Password>
           <Title>
             <h3>Change your password</h3>
-            <EditPasswordBtn onClick={handleEditPassword}>Edit</EditPasswordBtn>
+            <EditPasswordBtn darkMode={darkMode!} onClick={handleEditPassword}>
+              Edit
+            </EditPasswordBtn>
           </Title>
           <p>
             You have to confirm your current password to be able to set a new
