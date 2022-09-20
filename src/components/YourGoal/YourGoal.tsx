@@ -118,7 +118,7 @@ const YourGoal = () => {
                 <RangeValue darkMode={darkMode!}>
                   {values.calorieDeficit} kcal
                 </RangeValue>
-                <RangeTitle>Calorie deficit</RangeTitle>
+                <RangeTitle darkMode={darkMode!}>Calorie deficit</RangeTitle>
                 <RangeInput>
                   <Field
                     type="range"

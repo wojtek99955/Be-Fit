@@ -27,12 +27,6 @@ export const Row = styled.div`
   }
 `;
 
-export const initialValues = {
-  currentWeight: 0,
-  goalWeight: 0,
-  calorieDeficit: 0,
-};
-
 export const StyledField = styled(Field)`
   width: 100%;
   display: block;
@@ -149,10 +143,11 @@ export const StyledLabel = styled.label<DarkMode>`
   color: ${({ darkMode }) => (darkMode ? "white" : "#555555")};
 `;
 
-export const RangeTitle = styled.div`
+export const RangeTitle = styled.div<DarkMode>`
   font-size: 1.2rem;
   color: #555555;
   margin-bottom: 1rem;
+  color: ${({ darkMode }) => (darkMode ? "white" : "#555555")};
 `;
 
 export const Text = styled.div<DarkMode>`
