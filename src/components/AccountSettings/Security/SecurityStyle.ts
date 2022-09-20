@@ -20,8 +20,9 @@ export const DeleteButton = styled(Button)`
   }
 `;
 
-export const PasswordField = styled(StyledField)`
+export const PasswordField = styled(StyledField)<DarkMode>`
   width: auto;
+  color: ${({ darkMode }) => (darkMode ? "white" : "black")};
 `;
 
 export const Delete = styled.div``;
