@@ -12,10 +12,6 @@ interface ImgProps {
   url: string;
 }
 
-interface AnimationProps {
-  showSideBarMobile: boolean;
-}
-
 interface DarkMode {
   darkMode: boolean;
 }
