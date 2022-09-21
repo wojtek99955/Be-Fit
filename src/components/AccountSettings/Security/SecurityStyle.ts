@@ -72,6 +72,8 @@ export const StyledButton = styled(Button)`
   height: 3rem;
   margin-left: 0;
   margin-bottom: 1rem;
+  background-color: #ffa101;
+  color: white;
 `;
 
 export const Title = styled.div`
