@@ -33,7 +33,10 @@ import { CorrectIcon } from "./Security/SecurityStyle";
 import styled from "styled-components";
 import { darkModeContext } from "../../context/DarkModeContextProvider";
 
-const LoaderContainer = styled.div``;
+const LoaderContainer = styled.div`
+  position: absolute;
+  right: 0;
+`;
 
 const YourAccount = () => {
   const ctx = useContext(AuthContext);
