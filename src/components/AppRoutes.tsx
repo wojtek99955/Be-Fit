@@ -30,15 +30,8 @@ import RunningCalculator from "./Calculators/ActivityCalculators/RunningCalculat
 import React from "react";
 import NoMatch from "./NoMatch/NoMatch";
 import styled from "styled-components";
-import { darkModeContext } from "../context/DarkModeContextProvider";
 
-interface DarkMode {
-  darkMode: boolean;
-}
-
-const Container = styled.div<DarkMode>`
-  background-color: ${({ theme, darkMode }) =>
-    darkMode ? theme.darkMode.main : "white"};
+const Container = styled.div`
   width: 100%;
   height: 100vh;
   position: relative;
@@ -53,10 +46,9 @@ const AppRoutes = () => {
   const RequireAuth = ({ children }: AuthProps) => {
     return islogged ? children : <Navigate to="/signup" />;
   };
-  const darkModeCtx = useContext(darkModeContext);
-  const darkMode = darkModeCtx?.darkMode;
+
   return (
-    <Container darkMode={darkMode!}>
+    <Container>
       <Routes>
         <Route path="*" element={<NoMatch />} />
         <Route path="/" element={<Start />}>
