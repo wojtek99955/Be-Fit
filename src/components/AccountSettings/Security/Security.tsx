@@ -72,106 +72,104 @@ const Security = () => {
   return (
     <Container darkMode={darkMode!}>
       <h2>Account security</h2>
-      {setIsChanging ? (
-        <Password darkMode={darkMode!}>
-          <Title>
-            <h3>Change your password</h3>
-            <EditPasswordBtn darkMode={darkMode!} onClick={handleEditPassword}>
-              Edit
-            </EditPasswordBtn>
-          </Title>
-          <p>
-            You have to confirm your current password to be able to set a new
-            password.
-          </p>
-          {isChanging ? (
-            <Formik
-              initialValues={initialValues}
-              validationSchema={validationCurrentPassword}
-              onSubmit={async (values) => {
-                try {
-                  setLoading(true);
-                  let credential = EmailAuthProvider.credential(
-                    auth?.currentUser?.email!,
-                    values.currentPassword
-                  );
-                  await reauthenticateWithCredential(
-                    ctx?.currentUser,
-                    credential
-                  );
-                  setError(false);
-                  setSetPassword(true);
-                  console.log(values.currentPassword);
-                  setLoading(false);
-                  setPasswordSuccess(true);
-                } catch {
-                  setError(true);
-                  setLoading(false);
-                  setPasswordSuccess(false);
-                }
-              }}
-            >
-              <Form>
-                <Row>
-                  <PasswordField
-                    innerRef={passwordInputRef}
-                    darkMode={darkMode!}
-                    type="password"
-                    placeholder="Current password"
-                    name="currentPassword"
-                    id="currentPassword"
-                    disabled={passwordSuccess}
-                  />
-                  {!setPassword && !loading ? (
-                    <Button type="submit">Confirm</Button>
-                  ) : null}
-                  {passwordSuccess ? <CorrectIcon /> : null}
-                  {loading ? (
-                    <LoaderContainer>
-                      <Loader />
-                    </LoaderContainer>
-                  ) : null}
-                </Row>
-                <ErrorMessage component={ErrorMsg} name="currentPassword" />
-                {error ? <ErrorMsg>Invalid password</ErrorMsg> : null}
-              </Form>
-            </Formik>
-          ) : null}
-          {setPassword && isChanging ? (
-            <Formik
-              initialValues={{ newPassword: "", confirmNewPassword: "" }}
-              validationSchema={validationNewPassword}
-              onSubmit={async (values) => {
-                try {
-                  await updatePassword(ctx?.currentUser, values.newPassword);
-                  setIsChanging(false);
-                  setPasswordChanged(true);
-                } catch {
-                  console.log("error");
-                }
-              }}
-            >
-              <Form>
-                <Field
+      <Password darkMode={darkMode!}>
+        <Title>
+          <h3>Change your password</h3>
+          <EditPasswordBtn darkMode={darkMode!} onClick={handleEditPassword}>
+            Edit
+          </EditPasswordBtn>
+        </Title>
+        <p>
+          You have to confirm your current password to be able to set a new
+          password.
+        </p>
+        {isChanging ? (
+          <Formik
+            initialValues={initialValues}
+            validationSchema={validationCurrentPassword}
+            onSubmit={async (values) => {
+              try {
+                setLoading(true);
+                let credential = EmailAuthProvider.credential(
+                  auth?.currentUser?.email!,
+                  values.currentPassword
+                );
+                await reauthenticateWithCredential(
+                  ctx?.currentUser,
+                  credential
+                );
+                setError(false);
+                setSetPassword(true);
+                console.log(values.currentPassword);
+                setLoading(false);
+                setPasswordSuccess(true);
+              } catch {
+                setError(true);
+                setLoading(false);
+                setPasswordSuccess(false);
+              }
+            }}
+          >
+            <Form>
+              <Row>
+                <PasswordField
+                  innerRef={passwordInputRef}
+                  darkMode={darkMode!}
                   type="password"
-                  placeholder="New password"
-                  name="newPassword"
-                  id="newPassword"
+                  placeholder="Current password"
+                  name="currentPassword"
+                  id="currentPassword"
+                  disabled={passwordSuccess}
                 />
-                <ErrorMessage component={ErrorMsg} name="newPassword" />
-                <Field
-                  type="password"
-                  placeholder="Confirm new password"
-                  name="confirmNewPassword"
-                  id="confirmNewPassword"
-                />
-                <ErrorMessage component={ErrorMsg} name="confirmNewPassword" />
-                <StyledButton type="submit">Change</StyledButton>
-              </Form>
-            </Formik>
-          ) : null}
-        </Password>
-      ) : null}
+                {!setPassword && !loading ? (
+                  <Button type="submit">Confirm</Button>
+                ) : null}
+                {passwordSuccess ? <CorrectIcon /> : null}
+                {loading ? (
+                  <LoaderContainer>
+                    <Loader />
+                  </LoaderContainer>
+                ) : null}
+              </Row>
+              <ErrorMessage component={ErrorMsg} name="currentPassword" />
+              {error ? <ErrorMsg>Invalid password</ErrorMsg> : null}
+            </Form>
+          </Formik>
+        ) : null}
+        {setPassword && isChanging ? (
+          <Formik
+            initialValues={{ newPassword: "", confirmNewPassword: "" }}
+            validationSchema={validationNewPassword}
+            onSubmit={async (values) => {
+              try {
+                await updatePassword(ctx?.currentUser, values.newPassword);
+                setIsChanging(false);
+                setPasswordChanged(true);
+              } catch {
+                console.log("error");
+              }
+            }}
+          >
+            <Form>
+              <Field
+                type="password"
+                placeholder="New password"
+                name="newPassword"
+                id="newPassword"
+              />
+              <ErrorMessage component={ErrorMsg} name="newPassword" />
+              <Field
+                type="password"
+                placeholder="Confirm new password"
+                name="confirmNewPassword"
+                id="confirmNewPassword"
+              />
+              <ErrorMessage component={ErrorMsg} name="confirmNewPassword" />
+              <StyledButton type="submit">Change</StyledButton>
+            </Form>
+          </Formik>
+        ) : null}
+      </Password>
       {passwordChanged ? <h1>Password changed!</h1> : null}
       <hr />
       <Delete>
