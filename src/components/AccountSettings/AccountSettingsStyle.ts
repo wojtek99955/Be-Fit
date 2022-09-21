@@ -160,13 +160,17 @@ export const FileInput = styled.div<DarkMode>`
   input {
     width: 0.1px;
     height: 0.1px;
+    position: absolute;
   }
   label {
     border-radius: 5px;
-    padding: 0.5rem 0.7rem;
     background-color: ${({ darkMode }) => (darkMode ? "#2C2D2E" : "#F3F4F6")};
-    height: 2.5rem;
-    display: inline-block;
+    height: 3rem;
+    padding: 0 1rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     color: ${({ darkMode }) => (darkMode ? "white" : "black")};
     &:hover {
