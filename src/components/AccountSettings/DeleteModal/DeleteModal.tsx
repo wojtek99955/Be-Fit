@@ -76,6 +76,7 @@ const DeleteModal = ({ setOpenDeleteModal }: Props) => {
               <Form>
                 <FieldContainer>
                   <PasswordField
+                    darkMode={darkMode!}
                     type="password"
                     name="password"
                     id="password"
