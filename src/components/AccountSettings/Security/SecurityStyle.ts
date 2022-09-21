@@ -26,7 +26,7 @@ export const PasswordField = styled(StyledField)<DarkMode>`
 `;
 
 export const Delete = styled.div``;
-export const Password = styled.div`
+export const Password = styled.div<DarkMode>`
   p {
     margin-bottom: 1rem;
   }
@@ -38,7 +38,16 @@ export const Password = styled.div`
     height: 3rem;
     display: block;
     margin-bottom: 1rem;
-    outline-color: #ffa101;
+    border: ${({ darkMode }) =>
+      darkMode
+        ? "2px solid hsla(0,0%,100%,0.2)"
+        : "2px solid rgba(43, 59, 74, 0.3)"};
+
+    &:focus {
+      border: 2px solid #ffa101;
+      outline: none;
+    }
+    outline: none;
   }
 `;
 

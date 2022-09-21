@@ -73,7 +73,7 @@ const Security = () => {
     <Container darkMode={darkMode!}>
       <h2>Account security</h2>
       {setIsChanging ? (
-        <Password>
+        <Password darkMode={darkMode!}>
           <Title>
             <h3>Change your password</h3>
             <EditPasswordBtn darkMode={darkMode!} onClick={handleEditPassword}>
