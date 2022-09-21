@@ -91,7 +91,6 @@ export const EditPasswordBtn = styled.button<DarkMode>`
   height: 2.8rem;
   display: block;
   min-width: 5rem;
-
   margin-left: 1rem;
   color: ${({ darkMode }) => (darkMode ? "white" : "black")};
   &:hover {
