@@ -33,7 +33,8 @@ export const Password = styled.div<DarkMode>`
   input {
     font-size: 1rem;
     padding: 0.3rem;
-    border: 1px solid #55595b;
+    background-color: transparent;
+    color: ${({ darkMode }) => (darkMode ? "white" : "black")};
     border-radius: 5px;
     height: 3rem;
     display: block;
@@ -47,7 +48,6 @@ export const Password = styled.div<DarkMode>`
       border: 2px solid #ffa101;
       outline: none;
     }
-    outline: none;
   }
 `;
 
