@@ -110,7 +110,7 @@ const YourAccount = () => {
       emailInputRef.current.focus();
     }
   }, [editName]);
-
+  console.log(file);
   return (
     <Container darkMode={darkMode!}>
       <h2>Your account</h2>
@@ -145,6 +145,15 @@ const YourAccount = () => {
                   onChange={onChangeSetFile}
                   onSubmit={uploadFile}
                 />
+                <SaveBtn
+                  darkMode={darkMode!}
+                  onClick={() => {
+                    const userRef = doc(db, `users/${uid}`);
+                    updateDoc(userRef, { avatarImg: "" });
+                  }}
+                >
+                  Delete
+                </SaveBtn>
               </>
             ) : null}
           </FileInput>
