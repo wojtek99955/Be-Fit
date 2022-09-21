@@ -210,3 +210,8 @@ export const UploadAvatarText = styled.div`
     display: block;
   }
 `;
+
+export const ChangeImgContainer = styled.div`
+  display: flex;
+  gap: 0.5rem;
+`;
