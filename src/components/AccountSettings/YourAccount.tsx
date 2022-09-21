@@ -3,8 +3,6 @@ import { AuthContext } from "../AuthContext";
 import { doc, updateDoc, onSnapshot } from "firebase/firestore";
 import { db, storage } from "../../firebase";
 import { Formik, Form, ErrorMessage } from "formik";
-import { forwardRef } from "react";
-
 import {
   Container,
   ImageContainer,
