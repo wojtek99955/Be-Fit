@@ -33,8 +33,10 @@ export const StyledField = styled(Field)<DarkMode>`
   font-size: 1.3rem;
   padding: 0.2rem;
   outline: none;
+  background-color: transparent;
   margin-bottom: 0.5rem;
   border-radius: 5px;
+  color: ${({ darkMode }) => (darkMode ? "white" : "black")};
   border: ${({ darkMode }) =>
     darkMode
       ? "2px solid hsla(0,0%,100%,0.2)"
