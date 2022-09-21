@@ -97,22 +97,14 @@ const YourGoal = () => {
                     <StyledLabel htmlFor="currentWeight" darkMode={darkMode!}>
                       Current weight
                     </StyledLabel>
-                    <StyledField
-                      darkMode={darkMode!}
-                      name="currentWeight"
-                      placeholder="current weight"
-                    />
+                    <StyledField darkMode={darkMode!} name="currentWeight" />
                     <ErrorMessage name="currentWeight" component={ErrorMsg} />
                   </FieldContainer>
                   <FieldContainer>
                     <StyledLabel htmlFor="goalWeight" darkMode={darkMode!}>
                       Goal weight
                     </StyledLabel>
-                    <StyledField
-                      darkMode={darkMode!}
-                      name="goalWeight"
-                      placeholder="goal weight"
-                    />
+                    <StyledField darkMode={darkMode!} name="goalWeight" />
                     <ErrorMessage name="goalWeight" component={ErrorMsg} />
                   </FieldContainer>
                 </Row>
