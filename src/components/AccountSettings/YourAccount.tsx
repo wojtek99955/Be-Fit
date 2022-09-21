@@ -139,12 +139,7 @@ const YourAccount = () => {
             </LoaderContainer>
           ) : null}
           <FileInput darkMode={darkMode!}>
-            {file !== null ? (
-              <SaveBtn onClick={uploadFile} darkMode={darkMode!}>
-                UPLOAD
-              </SaveBtn>
-            ) : null}
-            {!file && !loading ? (
+            {!data?.avatarImg && !loading ? (
               <>
                 <label htmlFor="file">Upload image</label>
                 <input
@@ -154,7 +149,19 @@ const YourAccount = () => {
                   onChange={onChangeSetFile}
                   onSubmit={uploadFile}
                 />
-                <SaveBtn
+              </>
+            ) : null}
+            {data?.avatarImg && !loading ? (
+              <>
+                <label htmlFor="file">Change image</label>
+                <input
+                  type="file"
+                  accept="image/png, image/jpeg"
+                  id="file"
+                  onChange={onChangeSetFile}
+                  onSubmit={uploadFile}
+                />
+                <Button
                   darkMode={darkMode!}
                   onClick={() => {
                     const userRef = doc(db, `users/${uid}`);
@@ -162,7 +169,7 @@ const YourAccount = () => {
                   }}
                 >
                   Delete
-                </SaveBtn>
+                </Button>
               </>
             ) : null}
           </FileInput>
