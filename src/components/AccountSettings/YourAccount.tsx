@@ -16,6 +16,7 @@ import {
   ConfirmPassword,
   UploadAvatarText,
   SaveBtn,
+  ChangeImgContainer,
 } from "./AccountSettingsStyle";
 import * as yup from "yup";
 import { ErrorMsg } from "../Auth/AuthStyle";
@@ -150,7 +151,7 @@ const YourAccount = () => {
               </>
             ) : null}
             {data?.avatarImg && !loading ? (
-              <>
+              <ChangeImgContainer>
                 <label htmlFor="file">Change image</label>
                 <input
                   type="file"
@@ -168,7 +169,7 @@ const YourAccount = () => {
                 >
                   Delete
                 </Button>
-              </>
+              </ChangeImgContainer>
             ) : null}
           </FileInput>
         </Wrapper>
