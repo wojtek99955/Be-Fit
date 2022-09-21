@@ -98,9 +98,10 @@ export const Button = styled.button<StyleProps>`
   border: none;
   border-radius: 5px;
   font-size: 1rem;
+  min-width: 5rem;
   background-color: ${({ darkMode }) => (darkMode ? "#2C2D2E" : "#F3F4F6")};
   cursor: pointer;
-  height: 3rem;
+  height: 2.8rem;
   margin-left: 1rem;
   color: ${({ darkMode }) => (darkMode ? "white" : "black")};
   &:hover {
@@ -145,7 +146,7 @@ export const StyledField = styled(Field)<DarkMode>`
       ? "2px solid hsla(0,0%,100%,0.2)"
       : "2px solid rgba(43, 59, 74, 0.3)"};
   border-radius: 5px;
-  height: 3rem;
+  height: 2.8rem;
   display: block;
   background-color: transparent;
   color: ${({ darkMode }) => (darkMode ? "white" : "black")};
@@ -165,7 +166,7 @@ export const FileInput = styled.div<DarkMode>`
   label {
     border-radius: 5px;
     background-color: ${({ darkMode }) => (darkMode ? "#2C2D2E" : "#F3F4F6")};
-    height: 3rem;
+    height: 2.8rem;
     padding: 0 1rem;
     position: relative;
     display: flex;
