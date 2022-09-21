@@ -113,7 +113,13 @@ const YourAccount = () => {
       emailInputRef.current.focus();
     }
   }, [editName]);
+
   console.log(file);
+  useEffect(() => {
+    if (file) {
+      uploadFile();
+    }
+  }, [file]);
   return (
     <Container darkMode={darkMode!}>
       <h2>Your account</h2>
@@ -144,6 +150,7 @@ const YourAccount = () => {
                 <label htmlFor="file">Upload image</label>
                 <input
                   type="file"
+                  accept="image/png, image/jpeg"
                   id="file"
                   onChange={onChangeSetFile}
                   onSubmit={uploadFile}
