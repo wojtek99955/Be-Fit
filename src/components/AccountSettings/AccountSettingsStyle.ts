@@ -212,6 +212,18 @@ export const UploadAvatarText = styled.div`
 `;
 
 export const ChangeImgContainer = styled.div`
+  flex-direction: column;
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 0.5rem;
+  width: 9rem;
+
+  label {
+    width: 100%;
+  }
+  button {
+    width: 100%;
+    margin: 0;
+  }
 `;
