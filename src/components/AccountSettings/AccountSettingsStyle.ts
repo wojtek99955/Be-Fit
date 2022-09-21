@@ -226,4 +226,8 @@ export const ChangeImgContainer = styled.div`
     width: 100%;
     margin: 0;
   }
+  @media ${device.tablet} {
+    flex-direction: row;
+    width: 18rem;
+  }
 `;
