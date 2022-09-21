@@ -132,26 +132,11 @@ const SearchedItem = ({
                         type="number"
                         onChange={(e: React.FormEvent<HTMLInputElement>) => {
                           handleChange(e);
-                          submitForm();
                         }}
                       />
                       <div>g</div>
                     </AmountWrapper>
                     <ErrorMessage name="amount" component={ErrorMsg} />
-                    <AddButton
-                      type="submit"
-                      variants={variants}
-                      animate={saveAnimation ? "move" : "stop"}
-                      onClick={() => {
-                        addMeal(queryAmount);
-                        setSaveAnimation(true);
-                        setTimeout(() => {
-                          setSaveAnimation(false);
-                        }, 1000);
-                      }}
-                    >
-                      Add Meal
-                    </AddButton>
                   </Form>
                 )}
               </Formik>
@@ -190,6 +175,19 @@ const SearchedItem = ({
                 </div>
               </NutrientsWrapper>
             </Nutrients>
+            <AddButton
+              variants={variants}
+              animate={saveAnimation ? "move" : "stop"}
+              onClick={() => {
+                addMeal(queryAmount);
+                setSaveAnimation(true);
+                setTimeout(() => {
+                  setSaveAnimation(false);
+                }, 1000);
+              }}
+            >
+              Add Meal
+            </AddButton>
           </SearchItemWrapper>
         </SearchedItemContainer>
       ) : (
