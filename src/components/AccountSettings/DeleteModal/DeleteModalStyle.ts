@@ -46,9 +46,13 @@ export const Wrapper = styled.div<DarkMode>`
   }
 `;
 
-export const PasswordField = styled(StyledField)`
+export const PasswordField = styled(StyledField)<DarkMode>`
   margin: auto;
   margin-top: 3rem;
+  border: ${({ darkMode }) =>
+    darkMode
+      ? "2px solid hsla(0,0%,100%,0.2)"
+      : "2px solid rgba(43, 59, 74, 0.3)"};
 `;
 
 export const DeleteBtns = styled.div<DarkMode>`
