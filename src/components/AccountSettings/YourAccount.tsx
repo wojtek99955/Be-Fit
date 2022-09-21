@@ -114,7 +114,6 @@ const YourAccount = () => {
     }
   }, [editName]);
 
-  console.log(file);
   useEffect(() => {
     if (file) {
       uploadFile();
