@@ -13,12 +13,11 @@ interface DarkMode {
 export const Container = styled.section<DarkMode>`
   padding: 0.2rem;
   width: 100%;
-  height: calc(100vh - 3.5rem);
+  height: auto;
   background-color: ${({ darkMode, theme }) =>
     darkMode ? theme.darkMode.main : "white"};
   position: relative;
   top: 3.5rem;
-  overflow-y: scroll;
   @media ${device.tablet} {
     padding: 1rem;
   }
