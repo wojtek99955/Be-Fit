@@ -26,13 +26,13 @@ const EmailIcon = styled(HiOutlineMail)`
 const StyledNavLink = styled(NavLink)<DarkMode>`
   transition: background-color 300ms;
   &:hover {
-    background-color: "ffa101";
+    background-color: ${({ darkMode }) => (darkMode ? "#28292B" : "#f2f3f5")};
   }
   &:active {
-    background-color: #e4e7e8;
+    background-color: ${({ darkMode }) => (darkMode ? "#3a3b3d" : "#e2e4e7")};
   }
   &.active {
-    background-color: ${({ darkMode }) => (darkMode ? "#424243" : "#e4e7e8")};
+    background-color: ${({ darkMode }) => (darkMode ? "#3a3b3d" : "#e4e7e8")};
     font-weight: 600;
   }
   color: ${({ darkMode }) => (darkMode ? "white" : "black")};
