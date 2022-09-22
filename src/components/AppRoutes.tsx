@@ -35,10 +35,8 @@ import { device } from "../assets/mediaQueries/device";
 const Container = styled.div`
   width: 100%;
   height: 100vh;
+  overflow-y: scroll;
   position: relative;
-  @media ${device.laptop} {
-    width: calc(100% - 13rem);
-  }
 `;
 
 interface AuthProps {
