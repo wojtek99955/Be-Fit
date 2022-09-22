@@ -90,8 +90,8 @@ interface ImageProps {
 }
 
 export const DropdownUserIcon = styled.div<ImageProps>`
-  width: 3rem;
-  height: 3rem;
+  width: 3.8rem;
+  height: 3.8rem;
   background-color: #ffa101;
   border-radius: 50%;
   position: relative;
