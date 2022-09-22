@@ -72,7 +72,7 @@ const TrackCalories = () => {
   const darkMode = darkModeCtx?.darkMode;
 
   return (
-    <Container darkMode={darkMode!}>
+    <Container>
       <Header>
         <h2>
           Track your daily <br /> calorie intake

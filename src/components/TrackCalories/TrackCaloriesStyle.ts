@@ -10,12 +10,11 @@ const img = require("../../assets/images/track-calories.jpg");
 interface DarkMode {
   darkMode: boolean;
 }
-export const Container = styled.section<DarkMode>`
+export const Container = styled.section`
   padding: 0.2rem;
   width: 100%;
   height: auto;
-  background-color: ${({ darkMode, theme }) =>
-    darkMode ? theme.darkMode.main : "white"};
+
   position: relative;
   top: 3.5rem;
   @media ${device.tablet} {
