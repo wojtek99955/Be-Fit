@@ -105,10 +105,10 @@ export const Button = styled.button<StyleProps>`
   margin-left: 1rem;
   color: ${({ darkMode }) => (darkMode ? "white" : "black")};
   &:hover {
-    background-color: ${({ darkMode }) => (darkMode ? "#424243" : "#f2f3f5")};
+    background-color: ${({ darkMode }) => (darkMode ? "#424243" : "#E4E7E9")};
   }
   &:active {
-    background-color: ${({ darkMode }) => (darkMode ? "#4E5051" : "#bec3ce")};
+    background-color: ${({ darkMode }) => (darkMode ? "#4E5051" : "#DADDE1")};
   }
 `;
 
