@@ -99,6 +99,7 @@ export const Button = styled.button<StyleProps>`
   border-radius: 5px;
   font-size: 1rem;
   min-width: 5rem;
+  transition: background-color 300ms;
   background-color: ${({ darkMode }) => (darkMode ? "#2C2D2E" : "#F3F4F6")};
   cursor: pointer;
   height: 2.8rem;
