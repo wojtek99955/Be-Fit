@@ -20,7 +20,7 @@ export const ProfileSettingsDropdown = styled.div<DarkMode>`
   z-index: 10;
   background-color: ${({ darkMode, theme }) =>
     darkMode ? theme.darkMode.middle : "white"};
-  width: 15.5rem;
+  width: 17.5rem;
 
   ul {
     list-style: none;
