@@ -9,10 +9,9 @@ interface DarkMode {
 export const Container = styled.section<DarkMode>`
   padding: 1rem;
   width: 100%;
-  height: calc(100vh - 3.5rem);
+  height: 100%;
   position: relative;
   top: 3.5rem;
-  overflow-y: scroll;
   margin: auto;
   background-color: ${({ darkMode, theme }) =>
     darkMode ? theme.darkMode.main : "white"};
