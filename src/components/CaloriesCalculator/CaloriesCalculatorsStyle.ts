@@ -12,7 +12,7 @@ interface StylesProps {
 interface DarkMode {
   darkMode: boolean;
 }
-export const Container = styled.div<DarkMode>`
+export const Container = styled.div`
   padding: 1rem 0.2rem;
   width: 100%;
   position: relative;
@@ -22,8 +22,6 @@ export const Container = styled.div<DarkMode>`
   }
   width: 100%;
   position: relative;
-  background-color: ${({ darkMode, theme }) =>
-    darkMode ? theme.darkMode.main : "white"};
   top: 3.5rem;
   h2 {
     margin: 2rem 0;

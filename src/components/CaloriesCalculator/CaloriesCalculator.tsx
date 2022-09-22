@@ -32,7 +32,7 @@ const CaloriesCalculator = () => {
   const darkMode = darkModeCtx?.darkMode;
 
   return (
-    <Container darkMode={darkMode!}>
+    <Container>
       <MainImg>
         <h1>Find your meal</h1>
         <ContentWrapper>
