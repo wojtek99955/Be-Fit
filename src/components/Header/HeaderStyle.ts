@@ -21,7 +21,7 @@ interface DarkMode {
 export const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
-  padding: 0 1rem;
+  padding: 0 2rem;
   height: 100%;
 
   nav {
