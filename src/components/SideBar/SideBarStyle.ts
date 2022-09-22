@@ -23,7 +23,7 @@ export const Container = styled.aside<DarkMode>`
   height: calc(100vh - 3.5rem);
   padding: 0.8rem;
   z-index: 20;
-  width: 13rem;
+  width: 15rem;
   transition: background-color 400ms;
   background-color: ${({ theme, darkMode }) =>
     darkMode ? theme.darkMode.main : "white"};
