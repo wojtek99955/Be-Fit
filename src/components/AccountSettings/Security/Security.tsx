@@ -62,6 +62,7 @@ const Security = () => {
   const darkModeCtx = useContext(darkModeContext);
   const darkMode = darkModeCtx?.darkMode;
   const passwordInputRef = useRef<HTMLElement>();
+  const confirmDeletePasswordRef = useRef<any>(null);
 
   useEffect(() => {
     if (isChanging && passwordInputRef.current) {
@@ -69,6 +70,9 @@ const Security = () => {
     }
   }, [isChanging]);
 
+  useEffect(() => {
+    console.log("child ref " + confirmDeletePasswordRef.current);
+  }, []);
   return (
     <Container darkMode={darkMode!}>
       <h2>Account security</h2>
@@ -174,7 +178,11 @@ const Security = () => {
       <hr />
       <Delete>
         {openDeleteModal ? (
-          <DeleteModal setOpenDeleteModal={setOpenDeleteModal} />
+          <DeleteModal
+            setOpenDeleteModal={setOpenDeleteModal}
+            forwardedRef={confirmDeletePasswordRef}
+            openDeleteModal={openDeleteModal}
+          />
         ) : null}
         <h3>Delete your account</h3>
         <p>

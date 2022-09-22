@@ -3,7 +3,7 @@ import { Formik, Form, ErrorMessage } from "formik";
 import { getAuth, reauthenticateWithCredential } from "firebase/auth";
 import { EmailAuthProvider } from "firebase/auth";
 import { AuthContext } from "../../AuthContext";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { deleteUser } from "firebase/auth";
 import { Button } from "../AccountSettingsStyle";
 import { ErrorMsg } from "../../Auth/AuthStyle";
@@ -22,13 +22,19 @@ import { darkModeContext } from "../../../context/DarkModeContextProvider";
 
 interface Props {
   setOpenDeleteModal: React.Dispatch<React.SetStateAction<boolean>>;
+  openDeleteModal: boolean;
+  forwardedRef: any;
 }
 
 const validationSchema = yup.object().shape({
   password: yup.string().min(6, "minimum 6 characters").required("required"),
 });
 
-const DeleteModal = ({ setOpenDeleteModal }: Props) => {
+const DeleteModal = ({
+  setOpenDeleteModal,
+  openDeleteModal,
+  forwardedRef,
+}: Props) => {
   const auth = getAuth();
   const ctx = useContext(AuthContext);
   const [showDeleteBtn, setShowDeleteBtn] = useState(false);
@@ -42,6 +48,11 @@ const DeleteModal = ({ setOpenDeleteModal }: Props) => {
   const darkModeCtx = useContext(darkModeContext);
   const darkMode = darkModeCtx?.darkMode;
 
+  useEffect(() => {
+    if (openDeleteModal) {
+      forwardedRef?.current.focus();
+    }
+  }, [openDeleteModal]);
   return ReactDOM.createPortal(
     <Container>
       <Wrapper darkMode={darkMode!}>
@@ -76,6 +87,7 @@ const DeleteModal = ({ setOpenDeleteModal }: Props) => {
               <Form>
                 <FieldContainer>
                   <PasswordField
+                    innerRef={forwardedRef}
                     darkMode={darkMode!}
                     type="password"
                     name="password"
