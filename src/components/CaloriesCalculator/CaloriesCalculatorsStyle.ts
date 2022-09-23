@@ -184,7 +184,6 @@ export const BoxHeader = styled.div<StylesProps>`
   display: flex;
   align-items: center;
   height: 2rem;
-  background-color: ${({ loading }) => (loading ? "#f3f4f6" : "transparent")};
   background-color: ${({ darkMode, loading, theme }) =>
     darkMode && loading ? theme.darkMode.light : "transparent"};
   background-color: ${({ loading, darkMode }) =>
