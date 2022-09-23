@@ -164,7 +164,10 @@ export const StyledH2 = styled.h2<DarkMode>`
 `;
 
 export const FoodName = styled.div<StylesProps>`
-  background-color: ${({ loading }) => (loading ? "#f3f4f6" : "transparent")};
+  background-color: ${({ darkMode, loading, theme }) =>
+    darkMode && loading ? theme.darkMode.light : "transparent"};
+  background-color: ${({ loading, darkMode }) =>
+    loading && !darkMode && "#f3f4f6"};
   height: 3rem;
   margin: auto;
   width: 8rem;
