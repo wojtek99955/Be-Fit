@@ -182,6 +182,10 @@ export const BoxHeader = styled.div<StylesProps>`
   align-items: center;
   height: 2rem;
   background-color: ${({ loading }) => (loading ? "#f3f4f6" : "transparent")};
+  background-color: ${({ darkMode, loading, theme }) =>
+    darkMode && loading ? theme.darkMode.light : "transparent"};
+  background-color: ${({ loading, darkMode }) =>
+    loading && !darkMode && "#f3f4f6"};
   border-radius: 12px;
   width: 15rem;
   h3 {
