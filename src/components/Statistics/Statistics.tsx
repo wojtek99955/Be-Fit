@@ -22,6 +22,7 @@ import {
   StyledLi,
   NoData,
   SadIcon,
+  LineChartContainer,
 } from "./StatisticsStyle";
 import DoughNutChart from "./NutrientsCharts/DoughNutChart";
 import VerticalChart from "./NutrientsCharts/VerticalChart";
@@ -206,7 +207,9 @@ const Statistics = () => {
                     animate={{ y: "10%", opacity: 1, scale: 1 }}
                     exit={{ y: "-30%", opacity: 0, scale: 0.5 }}
                   >
-                    <CaloriesVerticalChart selectedMonth={selectedMonth} />
+                    <LineChartContainer loading={loading} darkMode={darkMode!}>
+                      <CaloriesVerticalChart selectedMonth={selectedMonth} />
+                    </LineChartContainer>
                   </CaloriesChartContainer>
                 )}
               </>

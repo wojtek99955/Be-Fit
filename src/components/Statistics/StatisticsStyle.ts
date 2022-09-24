@@ -208,3 +208,11 @@ export const SadIcon = styled(ImSad)`
   color: #ffa101;
   font-size: 2.5rem;
 `;
+
+export const LineChartContainer = styled.div<Loading>`
+  background-color: ${({ darkMode, theme }) =>
+    darkMode ? theme.darkMode.light : "#f3f4f6"};
+  padding: 1rem;
+  border-radius: 12px;
+  opacity: ${({ loading }) => (loading ? "0" : "1")};
+`;
