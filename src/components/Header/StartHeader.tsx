@@ -58,7 +58,7 @@ const StartHeader = () => {
   let navigate = useNavigate();
   return (
     <Header>
-      <Logo src={img} />
+      <Logo src={img} onClick={() => navigate("/")} />
       <nav>
         <button
           onClick={() => {
