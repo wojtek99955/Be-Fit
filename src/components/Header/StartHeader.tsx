@@ -6,6 +6,7 @@ const img = require("../../assets/images/logo.png");
 export const Logo = styled.img`
   width: 5rem;
   margin-right: 2rem;
+  cursor: pointer;
   @media ${device.tablet} {
     width: 7rem;
   }
