@@ -4,13 +4,11 @@ import StartShape from "../assets/svg/StartShape";
 
 const img = require("../assets/images/main.jpg");
 const Container = styled.div`
+  border: 5px solid green;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background: rgba(0, 0, 0, 0.5) url(${img});
-  background-blend-mode: darken;
-  background-size: cover; */
   background: rgb(255, 95, 109);
   background: linear-gradient(
     180deg,
@@ -27,7 +25,7 @@ const SvgContainer = styled.div`
 const Start = () => {
   return (
     <Container>
-      <SvgContainer style={{ top: "-40%", width: "55%", height: "55%" }}>
+      <SvgContainer style={{ top: "-35%", width: "55%", height: "55%" }}>
         <StartShape />
       </SvgContainer>
       <SvgContainer
