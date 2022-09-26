@@ -18,7 +18,7 @@ const Container = styled.div<StyleProps>`
     location.pathname === "/signup" ||
     location.pathname === "/signin" ||
     location.pathname === "/forgot-password"
-      ? "none"
+      ? "hidden"
       : "scroll"};
   position: relative;
   transition: background-color 400ms;
