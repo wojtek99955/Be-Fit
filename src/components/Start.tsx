@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 import StartShape from "../assets/svg/StartShape";
+import { device } from "../assets/mediaQueries/device";
 
 const img = require("../assets/images/main.jpg");
 const Container = styled.div`
@@ -20,27 +21,47 @@ const Container = styled.div`
 const SvgContainer = styled.div`
   position: absolute;
   &:first-of-type {
-    top: -35%;
-    width: 55%;
-    height: 55%;
+    top: -10%;
+    width: 85%;
+    height: 65%;
+    @media ${device.mobileL} {
+      top: -20%;
+    }
+    @media ${device.tablet} {
+      width: 65%;
+      height: 65%;
+    }
+    @media ${device.laptop} {
+      top: -30%;
+      max-width: 800px;
+    }
   }
   &:nth-of-type(2) {
     bottom: -10%;
     right: 5%;
     width: 40%;
     height: 40%;
+    @media ${device.laptop} {
+      max-width: 500px;
+    }
   }
   &:nth-of-type(3) {
     bottom: 5%;
     right: 40%;
     width: 25%;
     height: 25%;
+    @media ${device.laptop} {
+      max-width: 350px;
+    }
   }
   &:nth-of-type(4) {
     bottom: 30%;
-    left: 10%;
+    left: 6%;
     width: 40%;
     height: 40%;
+  }
+  @media ${device.laptop} {
+    max-width: 550px;
   }
 `;
 
