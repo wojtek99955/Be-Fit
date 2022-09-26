@@ -14,12 +14,11 @@ export const Logo = styled.img`
 const Header = styled.header`
   position: fixed;
   width: 100%;
-  padding: 0rem 0;
   height: 3.5rem;
   z-index: 20;
   padding: 1rem;
   align-items: center;
-  background-color: transparent;
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: space-between;
 
