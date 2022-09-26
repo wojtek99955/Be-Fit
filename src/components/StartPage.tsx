@@ -9,7 +9,7 @@ const Main = styled.main`
     font-size: 2.5rem;
   }
   button {
-    background-color: #ffa101;
+    background-color: #00c579;
     border: none;
     color: white;
     padding: 0.7rem 2rem;
@@ -20,10 +20,10 @@ const Main = styled.main`
     margin-top: 2.5rem;
     cursor: pointer;
     &:hover {
-      background-color: #cf8300;
+      background-color: #00a464;
     }
     @media ${device.tablet} {
-      padding: 1rem 2.3rem;
+      padding: 1rem 2.8rem;
     }
   }
 `;
