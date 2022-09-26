@@ -7,9 +7,15 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.5) url(${img});
+  /* background: rgba(0, 0, 0, 0.5) url(${img});
   background-blend-mode: darken;
-  background-size: cover;
+  background-size: cover; */
+  background: rgb(255, 95, 109);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 95, 109, 1) 11%,
+    rgba(255, 161, 1, 1) 100%
+  );
   width: 100%;
 `;
 
