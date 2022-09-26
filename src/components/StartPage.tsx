@@ -8,7 +8,10 @@ const Main = styled.main`
   h1 {
     text-align: center;
     color: white;
-    font-size: 2.5rem;
+    font-size: 2rem;
+    @media ${device.tablet} {
+      font-size: 2.5rem;
+    }
   }
   button {
     background-color: #00c579;
