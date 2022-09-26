@@ -4,7 +4,6 @@ import StartShape from "../assets/svg/StartShape";
 
 const img = require("../assets/images/main.jpg");
 const Container = styled.div`
-  border: 5px solid green;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -20,42 +19,44 @@ const Container = styled.div`
 
 const SvgContainer = styled.div`
   position: absolute;
+  &:first-of-type {
+    top: -35%;
+    width: 55%;
+    height: 55%;
+  }
+  &:nth-of-type(2) {
+    bottom: -10%;
+    right: 5%;
+    width: 40%;
+    height: 40%;
+  }
+  &:nth-of-type(3) {
+    bottom: 5%;
+    right: 40%;
+    width: 25%;
+    height: 25%;
+  }
+  &:nth-of-type(4) {
+    bottom: 30%;
+    left: 10%;
+    width: 40%;
+    height: 40%;
+  }
 `;
 
 const Start = () => {
   return (
     <Container>
-      <SvgContainer style={{ top: "-35%", width: "55%", height: "55%" }}>
+      <SvgContainer>
         <StartShape />
       </SvgContainer>
-      <SvgContainer
-        style={{
-          bottom: "0%",
-          right: "5%",
-          width: "40%",
-          height: "40%",
-        }}
-      >
+      <SvgContainer>
         <StartShape />
       </SvgContainer>
-      <SvgContainer
-        style={{
-          bottom: "10%",
-          right: "40%",
-          width: "25%",
-          height: "25%",
-        }}
-      >
+      <SvgContainer>
         <StartShape />
       </SvgContainer>
-      <SvgContainer
-        style={{
-          bottom: "30%",
-          left: "10%",
-          width: "40%",
-          height: "40%",
-        }}
-      >
+      <SvgContainer>
         <StartShape />
       </SvgContainer>
       <Outlet />
