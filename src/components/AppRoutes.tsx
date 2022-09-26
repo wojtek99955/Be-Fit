@@ -3,15 +3,23 @@ import React from "react";
 import { MemoizedAppRoutesContainer } from "./AppRoutesContainer";
 import { darkModeContext } from "../context/DarkModeContextProvider";
 import { useContext } from "react";
+import { useLocation } from "react-router-dom";
 
-interface DarkMode {
+interface StyleProps {
   darkMode: boolean;
+  location: any;
 }
 
-const Container = styled.div<DarkMode>`
+const Container = styled.div<StyleProps>`
   width: 100%;
   height: 100vh;
-  overflow-y: scroll;
+  overflow-y: ${({ location }) =>
+    location.pathname === "/" ||
+    location.pathname === "/signup" ||
+    location.pathname === "/signin" ||
+    location.pathname === "/forgot-password"
+      ? "none"
+      : "scroll"};
   position: relative;
   transition: background-color 400ms;
   background-color: ${({ darkMode, theme }) =>
@@ -24,8 +32,9 @@ interface AuthProps {
 const AppRoutes = () => {
   const darkModeCtx = useContext(darkModeContext);
   const darkMode = darkModeCtx?.darkMode;
+  let location = useLocation();
   return (
-    <Container darkMode={darkMode!}>
+    <Container darkMode={darkMode!} location={location}>
       <MemoizedAppRoutesContainer />
     </Container>
   );
