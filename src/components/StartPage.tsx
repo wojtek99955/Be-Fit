@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { device } from "../assets/mediaQueries/device";
 
 const Main = styled.main`
+  z-index: 50;
+  position: relative;
   h1 {
     text-align: center;
     color: white;
