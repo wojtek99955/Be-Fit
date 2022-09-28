@@ -37,7 +37,8 @@ const SideBar = () => {
     <>
       {location.pathname === "/signin" ||
       location.pathname === "/" ||
-      location.pathname === "/signup" ? null : (
+      location.pathname === "/signup" ||
+      location.pathname === "/forgot-password" ? null : (
         <Container darkMode={darkMode!}>
           <User darkMode={darkMode!}>
             <StyledUserIcon url={data?.avatarImg}>
