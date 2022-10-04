@@ -17,7 +17,7 @@ import {
 import HealthyStyleIcon from "../../../assets/svg/HealthyStyleIcon";
 import WorkOutIcon from "../../../assets/svg/WorkOutIcon";
 import { SearchIcon } from "../../CaloriesCalculator/CaloriesCalculatorsStyle";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Formik, Form } from "formik";
 import { routes } from "./SearchRoutes";
 
@@ -28,6 +28,24 @@ const Greeting = () => {
   const filteredRoutes = routes.filter((route) => {
     return route.name.toLowerCase().includes(searchedRoute.toLowerCase());
   });
+  const suggestionsContainerRef = useRef<HTMLDivElement>(null);
+
+  const handleCloseClickOutside = (e: any) => {
+    if (
+      suggestionsContainerRef.current &&
+      !suggestionsContainerRef.current.contains(e.target)
+    ) {
+      setIsSuggestionsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleCloseClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleCloseClickOutside);
+    };
+  }, [isSuggestionsOpen]);
 
   console.log(filteredRoutes);
   return (
@@ -56,7 +74,7 @@ const Greeting = () => {
             </Form>
           </Formik>
           {searchedRoute.length >= 1 && isSuggestionsOpen ? (
-            <SuggestionsContainer>
+            <SuggestionsContainer ref={suggestionsContainerRef}>
               {filteredRoutes.map((route) => {
                 return <div>{route.name}</div>;
               })}
