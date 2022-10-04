@@ -11,12 +11,25 @@ import {
   FoodCalories,
   WeightIcon,
   LinkContainer,
+  FormWrapper,
+  SuggestionsContainer,
 } from "./GreetingStyle";
 import HealthyStyleIcon from "../../../assets/svg/HealthyStyleIcon";
 import WorkOutIcon from "../../../assets/svg/WorkOutIcon";
 import { SearchIcon } from "../../CaloriesCalculator/CaloriesCalculatorsStyle";
+import { useState } from "react";
+import { Formik, Form } from "formik";
+import { routes } from "./SearchRoutes";
 
 const Greeting = () => {
+  const [searchedRoute, setSearchedRoute] = useState("");
+  const [isSuggestionsOpen, setIsSuggestionsOpen] = useState(false);
+
+  const filteredRoutes = routes.filter((route) => {
+    return route.name.toLowerCase().includes(searchedRoute.toLowerCase());
+  });
+
+  console.log(filteredRoutes);
   return (
     <Container>
       <WorkOutIconContainer>
@@ -25,12 +38,33 @@ const Greeting = () => {
       <HealthyStyleIconContainer>
         <HealthyStyleIcon />
       </HealthyStyleIconContainer>
-
       <h1>Good To See You!</h1>
-      <InputContainer>
-        <SearchIcon />
-        <SearchInput placeholder="Search" />
-      </InputContainer>
+      <FormWrapper>
+        <>
+          <Formik
+            initialValues={{ route: "" }}
+            onSubmit={(val) => {
+              setSearchedRoute(val.route);
+              setIsSuggestionsOpen(true);
+            }}
+          >
+            <Form>
+              <InputContainer>
+                <SearchIcon />
+                <SearchInput placeholder="Search" name="route" />
+              </InputContainer>
+            </Form>
+          </Formik>
+          {searchedRoute.length >= 1 && isSuggestionsOpen ? (
+            <SuggestionsContainer>
+              {filteredRoutes.map((route) => {
+                return <div>{route.name}</div>;
+              })}
+              {filteredRoutes.length === 0 && <div>not found</div>}
+            </SuggestionsContainer>
+          ) : null}
+        </>
+      </FormWrapper>
       <LinkIcons>
         <LinkContainer>
           <StyledLink to="/calculators">
