@@ -62,6 +62,13 @@ const Greeting = () => {
   const handleRouteOnChange = (e: any) => {
     setSearchedRoute(e.target.value);
   };
+  const handleOnSubmit = () => {
+    navigation(`/${searchedRoute}`);
+  };
+
+  const handleSelectRoute = (route: any) => {
+    navigation(`${route.route}`);
+  };
   return (
     <Container>
       <WorkOutIconContainer>
@@ -73,7 +80,7 @@ const Greeting = () => {
       <h1>Good To See You!</h1>
       <FormWrapper>
         <>
-          <form>
+          <form onSubmit={handleOnSubmit}>
             <InputContainer>
               <SearchIcon />
               <SearchInput onChange={handleRouteOnChange} />
@@ -82,7 +89,15 @@ const Greeting = () => {
           {searchedRoute.length >= 1 && isSuggestionsOpen ? (
             <SuggestionsContainer ref={suggestionsContainerRef}>
               {filteredRoutes.map((route) => {
-                return <div>{route.name}</div>;
+                return (
+                  <div
+                    onClick={() => {
+                      handleSelectRoute(route);
+                    }}
+                  >
+                    {route.name}
+                  </div>
+                );
               })}
               {filteredRoutes.length === 0 && <div>not found</div>}
             </SuggestionsContainer>
