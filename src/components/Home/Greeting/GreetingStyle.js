@@ -5,7 +5,7 @@ import { RiMedalLine } from "react-icons/ri";
 import { MdOutlineFastfood } from "react-icons/md";
 import { MdOutlineMonitorWeight } from "react-icons/md";
 import { device } from "../../../assets/mediaQueries/device";
-
+import { Field } from "formik";
 export const Container = styled.div`
   background-color: #00c579;
   height: 12rem;
@@ -34,7 +34,7 @@ export const Container = styled.div`
     margin-bottom: 2rem;
   }
 `;
-export const SearchInput = styled.input`
+export const SearchInput = styled(Field)`
   outline: none;
   border: none;
   padding: 0.2rem 0rem;
@@ -75,7 +75,6 @@ export const InputContainer = styled.div`
   align-items: center;
   border-radius: 8px;
   background-color: white;
-  width: clamp(15rem, 50%, 30rem);
 `;
 
 export const LinkIcons = styled.div`
@@ -146,4 +145,28 @@ export const LinkContainer = styled.div`
   align-items: center;
   gap: 0.5rem;
   font-weight: 500;
+`;
+
+export const FormWrapper = styled.div`
+  width: clamp(15rem, 50%, 30rem);
+  position: relative;
+`;
+
+export const SuggestionsContainer = styled.div`
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  border-radius: 8px;
+  height: auto;
+  overflow-y: scroll;
+  padding: 0.5rem;
+  z-index: 50;
+  top: 2.6rem;
+  box-shadow: -3px 0px 48px -1px rgba(225, 228, 231, 1);
+  div {
+    color: black;
+    font-size: 1.2rem;
+    padding: 0.5rem 0;
+    cursor: pointer;
+  }
 `;
