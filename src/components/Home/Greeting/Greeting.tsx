@@ -30,6 +30,7 @@ const Greeting = () => {
     return route.name.toLowerCase().includes(searchedRoute.toLowerCase());
   });
   const suggestionsContainerRef = useRef<HTMLDivElement>(null);
+  const searchInputRef = useRef<HTMLInputElement>(null);
 
   const handleCloseClickOutside = (e: any) => {
     if (
@@ -71,6 +72,20 @@ const Greeting = () => {
   const darkModeCtx = useContext(darkModeContext);
   const darkMode = darkModeCtx?.darkMode;
 
+  const handleFocusOpenSuggestions = (e: any) => {
+    if (searchInputRef.current && searchInputRef.current.contains(e.target)) {
+      setIsSuggestionsOpen(true);
+    } else {
+      setIsSuggestionsOpen(false);
+    }
+  };
+  useEffect(() => {
+    document.addEventListener("click", handleFocusOpenSuggestions);
+    return () => {
+      document.removeEventListener("click", handleFocusOpenSuggestions);
+    };
+  }, [isSuggestionsOpen]);
+
   return (
     <Container>
       <WorkOutIconContainer>
@@ -85,10 +100,13 @@ const Greeting = () => {
           <form onSubmit={handleOnSubmit}>
             <InputContainer>
               <SearchIcon />
-              <SearchInput onChange={handleRouteOnChange} />
+              <SearchInput
+                onChange={handleRouteOnChange}
+                ref={searchInputRef}
+              />
             </InputContainer>
           </form>
-          {searchedRoute.length >= 1 && isSuggestionsOpen ? (
+          {isSuggestionsOpen && searchedRoute !== "" ? (
             <SuggestionsContainer
               ref={suggestionsContainerRef}
               darkMode={darkMode!}
