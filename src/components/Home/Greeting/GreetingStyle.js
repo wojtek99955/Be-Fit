@@ -5,7 +5,6 @@ import { RiMedalLine } from "react-icons/ri";
 import { MdOutlineFastfood } from "react-icons/md";
 import { MdOutlineMonitorWeight } from "react-icons/md";
 import { device } from "../../../assets/mediaQueries/device";
-import { Field } from "formik";
 export const Container = styled.div`
   background-color: #00c579;
   height: 12rem;
@@ -34,7 +33,7 @@ export const Container = styled.div`
     margin-bottom: 2rem;
   }
 `;
-export const SearchInput = styled(Field)`
+export const SearchInput = styled.input`
   outline: none;
   border: none;
   padding: 0.2rem 0rem;

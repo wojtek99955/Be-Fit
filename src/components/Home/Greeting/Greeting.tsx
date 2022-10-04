@@ -20,6 +20,7 @@ import { SearchIcon } from "../../CaloriesCalculator/CaloriesCalculatorsStyle";
 import { useState, useRef, useEffect } from "react";
 import { Formik, Form } from "formik";
 import { routes } from "./SearchRoutes";
+import { useNavigate } from "react-router-dom";
 
 const Greeting = () => {
   const [searchedRoute, setSearchedRoute] = useState("");
@@ -39,6 +40,8 @@ const Greeting = () => {
     }
   };
 
+  let navigation = useNavigate();
+
   useEffect(() => {
     document.addEventListener("click", handleCloseClickOutside);
 
@@ -47,7 +50,18 @@ const Greeting = () => {
     };
   }, [isSuggestionsOpen]);
 
+  useEffect(() => {
+    if (searchedRoute.length > 1) {
+      setIsSuggestionsOpen(true);
+    }
+  }, [searchedRoute]);
+
   console.log(filteredRoutes);
+  console.log(searchedRoute + "searched route");
+
+  const handleRouteOnChange = (e: any) => {
+    setSearchedRoute(e.target.value);
+  };
   return (
     <Container>
       <WorkOutIconContainer>
@@ -59,20 +73,12 @@ const Greeting = () => {
       <h1>Good To See You!</h1>
       <FormWrapper>
         <>
-          <Formik
-            initialValues={{ route: "" }}
-            onSubmit={(val) => {
-              setSearchedRoute(val.route);
-              setIsSuggestionsOpen(true);
-            }}
-          >
-            <Form>
-              <InputContainer>
-                <SearchIcon />
-                <SearchInput placeholder="Search" name="route" />
-              </InputContainer>
-            </Form>
-          </Formik>
+          <form>
+            <InputContainer>
+              <SearchIcon />
+              <SearchInput onChange={handleRouteOnChange} />
+            </InputContainer>
+          </form>
           {searchedRoute.length >= 1 && isSuggestionsOpen ? (
             <SuggestionsContainer ref={suggestionsContainerRef}>
               {filteredRoutes.map((route) => {
