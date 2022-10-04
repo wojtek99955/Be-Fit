@@ -62,8 +62,9 @@ const Greeting = () => {
   const handleRouteOnChange = (e: any) => {
     setSearchedRoute(e.target.value);
   };
-  const handleOnSubmit = () => {
-    navigation(`/${searchedRoute}`);
+  const handleOnSubmit = (e: React.SyntheticEvent) => {
+    if (searchedRoute !== "") navigation(`/${searchedRoute}`);
+    e.preventDefault();
   };
 
   const handleSelectRoute = (route: any) => {
