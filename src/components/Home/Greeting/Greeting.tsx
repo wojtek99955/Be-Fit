@@ -17,9 +17,10 @@ import {
 import HealthyStyleIcon from "../../../assets/svg/HealthyStyleIcon";
 import WorkOutIcon from "../../../assets/svg/WorkOutIcon";
 import { SearchIcon } from "../../CaloriesCalculator/CaloriesCalculatorsStyle";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import { routes } from "./SearchRoutes";
 import { useNavigate } from "react-router-dom";
+import { darkModeContext } from "../../../context/DarkModeContextProvider";
 
 const Greeting = () => {
   const [searchedRoute, setSearchedRoute] = useState("");
@@ -66,6 +67,10 @@ const Greeting = () => {
   const handleSelectRoute = (route: any) => {
     navigation(`${route.route}`);
   };
+
+  const darkModeCtx = useContext(darkModeContext);
+  const darkMode = darkModeCtx?.darkMode;
+
   return (
     <Container>
       <WorkOutIconContainer>
@@ -84,7 +89,10 @@ const Greeting = () => {
             </InputContainer>
           </form>
           {searchedRoute.length >= 1 && isSuggestionsOpen ? (
-            <SuggestionsContainer ref={suggestionsContainerRef}>
+            <SuggestionsContainer
+              ref={suggestionsContainerRef}
+              darkMode={darkMode!}
+            >
               {filteredRoutes.map((route) => {
                 return (
                   <div

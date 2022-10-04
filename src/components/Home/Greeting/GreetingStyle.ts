@@ -5,6 +5,10 @@ import { RiMedalLine } from "react-icons/ri";
 import { MdOutlineFastfood } from "react-icons/md";
 import { MdOutlineMonitorWeight } from "react-icons/md";
 import { device } from "../../../assets/mediaQueries/device";
+
+interface DarkMode {
+  darkMode: Boolean;
+}
 export const Container = styled.div`
   background-color: #00c579;
   height: 12rem;
@@ -151,7 +155,7 @@ export const FormWrapper = styled.div`
   position: relative;
 `;
 
-export const SuggestionsContainer = styled.div`
+export const SuggestionsContainer = styled.div<DarkMode>`
   position: absolute;
   background-color: white;
   width: 100%;
@@ -167,5 +171,15 @@ export const SuggestionsContainer = styled.div`
     font-size: 1.2rem;
     padding: 0.5rem 0;
     cursor: pointer;
+    &:hover {
+      background-color: ${({ darkMode }) => (darkMode ? "#28292B" : "#f2f3f5")};
+    }
+    &:active {
+      background-color: ${({ darkMode }) => (darkMode ? "#3a3b3d" : "#e2e4e7")};
+    }
+    &.active {
+      background-color: ${({ darkMode }) => (darkMode ? "#3a3b3d" : "#e4e7e8")};
+      font-weight: 600;
+    }
   }
 `;
