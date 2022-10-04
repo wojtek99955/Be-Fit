@@ -18,7 +18,6 @@ import HealthyStyleIcon from "../../../assets/svg/HealthyStyleIcon";
 import WorkOutIcon from "../../../assets/svg/WorkOutIcon";
 import { SearchIcon } from "../../CaloriesCalculator/CaloriesCalculatorsStyle";
 import { useState, useRef, useEffect } from "react";
-import { Formik, Form } from "formik";
 import { routes } from "./SearchRoutes";
 import { useNavigate } from "react-router-dom";
 
@@ -55,9 +54,6 @@ const Greeting = () => {
       setIsSuggestionsOpen(true);
     }
   }, [searchedRoute]);
-
-  console.log(filteredRoutes);
-  console.log(searchedRoute + "searched route");
 
   const handleRouteOnChange = (e: any) => {
     setSearchedRoute(e.target.value);
