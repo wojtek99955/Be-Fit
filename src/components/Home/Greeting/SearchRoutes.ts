@@ -1,4 +1,4 @@
-export const SearchRoutes = [
+export const routes = [
   {
     name: "Home",
     route: "/home",
@@ -6,10 +6,6 @@ export const SearchRoutes = [
   {
     name: "Bmi calculator",
     route: "/calculators/body-calculators/bmi",
-  },
-  {
-    name: "Home",
-    route: "/home",
   },
   {
     name: "Ideal weight calculator",
