@@ -162,15 +162,16 @@ export const SuggestionsContainer = styled.div<DarkMode>`
   border-radius: 8px;
   height: auto;
   overflow-y: scroll;
-  padding: 0.5rem;
+  padding: 0.5rem 0.5rem;
   z-index: 50;
   top: 2.6rem;
   box-shadow: -3px 0px 48px -1px rgba(225, 228, 231, 1);
   div {
     color: black;
     font-size: 1.2rem;
-    padding: 0.5rem 0;
+    padding: 0.5rem 0.5rem;
     cursor: pointer;
+    border-radius: 6px;
     &:hover {
       background-color: ${({ darkMode }) => (darkMode ? "#28292B" : "#f2f3f5")};
     }
