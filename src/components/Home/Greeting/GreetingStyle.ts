@@ -168,7 +168,7 @@ export const SuggestionsContainer = styled.div<DarkMode>`
   box-shadow: -3px 0px 48px -1px rgba(225, 228, 231, 1);
   div {
     color: black;
-    font-size: 1.2rem;
+    font-size: 1rem;
     padding: 0.5rem 0.5rem;
     cursor: pointer;
     border-radius: 6px;
