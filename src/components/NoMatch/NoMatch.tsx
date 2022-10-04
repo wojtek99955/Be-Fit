@@ -37,7 +37,7 @@ const NoMatch = () => {
   return (
     <Container darkMode={darkMode!}>
       <Wrapper darkMode={darkMode!}>
-        <h2>This address does not exists</h2>
+        <h2>We can't find what you're looking for</h2>
         <SadIcon />
       </Wrapper>
     </Container>
