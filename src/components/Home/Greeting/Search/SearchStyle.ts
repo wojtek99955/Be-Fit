@@ -31,11 +31,11 @@ export const SuggestionsContainer = styled.div<DarkMode>`
   background-color: white;
   width: 100%;
   border-radius: 8px;
-  height: auto;
   overflow-y: scroll;
   padding: 0.5rem 0.5rem;
   z-index: 50;
   top: 2.6rem;
+  max-height: 12rem;
   box-shadow: -3px 0px 48px -1px rgba(225, 228, 231, 1);
   div {
     color: black;
