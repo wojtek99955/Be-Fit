@@ -1,4 +1,9 @@
-export const routes = [
+interface Route {
+  name: string;
+  route: string;
+}
+
+export const routes: Route[] = [
   {
     name: "Home",
     route: "/home",
