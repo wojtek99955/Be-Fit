@@ -28,4 +28,28 @@ export const routes: Route[] = [
     name: "Running calculator",
     route: "/calculators/activity-calculators/running",
   },
+  {
+    name: "Track calories",
+    route: "/track-calories",
+  },
+  {
+    name: "My goal",
+    route: "/my-goal",
+  },
+  {
+    name: "Settings",
+    route: "/settings/account",
+  },
+  {
+    name: "Check calories",
+    route: "/check-calories",
+  },
+  {
+    name: "Security",
+    route: "/settings/security",
+  },
+  {
+    name: "Preferences",
+    route: "/settings/preferences",
+  },
 ];
