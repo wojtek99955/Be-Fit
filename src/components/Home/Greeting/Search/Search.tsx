@@ -9,6 +9,7 @@ import {
   FormWrapper,
   SuggestionsContainer,
 } from "./SearchStyle";
+import { Route } from "../SearchRoutes";
 
 const Search = () => {
   const [searchedRoute, setSearchedRoute] = useState("");
@@ -24,7 +25,7 @@ const Search = () => {
     return route.name.toLowerCase().includes(searchedRoute.toLowerCase());
   });
 
-  const handleRouteOnChange = (e: any) => {
+  const handleRouteOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchedRoute(e.target.value);
   };
   const handleOnSubmit = (e: React.SyntheticEvent) => {
@@ -32,7 +33,7 @@ const Search = () => {
     e.preventDefault();
   };
 
-  const handleSelectRoute = (route: any) => {
+  const handleSelectRoute = (route: Route) => {
     navigation(`${route.route}`);
   };
 
