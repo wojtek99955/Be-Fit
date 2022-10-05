@@ -8,6 +8,7 @@ import {
   InputContainer,
   FormWrapper,
   SuggestionsContainer,
+  StyledSearchIcon,
 } from "./SearchStyle";
 import { Route } from "../SearchRoutes";
 
@@ -95,6 +96,7 @@ const Search = () => {
                     handleSelectRoute(route);
                   }}
                 >
+                  <StyledSearchIcon />
                   {route.name}
                 </div>
               );

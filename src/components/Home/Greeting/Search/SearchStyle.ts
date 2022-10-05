@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { SearchIcon } from "../../../CaloriesCalculator/CaloriesCalculatorsStyle";
 
 interface DarkMode {
   darkMode: Boolean;
@@ -44,6 +45,8 @@ export const SuggestionsContainer = styled.div<DarkMode>`
     padding: 0.5rem 0.5rem;
     cursor: pointer;
     border-radius: 6px;
+    display: flex;
+    align-items: center;
     &:hover {
       background-color: #f2f3f5;
     }
@@ -55,4 +58,8 @@ export const SuggestionsContainer = styled.div<DarkMode>`
       font-weight: 600;
     }
   }
+`;
+
+export const StyledSearchIcon = styled(SearchIcon)`
+  font-size: 1rem;
 `;
