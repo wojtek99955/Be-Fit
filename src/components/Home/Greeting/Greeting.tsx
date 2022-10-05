@@ -1,6 +1,5 @@
 import {
   Container,
-  SearchInput,
   HealthyStyleIconContainer,
   WorkOutIconContainer,
   InputContainer,
@@ -11,81 +10,12 @@ import {
   FoodCalories,
   WeightIcon,
   LinkContainer,
-  FormWrapper,
-  SuggestionsContainer,
 } from "./GreetingStyle";
 import HealthyStyleIcon from "../../../assets/svg/HealthyStyleIcon";
 import WorkOutIcon from "../../../assets/svg/WorkOutIcon";
-import { SearchIcon } from "../../CaloriesCalculator/CaloriesCalculatorsStyle";
-import { useState, useRef, useEffect, useContext } from "react";
-import { routes } from "./SearchRoutes";
-import { useNavigate } from "react-router-dom";
-import { darkModeContext } from "../../../context/DarkModeContextProvider";
+import Search from "./Search/Search";
 
 const Greeting = () => {
-  const [searchedRoute, setSearchedRoute] = useState("");
-  const [isSuggestionsOpen, setIsSuggestionsOpen] = useState(false);
-
-  const filteredRoutes = routes.filter((route) => {
-    return route.name.toLowerCase().includes(searchedRoute.toLowerCase());
-  });
-  const suggestionsContainerRef = useRef<HTMLDivElement>(null);
-  const searchInputRef = useRef<HTMLInputElement>(null);
-
-  const handleCloseClickOutside = (e: any) => {
-    if (
-      suggestionsContainerRef.current &&
-      !suggestionsContainerRef.current.contains(e.target)
-    ) {
-      setIsSuggestionsOpen(false);
-    }
-  };
-
-  let navigation = useNavigate();
-
-  useEffect(() => {
-    document.addEventListener("click", handleCloseClickOutside);
-
-    return () => {
-      document.removeEventListener("click", handleCloseClickOutside);
-    };
-  }, [isSuggestionsOpen]);
-
-  useEffect(() => {
-    if (searchedRoute.length > 1) {
-      setIsSuggestionsOpen(true);
-    }
-  }, [searchedRoute]);
-
-  const handleRouteOnChange = (e: any) => {
-    setSearchedRoute(e.target.value);
-  };
-  const handleOnSubmit = (e: React.SyntheticEvent) => {
-    if (searchedRoute !== "") navigation(`/${searchedRoute}`);
-    e.preventDefault();
-  };
-
-  const handleSelectRoute = (route: any) => {
-    navigation(`${route.route}`);
-  };
-
-  const darkModeCtx = useContext(darkModeContext);
-  const darkMode = darkModeCtx?.darkMode;
-
-  const handleFocusOpenSuggestions = (e: any) => {
-    if (searchInputRef.current && searchInputRef.current.contains(e.target)) {
-      setIsSuggestionsOpen(true);
-    } else {
-      setIsSuggestionsOpen(false);
-    }
-  };
-  useEffect(() => {
-    document.addEventListener("click", handleFocusOpenSuggestions);
-    return () => {
-      document.removeEventListener("click", handleFocusOpenSuggestions);
-    };
-  }, [isSuggestionsOpen]);
-
   return (
     <Container>
       <WorkOutIconContainer>
@@ -95,38 +25,7 @@ const Greeting = () => {
         <HealthyStyleIcon />
       </HealthyStyleIconContainer>
       <h1>Good To See You!</h1>
-      <FormWrapper>
-        <>
-          <form onSubmit={handleOnSubmit}>
-            <InputContainer>
-              <SearchIcon />
-              <SearchInput
-                onChange={handleRouteOnChange}
-                ref={searchInputRef}
-              />
-            </InputContainer>
-          </form>
-          {isSuggestionsOpen && searchedRoute !== "" ? (
-            <SuggestionsContainer
-              ref={suggestionsContainerRef}
-              darkMode={darkMode!}
-            >
-              {filteredRoutes.map((route) => {
-                return (
-                  <div
-                    onClick={() => {
-                      handleSelectRoute(route);
-                    }}
-                  >
-                    {route.name}
-                  </div>
-                );
-              })}
-              {filteredRoutes.length === 0 && <div>not found</div>}
-            </SuggestionsContainer>
-          ) : null}
-        </>
-      </FormWrapper>
+      <Search />
       <LinkIcons>
         <LinkContainer>
           <StyledLink to="/calculators">
