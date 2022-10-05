@@ -36,7 +36,8 @@ export const SuggestionsContainer = styled.div<DarkMode>`
   z-index: 50;
   top: 2.6rem;
   max-height: 12rem;
-  box-shadow: -3px 0px 48px -1px rgba(225, 228, 231, 1);
+  box-shadow: ${({ darkMode }) =>
+    darkMode ? "none" : "-3px 0px 48px -1px rgba(225, 228, 231, 1)"};
   div {
     color: black;
     font-size: 1rem;
@@ -44,13 +45,13 @@ export const SuggestionsContainer = styled.div<DarkMode>`
     cursor: pointer;
     border-radius: 6px;
     &:hover {
-      background-color: ${({ darkMode }) => (darkMode ? "#28292B" : "#f2f3f5")};
+      background-color: #f2f3f5;
     }
     &:active {
-      background-color: ${({ darkMode }) => (darkMode ? "#3a3b3d" : "#e2e4e7")};
+      background-color: #e2e4e7;
     }
     &.active {
-      background-color: ${({ darkMode }) => (darkMode ? "#3a3b3d" : "#e4e7e8")};
+      background-color: #e4e7e8;
       font-weight: 600;
     }
   }
