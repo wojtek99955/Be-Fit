@@ -16,13 +16,11 @@ interface DarkMode {
 }
 
 export const Container = styled.aside<DarkMode>`
-  height: 100vh;
   border-right: ${({ darkMode }) => (darkMode ? "none" : "1px solid #e1e4e7")};
   position: absolute;
   top: 3.5rem;
-  height: calc(100vh - 3.5rem);
   padding: 0.8rem;
-  z-index: 20;
+  z-index: 15;
   width: 13rem;
   transition: background-color 400ms;
   background-color: ${({ theme, darkMode }) =>
@@ -39,6 +37,9 @@ export const Container = styled.aside<DarkMode>`
     position: relative;
     top: 3.5rem;
   }
+`;
+export const Wrapper = styled.div`
+  position: fixed;
 `;
 export const StyledNavLink = styled(NavLink)<DarkMode>`
   transition: background-color 300ms;
