@@ -12,8 +12,6 @@ interface DarkMode {
 }
 export const Container = styled.section`
   padding: 0.2rem;
-  width: 100%;
-  height: auto;
 
   position: relative;
   top: 3.5rem;
