@@ -4,7 +4,6 @@ import { MemoizedAppRoutesContainer } from "./AppRoutesContainer";
 import { darkModeContext } from "../context/DarkModeContextProvider";
 import { useContext } from "react";
 import { useLocation } from "react-router-dom";
-import { device } from "../assets/mediaQueries/device";
 
 interface StyleProps {
   darkMode: boolean;
@@ -16,13 +15,21 @@ interface StyleProps {
 const Container = styled.div<StyleProps>`
   width: ${({ showSideBar, currentWidth }) =>
     showSideBar && currentWidth >= 1024 ? "calc(100% - 13rem)" : "100%"};
-  /* overflow-y: ${({ location }) =>
+  width: ${({ location }) =>
+    (location.pathname === "/" ||
+      location.pathname === "/signup" ||
+      location.pathname === "/signin" ||
+      location.pathname === "/forgot-password") &&
+    "100%"};
+  overflow-y: ${({ location }) =>
     location.pathname === "/" ||
     location.pathname === "/signup" ||
     location.pathname === "/signin" ||
     location.pathname === "/forgot-password"
       ? "hidden"
-      : "visible"}; */
+      : null};
+  min-height: 100vh;
+
   position: relative;
   transition: background-color 400ms;
   background-color: ${({ darkMode, theme }) =>
