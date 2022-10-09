@@ -6,7 +6,6 @@ const Container = styled.section`
   width: 100%;
   height: auto;
   position: relative;
-  top: 3.5rem;
 `;
 
 const AccountSettings = () => {
