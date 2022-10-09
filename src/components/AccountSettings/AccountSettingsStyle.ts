@@ -18,6 +18,8 @@ interface DarkMode {
 export const Container = styled.section<DarkMode>`
   margin-top: 2rem;
   width: 90%;
+  position: relative;
+  top: 3.5rem;
   @media ${device.tablet} {
     width: 40rem;
   }
