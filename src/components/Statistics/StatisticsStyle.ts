@@ -18,8 +18,6 @@ interface DarkMode {
 }
 
 export const Container = styled.section<DarkMode>`
-  position: relative;
-  top: 3.5rem;
   background-color: ${({ darkMode, theme }) =>
     darkMode ? theme.darkMode.main : "white"};
   position: relative;
