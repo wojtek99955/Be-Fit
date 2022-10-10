@@ -17,14 +17,14 @@ interface DarkMode {
 
 export const Container = styled.aside<DarkMode>`
   border-right: ${({ darkMode }) => (darkMode ? "none" : "1px solid #e1e4e7")};
-  position: absolute;
-  top: 3.5rem;
   padding: 0.8rem;
+  display: none;
   z-index: 15;
   width: 13rem;
   transition: background-color 400ms;
   background-color: ${({ theme, darkMode }) =>
     darkMode ? theme.darkMode.main : "white"};
+  height: auto;
   ul {
     list-style-type: none;
   }
@@ -35,6 +35,7 @@ export const Container = styled.aside<DarkMode>`
   @media ${device.laptop} {
     display: block;
     position: relative;
+    z-index: 1;
     top: 3.5rem;
   }
 `;
