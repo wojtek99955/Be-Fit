@@ -3,7 +3,6 @@ import styled from "styled-components";
 import StartShape from "../assets/svg/StartShape";
 import { device } from "../assets/mediaQueries/device";
 
-const img = require("../assets/images/main.jpg");
 const Container = styled.div`
   height: 100vh;
   display: flex;
