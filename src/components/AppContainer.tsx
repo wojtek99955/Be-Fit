@@ -1,15 +1,14 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "./AuthContext";
-import Header from "./Header/Header";
 import SideBar from "./SideBar/SideBar";
 import SideBarMobile from "./SideBarMobile/SideBarMobile";
 import { AnimatePresence } from "framer-motion";
 import { MemoizedRoutes } from "./AppRoutes";
 import Background from "./SideBarMobile/Background";
 import { useLocation } from "react-router-dom";
-import StartHeader from "./Header/StartHeader";
 import { darkModeContext } from "../context/DarkModeContextProvider";
 import { theme } from "../assets/styleTheme";
+import HeaderType from "./Header/HeaderType";
 
 const AppContainer = () => {
   const ctx = useContext(AuthContext);
@@ -24,7 +23,6 @@ const AppContainer = () => {
     window.addEventListener("resize", setWidth);
   });
 
-  let location = useLocation();
   const darkModeCtx = useContext(darkModeContext);
   const darkMode = darkModeCtx?.darkMode;
 
@@ -43,17 +41,10 @@ const AppContainer = () => {
         backgroundColor: darkMode ? theme.darkMode.main : "white",
       }}
     >
-      {location.pathname === "/" ||
-      location.pathname === "/signup" ||
-      location.pathname === "/signin" ||
-      location.pathname === "/forgot-password" ? (
-        <StartHeader />
-      ) : (
-        <Header
-          setShowSideBar={setShowSideBar}
-          setShowSideBarMobile={setShowSideBarMobile}
-        />
-      )}
+      <HeaderType
+        setShowSideBar={setShowSideBar}
+        setShowSideBarMobile={setShowSideBarMobile}
+      />
 
       {islogged && showSideBar && currentWidth >= 1024 ? <SideBar /> : null}
       <AnimatePresence>
