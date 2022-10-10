@@ -58,11 +58,13 @@ const RemainCalories = () => {
   const darkModeCtx = useContext(darkModeContext);
   const darkMode = darkModeCtx?.darkMode;
 
+  const remainingCalories = calorieIntake - consumedKcal!;
+
   const chartData = {
-    labels: ["Consumed calories", "Daily intake"],
+    labels: ["Consumed calories", "Remaining calories"],
     datasets: [
       {
-        data: [consumedKcal, calorieIntake],
+        data: [consumedKcal, remainingCalories],
         backgroundColor: ["#e4e7e8", "#00C579"],
       },
     ],
