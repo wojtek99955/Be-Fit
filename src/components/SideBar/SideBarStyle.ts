@@ -40,6 +40,7 @@ export const Container = styled.aside<DarkMode>`
 `;
 export const Wrapper = styled.div`
   position: fixed;
+  width: calc(14rem - 1.6rem);
 `;
 export const StyledNavLink = styled(NavLink)<DarkMode>`
   transition: background-color 300ms;
