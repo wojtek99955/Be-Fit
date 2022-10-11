@@ -138,7 +138,7 @@ const CaloriesCalculator = () => {
                     <Form>
                       <Field name="weight" type="text" />
                       &nbsp;
-                      <span>g</span>
+                      <h3>g</h3>
                       <button type="submit">Calc</button>
                     </Form>
                   </Formik>

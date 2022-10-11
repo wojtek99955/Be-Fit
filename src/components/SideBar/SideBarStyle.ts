@@ -24,7 +24,6 @@ export const Container = styled.aside<DarkMode>`
   transition: background-color 400ms;
   background-color: ${({ theme, darkMode }) =>
     darkMode ? theme.darkMode.main : "white"};
-  height: auto;
   ul {
     list-style-type: none;
   }
