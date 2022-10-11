@@ -14,7 +14,7 @@ interface StyleProps {
 
 const Container = styled.div<StyleProps>`
   width: ${({ showSideBar, currentWidth }) =>
-    showSideBar && currentWidth >= 1024 ? "calc(100% - 13rem)" : "100%"};
+    showSideBar && currentWidth >= 1024 ? "calc(100% - 14rem)" : "100%"};
   width: ${({ location }) =>
     (location.pathname === "/" ||
       location.pathname === "/signup" ||
