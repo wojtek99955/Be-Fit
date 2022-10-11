@@ -16,11 +16,11 @@ interface DarkMode {
 }
 
 export const Container = styled.aside<DarkMode>`
-  border-right: ${({ darkMode }) => (darkMode ? "none" : "1px solid #e1e4e7")};
   padding: 0.8rem;
   display: none;
   z-index: 15;
   width: 13rem;
+  height: 100%;
   transition: background-color 400ms;
   background-color: ${({ theme, darkMode }) =>
     darkMode ? theme.darkMode.main : "white"};
