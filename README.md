@@ -6,6 +6,8 @@ BeFit is a fitness app that helps people stay in shape. It offers a bunch of fit
 
 ## Live
 
+<a href="https://wojtekk-be-fit.netlify.app/"> Be-Fit App </a>
+
 ## Technologies
 
 - reactjs
